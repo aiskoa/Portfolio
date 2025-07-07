@@ -4,8 +4,12 @@ import Image from "next/image";
 import { config } from "../../../config/index";
 import Link from "next/link";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Tooltip as MaterialTooltip } from "@material-tailwind/react";
 import dynamic from 'next/dynamic';
-const Tooltip = dynamic(() => import("@material-tailwind/react").then(mod => mod.Tooltip), { ssr: false });
+
+const Tooltip = dynamic(() => Promise.resolve(MaterialTooltip), {
+  ssr: false,
+});
 import {
   SiReact, SiNextdotjs,
   SiNodedotjs, SiVercel, SiGnubash, SiPython, SiMysql, SiKalilinux,

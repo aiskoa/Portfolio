@@ -16,12 +16,6 @@ export interface FrontmatterType {
 }
 
 export interface IPost {
-  map(
-    arg0: (
-      post: IPost,
-      index: import("react").Key | null | undefined
-    ) => JSX.Element
-  ): ReactNode;
   frontmatter: FrontmatterType;
   slug: string;
   content: any;

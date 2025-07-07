@@ -125,9 +125,12 @@ export async function getStaticProps({ locale }: { locale: string }) {
 
     return {
       slug,
-      frontmatter,
+      frontmatter: {
+        ...frontmatter,
+        tags1: frontmatter.tags1 || '',
+        tags2: frontmatter.tags2 || '',
+      },
     };
-  });
 
   const translationsPath = path.join(process.cwd(), 'locales', locale, 'index.json');
   const translationsFile = fs.readFileSync(translationsPath, 'utf8');

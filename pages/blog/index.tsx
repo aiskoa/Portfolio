@@ -118,6 +118,7 @@ export default function Blog({ posts, translations }: BlogProps) {
 export async function getStaticProps({ locale }: { locale: string }) {
   const postsDirectory = path.join(process.cwd(), 'posts', locale);
   const files = fs.readdirSync(postsDirectory);
+
   const posts: IPost[] = files.map((filename) => {
     const slug = filename.replace(".md", "");
     const markdownWithMeta = fs.readFileSync(path.join(postsDirectory, filename), "utf-8");
@@ -136,6 +137,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
       },
       content,
     };
+  });
 
   const translationsPath = path.join(process.cwd(), 'locales', locale, 'index.json');
   const translationsFile = fs.readFileSync(translationsPath, 'utf8');
@@ -143,7 +145,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
 
   return {
     props: {
-      // @ts-ignore
       posts: posts.sort(sortByDate),
       translations,
     },

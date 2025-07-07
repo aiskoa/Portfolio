@@ -31,8 +31,8 @@ export default function Blog({ posts, translations }: BlogProps) {
       return (
         post.frontmatter.title.toLowerCase().includes(lowerCaseQuery) ||
         post.frontmatter.date.includes(query) ||
-        (post.frontmatter.tags1 && post.frontmatter.tags1.toLowerCase().includes(lowerCaseQuery)) ||
-        (post.frontmatter.tags2 && post.frontmatter.tags2.toLowerCase().includes(lowerCaseQuery))
+        ((post.frontmatter.tags1 || '').toLowerCase().includes(lowerCaseQuery)) ||
+        ((post.frontmatter.tags2 || '').toLowerCase().includes(lowerCaseQuery))
       );
     });
     setFilteredPosts(filteredPosts);

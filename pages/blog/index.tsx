@@ -118,7 +118,7 @@ export default function Blog({ posts, translations }: BlogProps) {
 export async function getStaticProps({ locale }: { locale: string }) {
   const postsDirectory = path.join(process.cwd(), 'posts', locale);
   const files = fs.readdirSync(postsDirectory);
-  const posts = files.map((filename) => {
+  const posts: IPost[] = files.map((filename) => {
     const slug = filename.replace(".md", "");
     const markdownWithMeta = fs.readFileSync(path.join(postsDirectory, filename), "utf-8");
     const { data: frontmatter } = matter(markdownWithMeta);

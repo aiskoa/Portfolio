@@ -346,7 +346,9 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
       return [];
     }
     const files = fs.readdirSync(postsDirectory);
-    return files.map((filename) => ({
+    return files
+      .filter((filename) => filename.endsWith(".md"))
+      .map((filename) => ({
       params: { slug: filename.replace(".md", "") },
       locale,
     }));

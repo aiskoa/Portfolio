@@ -126,7 +126,11 @@ export async function getStaticProps({ locale }: { locale: string }) {
     return {
       slug,
       frontmatter: {
-        ...frontmatter,
+        title: frontmatter.title || '',
+        date: frontmatter.date || '',
+        cover_image: frontmatter.cover_image || '',
+        alt: frontmatter.alt || '',
+        excerpt: frontmatter.excerpt || '',
         tags1: frontmatter.tags1 || '',
         tags2: frontmatter.tags2 || '',
       },

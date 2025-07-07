@@ -121,7 +121,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
   const posts: IPost[] = files.map((filename) => {
     const slug = filename.replace(".md", "");
     const markdownWithMeta = fs.readFileSync(path.join(postsDirectory, filename), "utf-8");
-    const { data: frontmatter } = matter(markdownWithMeta);
+    const { data: frontmatter, content } = matter(markdownWithMeta);
 
     return {
       slug,
@@ -130,6 +130,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
         tags1: frontmatter.tags1 || '',
         tags2: frontmatter.tags2 || '',
       },
+      content,
     };
 
   const translationsPath = path.join(process.cwd(), 'locales', locale, 'index.json');

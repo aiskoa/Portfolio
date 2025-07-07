@@ -342,6 +342,9 @@ interface Params {
 export async function getStaticPaths({ locales }: { locales: string[] }) {
   const paths = locales.flatMap((locale) => {
     const postsDirectory = path.join(process.cwd(), 'posts', locale);
+    if (!fs.existsSync(postsDirectory)) {
+      return [];
+    }
     const files = fs.readdirSync(postsDirectory);
     return files.map((filename) => ({
       params: { slug: filename.replace(".md", "") },

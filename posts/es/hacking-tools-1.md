@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] Herramientas Hacking Web P1"
+title: "Herramientas Hacking Web P1"
 excerpt: "Herramientas de Hacking Parte 1"
 date: "Jan 14 2023"
 cover_image: "/blog/herramientas1.webp"

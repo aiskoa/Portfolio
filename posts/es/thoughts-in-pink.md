@@ -1,6 +1,6 @@
 ---
-title: "[🇺🇸] Thoughts in Pink"
-excerpt: "How my noddles fucks me here"
+title: "Pensamientos en Rosa"
+excerpt: "Cómo mis fideos me joden aquí"
 date: "Mar 21 2024"
 cover_image: "/blog/thoinpink.webp"
 alt: "IRL N1"
@@ -8,32 +8,31 @@ tags1: "IRL"
 tags2: "Mental"
 ---
 
-# Hi there! 👋, this is the first publish as a life blog
+# Hola! 👋, esta es la primera publicación como blog de vida
 
-&nbsp;
+ 
 
-How many times have you heard of me, how many times have you heard the voice in your head, I am here, the sour sound to hurt your ears, to touch the front of your head, the one that makes you ache every morning when you wake up, that annoying noise you hear every day, the one that will kiss you goodbye on the day of your death.
+Cuántas veces has oído hablar de mí, cuántas veces has oído la voz en tu cabeza, aquí estoy, el sonido agrio para herir tus oídos, para tocar la frente de tu cabeza, la que te hace doler cada mañana al despertar, ese ruido molesto que escuchas todos los días, el que te besará en la despedida el día de tu muerte.
 
-I would like to write mathematical poetry. 💁
+Me gustaría escribir poesía matemática. 💁
 
-&nbsp;
+ 
 
-From the sequence:
+De la secuencia:
 
 > 5, 7, 9, 12, 18
 
-Find the sequence after n + 5:
+Encuentra la secuencia después de n + 5:
 
 ```nx
 0, 0, 0, 0, 0, 1, 1, 1, 3, 4, 5, 7, 9, 12, 18, 22, 25, 36, 46, 48, 62, 76, 88, 107, 126, 142, 179, 198, 216, 257, 304, 329, 382, 431, 483, 547, 601, 643, 764, 838, 889
 
 ```
 
-&nbsp;
+ 
 
-Exactly, you only need the answer once, just like you only need to hear that notification once, you live with the constant fear of danger, the constant fear of being left with nothing but me, you are afraid of being part of me, of my eternal embrace, you dread hearing my requiem and being lost in it like a bullet in civil war, you dream of me daily and remember my words as those of a father.
-\
-You overthink things, over and over again, until you fall under the weight of that mistake made by thinking too much, you want to hear something more than my singing, but there are only small fragments of audio lost in space trying to fit together to form a message, a message that will remain incomplete because of me, the one that takes all your attention, the one that takes all your energy, focus, precision and courage.
+Exacto, solo necesitas la respuesta una vez, así como solo necesitas escuchar esa notificación una vez, vives con el miedo constante al peligro, el miedo constante a quedarte sin nada más que yo, tienes miedo de ser parte de mí, de mi abrazo eterno, temes escuchar mi réquiem y perderte en él como una bala en la guerra civil, sueñas conmigo a diario y recuerdas mis palabras como las de un padre.
+\nPiensas demasiado las cosas, una y otra vez, hasta que caes bajo el peso de ese error cometido por pensar demasiado, quieres escuchar algo más que mi canto, pero solo hay pequeños fragmentos de audio perdidos en el espacio tratando de encajar para formar un mensaje, un mensaje que quedará incompleto por mi culpa, el que acapara toda tu atención, el que te quita toda tu energía, concentración, precisión y coraje.
 
 ---
 
@@ -42,91 +41,91 @@ You overthink things, over and over again, until you fall under the weight of th
 
 ```
 
-> Because part of you needs me.
+> Porque una parte de ti me necesita.
 
-&nbsp;
+ 
 
 ```nx
 ¿Existes o solo estoy loco?
 
 ```
 
-> I don't believe in madness, only in the characters of a poorly told story.
+> No creo en la locura, solo en los personajes de una historia mal contada.
 
-&nbsp;
+ 
 
 ```nx
 ¿Cuándo dejaré de escucharte?
 
 ```
 
-> When the time decides for you, when the time decides for me, when only be you.
+> Cuando el tiempo decida por ti, cuando el tiempo decida por mí, cuando solo seas tú.
 
-&nbsp;
+ 
 
 ```nx
 ¿Estaré bien al dejarte?
 
 ```
 
-> Just like letting hope die, I will only be part of your story, be'r part of memories and how you have grown stronger so far.
+> Así como dejar morir la esperanza, solo seré parte de tu historia, parte de los recuerdos y de cómo te has vuelto más fuerte hasta ahora.
 
-&nbsp;
+ 
 
 ```nx
-¿Y que haré si te necesito, dondé te encontraré nuevamente?
+¿Y qué haré si te necesito, dónde te encontraré nuevamente?
 
 ```
 
-> You will find me by reading the beginning of Charles Perrault's "Sleeping Beauty".
+> Me encontrarás leyendo el principio de "La Bella Durmiente" de Charles Perrault.
 
-&nbsp;
+ 
 
 ```nx
-¿Cómo se que estarás ahí, estarás feliz de verme un vez más?
+¿Cómo sé que estarás ahí, estarás feliz de verme una vez más?
 
 ```
 
-> I will perch under the leaves of a big tree, and I will look into your eyes and say with my mouth only three words, "Siempre estuve aqui".
+> Me posaré bajo las hojas de un gran árbol, y te miraré a los ojos y diré con mi boca solo tres palabras, "Siempre estuve aquí".
 
-&nbsp;
+ 
 
 ```nx
 ¿Qué pasará si me olvido?
 
 ```
 
-> The time will come when everything will make sense, when everything will be silent and there will be no time to listen to me in the same way, my voice will be overshadowed by many other voices and sounds, your mind will be so busy, that when you will hear me in the distance, you will be so happy to hear an old friendship.
+> Llegará el momento en que todo tendrá sentido, cuando todo estará en silencio y no habrá tiempo para escucharme de la misma manera, mi voz será opacada por muchas otras voces y sonidos, tu mente estará tan ocupada, que cuando me escuches a lo lejos, estarás tan feliz de escuchar una vieja amistad.
 
-&nbsp;
+ 
 
 ```nx
-¿Y si muero sin poder encontrarte, estará bien dejarté?
+¿Y si muero sin poder encontrarte, estará bien dejarte?
 
 ```
 
-> When the time comes to leave, I will go with you, you will take me by the hand and we will walk together a great green path full of life, with big trees and we will only contemplate the beautiful sky.
+> Cuando llegue el momento de partir, iré contigo, me tomarás de la mano y caminaremos juntos por un gran camino verde lleno de vida, con grandes árboles y solo contemplaremos el hermoso cielo.
 
-&nbsp;
+ 
 
 > 13, 2, 18, 6, 17, 12, 20
 
-Me levante y tome un **JUGO** de naranja frio, posteriormente avance **pasos como un inglés, me quede ahi usando aquella cosa, después me canse y camine** pasos, para ver la tv, me dormí y decidi pararme a viajar **pasos hasta caer cansado, entonces me fui a mi cama comoda fabricada en **PRADA**, al dia siguiente me levante temprano contando** pasos hasta llegar al baño, me quede solo **minutos por distraido al ver tiktok, despues sali a dar un paseo, eran** pasos hasta llegar a la tienda donde decidí comprar un helado de __ pesos, barato me salio el coso, mas barato que mi **AUTO**, felizmente me sente en una banca blanca.
+Me levanté y tomé un **JUGO** de naranja frío, posteriormente avancé **pasos como un inglés, me quedé ahí usando aquella cosa, después me cansé y caminé** pasos, para ver la televisión, me dormí y decidí pararme a viajar **pasos hasta caer cansado, entonces me fui a mi cama cómoda fabricada en **PRADA**, al día siguiente me levanté temprano contando** pasos hasta llegar al baño, me quedé solo **minutos por distraído al ver tiktok, después salí a dar un paseo, eran** pasos hasta llegar a la tienda donde decidí comprar un helado de __ pesos, barato me salió el coso, más barato que mi **AUTO**, felizmente me senté en una banca blanca.
 
 RESULT= J
 
 ![ABC](https://i.ytimg.com/vi/kqivBi96npQ/maxresdefault.jpg)
 
-&nbsp;
+ 
 
-> X = Mathematical operation that consists of reducing or separating something from a whole.
+> X = Operación matemática que consiste en reducir o separar algo de un todo.
 > Y = 62 / 62
 > G =
 
-&nbsp;
+ 
 
 **Ha{Y}nLkJFy{G}x9PKAv{X}swED4wt{Y}ELgTEp{RESULT}**
 
-&nbsp;
+ 
 
-### [IS THIS PINK?](https://mega.nz/file/JjFASRTB)
+### [¿ES ESTO ROSA?](https://mega.nz/file/JjFASRTB)

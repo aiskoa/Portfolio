@@ -1,6 +1,6 @@
 ---
-title: "[🇺🇸] GIE-UI Encrypt and Decrypt files"
-excerpt: "An Encrypt and Decrypt for files and folders with UI!"
+title: "GIE-UI Cifrar y Descifrar archivos"
+excerpt: "¡Un cifrador y descifrador para archivos y carpetas con interfaz de usuario!"
 date: "Apr 29 2024"
 cover_image: "/blog/gieui.webp"
 alt: "GIE-UI"
@@ -12,105 +12,105 @@ tags2: "Tools"
 
 # GIE-UI
 
-## GIE now with User Interface || Encrypt and Decrypt Files
+## GIE ahora con Interfaz de Usuario || Cifrar y Descifrar Archivos
 
-An Encrypt and Decrypt your files using AES, easily and folders, and send it secure, written in Python with UI.
+Un cifrador y descifrador de archivos usando AES, de forma fácil y para carpetas, y envíalo de forma segura, escrito en Python con interfaz de usuario.
 
 ![Screenshott](https://i.imgur.com/NC2A0HT.jpeg)
 
-### Features
+### Características
 
-Encrypt and decrypt your files and folders with AES, for any file, jpg, png, mp4, mp3, docx, pdf, etc... 
+Cifra y descifra tus archivos y carpetas con AES, para cualquier archivo, jpg, png, mp4, mp3, docx, pdf, etc...
 
-### Why GIE?
+### ¿Por qué GIE?
 
-GIE is the name of my first girldfriend (JK 😂), GIE is the acronym of **G**entle, **I**ntelligent and **E**asy file encryption.
+GIE es el nombre de mi primera novia (es broma 😂), GIE es el acrónimo de cifrado de archivos **G**entil, **I**nteligente y **F**ácil.
 
-## 📦 Requirements
+## 📦 Requisitos
 
-- **[Python](https://www.python.org/downloads/)**, should be installed on your system (not required).
+- **[Python](https://www.python.org/downloads/)**, debería estar instalado en tu sistema (no es necesario).
 
-### 🦠 Antivirus advertisement
+### 🦠 Anuncio de Antivirus
 
-GIE has the ability to encrypt vital paths and files on your system, so it is considered a risk by the operating system. If you still decide to use it, you should create an exception to the GIE program.
+GIE tiene la capacidad de cifrar rutas y archivos vitales en tu sistema, por lo que es considerado un riesgo por el sistema operativo. Si aún así decides usarlo, deberías crear una excepción para el programa GIE.
 
-[Virustotal scan](https://www.virustotal.com/gui/file/49a6c879bb46ad0f357a545f6f6577bb418c7f210cac60556f45051a9473851b/detection)
+[Análisis de Virustotal](https://www.virustotal.com/gui/file/49a6c879bb46ad0f357a545f6f6577bb418c7f210cac60556f45051a9473851b/detection)
 
 [Triage](https://tria.ge/240428-bnst8acg68)
 
-## 💻 Installation
+## 💻 Instalación
 
-Execute the commands according to your case
+Ejecuta los comandos según tu caso
 
-Run the project
+Ejecuta el proyecto
 
 ```batch
 python main.py
 ```
 
-Excecute **GIE.exe** file.
-*(GIE portable version is avaliable)*
+Ejecuta el archivo **GIE.exe**.
+*(La versión portable de GIE está disponible)*
 
 ---
 
-## For Encrypt
+## Para Cifrar
 
-To **Encrypt** a folder or file
+Para **Cifrar** una carpeta o archivo
 
-For folders (_you must type the path as it appears in your file browser_)
+Para carpetas (_debes escribir la ruta tal como aparece en tu explorador de archivos_)
 
 ![PATH](https://i.imgur.com/Lah8Ri8.png)
 
-For only files (_one or more files_)
+Solo para archivos (_uno o más archivos_)
 
-Only select the files to encrypt.
+Solo selecciona los archivos a cifrar.
 
-supports = jpg, png, mp3, mp4, docx, xlsx, sql, py, zip, etc...
+soporta = jpg, png, mp3, mp4, docx, xlsx, sql, py, zip, etc...
 
-**Enter a password:**
+**Introduce una contraseña:**
 
-**IMPORTANT**
+**IMPORTANTE**
 
-> The password cannot contain the characters $ or "" and ''
-> The password will not be visible while you type it.
+> La contraseña no puede contener los caracteres $ o "" y ''
+> La contraseña no será visible mientras la escribes.
 
-When you click the Encrypt button, the operation will begin., it will start encrypting the files with the extension **".gie"** and will generate a **".GKY"** file, which is very important to decrypt your original file.
+Cuando hagas clic en el botón Cifrar, la operación comenzará., comenzará a cifrar los archivos con la extensión **".gie"** y generará un archivo **".GKY"**, que es muy importante para descifrar tu archivo original.
 
-*"GKY" is the extension of the file containing the key for decryption, along with the password provided.*
+*"GKY" es la extensión del archivo que contiene la clave para el descifrado, junto con la contraseña proporcionada.*
 
-! *If you want to share the file with your colleague, you will need to provide him/her with three files, the .gie, the .GKY and the password.*
+! *Si quieres compartir el archivo con tu colega, tendrás que proporcionarle tres archivos, el .gie, el .GKY y la contraseña.*
 
-**EXAMPLE**
+**EJEMPLO**
 
 ![FileEn](https://i.imgur.com/pGLWaxL.jpeg)
 
 
-## For Decrypt
+## Para Descifrar
 
-To **Decrypt** a folder or file
+Para **Descifrar** una carpeta o archivo
 
-**IMPORTANT**  
-> The password must be the same as the one used to encrypt the file, otherwise you will lose your file forever.
+**IMPORTANTE**  
+> La contraseña debe ser la misma que la utilizada para cifrar el archivo, de lo contrario perderás tu archivo para siempre.
 
-The program will search if the .GKY file exists in the path provided and will try to decrypt the file with the password, if the password does not match the file will not decrypt or will decrypt corruptly, if the GKY does not exist, the program will throw an error message and will not be able to decrypt.
+El programa buscará si el archivo .GKY existe en la ruta proporcionada e intentará descifrar el archivo con la contraseña, si la contraseña no coincide, el archivo no se descifrará o se descifrará corrupto, si el GKY no existe, el programa mostrará un mensaje de error y no podrá descifrar.
 
-It is very important to save the .GKY and the PASSWORD very well.
+Es muy importante guardar muy bien el .GKY y la CONTRASEÑA.
 
 ---
 
-### ENCRYPT FUNCTION
+### FUNCIÓN DE CIFRADO
 
 ```python
 def encrypt_file(input_file: str, password: str):
     password_bytes = password.encode()  
-    # Convert password to bytes
+    # Convertir la contraseña a bytes
 
-    key_with_salt = generate_key(input_file, password_bytes)  # Generate the key using bytes
+    key_with_salt = generate_key(input_file, password_bytes)  # Generar la clave usando bytes
     if key_with_salt is None:
-        print(Fore.RED + "The key could not be generated." + Style.RESET_ALL)
+        print(Fore.RED + "No se pudo generar la clave." + Style.RESET_ALL)
         return
 
-    key = key_with_salt[16:]  # Getting the key without the salt
+    key = key_with_salt[16:]  # Obteniendo la clave sin la sal
 
     iv = os.urandom(16)
 
@@ -128,30 +128,30 @@ def encrypt_file(input_file: str, password: str):
         file_out.write(iv)
         file_out.write(encrypted_data)
 
-    print(Fore.LIGHTMAGENTA_EX + f"ENCRYPTED file saved as: {output_file}" + Style.RESET_ALL)
+    print(Fore.LIGHTMAGENTA_EX + f"Archivo ENCRIPTADO guardado como: {output_file}" + Style.RESET_ALL)
     os.remove(input_file)
 ```
 
-### DECRYPT FUNCTION
+### FUNCIÓN DE DESCIFRADO
 
 ```python
 def decrypt_file(input_file: str, password: bytes):
-    base_file = os.path.splitext(os.path.basename(input_file))[0]  # Remove all extensions
+    base_file = os.path.splitext(os.path.basename(input_file))[0]  # Eliminar todas las extensiones
     while "." in base_file:
-        base_file = os.path.splitext(base_file)[0]  # Remove all extensions
-    # Add the .key extension to the base file name
+        base_file = os.path.splitext(base_file)[0]  # Eliminar todas las extensiones
+    # Añadir la extensión .key al nombre del archivo base
     key_file = os.path.join(os.path.dirname(input_file), base_file + ".GKY")
-    key_file = os.path.normpath(key_file)  # Normalize the path
+    key_file = os.path.normpath(key_file)  # Normalizar la ruta
 
-    print(f"Searching for the key file: {key_file}")  # Print the name of the key file we are looking for
+    print(f"Buscando el archivo de la clave: {key_file}")  # Imprimir el nombre del archivo de clave que estamos buscando
     if os.path.exists(key_file):
         with open(key_file, "rb") as f:
             key_with_salt = f.read()
-            salt = key_with_salt[:16]  # Get the stored salt
+            salt = key_with_salt[:16]  # Obtener la sal almacenada
             derived_key = hashlib.pbkdf2_hmac('sha256', password, salt, 100000, 32)
 ```
 
-> .GKY using for decrypt the file coz it is the passkey, .GKY extension name is not enable to change.
+> .GKY se usa para descifrar el archivo porque es la clave de paso, el nombre de la extensión .GKY no se puede cambiar.
 
 ```python
         with open(input_file, "rb") as file_in:
@@ -162,39 +162,39 @@ def decrypt_file(input_file: str, password: bytes):
         decryptor = cipher.decryptor()
 
         decrypted_data = decryptor.update(encrypted_data) + decryptor.finalize()
-        unpadded_data = decrypted_data.rstrip(b'\\x00')
+        unpadded_data = decrypted_data.rstrip(b'\x00')
 
         output_file = os.path.splitext(input_file)[0]
         with open(output_file, "wb") as file_out:
             file_out.write(unpadded_data)
 
-        print(Fore.LIGHTCYAN_EX + f"UNENCRIPTED file saved as: {output_file}" + Style.RESET_ALL)
+        print(Fore.LIGHTCYAN_EX + f"Archivo DESENCRIPTADO guardado como: {output_file}" + Style.RESET_ALL)
         os.remove(input_file)
 ```
 
 ```python
-        # Delete the key file after successful decryption
+        # Eliminar el archivo de clave después del descifrado exitoso
         os.remove(key_file)
     else:
-        print(Fore.LIGHTRED_EX + "Key not found." + Style.RESET_ALL)
+        print(Fore.LIGHTRED_EX + "Clave no encontrada." + Style.RESET_ALL)
 ```
 
-> If the GKY file is not removed after the decryption, it is possible to make trash on your system or even issues with other encrypted files.
+> Si el archivo GKY no se elimina después del descifrado, es posible que genere basura en tu sistema o incluso problemas con otros archivos cifrados.
 
 ---
 
-### [⬇️ Download ⬇️](https://rawierdt.github.io/scripts/GIE/)
+### [⬇️ Descargar ⬇️](https://rawierdt.github.io/scripts/GIE/)
 
-### 🤝 Contributing
+### 🤝 Contribuyendo
 
-Contributions, issues and feature requests are welcome! Feel free to check issues page.
+¡Las contribuciones, los problemas y las solicitudes de características son bienvenidos! Siéntete libre de consultar la página de problemas.
 
-### 💜 Show your support
+### 💜 Muestra tu apoyo
 
-Give a ⭐️ if this _project helped you!_ 
+¡Da una ⭐️ si este proyecto te ayudó! 
 
-### 📝 License
+### 📝 Licencia
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app). This project is [MIT](/LICENSE) licensed.
+Copyright © 2024 [Rawier](https://rawier.vercel.app). Este proyecto tiene licencia [MIT](/LICENSE).
 
 ---

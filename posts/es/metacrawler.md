@@ -1,6 +1,6 @@
 ---
-title: "[🇺🇸] Metacrawler Metadata Eraser"
-excerpt: "Metadata eraser software for files"
+title: "Metacrawler Borrador de Metadatos"
+excerpt: "Software borrador de metadatos para archivos"
 date: "Mar 27 2024"
 cover_image: "/blog/metacrawlerimg.webp"
 alt: "Metacrawler 2"
@@ -10,27 +10,27 @@ tags2: "Tools"
 
 # Metacrawler 2
 
-New version of Metacrawler, erases metadata from any file format, even creating a copy of it, now written in Javascript, using Electron.
+Nueva versión de Metacrawler, borra metadatos de cualquier formato de archivo, incluso creando una copia del mismo, ahora escrito en Javascript, usando Electron.
 
-## Here is Metacrawler 2
+## Aquí está Metacrawler 2
 
 ![IMG](https://i.ibb.co/kqjLPSd/metacrawlerr.png)
 
-## How to run
+## Cómo ejecutar
 
-Download or clone the project.
+Descarga o clona el proyecto.
 
-To start run the command.
+Para empezar, ejecuta el comando.
 
 `npm install`
 
-then
+luego
 
 `npm run start`
 
 &nbsp;
 
-## Code example (Remove Metadata Function)
+## Ejemplo de código (Función Eliminar Metadatos)
 
 ```javascript
 document.getElementById('fileInput').addEventListener('change', (event) => {
@@ -67,10 +67,10 @@ document.getElementById('downloadButton').addEventListener('click', () => {
 });
 ```
 
-> Download or Clone the project in Github.
-[Download from Github](https://github.com/Rawierdt/metacrawler)
+> Descarga o clona el proyecto en Github.
+[Descargar desde Github](https://github.com/Rawierdt/metacrawler)
 
-### License
+### Licencia
 
 MIT
 

@@ -1,5 +1,5 @@
 ---
-title: "[🇺🇸] GIE-UI Encrypt and Decrypt files"
+title: "GIE-UI Encrypt and Decrypt files"
 excerpt: "An Encrypt and Decrypt for files and folders with UI!"
 date: "Apr 29 2024"
 cover_image: "/blog/gieui.webp"

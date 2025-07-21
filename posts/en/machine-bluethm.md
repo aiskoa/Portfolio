@@ -1,6 +1,6 @@
 ---
-title: "[🇪🇸] [WriteUp] - Blue (TryHackMe)"
-excerpt: "Maquina EternalBlue, MS17-010, RCE Vulnerability "
+title: "[WriteUp] - Blue (TryHackMe)"
+excerpt: "EternalBlue Machine, MS17-010, RCE Vulnerability "
 date: "Mar 27 2025"
 cover_image: "/blog/bluethm.webp"
 alt: "Writeup 1"
@@ -16,71 +16,65 @@ tags2: "Windows"
 
 &nbsp;
 
-Blue es una máquina con una vulnerabilidad en el protocolo SMB 445. EternalBlue permite la ejecución remota de código que fue descubierto en [MS17-010]
+Blue is a machine with a vulnerability in the SMB 445 protocol. EternalBlue allows remote code execution that was discovered in [MS17-010]
 
-Resumen:
+Summary:
 
-* Escaneo de puertos
-* Explotación de vulnerabilidades (MS17-010 / EternalBlue)
-* Shell remoto
-* Escalada de privilegios a NT AUTHORITY\SYSTEM
-* Volcado de hash de contraseñas usando Hashdump
-* Hash cracking con John the Ripper
-* Búsqueda de banderas
+* Port scanning
+* Vulnerability exploitation (MS17-010 / EternalBlue)
+* Remote Shell
+* Privilege escalation to NT AUTHORITY\SYSTEM
+* Password hash dumping using Hashdump
+* Hash cracking with John the Ripper
+* Flag searching
 
-**Al final del informe te daré un resumen de toda la máquina, en inglés y español 🥳.**
+**At the end of the report I will give you a summary of the entire machine, in English and Spanish 🥳.**
 
-**IMPORTANTE** Debes tener una máquina virtual o un sistema operativo de auditoría con privilegios de root y una conexión a Internet.
+**IMPORTANT** You must have a virtual machine or an auditing operating system with root privileges and an Internet connection.
 
-## Metodologia
+## Methodology
 
-* Reconocimiento
-* Enumeración
-* Búsqueda y análisis de vulnerabilidades
-* Explotación
-* Post-explotación
+* Reconnaissance
+* Enumeration
+* Vulnerability search and analysis
+* Exploitation
+* Post-exploitation
 
-**Reconocimiento**: Responde a las preguntas ¿Qué se atacará? y ¿Qué formará
-parte de la prueba?
+**Reconnaissance**: Answers the questions What will be attacked? and What will be part of the test?
 
-**Enumeración**: Se recolecta toda información posible de lo que se atacará para
-realizar la prueba sin contratiempos
+**Enumeration**: All possible information about what will be attacked is collected to carry out the test without setbacks
 
-**Búsqueda y análisis de vulnerabilidades**: Identifica debilidades sobre lo que se
-atacará, puertos, procesos, servicios entre otros.
+**Vulnerability search and analysis**: Identifies weaknesses in what will be attacked, ports, processes, services among others.
 
-**Explotación**: Aquí se comienza con el ataque utilizando todo lo anterior y con las
-herramientas correctas.
+**Exploitation**: Here the attack begins using all the above and with the correct tools.
 
-**Post explotación**: Se buscan posibles vulnerabilidades extra o que más se podrá
-atacar.
+**Post-exploitation**: Possible extra vulnerabilities or what else can be attacked are sought.
 
-**Reporte de las pruebas**: Se redacta todo lo que se va haciendo durante la
-auditoria.
+**Test report**: Everything that is done during the audit is written down.
 
-## ¿Qué es EternalBlue?
+## What is EternalBlue?
 
-Eternal Blue es un exploit que supuestamente fue desarrollado por la Agencia de Seguridad Nacional de los Estados Unidos (NSA).
-Este programa fue robado y luego filtrado por "The Shadow Brokers". Luego fue utilizado para ejecutar uno de los ataques de ransomware más dañinos de la historia, conocido como Wannacry.
-El programa del virus eternal blue fue diseñado para explotar una vulnerabilidad registrada como *CVE-2017-0144*, que corresponde a una falla de seguridad en el protocolo Server Message Block de Microsoft (SMB).
-El parche de seguridad para esta vulnerabilidad del virus eternal blue, llamado *MS17-010*, fue lanzado en marzo de 2017.
-El uso del exploit eternal blue afectó principalmente a hospitales, estaciones de policía y, en general, a organizaciones de todo el mundo.
+Eternal Blue is an exploit that was supposedly developed by the United States National Security Agency (NSA).
+This program was stolen and then leaked by "The Shadow Brokers". It was then used to execute one of the most damaging ransomware attacks in history, known as Wannacry.
+The eternal blue virus program was designed to exploit a vulnerability registered as *CVE-2017-0144*, which corresponds to a security flaw in Microsoft's Server Message Block (SMB) protocol.
+The security patch for this eternal blue virus vulnerability, called *MS17-010*, was released in March 2017.
+The use of the eternal blue exploit mainly affected hospitals, police stations, and, in general, organizations around the world.
 
 [Versions with MS17-010](https://support.microsoft.com/es-es/topic/c%C3%B3mo-comprobar-que-ms17-010-est%C3%A1-instalado-f55d3f13-7a9c-688c-260b-477d0ec9f2c8)
 [CVE Versions](https://success.trendmicro.com/en-US/solution/KA-0008859)
 
 &nbsp;
 
-## Reconocimiento - Escaneo de puertos
+## Reconnaissance - Port scanning
 
-Empecemos con la fase de reconocimiento.
-Nuestra IP es *10.8.42.68* y el objetivo es *10.10.90.82*.
+Let's start with the reconnaissance phase.
+Our IP is *10.8.42.68* and the target is *10.10.90.82*.
 
 ```powershell
 ping -c 4 10.10.90.82
 ```
 
-Comprobamos que el destino tiene activadas las peticiones ICMP.
+We verify that the destination has ICMP requests enabled.
 
 ```powershell
 sudo su
@@ -90,66 +84,65 @@ sudo su
 nmap 10.10.90.82 -p- -sV -oN all_ports.nmap -Pn --min-rate 5000
 ```
 
-Windows suele utilizar un valor TTL por defecto entre 126 y 128. Linux y los sistemas tipo Unix suelen optar por un valor TTL por defecto entre 62 y 64.
+Windows usually uses a default TTL value between 126 and 128. Linux and Unix-like systems usually opt for a default TTL value between 62 and 64.
 
-Por lo tanto, inferimos que nos enfrentamos a una maquina con Windows como sistema operativo. Una vez identificado lo anterior procederemos a realizar un escaneo de puertos utilizando la herramienta nmap.
+Therefore, we infer that we are facing a machine with Windows as the operating system. Once the above has been identified, we will proceed to perform a port scan using the nmap tool.
 
-El escaneo de puertos nos permite identificar que servicios corren dentro del activo y así posteriormente identificar vulnerabilidades.
+Port scanning allows us to identify which services are running within the asset and thus subsequently identify vulnerabilities.
 
-El puerto 445/tcp para microsoft-ds Windows 7 está abierto, este es el puerto por el que se va a explotar la vulnerabilidad.
+The 445/tcp port for microsoft-ds Windows 7 is open, this is the port through which the vulnerability will be exploited.
 
 &nbsp;
 
-## Enumeración
+## Enumeration
 
-Usando Nmap se usa el comando *nmap 10.10.90.82 -p- -sV -oN all_ports.nmap -Pn --min-rate 5000* donde las opciones son:
+Using Nmap, the command *nmap 10.10.90.82 -p- -sV -oN all_ports.nmap -Pn --min-rate 5000* is used where the options are:
 
-* *-p-*: Escanea todos los puertos (desde el 1 hasta el 65535).
-* *-sV*: Detecta versiones de los servicios en los puertos abiertos.
-* *-oN all_ports.nmap*: Guarda los resultados en un archivo llamado all_ports.nmap que puede ser leído más tarde.
-* *-Pn*: Omite el escaneo de ping y asume que el host está activo.
-* *--min-rate 5000*: Establece una tasa mínima de 5000 paquetes por segundo, acelerando el escaneo, (cabe aclarar que esto causa mucho ruido).
+* *-p-*: Scans all ports (from 1 to 65535).
+* *-sV*: Detects service versions on open ports.
+* *-oN all_ports.nmap*: Saves the results to a file named all_ports.nmap that can be read later.
+* *-Pn*: Skips ping scan and assumes the host is up.
+* *--min-rate 5000*: Sets a minimum rate of 5000 packets per second, speeding up the scan (it should be noted that this causes a lot of noise).
 
 ![EscaneoBlue.png](https://i.postimg.cc/XYTQptyK/scanblue.png)
 
-Descubrimos que responde a JON-PC y confirmamos que utiliza Windows 7 como sistema operativo.
+We discover that it responds to JON-PC and confirm that it uses Windows 7 as its operating system.
 
-Gracias a este escaneo identificamos los puertos:
+Thanks to this scan we identify the ports:
 
-* **135/tcp (MSRPC)**: Relacionado con el servicio de RPC de Windows.
-* **139/tcp (NetBIOS-SSN)**: Es utilizado para compartir archivos y dispositivos
-en redes locales.
-* **445/tcp (SMB)**: Al igual que NetBIOS permite compartir archivos, impresoras, directorios y otros recursos entre dispositivos en una red.
-* **3389/tcp (RDP)**: El protocolo RDP permite la conexión remota a computadoras a través de una interfaz gráfica. Es fundamental para la administración remota.
-* **49152-49160/tcp (MSRPC dinámico)**: Estos puertos están relacionados con la asignación dinámica de RPC.
+* **135/tcp (MSRPC)**: Related to the Windows RPC service.
+* **139/tcp (NetBIOS-SSN)**: It is used to share files and devices on local networks.
+* **445/tcp (SMB)**: Like NetBIOS, it allows sharing files, printers, directories and other resources between devices on a network.
+* **3389/tcp (RDP)**: The RDP protocol allows remote connection to computers through a graphical interface. It is essential for remote administration.
+* **49152-49160/tcp (dynamic MSRPC)**: These ports are related to dynamic RPC allocation.
 
 &nbsp;
 
-## Búsqueda y análisis de vulnerabilidades
+## Vulnerability search and analysis
 
-De todos estos puertos descubiertos por Nmap podemos identificar como pueden ser explotados, por ejemplo:
+From all these ports discovered by Nmap we can identify how they can be exploited, for example:
 
-* **135** responde a msrpc que puede ser explotado por ataques como **Pass the-Hash** o vulnerabilidades en el servicio DCOM, también se encuentran las *CVE-2023-24869*, *CVE-2023-24908*, *CVE-2023-23405* identificadas en 2023 que permiten la Ejecución remota de código (RCE).
-* **139** responde a netbios-ssn que si contiene una misconfig este puede dar paso a ataques de **Enumeración de credenciales**.
-* **445** responde a smb que puede ser explotado con **EternalBlue** o **SMBGhost** en ciertas versiones. Para Linux recientemente se encontró *CVE-2025-37899* descubierto por el modelo o3 de OpenAI.
-* **3389** responde a rpd este permite ataques de **Fuerza Bruta** o vulnerabilidades como **BlueKeep** para la Ejecución remota de código, también se identifica la vulnerabilidad *CVE-2022-21990*, que permite la **Conexión sin autenticación**.  
+* **135** responds to msrpc which can be exploited by attacks such as **Pass the-Hash** or vulnerabilities in the DCOM service, also found are *CVE-2023-24869*, *CVE-2023-24908*, *CVE-2023-23405* identified in 2023 that allow Remote Code Execution (RCE).
+* **139** responds to netbios-ssn which if it contains a misconfig can lead to **Credential enumeration** attacks.
+* **445** responds to smb which can be exploited with **EternalBlue** or **SMBGhost** in certain versions. For Linux, *CVE-2025-37899* recently discovered by OpenAI's o3 model was found.
+* **3389** responds to rpd, this allows **Brute Force** attacks or vulnerabilities such as **BlueKeep** for Remote Code Execution, also identified is vulnerability *CVE-2022-21990*, which allows **Unauthenticated Connection**.
 
-**Se decide que el puerto 445 será el indicado a explotar.**
+**It is decided that port 445 will be the one to exploit.**
 
-El puerto 445 aloja al protocolo SMB, este se encuentra en una maquina Windows,
-nos damos cuenta de que este protocolo puede ser vulnerado usando EternalBlue o SMBGhost las cuales responde a CVE-2017-0144 y CVE-2020-0796 ambos usados por los ransomware WannaCry y NotPetya.
+Port 445 hosts the SMB protocol, this is found on a Windows machine,
+we realize that this protocol can be vulnerable using EternalBlue or SMBGhost which respond to CVE-2017-0144 and CVE-2020-0796 both used by the WannaCry and NotPetya ransomware.
 
-### ¿Qué es el Packet crafting?
+### What is Packet crafting?
 
-El Packet Crafting es una técnica utilizada en ciberseguridad donde los paquetes son creados o manipulados manualmente para explotar vulnerabilidades en una red o sistema. Este método permite personalizar el tráfico de red para llevar a cabo diversas actividades maliciosas, como el reconocimiento de la red, ataques de denegación de servicio o la filtración de datos.
+Packet Crafting is a technique used in cybersecurity where packets are manually created or manipulated to exploit vulnerabilities in a network or system. This method allows customizing network traffic to carry out various malicious activities, such as network reconnaissance, denial of service attacks, or data exfiltration.
 
-Técnica que hace uso de la manipulación o creación de paquetes TCP/IP para saltarse sistemas de seguridad o efectuar ataques de enmascaramiento (spoofing).
+Technique that uses the manipulation or creation of TCP/IP packets to bypass security systems or carry out spoofing attacks.
 
-## Explotación
+## Exploitation
 
-Comenzamos con el ataque ya conocida la vulnerabilidad, para este caso usaremos **Metasploit** con el exploit **EternalBlue**.
+We start with the attack, already knowing the vulnerability, in this case we will use **Metasploit** with the **EternalBlue** exploit.
 
-Dentro de metasploit buscaremos la vulnerabilidad EternalBlue basandonos en su Rank o Descripción.
+Inside metasploit we will search for the EternalBlue vulnerability based on its Rank or Description.
 
 ```powershell
 msfconsole
@@ -169,9 +162,9 @@ or
 > show options
 ```
 
-Posteriormente configuraremos las opciones de *show options*, aqui se nos piden ciertos parametros obligatorios y otros opcionales para comenzar con el ataque.
+Subsequently we will configure the *show options* options, here we are asked for certain mandatory and optional parameters to start the attack.
 
-Se procede a configurar los parámetros necesarios como la ip de activo y la ip atacante y el puerto.
+We proceed to configure the necessary parameters such as the asset IP and the attacking IP and port.
 
 ![showoptions](https://i.postimg.cc/k5TQX1FP/shwop.png)
 
@@ -183,14 +176,14 @@ Se procede a configurar los parámetros necesarios como la ip de activo y la ip 
 > run
 ```
 
-Finalizada la configuración procedemos con la ejecución del exploit, el objetivo es obtener una sesión de meterpreter.
+Once the configuration is complete, we proceed with the execution of the exploit, the objective is to obtain a meterpreter session.
 
 ![runBlue](https://i.postimg.cc/wBGz4Cn3/bluaat.png)
 
-La sesión de meterpreter se ha iniciado por lo tanto el exploit funciono correctamente.
-Nos damos cuenta que se trata de un Windows 7 Professional build 7601, la cual se ha descontinuado en actualizaciones en enero del 2020.
+The meterpreter session has started, so the exploit worked correctly.
+We realize that it is a Windows 7 Professional build 7601, which has been discontinued in updates in January 2020.
 
-Podemos ver la lista de comandos los cuales hay muchas opciones que nos permiten interactuar con el activo, uno de ellos es **screenshare**.
+We can see the list of commands which have many options that allow us to interact with the asset, one of them is **screenshare**.
 
 ![blueHelp](https://i.postimg.cc/L88rdytP/bluehlp.png)
 
@@ -198,94 +191,94 @@ Podemos ver la lista de comandos los cuales hay muchas opciones que nos permiten
 
 ![screenBlue3](https://i.postimg.cc/sD7pjycd/screen3.png)
 
-Entonces decidimos invocar una terminal remota para poder interactuar con el activo.
+So we decided to invoke a remote terminal to be able to interact with the asset.
 
-Nos damos cuenta al ejecutar el comando whoami que somos el usuario **NT/AUTHORITY/SYSTEM**
+We realize when executing the whoami command that we are the user **NT/AUTHORITY/SYSTEM**
 
-## ¿Qué es el usuario NT/AUTHORITY/SYSTEM?
+## What is the NT/AUTHORITY/SYSTEM user?
 
-El usuario NT AUTHORITY\SYSTEM en Windows es una cuenta especial con privilegios elevados que permite a los servicios del sistema operar con acceso total a los recursos locales. Es más poderosa que cualquier cuenta de administrador estándar y se usa para ejecutar procesos críticos del sistema.
+The NT AUTHORITY\SYSTEM user in Windows is a special account with elevated privileges that allows system services to operate with full access to local resources. It is more powerful than any standard administrator account and is used to run critical system processes.
 
-Esta cuenta no está asociada a un usuario y se emplea para tareas como la administración de archivos, la ejecución de servicios y el acceso a recursos protegidos. Similar al usuario root en Linux.
+This account is not associated with a user and is used for tasks such as file management, service execution, and access to protected resources. Similar to the root user in Linux.
 
-Usando PowerShell desde nuestras maquinas podemos listar los servicios que se ejecutan bajo esta cuenta:
+Using PowerShell from our machines we can list the services that run under this account:
 
 ```powershell
 Get-WmiObject win32_service | select Name, StartName | Where-Object {($_.StartName -eq "LocalSystem")} 
 ```
 
-## Post-Explotación
+## Post-Exploitation
 
-Ahora nos interesa tener persistencia o buscar las flags ocultas en el equipo, si bien podemos usar herramientas de busqueda avanzada o crear un nuevo usuario con privilegios de administración, decidimos usar el usuario existente en la maquina, JON.
+Now we are interested in having persistence or finding the hidden flags on the computer, although we can use advanced search tools or create a new user with administrative privileges, we decided to use the existing user on the machine, JON.
 
-Usando hashdump obtenemos el listado de los usuarios alojados en el sistema con su respectivo password.
+Using hashdump we get the list of users hosted on the system with their respective password.
 
 ![hashdump](https://i.postimg.cc/02PQgDpY/image.png)
 
-Podemos usar herramientas online para descifrar el hash pero usaremos John The Ripper para descifrar contraseñas y el diccionario rockyou.txt encontramos que la contraseña para el usuario Jon es: **alqfna22**.
+We can use online tools to decrypt the hash but we will use John The Ripper to decrypt passwords and the rockyou.txt dictionary we found that the password for user Jon is: **alqfna22**.
 
 ![johntheripper](https://i.postimg.cc/k4PVBZtZ/image.png)
 
-Por ultimo, utilizando el protocolo RDP del puerto 3389 que observamos que está abierto durante la fase de enumeración nos conectamos usando rdesktop.
-Conectandonos a la maquina Windows  nos damos cuenta que esta desactualizada, ya que esta en una actualización de windows 7 vieja y por lo tanto muy vulnerable, por eso mismo fue posible usar eternalblue de forma tan sencilla.
+Finally, using the RDP protocol on port 3389 that we observed was open during the enumeration phase, we connect using rdesktop.
+Connecting to the Windows machine we realize that it is outdated, since it is an old Windows 7 update and therefore very vulnerable, that is why it was possible to use eternalblue so easily.
 
 ![desktop](https://i.postimg.cc/5NytN1Ry/image.png)
 
-Encontramos la evidencia (la flag3) dentro de System32/config que es donde se guardan las contraseñas en Windows 7.
+We found the evidence (flag3) inside System32/config which is where passwords are saved in Windows 7.
 
 ![flag3](https://i.postimg.cc/SNtcymmN/image.png)
 
-## Recomendaciones
+## Recommendations
 
-Como se ha notado a lo largo del informe el impacto de esta vulnerabilidad es critica por lo tanto se recomienda seguir ciertas recomendaciones.
+As noted throughout the report, the impact of this vulnerability is critical, therefore it is recommended to follow certain recommendations.
 
-1. Actualización:
-a. Instalar el parche de seguridad que Microsoft a proporcionado MS17-010.
-b. Instalar las actualizaciones disponibles de Windows Update.
-2. Desactivar los protocolos innecesarios y/o vulnerables:
-a. Desde Programas y características, “Activar o desactivar características de Windows”, desmarcar “Soporte para compartir archivos SMB 1.0/CIFS”
-b. también se puede desactivar desde PowerShell usando el comando: *sc.exe config lanmanworkstation depend=bowser/mrxsmb10/mrxsmb20/nsi sc.exe config mrxsmb10 start= disabled*
-3. Uso de Firewall
-a. Configura reglas de entrada solo para las fuentes y puertos necesarios.
-4. Desactivar o asegurar RDP
-a. Desactivar el RDP en favor de “Solo conexiones con autenticación a nivel de red (NLA)”, Desde panel de control, Sistema, “Configuración de acceso remoto”.
-b. Usar contraseñas fuertes y 2FA si es posible.
-5. Utilizar alguna herramienta de monitoreo o SIEM/SOAR.
+1. Update:
+a. Install the security patch that Microsoft has provided MS17-010.
+b. Install available Windows Update updates.
+2. Disable unnecessary and/or vulnerable protocols:
+a. From Programs and Features, “Turn Windows features on or off”, uncheck “SMB 1.0/CIFS File Sharing Support”
+b. it can also be disabled from PowerShell using the command: *sc.exe config lanmanworkstation depend=bowser/mrxsmb10/mrxsmb20/nsi sc.exe config mrxsmb10 start= disabled*
+3. Use of Firewall
+a. Configure inbound rules only for necessary sources and ports.
+4. Disable or secure RDP
+a. Disable RDP in favor of “Connections with Network Level Authentication (NLA) only”, From control panel, System, “Remote access settings”.
+b. Use strong passwords and 2FA if possible.
+5. Use a monitoring tool or SIEM/SOAR.
 
-### Estandar
+### Standard
 
-Se recomienda seguir el estándar NIST, específicamente NIST SP 800-53 y NIST SP 800-171.
+It is recommended to follow the NIST standard, specifically NIST SP 800-53 and NIST SP 800-171.
 
-* NIST SP 800-53: Es un catalogo de controles de seguridad que cubren lo necesario respecto a protección de sistemas.
-    o Limita quien puede acceder a que (control de acceso).
-    o Restringe servicios innecesarios (reducción de superficie de ataque).
-    o Asegura la configuración del sistema (hardening)
-    o Aplica parches a tiempo (gestión de vulnerabilidades).
-    o Protege y supervisa.
-    o Documenta y responde a incidentes
-* NIST SP 800-171: Se enfoca a proteger información en sistemas de empresas.
-    o Autenticación fuerte
-    o Configuraciones seguras en los equipos.
+* NIST SP 800-53: It is a catalog of security controls that cover what is necessary regarding system protection.
+    o Limits who can access what (access control).
+    o Restricts unnecessary services (attack surface reduction).
+    o Ensures system configuration (hardening)
+    o Applies patches on time (vulnerability management).
+    o Protects and monitors.
+    o Documents and responds to incidents
+* NIST SP 800-171: Focuses on protecting information in enterprise systems.
+    o Strong authentication
+    o Secure configurations on computers.
 
-## Fuentes de consulta
+## Sources
 
-* P. José Luis / Madrid, España. (n.d.). Packet crafting - GTI - Glosario Terminología informatica. T U G U R I U M. <https://www.tugurium.com/gti/termino.php?Tr=packet%20crafting>
+* P. José Luis / Madrid, Spain. (n.d.). Packet crafting - GTI - Computer terminology glossary. T U G U R I U M. <https://www.tugurium.com/gti/termino.php?Tr=packet%20crafting>
 * What is packet crafting? (2025, May 22). IT Certification Boot Camp Courses | Master IT Certifications Fast – Training Camp. <https://trainingcamp.com/glossary/packet-crafting/>
 * <https://nvd.nist.gov/vuln/detail/cve-2017-0144>
 * <https://nvd.nist.gov/vuln/detail/CVE-2025-29927>
 
-### Glosario de Hacking Ciberseguridad y Redes
+### Hacking Cybersecurity and Networks Glossary
 
-Recomiendo revisar mi articulo sobre esto para poder entender de mejor los terminos de este writeup.
+I recommend reviewing my article on this to better understand the terms in this writeup.
 
-🍁 Glosario de terminos [--> Glosario](https://aiskoa.vercel.app/es/blog/glossary)
+🍁 Glossary of terms [--> Glossary](https://aiskoa.vercel.app/es/blog/glossary)
 
 ---
 
 &nbsp;
 s
-> Gracias por dleer mi blog, espero que te haya gustado.
+> Thanks for reading my blog, I hope you liked it.
 
 &nbsp;
 
-* 💜 Acceso a más writeups [--> WriteUps](https://aiskoa.vercel.app/writeup)
+* 💜 Access to more writeups [--> WriteUps](https://aiskoa.vercel.app/writeup)

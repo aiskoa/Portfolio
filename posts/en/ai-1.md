@@ -1,6 +1,6 @@
 ---
-title: "[🇪🇸] Defiendete de la IA"
-excerpt: "Veremos de cerca que podemos hacer frente a la singularidad"
+title: "Defend Yourself from AI"
+excerpt: "We'll take a closer look at what we can do to face the singularity."
 date: "Feb 25 2024"
 cover_image: "/blog/ia1.webp"
 alt: "AI 1"
@@ -8,113 +8,112 @@ tags1: "Helpdesk"
 tags2: "AI"
 ---
 
-# Defenderte de la Ai
+# Defending Yourself from AI
 
 &nbsp;
 
-## Atención
+## Disclaimer
 
-He de aclarar que estas recomendaciones son para 2024 - 2026 como máximo después de esas fechas no tengo ni idea que pueda pasar con la evolución informática, tambien he de aclarar que muchas de las cosas que mostraré son **teoricas** y no deben ser tomadas a pie de letra per se no serán de mucha ayuda.
-
-&nbsp;
-
-**! Al final del articulo detallaré fuentes de consulta, asi como también terminos usados y este es solo la primera parte**
+I must clarify that these recommendations are for 2024-2026 at the latest. After that time, I have no idea what might happen with the evolution of technology. I also need to make it clear that many of the things I will show are **theoretical** and should not be taken as gospel, as they won't be of much help on their own.
 
 &nbsp;
 
-*Comenzemos* :)
-Abordaré por púntos ciertas problematicas con posibles soluciones.
+**! At the end of the article, I will detail sources for consultation, as well as the terms used, and this is only the first part.**
+
+&nbsp;
+
+*Let's begin* :)
+I will address certain problems with possible solutions point by point.
 
 ---
 
-* **¿Cómo evito la clonación de mi voz?**
-Respuesta = evita dar reuniones extensas, de más de 3 horas de duración (se muy bien que es un mal consejo, pero dejame explicar que puedes hacer en este caso).
+*   **How do I prevent my voice from being cloned?**
+    Answer = Avoid long meetings of more than 3 hours (I know this is bad advice, but let me explain what you can do in this case).
 
-La clonación de una voz necesita de cierto entrenamiento extenso para ser refinada e identica, por lo tanto lo unico que requiere es un gran dataset, si bien ya existen modelos que necesitan solo un minuto de dataset, este requiere gran capacidad de computo, lo cual no es barato.
-
-&nbsp;
-
-* 🔹 Al hablar crea pausas, relajate, piensa las cosas, esto crea espacios en silencios que deberán ser cortados por el clonador, lo que dificulta un poco la tarea.
-
-* 🔹 Utiliza modismo, crea una identidad hacia tu persona, todos tenemos un caracter al hablar, seguramente te conocerán por hablar rapido o usar terminos o palabras complicadas, incluso puede que tu acento sea un tanto particular, por lo tanto esto crea que al clonar tu voz no copiará tu forma de decir las cosas (sabemos que hay cosas que nunca dirias o no dirias de esa forma), creando una identidad o incluso imitando vacios acento dificulta el hecho de ser clonado.
-
-* 🔹 Usa conectores, muletillas, ruidos de fondo o tropiezos, hablar a pausas o equivocaciones ensucia los samples y por lo tanto el dataset, ya que una un sample con cortes en la voz, ruido de fondo o pesima forma de expresarse hace que tenga que regrabarse, ve esto como cuando un artista se equivoca en el estudio, el artista debe volver a cantar porque la ultima vez no quedo bien, gracias a esto la regrabación es cara.
-
-* 🔹 Graba tus conversaciones, hacer esto te dará un espacio seguro frente a lo que dices a lo que nunca has dicho, cabe aclarar que hacer esto deberá ser comunicado frente al resto o con quien conversas en el momento ya que no es ético o incluso puede llegar a ser un cimen.
-
-* 🔹 Chill be safe, relajate y no te preocupes, si algo asi ha de pasar, pasará y cuando lo haga actua tranquilo, siempre con la mente fria, asi pensarás mejor y mas rapido, la mayoria de estas clonaciones ocurren a gente que llama la atención del público, influencers, artistas, gobernantes, periodistas, mas adelantes veremos que hacer si eres uno de ellos.
+    Cloning a voice requires extensive training to be refined and identical, so it requires a large dataset. While there are already models that need only a minute of dataset, they require significant computing power, which is not cheap.
 
 &nbsp;
 
-| Nombre | Url |
-| --|--|
-| Guia de entrenamiento RVC v2 | [Click](https://docs.google.com/document/d/13ebnzmeEBc6uzYCMt-QVFQk-whVrK4zw8k7_Lw3Bv_A/edit#heading=h.bjzhhhcn3f6) |
-| Guia inferencia Covers con RVC | [Click](https://docs.google.com/document/d/13_l1bd1Osgz7qlAZn-zhklCbHpVRk6bYOuAuB78qmsE/edit#heading=h.qjrl2d41vtmt) |
-| Pagina para la clonación | [Click](https://colab.research.google.com/drive/1AcGvwT7yP_u9h_TJnDHoPUJKnCG1MejS?usp=sharing) |
-| Reputación de Url | [Click](https://www.urlvoid.com) |
+*   🔹 When you speak, create pauses, relax, think things through. This creates silent spaces that the cloner will have to cut, which makes the task a bit more difficult.
+
+*   🔹 Use slang, create an identity for yourself. We all have a character when we speak. You might be known for speaking fast or using complicated terms or words. Even your accent might be quite particular. Therefore, when your voice is cloned, it won't copy the way you say things (we know there are things you would never say or wouldn't say in that way), creating an identity or even imitating an accent makes it difficult to be cloned.
+
+*   🔹 Use connectors, filler words, background noise, or stumbles. Speaking with pauses or making mistakes dirties the samples and therefore the dataset. A sample with voice cuts, background noise, or poor expression means it has to be re-recorded. Think of it like when an artist makes a mistake in the studio; the artist has to sing again because the last take wasn't good. Thanks to this, re-recording is expensive.
+
+*   🔹 Record your conversations. This will give you a safe space regarding what you say versus what you have never said. It should be noted that doing this must be communicated to others or to the person you are conversing with at the moment, as it is not ethical and can even be a crime.
+
+*   🔹 Chill, be safe. Relax and don't worry. If something like this is going to happen, it will happen, and when it does, act calmly, always with a cool head. This way, you will think better and faster. Most of these clonings happen to people who attract public attention: influencers, artists, rulers, journalists. Later we will see what to do if you are one of them.
+
+&nbsp;
+
+| Name | Url |
+| --- | --- |
+| RVC v2 Training Guide | [Click](https://docs.google.com/document/d/13ebnzmeEBc6uzYCMt-QVFQk-whVrK4zw8k7_Lw3Bv_A/edit#heading=h.bjzhhhcn3f6) |
+| RVC Covers Inference Guide | [Click](https://docs.google.com/document/d/13_l1bd1Osgz7qlAZn-zhklCbHpVRk6bYOuAuB78qmsE/edit#heading=h.qjrl2d41vtmt) |
+| Cloning Page | [Click](https://colab.research.google.com/drive/1AcGvwT7yP_u9h_TJnDHoPUJKnCG1MejS?usp=sharing) |
+| URL Reputation | [Click](https://www.urlvoid.com) |
 | Whois | [Click](https://whois.domaintools.com) |
 | SleepJar | [Click](https://sleepjar.com) |
 
 ---
 
-* **¿Cómo evito la clonación de mi imagen?**
-Respuesta = Al igual que el de la voz, es algo complicado, ya que no tenemos control de todo lo que ven de nosotros o el mundo muestra para y de nosotros.
+*   **How do I prevent my image from being cloned?**
+    Answer = Like with the voice, it's complicated, as we don't have control over everything that is seen of us or what the world shows of us.
 
 &nbsp;
 
-Intenta no tomarte muchas fotos, en especial del rostro, si te lo quieres tomar de la forma mas estricta, no uses el movil, ni dispositivos con camara, pero hacer esto no resultará, por ello te recomiento conocerte, revisa cuantos lunares tienes, revisa si cuales son aquellas cosas que te diferencian, arrugas, bello, forma de sorisa, rostro, conocete, vete al espejo y describete, la mejor arma la sabes usar hasta con ojos vendados.
+Try not to take too many photos, especially of your face. If you want to be very strict, don't use a mobile phone or devices with a camera, but this won't work. Therefore, I recommend you get to know yourself. Check how many moles you have, check what things make you different: wrinkles, hair, the shape of your smile, your face. Get to know yourself, look in the mirror and describe yourself. You know how to use your best weapon even with your eyes closed.
 
-No conozco herramientas que puedan ser de ayuda, pero puedes intentar, usar filtros, ¿filtros?, si filtros, esto dificulta al algoritmo revisar tus pumulos y mirada ya que estos distorsionan o incluso crean una falsa apariencia, posa de formas originales en fotos (las casuales).
-
----
-
-* **¿Cómo evito la clonación de mi iris?**
-Respuesta = No te vendas, mejor aún no mires a una camara.
-
-El iris en la actualidad no tiene un gran uso, este es usado para acceder a bovedas, arcas e información privilegiada de alto valor, lo que significa que es caro de mantener y administrar.
-El iris no representa un peligro para un civil, ya que pocos y nulos tramites necesitan de él, si este fuera a clonarse para un motivo X, solo se necesita una foto o video de ti, inclusive por distinción y descarte puede llegarse al color exacto y forma del ojo, por lo que si quieres ser clonado solo hace falta venderte a worldcoin por 20 usd, y ya estarás en una base de datos que se filtrará al mes siguiente para entrenar npc's para los sims.
+I don't know of any tools that can be of help, but you can try using filters. Filters? Yes, filters. This makes it difficult for the algorithm to check your cheekbones and gaze as they distort or even create a false appearance. Pose in original ways in photos (the casual ones).
 
 ---
 
-* **¿Cómo evito la clonación huella y huella digital?**
-Respuesta = Es imposible.
+*   **How do I prevent my iris from being cloned?**
+    Answer = Don't sell yourself out, better yet, don't look at a camera.
 
-Las grandes entidades tienen control de estos datos por lo tanto esto seria lo primero en clonarse, pero no te preocupes, protege tus cuentas con 2FA, borra las cookies, elimina aplicaciones inicesarias, no instales aplicaciones maliciones, apk o exe, desconocidos, aplica zero trust, usa la cabeza.
+The iris is not widely used today. It is used to access vaults, safes, and high-value privileged information, which means it is expensive to maintain and manage.
+The iris does not represent a danger to a civilian, as few or no procedures require it. If it were to be cloned for some reason, all that is needed is a photo or video of you. It can even be determined by distinction and elimination to the exact color and shape of the eye. So if you want to be cloned, you just have to sell yourself to Worldcoin for 20 USD, and you will be in a database that will be leaked the following month to train NPCs for The Sims.
+
+---
+
+*   **How do I prevent my fingerprint and digital footprint from being cloned?**
+    Answer = It's impossible.
+
+Large entities have control of this data, so this would be the first thing to be cloned. But don't worry, protect your accounts with 2FA, delete cookies, remove unnecessary applications, do not install malicious applications, unknown APKs or EXEs, apply zero trust, use your head.
 
 &nbsp;
 
-**Tabla de anti malware y otros**
+**Anti-malware and others table**
 \
-
-| Nombre | Enlace |
-| --|--|
-| [Triage](https://tria.ge) | Permite crear un entorno seguro para el analisis de malware o aplicaciones sospechosas |
-| [ViewDNS](https://viewdns.info) | Permite encontrar dominios, hots y más sobre una IP o sitio |
-| [Hybrid Analysis](https://www.hybrid-analysis.com/?lang=es) | Permite el analisis de malware sobre ejecutables o cualquier archivo |
-| [VirScan](https://www.virscan.org) | De igual manera permite el analisis de malware desde la aplicación web |
-| [VirusTotal](https://www.virustotal.com/gui/home/upload) | Este sitio es muy bien conocido y de igual manera permite realizar analisis sobre archivos |
-| [Numverify](https://numverify.com) | Permite verificar la identidad de una persona con un numero de telefono mediante su API |
+| Name | Link |
+| --- | --- |
+| [Triage](https://tria.ge) | Allows you to create a secure environment for the analysis of malware or suspicious applications |
+| [ViewDNS](https://viewdns.info) | Allows you to find domains, hosts, and more about an IP or site |
+| [Hybrid Analysis](https://www.hybrid-analysis.com/?lang=en) | Allows malware analysis on executables or any file |
+| [VirScan](https://www.virscan.org) | Also allows malware analysis from the web application |
+| [VirusTotal](https://www.virustotal.com/gui/home/upload) | This site is very well known and also allows analysis of files |
+| [Numverify](https://numverify.com) | Allows you to verify a person's identity with a phone number through its API |
 
 ---
 
-### Referencias
+### References
 
-* 🔹  Bird, J. J., & Lotfi, A. (2023). Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion. arXiv preprint arXiv:2308.12734.
-* 🔹 Kamble, A., Tathe, A., Kumbharkar, S., Bhandare, A., & Mitra, A. C. (2023). Custom Data Augmentation for low resource ASR using Bark and Retrieval-Based Voice Conversion. arXiv preprint arXiv:2311.14836.
-* 🔹 Ralón, M. A. M. (2021). Robo de identidad y clonación de tarjetas de crédito y débito utilizando cajeros automáticos alterados. Revista Científica Diálogo Forense, 2(4).
+*   🔹 Bird, J. J., & Lotfi, A. (2023). Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion. arXiv preprint arXiv:2308.12734.
+*   🔹 Kamble, A., Tathe, A., Kumbharkar, S., Bhandare, A., & Mitra, A. C. (2023). Custom Data Augmentation for low resource ASR using Bark and Retrieval-Based Voice Conversion. arXiv preprint arXiv:2311.14836.
+*   🔹 Ralón, M. A. M. (2021). Identity theft and cloning of credit and debit cards using altered ATMs. Forensic Dialogue Scientific Journal, 2(4).
 
-### Glosario
+### Glossary
 
-* 📌 **AI** = Inteligencia artificial
-* 📌 **Clonar** = Clonar, copiar, duplicar, etc.
-* 📌 **RVC** = Corresponde a Real-time Detection.
-* 📌 **Sample** = Muestra de audio en WAV, MP3 u OPUS, muy conocido en el mundo de la producción musical.
-* 📌 **Dataset** = Conjunto de cientos de datos, estos pueden ser conformados por audios, videos o imagenes.
-* 📌 **DeepFake** = Representación falsa de una identidad de forma cibernetica.
-* 📌 **WorldCoin** = Pseudoproyecto de Sam Altman para generar la renta universal o identidad unica ante la singularidad.
-* 📌 **Singularidad** = Se denomina como tal a aquella identidad autonoma en si misma capaz de crear, replicar y destruir cualquier cosa por si misma, vease como una inteligencia artificial capaz de autoprogramarse (También conocida como Basilisco de Roko).
-* 📌 **Modelo** = Se define como un aconjunto de algoritmos entrenados para ejecutar de manera especializada una sola tarea, sea dibujar, cantar o copiar, existen modelos capaces de hacer tareas simultaneas.
-* 📌 **Algoritmo** = Conjunto de pasos para completar una tarea con exito.
+*   📌 **AI** = Artificial intelligence
+*   📌 **Clone** = To clone, copy, duplicate, etc.
+*   📌 **RVC** = Corresponds to Real-time Voice Cloning.
+*   📌 **Sample** = Audio sample in WAV, MP3, or OPUS, well known in the world of music production.
+*   📌 **Dataset** = Set of hundreds of data points, these can be made up of audios, videos, or images.
+*   📌 **DeepFake** = False representation of an identity in a cybernetic way.
+*   📌 **WorldCoin** = Pseudo-project by Sam Altman to generate universal basic income or a unique identity in the face of the singularity.
+*   📌 **Singularity** = It is called as such to that autonomous identity in itself capable of creating, replicating, and destroying anything by itself, see it as an artificial intelligence capable of self-programming (Also known as Roko's Basilisk).
+*   📌 **Model** = It is defined as a set of algorithms trained to execute a single task in a specialized way, whether it is drawing, singing, or copying. There are models capable of doing simultaneous tasks.
+*   📌 **Algorithm** = Set of steps to complete a task successfully.
 
 &nbsp;
 

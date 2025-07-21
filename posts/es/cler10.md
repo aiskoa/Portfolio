@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] Cler Discord Bot Version 1.0"
+title: "Cler Discord Bot Version 1.0"
 excerpt: "Discord bot in Node [DEPRECATED]"
 date: "Mar 10 2022"
 cover_image: "/blog/cler.webp"

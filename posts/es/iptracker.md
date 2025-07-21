@@ -1,18 +1,18 @@
 ---
-title: "[🇺🇸] Tracker IP"
-excerpt: "A Tracker IP over web sites and more"
+title: "Rastreador de IP"
+excerpt: "Un rastreador de IP para sitios web y más"
 date: "Dec 21 2022"
 cover_image: "/blog/tiptracker.webp"
-alt: "entities"
+alt: "entidades"
 tags1: "Python"
-tags2: "Tools"
+tags2: "Herramientas"
 ---
 
-### Installation
+### Instalación
 
-* Download, and run.
+* Descargar y ejecutar.
 
-It is a small tool that displays data from a web site or ip entered.
+Es una pequeña herramienta que muestra datos de un sitio web o IP introducida.
 
 $$
 \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}
@@ -20,7 +20,7 @@ $$
 
 La famosa ecuación es $E=mc^2$ y muestra la equivalencia entre masa y energía.
 
-### Code
+### Código
 
 ```javascript
 import socket
@@ -28,7 +28,7 @@ import requests
 from os import system
 
 system('clear')
-print("Bienvenidi, por favor")
+print("Bienvenido, por favor")
 site = input("\nIngrese el sitio web: ")
 ip = socket.gethostbyname(site)
 got = requests.get(f"http://ip-api.com/json/{ip}").json()
@@ -39,6 +39,6 @@ print("ISP:", got["isp"])
 print("Tipo:", lat["type"])
 ```
 
-### Download Here
+### Descargar aquí
 
-* [Download Here](https://drive.google.com/file/d/1jlsOKaZSsocnx_mwd9pfCeWuZIDCKKaU/view?usp=share_link)
+* [Descargar aquí](https://drive.google.com/file/d/1jlsOKaZSsocnx_mwd9pfCeWuZIDCKKaU/view?usp=share_link)

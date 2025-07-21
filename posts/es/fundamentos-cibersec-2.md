@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] Fundamentos Ciberseguridad 2"
+title: "Fundamentos Ciberseguridad 2"
 excerpt: "Exploraremos ¿Qué es el Pentesting? y las pruebas de Intrusión!"
 date: "Mar 21 2024"
 cover_image: "/blog/cibersec.webp"

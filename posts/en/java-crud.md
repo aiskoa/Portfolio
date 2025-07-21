@@ -1,6 +1,6 @@
 ---
-title: "[🇪🇸] Java CRUD"
-excerpt: "Java CRUD para el IPN"
+title: "Java CRUD"
+excerpt: "Java CRUD for IPN"
 date: "Dec 28 2021"
 cover_image: "/blog/JavaCrud.webp"
 alt: "Java"
@@ -10,9 +10,9 @@ tags2: "SQL"
 
 # Java CRUD
 
-<h1 align="center">☕ JAVA CRUD Alumnos ☕</h1>
+<h1 align="center">☕ JAVA CRUD Students ☕</h1>
 <p align="center">
-  Java CRUD para la inscripción, edición y eliminación de alumnos de una escuela, esta inscripción funciona con base de datos MySQL. Usando NetBeans
+  Java CRUD for the enrollment, editing and deletion of students from a school, this enrollment works with a MySQL database. Using NetBeans
 
 ### Login
   ![Javacrud](https://raw.githubusercontent.com/Rawierdt/java-crud-alumnos/main/src/resources/img/login.png)
@@ -24,7 +24,7 @@ tags2: "SQL"
   ![Javacrud](https://raw.githubusercontent.com/Rawierdt/java-crud-alumnos/main/src/resources/img/view.png)
 </p>
 <br>
-> Este proyecto se ha realizado únicamente con fines de aprendizaje, cualquier error que se pueda encontrar debe ser corregido por usted mismo.
+> This project has been carried out for learning purposes only, any errors that may be found must be corrected by yourself.
 <br>
 
 * [GitHub](https://github.com/Rawierdt/java-crud-alumnos)
@@ -64,7 +64,7 @@ Name: dbcalificaciones,   `NumeroLista` int(11) NOT NULL,
 
 user: admin@root.com password: root
 <br>
-el conector mysql para java se encuentra en la carpeta del controlador
+the mysql connector for java is in the controller folder
 <br>
 
 
@@ -72,20 +72,20 @@ el conector mysql para java se encuentra en la carpeta del controlador
 
 ## Step 1
 
-* Importa el proyecto a tu carpeta de netbeans.
+* Import the project to your netbeans folder.
 
 ## Step 2
 
-* Abra el proyecto, compruebe si hay errores luego compile y ejecute.
+* Open the project, check for errors then compile and run.
 
 ## Step 3
 
-* Si ya has conectado la base de datos y todo funciona, puedes compilar el proyecto a .jar
+* If you have already connected the database and everything works, you can compile the project to .jar
 
 <br>
 
 # Download
-Disponible solo en Windows.
+Available only on Windows.
 
 [Check the latest release](https://github.com/Rawierdt/java-crud-alumnos)
 

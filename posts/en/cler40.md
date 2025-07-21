@@ -1,6 +1,6 @@
 ---
-title: "[🇪🇸] Cler Discord Bot Version 4.7"
-excerpt: "Multiprospose Discord Bot for Node and PostgreSQL"
+title: "Cler Discord Bot Version 4.7"
+excerpt: "Multipurpose Discord Bot for Node and PostgreSQL"
 date: "Oct 01 2024"
 cover_image: "/blog/cler2.webp"
 alt: "Cler 14 Discord"
@@ -14,7 +14,7 @@ tags2: "PostgreSQL"
 
 ## Cler Discord multipurpose bot
 
-**Cler** es una bot de Discord para administrar tu servidor, cuenta con multiples comandos como de administración, utilidad y de diversión.
+**Cler** is a Discord bot to manage your server, it has multiple commands such as administration, utility and fun.
 
 [Cler's Monitor](https://bit.ly/cler-bot)
 
@@ -22,36 +22,36 @@ tags2: "PostgreSQL"
 
 ![Cler_Info](https://i.imgur.com/c7p8GwP.png)
 
-## Lastest Version and What's New
+## Latest Version and What's New
 
 **v4.7.20**
 
 ## (Asynchronous Transfer Mode)
 
-* Usa el prefix. `c!` o el Slash `/` Para comandos de moderación
-* Bot en Discord.js v14.16.2
+* Use the prefix. `c!` or the Slash `/` for moderation commands
+* Bot in Discord.js v14.16.2
 
-Postdata: Si abandoné este proyecto es porque me aburrí o hice una mejor versión.
+P.S.: If I abandoned this project it's because I got bored or made a better version.
 
 ![ClerAPPS](https://i.imgur.com/qs2J4eg.png)
 
 ## 💻 Installation
 
-Para instalar y ejecutar Cler localmente, sigue estos pasos:
+To install and run Cler locally, follow these steps:
 
-1. **Clona el repositorio**:
+1. **Clone the repository**:
 
     ```bash
     git clone git@github.com:Rawierdt/Cler.git
     ```
 
-2. **Navega al directorio del proyecto**:
+2. **Navigate to the project directory**:
 
     ```bash
     cd Cler
     ```
 
-3. **Crea un archivo de configuración .env dentro del directorio**:
+3. **Create a .env configuration file inside the directory**:
 
     ```bash
     BOT_TOKEN=YOUR_BOT_TOKEN
@@ -62,89 +62,89 @@ Para instalar y ejecutar Cler localmente, sigue estos pasos:
     OWNER=YOUR_DISCORD_ID
     ```
 
-4. **Instala las dependencias**:
+4. **Install the dependencies**:
 
     ```bash
     npm install
     ```
 
-5. **Ejecuta el comando de carga global**:
+5. **Run the global load command**:
 
     ```bash
     npm deploy-commands.js
     ```
 
-6. **Ejecuta el comando de inicio**:
+6. **Run the start command**:
 
     ```bash
     npm start
     ```
 
-    Dirigete a tu servidor de discord al que invitaste a tu bot y ejecuta el comando de /help.
+    Go to your discord server where you invited your bot and run the /help command.
 
-## Comandos
+## Commands
 
-Lista completa de comandos en [Documentación](https://rawier.gitbook.io/cler)
+Full list of commands in [Documentation](https://rawier.gitbook.io/cler)
 
-Estructura y Diagramación en Repositorio de [Github](https://github.com/Rawierdt/Cler)
+Structure and Diagramming in [Github](https://github.com/Rawierdt/Cler) Repository
 
 ## Admin / Mod
 
-* `/mute  <@member> <reason>` Silencia al miembro etiquetado.
-* `/unmute  <@member> <reason>` Quita el Silenco del miembro etiquetado.
-* `/set_mute  <@rol>` Define el rol de Mute en el servidor **Importante**.
-* `/ban <@member> <reason>` Expulsa del servidor de manera difinitiva al miembro etiquetado.
-* `/unban <@member>` Revoca la prohibición del comando anterior.
-* `/kick <@member> <reason>` Expulsa del servidor al miembro etiquetado.
-* `/softban <@member> <reason>` Expulsa del servidor al miembro etiquetado de manera temporal por 7 dias.
-* `/warn <@member> <reason>` Notifica al miembro seleccionado
+* `/mute  <@member> <reason>` Mutes the tagged member.
+* `/unmute  <@member> <reason>` Unmutes the tagged member.
+* `/set_mute  <@rol>` Defines the Mute role on the server **Important**.
+* `/ban <@member> <reason>` Permanently bans the tagged member from the server.
+* `/unban <@member>` Revokes the ban from the previous command.
+* `/kick <@member> <reason>` Kicks the tagged member from the server.
+* `/softban <@member> <reason>` Temporarily kicks the tagged member from the server for 7 days.
+* `/warn <@member> <reason>` Warns the selected member
 
-Lista completa de comandos en [Documentación](https://rawier.gitbook.io/cler)
+Full list of commands in [Documentation](https://rawier.gitbook.io/cler)
 
-### Comandos contextuales
+### Contextual commands
 
-* `Ver Avatar` Envia el avatar de un usuario Gif / Imagen.
+* `View Avatar` Sends a user's avatar Gif / Image.
 
-Lista completa de comandos en [Documentación](https://rawier.gitbook.io/cler)
+Full list of commands in [Documentation](https://rawier.gitbook.io/cler)
 
 ---
 
-### COMMAND WARN SLASH Y PREFIX
+### COMMAND WARN SLASH AND PREFIX
 
 ```javascript
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 const db = require('megadb');
-const warnDB = new db.crearDB('warnings'); // Usar crearDB para inicializar la base de datos
+const warnDB = new db.crearDB('warnings'); // Use crearDB to initialize the database
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('warn')
-    .setDescription('Advierte a un miembro del servidor.')
+    .setDescription('Warns a server member.')
     .addUserOption(option =>
       option.setName('user')
-        .setDescription('El usuario que deseas advertir')
+        .setDescription('The user you want to warn')
         .setRequired(true))
     .addStringOption(option =>
       option.setName('reason')
-        .setDescription('Razón de la advertencia')
+        .setDescription('Reason for the warning')
         .setRequired(false))
-    .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers), // Permisos de advertencia
+    .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers), // Warning permissions
 
-  name: 'warn', // Nombre para comandos con prefijo
-  description: 'Advierte a un miembro del servidor.',
+  name: 'warn', // Name for commands with prefix
+  description: 'Warns a server member.',
   
   async executeSlash(interaction) {
     const member = interaction.options.getMember('user');
-    const reason = interaction.options.getString('reason') || 'No se proporcionó razón.';
+    const reason = interaction.options.getString('reason') || 'No reason provided.';
     await this.warnMember(interaction, member, reason);
   },
   
   async executePrefix(message, args) {
     const member = message.mentions.members.first();
-    const reason = args.slice(1).join(' ') || 'No se proporcionó razón.';
+    const reason = args.slice(1).join(' ') || 'No reason provided.';
     if (!member) {
-      //<a:denyxbox:1287542408082358292> son emojis globales, subidos desde discord dev portal
-      return message.reply('<a:denyxbox:1287542408082358292> | Por favor menciona a un usuario válido.');
+      //<a:denyxbox:1287542408082358292> are global emojis, uploaded from discord dev portal
+      return message.reply('<a:denyxbox:1287542408082358292> | Please mention a valid user.');
     }
     await this.warnMember(message, member, reason);
   },
@@ -152,24 +152,24 @@ module.exports = {
   async warnMember(context, member, reason) {
     const isInteraction = !!context.isCommand;
 
-    // Verificar si tiene permisos de advertencia (solo en prefijos)
+    // Check if it has warning permissions (only in prefixes)
     if (!isInteraction && !context.member.permissions.has('MODERATE_MEMBERS')) {
-      return context.reply({ content: '<:win11erroicon:1287543137505378324> | No tienes permiso para advertir miembros.', ephemeral: true });
+      return context.reply({ content: '<:win11erroicon:1287543137505378324> | You do not have permission to warn members.', ephemeral: true });
     }
 
     if (!member) {
-      return context.reply({ content: '<:440warning:1287542257985126501> | Por favor selecciona a un miembro válido.', ephemeral: true });
+      return context.reply({ content: '<:440warning:1287542257985126501> | Please select a valid member.', ephemeral: true });
     }
 
     try {
-      // Intentar enviar un mensaje directo al usuario
+      // Try to send a direct message to the user
       try {
-        await member.send(`<a:1302moderatorprogramsalumnia:1287542225399709737> Has recibido una advertencia en el servidor ${context.guild.name} por ${context.user.tag}. Razón: ${reason}`);
+        await member.send(`<a:1302moderatorprogramsalumnia:1287542225399709737> You have received a warning on the server ${context.guild.name} by ${context.user.tag}. Reason: ${reason}`);
       } catch (error) {
-        console.log(`[LOG] No se pudo enviar un mensaje directo a ${member.user.tag}.`);
+        console.log(`[LOG] Could not send a direct message to ${member.user.tag}.`);
       }
 
-      // Registrar advertencia en MegaDB
+      // Register warning in MegaDB
       if (!await warnDB.has(`warnings.${member.id}`)) {
         await warnDB.set(`warnings.${member.id}`, []);
       }
@@ -179,36 +179,36 @@ module.exports = {
         timestamp: new Date().toISOString() 
       });
 
-      // Crear embed para notificar al canal
+      // Create embed to notify the channel
       const warnEmbed = new EmbedBuilder()
-        .setColor(0xffff00) // Amarillo
-        .setTitle('<a:1302moderatorprogramsalumnia:1287542225399709737> **ADVERTENCIA**')
-        .setDescription(`${member.user.tag} ha recibido una advertencia.`)
+        .setColor(0xffff00) // Yellow
+        .setTitle('<a:1302moderatorprogramsalumnia:1287542225399709737> **WARNING**')
+        .setDescription(`${member.user.tag} has received a warning.`)
         .addFields(
-          { name: '<a:9755discordstaffanimated:1287542237571321896> Moderador', value: `${context.user.tag}`, inline: true },
-          { name: '<:discordcopyid:1287542182080679997> Miembro', value: `${member.user.tag}`, inline: true },
-          { name: '<:discordeditprofile:1287542190926467094> Razón', value: reason, inline: false }
+          { name: '<a:9755discordstaffanimated:1287542237571321896> Moderator', value: `${context.user.tag}`, inline: true },
+          { name: '<:discordcopyid:1287542182080679997> Member', value: `${member.user.tag}`, inline: true },
+          { name: '<:discordeditprofile:1287542190926467094> Reason', value: reason, inline: false }
         )
         .setThumbnail(member.user.displayAvatarURL())
         .setTimestamp()
-        .setFooter({ text: 'Advertencia registrada', iconURL: context.user.displayAvatarURL() });
+        .setFooter({ text: 'Warning registered', iconURL: context.user.displayAvatarURL() });
 
-      // Enviar el embed como respuesta
+      // Send the embed as a response
       await context.reply({ embeds: [warnEmbed] });
 
-      // Log en consola
-      console.log(`[LOG] ${context.user.tag} ha advertido a ${member.user.tag} en ${context.guild.name}`);
+      // Log in console
+      console.log(`[LOG] ${context.user.tag} has warned ${member.user.tag} in ${context.guild.name}`);
     } catch (error) {
       console.error(error);
-      context.reply({ content: 'Hubo un error al advertir a este miembro.', ephemeral: true });
+      context.reply({ content: 'There was an error warning this member.', ephemeral: true });
     }
   },
 };
 ```
 
-El apartado o modulo más complejo es el index.js, pero debido a que es muy largo no pienso ponerlo, recomiendo revisar el github del proyecto.
+The most complex part or module is index.js, but since it is very long I am not going to put it, I recommend checking the project's github.
 
-Pero en resumen el proyecto lo revivi, si lo abandono de nuevo es porque me aburri jajaja, asi que ahora tiene mas comandos y tiene una funcion de guardar, a si, lo aloje en un intel celeron con poca ram, de igual forma en otro blog daré las caracteristicas del NAS y de la PC.
+But in summary I revived the project, if I abandon it again it is because I got bored hahaha, so now it has more commands and has a save function, oh, I hosted it on an intel celeron with little ram, likewise in another blog I will give the characteristics of the NAS and the PC.
 
 ---
 
@@ -216,23 +216,23 @@ Pero en resumen el proyecto lo revivi, si lo abandono de nuevo es porque me abur
 
 Contributions, issues and feature requests are welcome! Feel free to check issues page.
 
-1. **Haz un Fork del Repositorio**: Crea una copia del repositorio en tu cuenta de GitHub.
-2. **Crea una Rama**:
+1. **Fork the Repository**: Create a copy of the repository in your GitHub account.
+2. **Create a Branch**:
 
     ```bash
-    git checkout -b nombre-de-tu-rama
+    git checkout -b your-branch-name
     ```
 
-3. **Haz tus Cambios**: Realiza las modificaciones que deseas agregar.
-4. **Commit y Push**:
+3. **Make your Changes**: Make the modifications you want to add.
+4. **Commit and Push**:
 
     ```bash
     git add .
-    git commit -m "Descripción de los cambios"
-    git push origin nombre-de-tu-rama
+    git commit -m "Description of the changes"
+    git push origin your-branch-name
     ```
 
-5. **Crea un Pull Request**: Abre un Pull Request desde tu rama a la rama principal del repositorio.
+5. **Create a Pull Request**: Open a Pull Request from your branch to the main branch of the repository.
 
 ### ❤️ Show your support
 

@@ -1,90 +1,90 @@
 ---
-title: "[🇪🇸] Fundamentos Ciberseguridad 1"
-excerpt: "¿Qué es la Ciberseguridad?"
+title: "Cybersecurity Fundamentals 1"
+excerpt: "What is Cybersecurity?"
 date: "Nov 08 2022"
 cover_image: "/blog/cibersec.webp"
 tags1: "Helpdesk"
 tags2: "Hacking"
 ---
 
-# Fundamentos Ciberseguridad Pt 1.
+# Cybersecurity Fundamentals Pt 1.
 
 &nbsp;
 
-Te recomiendo ir al Cheatsheet para una versión mas dinamica y divertida de aprender estos terminos.
-[Click para encontrar el Cheatsheet Completo](https://rawier.gitbook.io/glosario-de-hacking-ciberseguridad-y-redes/)
+I recommend you go to the Cheatsheet for a more dynamic and fun version of learning these terms.
+[Click to find the Complete Cheatsheet](https://rawier.gitbook.io/glosario-de-hacking-ciberseguridad-y-redes/)
 
 &nbsp;
 
-🔮 Ciberespacio: Es el entorno resultante de la interacción de personas, software y servicios en internet, el cual esta respaldado por las tecnologias de información y comunicación.
+🔮 Cyberspace: It is the environment resulting from the interaction of people, software, and services on the internet, which is supported by information and communication technologies.
 
 &nbsp;
 
-🛡 Partes interesadas: Se divide en 2.
+🛡 Stakeholders: It is divided into 2.
 
-* 🔹 Consumidores: Hacen uso de servicios dispuestos en el ciberespacio, Las personas y organizaciónes forman parte de esta.
-* 🔹 Proveedores: Ponen a disposicion servicios para ser utilizados por los consumidores, como servicios de conectividad y de acceso a aplicaciones.
-
-&nbsp;
-
-💿 Activos: Los principares activos se dividen en 4
-
-* 🔹 Activos Organizacionles: Involucran a componentes importantes oara los procesos de negocios de las organizaciones como servidores, aplicaciones, entre otras.
-* 🔹 Activos Personales: Involucran a componentes importantes para las personas en su interación con el ciberespacio (dispositivos móviles, correo electronico, etc)
-* 🔹 Activos Fisicos: Involulcran a componentes aue poseen presencia fisica en la realidad como servidores, dispositivos móviles, etc.
-* 🔹 Activos Virtuales: Involucran a componentes únicamente digitales y dependern de un Activo Fisico que los ejecute.
+* 🔹 Consumers: They make use of services available in cyberspace. People and organizations are part of this.
+* 🔹 Providers: They make services available to be used by consumers, such as connectivity services and access to applications.
 
 &nbsp;
 
-🍘 Seguridad de la información:  Se refiere a la protección de la informatción y los sistemas de información contra el acceso, uso, divulgación, interrupción, modificación o destrucción no autorizados para proporcionar confidencialidad, integridad y disponibilidad.
+💿 Assets: The main assets are divided into 4
+
+* 🔹 Organizational Assets: They involve important components for the business processes of organizations such as servers, applications, among others.
+* 🔹 Personal Assets: They involve important components for people in their interaction with cyberspace (mobile devices, email, etc.)
+* 🔹 Physical Assets: They involve components that have a physical presence in reality such as servers, mobile devices, etc.
+* 🔹 Virtual Assets: They involve components that are only digital and depend on a Physical Asset that executes them.
 
 &nbsp;
 
-🔑 Los 3 Pilares de la Seguridad: Triada CID (CIA): Definen aspectos funcamentales de protección de la información cuya afectación implica un problema de seguridad.
-
-* 🔹 Confidencialidad (Confidentiality): Busca prevenir la divulgación y acceso no autorizado a la información confidencial de la organización.
-* 🔹 Disponibilidad (Availability): Vusca que el acceso a la información no sea degradada y se mantenga accesible cuando se requiera.
-* 🔹 Integridad (Integrity): Busca que la información se mantenga inalterada ante accidentes o intentos maliciosos de modificación.
+🍘 Information Security: It refers to the protection of information and information systems against unauthorized access, use, disclosure, interruption, modification, or destruction to provide confidentiality, integrity, and availability.
 
 &nbsp;
 
-🍘 Ciberseguridad: Es la capacidad de proteger o defender el uso del ciberespacio de los ciberataques y garantizar que se alcancen y mantengan los objetivos de seguridad. La ciberseguridad es parte de la seguridad de la información.
+🔑 The 3 Pillars of Security: CID Triad (CIA): They define fundamental aspects of information protection whose affectation implies a security problem.
+
+* 🔹 Confidentiality: It seeks to prevent the unauthorized disclosure and access to the confidential information of the organization.
+* 🔹 Availability: It seeks that access to information is not degraded and remains accessible when required.
+* 🔹 Integrity: It seeks that the information remains unaltered in the face of accidents or malicious attempts at modification.
 
 &nbsp;
 
-🐙 Agentes de amenaza: Actor o ente capaz de desencadenar o ejecutar potencialmente un ciberataque o inceidente de seguridad.
+🍘 Cybersecurity: It is the ability to protect or defend the use of cyberspace from cyberattacks and ensure that security objectives are achieved and maintained. Cybersecurity is part of information security.
 
-* 🔹 Cbercriminales
-* 🔹 Hacktivistas
-* 🔹 Ciberterroristas
+&nbsp;
+
+🐙 Threat Agents: Actor or entity capable of potentially triggering or executing a cyberattack or security incident.
+
+* 🔹 Cybercriminals
+* 🔹 Hacktivists
+* 🔹 Cyberterrorists
 * 🔹 Script kiddies
-* 🔹 Insiders/Atacantes internos
-* 🔹 Estados o naciones
-* 🔹 Corporaciones u otras empresas
+* 🔹 Insiders/Internal attackers
+* 🔹 States or nations
+* 🔹 Corporations or other companies
 
 &nbsp;
 
-🐙 Amenazas.: Evento con potencial de afectar negativamente a los actvos con respecto a los 3 pilares  de la seguridad.
+🐙 Threats.: Event with the potential to negatively affect assets with respect to the 3 pillars of security.
 
-* 🔹 Amenazas a los grupos organizacionales.
-* 🔹 Amenazas a los activos personales.
-
-&nbsp;
-
-👿 Vulnerabilidad: Debilidad o fallo en un sistema que pone en compromiso su seguridad.
+* 🔹 Threats to organizational groups.
+* 🔹 Threats to personal assets.
 
 &nbsp;
 
-💀 Riesgo: Medida calculada metodológicamente fruto de la probabilidad e impacto de la materialización de un evento de ciberseguridad adverso.
+👿 Vulnerability: Weakness or failure in a system that compromises its security.
 
 &nbsp;
 
-🤖 Control: Acción tomada por las organizaciones para abordar un riesgo y reducirlo hasta un punto aceptable.
+💀 Risk: Methodologically calculated measure resulting from the probability and impact of the materialization of an adverse cybersecurity event.
 
 &nbsp;
 
-* Acceso a mi [Sitio Web](https://Rawier.vercel.app/es/blog/)
+🤖 Control: Action taken by organizations to address a risk and reduce it to an acceptable point.
 
-## Gracias por leer la parte 1
+&nbsp;
+
+* Access to my [Website](https://Rawier.vercel.app/es/blog/)
+
+## Thanks for reading part 1
 
 Rawier.

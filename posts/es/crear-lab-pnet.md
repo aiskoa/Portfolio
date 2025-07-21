@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] Creación de Laboratorio PNET"
+title: "Creación de Laboratorio PNET"
 excerpt: "Exploraremos PNET!"
 date: "Mar 1 2025"
 cover_image: "/blog/pnet.webp"

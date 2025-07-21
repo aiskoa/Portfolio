@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] Fundamentos Ciberseguridad 3"
+title: "Fundamentos Ciberseguridad 3"
 excerpt: "Exploraremos la Criptografia 🔑!"
 date: "Nov 15 2024"
 cover_image: "/blog/cibersec.webp"

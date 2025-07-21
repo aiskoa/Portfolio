@@ -1,6 +1,6 @@
 ---
-title: "[🇺🇸] Casa de los Comics Store"
-excerpt: "Comics, manga and merchandising store with Laravel!"
+title: "Tienda Casa de los Comics"
+excerpt: "¡Tienda de cómics, manga y merchandising con Laravel!"
 date: "Oct 14 2021"
 cover_image: "/blog/lalaravel.webp"
 alt: "La Casa de los Comics"
@@ -12,43 +12,43 @@ tags2: "SQL"
 
 ![imageTitle](https://i.ibb.co/f4TJcSD/casacomics.png)
 
-## Laravel, PHP and MySQL
+## Laravel, PHP y MySQL
 
-Online store made in Laravel and Braintree for Paypal payments.
+Tienda online realizada en Laravel y Braintree para pagos con Paypal.
 
 ![StoreGIF](https://i.imgur.com/GaOgDrE.gif)
 
-### Features
+### Características
 
-Products, Payment, Cart, Orders, Checkout, Payment, Admin panel, Paypal, Mastercard or Visa.
+Productos, Pago, Carrito, Pedidos, Checkout, Panel de administración, Paypal, Mastercard o Visa.
 
-## 📦 Products
+## 📦 Productos
 
 ![Products](https://i.imgur.com/wAEz6UJ.jpg)
 
 ![Product](https://i.imgur.com/3omPNj5.jpg)
 
-## 🛒 Cart
+## 🛒 Carrito
 
 ![Cart](https://i.imgur.com/0Pu4B4U.jpg)
 
-## ℹ️ Register
+## ℹ️ Registro
 
 ![Cart](https://i.imgur.com/ZGpxdHz.jpeg)
 
-## 💁 About
+## 💁 Acerca de
 
 ![Cart](https://i.imgur.com/uovdT1p.jpeg)
 
 ---
 
-Tables are loaded from the database named dbventascc into phpmyadmin.
+Las tablas se cargan desde la base de datos llamada dbventascc en phpmyadmin.
 
-## 🏨 Databases
+## 🏨 Bases de datos
 
 ![Cart](https://i.imgur.com/Abyk012.jpeg)
 
-### Admins Table
+### Tabla de Administradores
 
 ```sql
 -- --------------------------------------------------------
@@ -79,7 +79,7 @@ INSERT INTO `admins` (`id`, `name`, `email`, `password`, `remember_token`, `crea
 -- --------------------------------------------------------
 ```
 
-### Payments Table
+### Tabla de Pagos
 
 ```php
 <?php
@@ -108,11 +108,11 @@ require_once __DIR__.'/public/index.php';
 
 ---
 
-### 💻 Console
+### 💻 Consola
 
 ![Console](https://i.imgur.com/mdeSN2n.jpeg)
 
-### Hashing Functions for passwords
+### Funciones de Hashing para contraseñas
 
 ```sql
 <?php
@@ -171,36 +171,36 @@ return [
 
 ---
 
-CRUD functions are available in the `App\Http\Controllers\AdminController` class.
+Las funciones CRUD están disponibles en la clase `App\Http\Controllers\AdminController`.
 
 ### 🍏 Panel / Dashboard
 
 ![Panel](https://i.imgur.com/tjP4fUK.jpeg)
 
-### Inform creator (EXCEL, XML or CSV)
+### Creador de informes (EXCEL, XML o CSV)
 
 ![Informer creator](https://i.imgur.com/CEHGtaz.jpeg)
 
-### Create and update a client or employee
+### Crear y actualizar un cliente o empleado
 
 ![Update client](https://i.imgur.com/Uqew5jR.jpeg)
 
-### Category list
+### Lista de categorías
 
 ![Category](https://i.imgur.com/VCgfsgQ.jpeg)
 
-### Index page
+### Página de índice
 
 ![index](https://i.imgur.com/SWrm6qw.jpeg)
 
 ---
 
-### ⬇ Download
+### ⬇ Descargar
 
-The project is deprecated and i will not continue to develop it, but you can download it and solve the bugs.
+El proyecto está obsoleto y no continuaré desarrollándolo, pero puedes descargarlo y solucionar los errores.
 
-[Download](https://www.mediafire.com/file/o1mz1wkf2cuq6nt/CC.zip/file)
+[Descargar](https://www.mediafire.com/file/o1mz1wkf2cuq6nt/CC.zip/file)
 
-### 📝 License
+### 📝 Licencia
 
 Copyright © 2024 [Rawier](https://rawier.vercel.app).

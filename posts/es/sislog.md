@@ -1,6 +1,6 @@
 ---
-title: "[🇺🇸] SISLOG Forensic Tool"
-excerpt: "Forensic Tool to generate reports and logs"
+title: "SISLOG Herramienta Forense"
+excerpt: "Herramienta Forense para generar informes y registros"
 date: "Apr 30 2023"
 cover_image: "/blog/sislog.webp"
 tags1: "Python"
@@ -11,49 +11,49 @@ tags2: "Tools"
 
 # SISLOG
 
-## Create logs, reports, issues and more.
-Windows 8/10/11 and Linux forensic tool to generate logs about installed programs, NetBios connections, ARP cache, DNS, processes, network, WIFI, services, computer modifications, scheduled tasks, mapped drives and more, all written in Python and output as TXT files.
+## Crea registros, informes, problemas y más.
+Herramienta forense para Windows 8/10/11 y Linux para generar registros sobre programas instalados, conexiones NetBios, caché ARP, DNS, procesos, red, WIFI, servicios, modificaciones de computadora, tareas programadas, unidades mapeadas y más, todo escrito en Python y con salida como archivos TXT.
 
-> You need administrator privileges to avoid bugs with the txt creation.
+> Necesitas privilegios de administrador para evitar errores con la creación de txt.
 
-I invite anyone to make modifications to this repository and improve the program for various operating systems regardless of their architecture or distribution.
+Invito a cualquiera a realizar modificaciones en este repositorio y mejorar el programa para varios sistemas operativos, independientemente de su arquitectura o distribución.
 
 ![IMG](https://i.imgur.com/3Pw9O4u.png)
 
 
-### Features
+### Características
 
-Encrypt and decrypt your files and folders with AES, for any file, jpg, png, mp4, mp3, docx, pdf, etc... 
+Cifra y descifra tus archivos y carpetas con AES, para cualquier archivo, jpg, png, mp4, mp3, docx, pdf, etc...
 
-### Why GIE?
+### ¿Por qué GIE?
 
-GIE is the name of my first girldfriend (JK 😂), GIE is the acronym of **G**entle, **I**ntelligent and **E**asy file encryption.
+GIE es el nombre de mi primera novia (es broma 😂), GIE es el acrónimo de cifrado de archivos **G**entil, **I**nteligente y **F**ácil.
 
-## 📦 Requirements
+## 📦 Requisitos
 
-- **[Python](https://www.python.org/downloads/)**, (not necessary).
+- **[Python](https://www.python.org/downloads/)**, (no es necesario).
 
-## 💻 Installation
+## 💻 Instalación
 
-Execute the commands according to your case
+Ejecuta los comandos según tu caso
 
-Run the project
+Ejecuta el proyecto
 
 ```batch
 python setup.py
 ```
 
-Then (or)
+Luego (o)
 
 ```batch
 python main.py
 ```
 
-Excecute **SISLOG.exe** file.
+Ejecuta el archivo **SISLOG.exe**.
 
 ---
 
-### VIEW DNS CACHE FUCTION
+### FUNCIÓN DE CACHÉ DNS
 
 ```python
 # Función para mostrar la cache dns.
@@ -62,7 +62,7 @@ def get_dns_cache():
     return dns_cache
 ```
 
-### VIEW RUNNING TASK AND PROCESS FUCTION
+### FUNCIÓN DE TAREAS Y PROCESOS EN EJECUCIÓN
 
 ```python
 # Función para ver los procesos ejecutandose al momento.
@@ -91,26 +91,26 @@ def get_running_services():
 
 ---
 
-### Output TXT Example
+### Ejemplo de salida TXT
 
 ![IMG](https://i.ibb.co/cx4bMw6/SisLog-2.jpg)
 
-### Download
+### Descargar
 
 `git clone git@github.com:Rawierdt/SisLog.git`
 
-[⬇️ Check the latest release ⬇️](https://github.com/Rawierdt/SisLog/releases/tag/SISLOG)
+[⬇️ Ver la última versión ⬇️](https://github.com/Rawierdt/SisLog/releases/tag/SISLOG)
 
-### 🤝 Contributing
+### 🤝 Contribuyendo
 
-Contributions, issues and feature requests are welcome! Feel free to check issues page.
+¡Las contribuciones, los problemas y las solicitudes de características son bienvenidos! Siéntete libre de consultar la página de problemas.
 
-### 💜 Show your support
+### 💜 Muestra tu apoyo
 
-Give a ⭐️ if this _project helped you!_ 
+¡Da una ⭐️ si este proyecto te ayudó! 
 
-### 📝 License
+### 📝 Licencia
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app). This project is [MIT](/LICENSE) licensed.
+Copyright © 2024 [Rawier](https://rawier.vercel.app). Este proyecto tiene licencia [MIT](/LICENSE).
 
 ---

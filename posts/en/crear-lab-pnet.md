@@ -1,14 +1,14 @@
 ---
-title: "[🇪🇸] Creación de Laboratorio PNET"
-excerpt: "Exploraremos PNET!"
+title: "PNET Lab Creation"
+excerpt: "We will explore PNET!"
 date: "Mar 1 2025"
 cover_image: "/blog/pnet.webp"
-alt: "Cibersec 4"
+alt: "Cybersec 4"
 tags1: "Helpdesk"
 tags2: "Hacking"
 ---
 
-# Fundamentos Ciberseguridad (Parte 4)
+# Cybersecurity Fundamentals (Part 4)
 
 &nbsp;
 
@@ -16,154 +16,154 @@ tags2: "Hacking"
 
 &nbsp;
 
-Te mostraré como montar un laboratorio para pruebas en redes con PNET Lab desde Windows, usando VMware.
+I will show you how to set up a lab for network testing with PNET Lab from Windows, using VMware.
 
-**IMPORTANTE** tener instalado VMware Workstation o VMware Player, SSH (Si aún lo tienes), FTP (Filezilla o WinSCP),
+**IMPORTANT** to have VMware Workstation or VMware Player installed, SSH (if you still have it), FTP (Filezilla or WinSCP),
 
-Firefox o Navegador Web que soporte HTML5, suficiente espacio en el disco duro conexión a interne y memoria ram de al menos 8GB.
+Firefox or a web browser that supports HTML5, enough space on the hard drive, an internet connection, and at least 8GB of RAM.
 
-## ¿Qué es PNET?
+## What is PNET?
 
-Es una plataforma diseñada para crear y gestionar entornos de simulación de redes.
+It is a platform designed to create and manage network simulation environments.
 
-PNET Lab se diferencia de otros emuladores en que permite la instalación y configuración de software de red real en las MV creadas,
+PNET Lab differs from other emulators in that it allows the installation and configuration of real network software on the created VMs,
 
-ofreciendo una experiencia más realista y cercana a un entorno de red real.
+offering a more realistic experience closer to a real network environment.
 
-## ¿Qué es Eve-ng?
+## What is Eve-ng?
 
-Es un emulador que permite a los usuarios crear y simular entornos de red complejos. Es una herramienta ideal para la enseñanza y
+It is an emulator that allows users to create and simulate complex network environments. It is an ideal tool for teaching and
 
-el aprendizaje de redes, ya que permite a los estudiantes experimentar con diferentes
+learning networking, as it allows students to experiment with different
 
-configuraciones de red y protocolos sin necesidad de hardware físico.
+network configurations and protocols without the need for physical hardware.
 
 &nbsp;
 
-### Cisco Packet Tracer: Simula redes basadas en dispositivos Cisco
+### Cisco Packet Tracer: Simulates networks based on Cisco devices
 
-VENTAJAS:  
+ADVANTAGES:  
 
-- Es ideal para principiantes, con una interfaz intuitiva y fácil de configurar.  
-- Está diseñado para alinearse con los programas como CCNA y CCNP.  
-- No necesitas un equipo potente para ejecutarlo.  
-- Si estás inscrito en Cisco Networking Academy.
+- It is ideal for beginners, with an intuitive and easy-to-configure interface.  
+- It is designed to align with programs like CCNA and CCNP.  
+- You don't need a powerful computer to run it.  
+- If you are enrolled in the Cisco Networking Academy.
 
-DESVENTAJAS:  
+DISADVANTAGES:  
 
-- No incluye dispositivos de otros fabricantes.  
-- Las funcionalidades avanzadas, como configurar dispositivos reales, son limitadas.  
-- No soporta virtualización de imágenes reales de dispositivos (como IOSv).
+- It does not include devices from other manufacturers.  
+- Advanced functionalities, such as configuring real devices, are limited.  
+- It does not support virtualization of real device images (like IOSv).
 
-### PNETLab: Emular redes complejas con imágenes reales de dispositivos
+### PNETLab: Emulate complex networks with real device images
 
-VENTAJAS:  
+ADVANTAGES:  
 
-- Puedes emular dispositivos de Juniper, Palo Alto, Fortinet, entre otros.  
-- Usa imágenes reales de sistemas operativos (IOSv, ASA) para simular dispositivos reales.  
-- Puedes crear topologías más complejas y realistas para entornos empresariales.  
-- Ideal para certificaciones avanzadas como CCNP, CCIE o pruebas en redes heterogéneas.
+- You can emulate devices from Juniper, Palo Alto, Fortinet, among others.  
+- It uses real operating system images (IOSv, ASA) to simulate real devices.  
+- You can create more complex and realistic topologies for business environments.  
+- Ideal for advanced certifications such as CCNP, CCIE, or testing in heterogeneous networks.
 
-DESVENTAJAS:  
+DISADVANTAGES:  
 
-- Requiere una máquina más potente con suficiente RAM y CPU.  
-- No es tan amigable para principiantes.  
-- Necesitas conseguir las imágenes de los dispositivos, lo que puede ser más complicado.
+- It requires a more powerful machine with enough RAM and CPU.  
+- It is not as friendly for beginners.  
+- You need to get the device images, which can be more complicated.
 
 ## CISCO PT vs PNET LAB
 
-- Para principiantes o estudiantes de CCNA, Cisco Packet Tracer es suficiente para aprender conceptos básicos y usar dispositivos Cisco.  
-- Para entornos avanzados (CCNP, CCIE o redes heterogéneas), PNETLab es ideal por su soporte para imágenes reales y múltiples fabricantes.
+- For beginners or CCNA students, Cisco Packet Tracer is sufficient to learn basic concepts and use Cisco devices.  
+- For advanced environments (CCNP, CCIE, or heterogeneous networks), PNETLab is ideal for its support for real images and multiple manufacturers.
 
-### Beneficios de un Laboratorio
+### Benefits of a Laboratory
 
-- 💫 **Entorno seguro:** Permiten probar nuevas configuraciones y tecnologías sin afectar la red real
-- 💫 **Flexibilidad:** Ofrecen la posibilidad de crear una amplia gama de topologías de red y escenarios de prueba
-- 💫 **Escalabilidad:** Permiten escalar las redes virtuales a gran tamaño para probar su rendimiento y confiabilidad.
-- 💫 **Rentabilidad:** Son una alternativa económica a la creación de redes físicas para pruebas y entrenamiento
+- 💫 **Secure environment:** They allow testing new configurations and technologies without affecting the real network
+- 💫 **Flexibility:** They offer the possibility of creating a wide range of network topologies and test scenarios
+- 💫 **Scalability:** They allow scaling virtual networks to a large size to test their performance and reliability.
+- 💫 **Cost-effectiveness:** They are an economical alternative to creating physical networks for testing and training
 
-Es necesario contar con VMware Workstation o VirtualBox para la creación de las MVs y contar con espacio suficiente.
+It is necessary to have VMware Workstation or VirtualBox for the creation of the VMs and to have enough space.
 
-## Preparación de Ambiente de Pruebas
+## Preparation of the Test Environment
 
-| Nombre | Descripción |
+| Name | Description |
 | --|--|
-| 🐦 **VMware Workstation** | [LINK A VMWARE](https://www.vmware.com/) |
-| 🐦 **PNET Lab** | [LINK A PNET](https://pnetlab.com/pages/download) |
-| 🐦 **Windows Client Side Eve-ng** | [LINK A EVE-NG](https://www.eve-ng.net/index.php/download/) |
-| 🐦 **Kali Linux** | [LINK A KALI](https://www.kali.org/get-kali/#kali-platforms) |
-| 🐦 **UNET LAB DRIVE** | [LINK A UNET LAB](https://drive.labhub.eu.org/) |
-| 🐦 **DOCS** | [LINK A DOCUMENTACIÓN](https://www.eve-ng.net/index.php/documentation/) |
+| 🐦 **VMware Workstation** | [LINK TO VMWARE](https://www.vmware.com/) |
+| 🐦 **PNET Lab** | [LINK TO PNET](https://pnetlab.com/pages/download) |
+| 🐦 **Windows Client Side Eve-ng** | [LINK TO EVE-NG](https://www.eve-ng.net/index.php/download/) |
+| 🐦 **Kali Linux** | [LINK TO KALI](https://www.kali.org/get-kali/#kali-platforms) |
+| 🐦 **UNET LAB DRIVE** | [LINK TO UNET LAB](https://drive.labhub.eu.org/) |
+| 🐦 **DOCS** | [LINK TO DOCUMENTATION](https://www.eve-ng.net/index.php/documentation/) |
 
 &nbsp;
 
-## Paso 1: Instalación de PNET
+## Step 1: PNET Installation
 
-Descarga la maquina PNET en el sitio oficial, deberás obtener un **.OVA** que procederas a montar en VMware. Hasta este momento el archivo se llama PNET_4.2.10.ova.
+Download the PNET machine from the official site, you should get a **.OVA** that you will proceed to mount in VMware. At this time the file is called PNET_4.2.10.ova.
 
-Una vez descargado y montado en  deberás activar la virtualización anidada como se muestra en la imagen.
+Once downloaded and mounted in you must activate nested virtualization as shown in the image.
 
 ![VMWARE](https://pnetlab.com/api/uploader/public/read?file=https://pnetlab.com/Local/pages/page_content/1/image_7.png)
 
-Una vez hecho eso enciende la maquina, en ella verás solo la terminal, coloca el usuario **root** y la contraseña **pnet**.
+Once that is done, turn on the machine, in it you will only see the terminal, enter the user **root** and the password **pnet**.
 
-Esto te llevará a la pantalla de configuración, coloca un password que desees, en dominio
+This will take you to the configuration screen, enter a password you want, in domain
 
-no importa (a menos que tengas uno y quieras usarlo), seleccionas IP Estatica, y finalmente el servidor horario, esto reiniciará la maquina.
+it does not matter (unless you have one and want to use it), you select Static IP, and finally the time server, this will restart the machine.
 
-Ahora en la IP que se muestra en la pantalla de PNET colocala en tu navegador de Windows:
-Selecciona la opción ONline.
-Te mostrará la pantalla de login, en ella deberás crearte una cuenta. PNET te redigirá para crear una cuenta.
+Now in the IP that is shown on the PNET screen, enter it in your Windows browser:
+Select the ONline option.
+It will show you the login screen, in it you must create an account. PNET will redirect you to create an account.
 
-Una vez la crees vuelves a la pantalla de login de la IP dada por PNET en VMware.
+Once you create it, you return to the login screen of the IP given by PNET in VMware.
 
 ![INICIOSE](https://i.ibb.co/27MzqwG4/Captura-de-pantalla-2025-03-02-172943.png)
 
-Al iniciar sesión selecciona **Console**.
-El navegador mostrará un mensaje de alerta al enviar la información, nosotros diremos que enviar de todas formas ya que es hosteada por nosotros mismos.
+When logging in, select **Console**.
+The browser will show an alert message when sending the information, we will say to send it anyway since it is hosted by ourselves.
 
-Al entrar verás algo como esto:
+When you enter you will see something like this:
 
 ![PLA2](https://i.ibb.co/whNNfmCC/pla2.png)
 
-Aqui se crearán los laboratorios, podras monitorear el estado de la maquina y más cosas.
-Antes de crear un laboratorio te mostraré el siguiente paso.
+Here the laboratories will be created, you will be able to monitor the status of the machine and more things.
+Before creating a laboratory I will show you the next step.
 
-## Paso 2: Instalación de Complementos
+## Step 2: Installation of Add-ons
 
-En la pagina de Eve-ng descargaremos el Windows Client Side.
+On the Eve-ng page we will download the Windows Client Side.
 
 ![EVE-NG](https://i.ibb.co/CKDLrdYv/Pla3.png)
 
-Este es un pack de herramientas, en este pack se encuentra Wireshark, PUTTY, VNC y más, estan algo viejas las versiones pero son de utilidad.
+This is a pack of tools, in this pack you will find Wireshark, PUTTY, VNC and more, the versions are a bit old but they are useful.
 
-Tambien puedes descargar las herramientas por separado.
+You can also download the tools separately.
 
-**IMPORTANTE** Instalar VNC y Wireshark en disco C:\
+**IMPORTANT** Install VNC and Wireshark on the C:\ drive
 
-## Paso 3: Instalación de addons
+## Step 3: Installation of addons
 
-Ahora instalaremos addons necesarios, pnet se maneja similar a minecraft osea le añadiremos mods.
+Now we will install the necessary addons, pnet is handled similarly to minecraft, that is, we will add mods to it.
 
-Instalaremos un Mikrotik RouterOS.
+We will install a Mikrotik RouterOS.
 
-Una forma sencilla de descargar imagenes es usar el comando ishare.
+A simple way to download images is to use the ishare command.
 
-Nota: ishare en Pnet esta obsoleto por lo que usaremos ishare2 para ello ejecutaremos el siguiente
+Note: ishare in Pnet is obsolete so we will use ishare2 for this we will execute the following
 
-comando directamente en pnet de vmware o mediante ssh desde una terminal en
+command directly in pnet from vmware or through ssh from a terminal in
 
-windows, lo que es más sencillo.
+windows, which is simpler.
 
 ```powershell
-wget -O /usr/sbin/ishare2 [https://raw.githubusercontent.com/ishare2-org/ishare2-cli/main/ishare2](https://raw.githubusercontent.com/ishare2-org/ishare2-cli/main/ishare2) > /dev/null 2>&1 && chmod +x /usr/sbin/ishare2 && ishare2
+wget -O /usr/sbin/ishare2 [https://raw.githubusercontent.com/ishare2-org/ishare2-cli/main/ishare2](https://raw.githubusercontent.com/ishare2-org/ishare2-cli/main/ishare2) > /dev/null 2>&1 && chmod +x /usr/sbin/ishare2 && ishare2
 ```
 
-Ahora que ya tienes ishare2 instalado te mostraré el siguiente paso.
+Now that you have ishare2 installed I will show you the next step.
 
-## Paso 4: Busqueda de imagenes
+## Step 4: Image Search
 
-Con este comando buscaremos imagenes sea para qemu u otros, varios routers se manejan con iol como cisco y las imagenes linux en qemu como kali.
+With this command we will search for images for qemu or others, several routers are handled with iol like cisco and linux images in qemu like kali.
 
 ```powershell
   ishare2 search all
@@ -172,7 +172,7 @@ Con este comando buscaremos imagenes sea para qemu u otros, varios routers se ma
   ishare2 search dynamips
 ```
 
-Para descargar las imagenes se usa el siguiente comando <number> es el ID que aparece en la lista anterior.
+To download the images, the following command is used <number> is the ID that appears in the previous list.
 
 ```powershell
   ishare2 pull bin <number>
@@ -180,107 +180,107 @@ Para descargar las imagenes se usa el siguiente comando <number> es el ID que ap
   ishare2 pull dynamips <number>
 ```
 
-y LISTO! la imagen se descarga se formatea según los **DOCS** de Eve-ng y se asignan los permisos automaticamente, super sencillo no es asi?.
+and DONE! the image is downloaded, formatted according to the Eve-ng **DOCS** and the permissions are assigned automatically, super simple, isn't it?.
 
-Otra alternativa es usar el Drive de UNET LAB, ahi estan las carpetas y los discos listos para descargarse y usar.
+Another alternative is to use the UNET LAB Drive, there are the folders and the disks ready to be downloaded and used.
 
-las imagenes o discos deberan corresponder con su formato según la documentación de Eve-ng en **/opt/unetlab/addons/qemu/**
+the images or disks must correspond with their format according to the Eve-ng documentation in **/opt/unetlab/addons/qemu/**
 
-Lo unico importante es revisar el estado de la maquina PNET y el espacio restante.
+The only important thing is to check the status of the PNET machine and the remaining space.
 
 https://github.com/pnetlabrepo/ishare2
 
-## Paso 5: Creación de Laboratorio
+## Step 5: Laboratory Creation
 
-Ahora crearemos el primer laboratorio, en el navegador una vez logueado y dentro. e clic al icono de crear laboratorio.
+Now we will create the first laboratory, in the browser once logged in and inside. click on the icon to create a laboratory.
 
-Verás un lienzo en blanco y el logo de PNET, solo hacé clic derecho y veras varias opciones. deberas dar clic en Node.
+You will see a blank canvas and the PNET logo, just right-click and you will see several options. you must click on Node.
 
 ![PLA4](https://i.ibb.co/LXRmRWVR/pla4.png)
 
-Esto creará un nodo, y deberás ver los sistemas o dispositivos que descargaste, en mi caso yo descarge un mikrotik.
+This will create a node, and you should see the systems or devices that you downloaded, in my case I downloaded a mikrotik.
 
 ![PLA5](https://i.ibb.co/TdFQ7FY/PLA5.png)
 
-Se desplagará un panel con configuraciones para el router, se asignan memoria ram, etc y listo ya esta ahi.
+A panel with configurations for the router will be displayed, ram memory is assigned, etc. and that's it.
 
-Añadiremos un Kali, si descargaste una imagen de Kali desde ishare2 ya deberias tenerlo,
+We will add a Kali, if you downloaded a Kali image from ishare2 you should already have it,
 
-si lo descargaste en qemu desde la pagina deberias solo arrastarlo a /addons/qemu,
+if you downloaded it in qemu from the page you should just drag it to /addons/qemu,
 
-pero si descargaste la iso deberás instalar el sistema con su disco (algo que mostraré mas tarde).
+but if you downloaded the iso you will have to install the system with its disk (something I will show later).
 
-Una ve ya montados solo se encienden en botón y esperamos.
-hacemos doble clic y veremos sus interfaces QEMU sto es posible gracias a las herramientas de Eve-ng de Client Side.
+Once mounted, just turn on the button and wait.
+we double-click and we will see its QEMU interfaces, this is possible thanks to the Eve-ng tools of the Client Side.
 
 ![PLA6](https://i.ibb.co/bMD7194Q/pl6.png)
 
-Como puedes notar en la imagen en este ejemplo ya monte un kali, un extremeos y un mikrotik,
+As you can see in the image in this example I already mounted a kali, an extremeos and a mikrotik,
 
-pero el kali no tiene conexion a internet, ya que el ping a google no sale, bueno esto se debe a que se debe crear una salida a red.
+but the kali has no internet connection, since the ping to google does not go out, well this is because a network output must be created.
 
-## Paso 6: Creación de Salida a Red
+## Step 6: Creation of Network Output
 
 ![PLA4](https://i.ibb.co/LXRmRWVR/pla4.png)
 
-Ahora seleccionaras la opción de Network
+Now you will select the Network option
 
 ![PLA7](https://i.ibb.co/0RwDwPMP/pl7.png)
 
-### Diferencias
+### Differences
 
 **NAT (Network Address Translation):**
 
-Propósito: Permite que varios dispositivos en una red local (LAN) usen una sola dirección IP pública para conectarse a internet.
+Purpose: Allows multiple devices on a local network (LAN) to use a single public IP address to connect to the internet.
 
-Cómo funciona: Transforma las direcciones IP internas privadas en una dirección IP pública. Cuando un dispositivo de la red local
+How it works: It transforms the internal private IP addresses into a public IP address. When a device on the local network
 
-envía datos a internet, el enrutador cambia la dirección IP privada del dispositivo a su dirección IP pública.
+sends data to the internet, the router changes the private IP address of the device to its public IP address.
 
-Cuando los datos vuelven, el enrutador realiza la traducción inversa.
+When the data returns, the router performs the reverse translation.
 
-Ventajas: Mejora la seguridad al ocultar las direcciones IP privadas y permite la conservación de direcciones IP públicas.
+Advantages: Improves security by hiding private IP addresses and allows the conservation of public IP addresses.
 
-Uso común: Se usa en enrutadores domésticos y en empresas para permitir que múltiples dispositivos accedan a internet usando una sola dirección IP pública.
+Common use: It is used in home routers and in companies to allow multiple devices to access the internet using a single public IP address.
 
-**Bridge (Puente):**
+**Bridge:**
 
-Propósito: Conecta dos redes locales (LAN) diferentes, permitiendo que actúen como una sola red unificada.
+Purpose: Connects two different local networks (LANs), allowing them to act as a single unified network.
 
-Cómo funciona: Un puente recibe las tramas de datos de una red y las envía a la otra red. No cambia las direcciones IP de las tramas, simplemente las retransmite.
+How it works: A bridge receives data frames from one network and sends them to the other network. It does not change the IP addresses of the frames, it simply retransmits them.
 
-Ventajas: Amplía el alcance de una red sin necesidad de cambiar la configuración de los dispositivos.
+Advantages: Extends the reach of a network without the need to change the configuration of the devices.
 
-Permite la comunicación directa entre dispositivos en diferentes redes locales.
+Allows direct communication between devices on different local networks.
 
-Uso común: Se usa en redes locales más grandes para conectar diferentes segmentos de red, como en una oficina que tiene múltiples pisos o áreas.
+Common use: It is used in larger local networks to connect different network segments, such as in an office that has multiple floors or areas.
 
-Y por ultimo la opción **Management** te permitira situarte en la red de PNET osea que podras hacer ping desde el host a la
+And finally the **Management** option will allow you to be on the PNET network, that is, you can ping from the host to the
 
-maquina o conectarte por ssh a la maquina de PNET estando dentro de PNET (que loco no).
+machine or connect by ssh to the PNET machine while inside PNET (how crazy is that).
 
-Para conectarte solo tienes que arrastrar el cable realizar la conexion al puerto y listo.
+To connect you just have to drag the cable, make the connection to the port and that's it.
 
-Como podrás notar en la imagen estoy conectado a la red de administración en esta maquina.
+As you can see in the image I am connected to the administration network on this machine.
 
 !![PLA8](https://i.ibb.co/bjt50vnp/pl8.png)
 
-> Se que todo esto es bastante simple y me explicación no fue la mejor pero intento detallar lo mas claro posible..
+> I know that all this is quite simple and my explanation was not the best but I try to detail it as clearly as possible..
 
 ---
 
 &nbsp;
 
-> Mas adelante mostraré a realizar pruebas de penetración a diferentes sistemas en tu laboratorio.
+> Later I will show how to perform penetration tests on different systems in your laboratory.
 
 &nbsp;
 
-- 💜 Acceso al [--> Blog](https://rawier.vercel.app/es/blog/)
+- 💜 Access to the [--> Blog](https://rawier.vercel.app/es/blog/)
 
-### Gracias por leer
+### Thanks for reading
 
 &nbsp;
 
-### Fuentes de consulta
+### Sources
 
-- 🔖 PNET y Eve-ng
+- 🔖 PNET and Eve-ng

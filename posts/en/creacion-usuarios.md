@@ -1,30 +1,30 @@
 ---
-title: "[🇪🇸] El Principio de Minimo Privilegio"
-excerpt: "Abordamos el principio de minimo privilegio"
+title: "The Principle of Least Privilege"
+excerpt: "We address the principle of least privilege"
 date: "Sep 11 2023"
 cover_image: "/blog/lmenor-privilegio.webp"
-alt: "Creacion Usuarios"
+alt: "User Creation"
 tags1: "Helpdesk"
 tags2: "Hacking"
 ---
 
-**Aclarando dudas.**
+**Clearing up doubts.**
 
-- Lo que no está permitido, debe estar prohibido.
-- Una cadena es tan fuerte como su eslabón más débil.
-- La medida de seguridad es directamente proporcional al nivel de riesgo existente.
-- Un ~~perro~~ informático “viejo”, **debe** aprender nuevos trucos.
-- La seguridad informática es trabajo de todos.
+- What is not allowed must be prohibited.
+- A chain is only as strong as its weakest link.
+- The security measure is directly proportional to the level of existing risk.
+- An ~~old~~ computer dog **must** learn new tricks.
+- Computer security is everyone's job.
 
-## En WINDOWS
+## In WINDOWS
 
-  ![Minimoprivilegio](https://i.ibb.co/nLqgQRQ/image.png)
+  ![LeastPrivilege](https://i.ibb.co/nLqgQRQ/image.png)
 
-## En LINUX
+## In LINUX
 
-**Para crear un usuario convencional:**
+**To create a conventional user:**
 
-Autenticarse como usuario root
+Authenticate as root user
 
 ```js
 ~$ su -
@@ -36,62 +36,62 @@ Password:
 
 ___
 
-Crear el usuario
+Create the user
 
 ```js
-useradd nombreUsuario
+useradd userName
 
 ```
 
 ___
 
-Agregar contraseña
+Add password
 
 ```js
-passwd nombreUsuario
+passwd userName
 
 ```
 
 ___
 
-Para cambiarse al usuario nuevo
+To switch to the new user
 
 ```js
-su nombreUsuario
+su userName
 
 ```
 
 ___
 
-**Para crear un usuario root:**
+**To create a root user:**
 
-Crear el usuario
+Create the user
 
 ```js
-useradd -u 0 -o -g 0 nombreUsuario2
+useradd -u 0 -o -g 0 userName2
 
 ```
 
 ___
 
-- **u [UID]** -> identificador de usuario de la nueva cuenta. Se agrega el UID (User ID) en el campo de [UID].
-- **o** -> permite crear usuarios con identificadores (UID) duplicados (no únicos).
-- **g [GRUPO]** -> nombre o identificador del grupo primario de la nueva cuenta.
-- **p [CONTRASEÑA]** -> contraseña cifrada de la nueva cuenta
+- **u [UID]** -> user identifier of the new account. The UID (User ID) is added in the [UID] field.
+- **o** -> allows creating users with duplicate (non-unique) identifiers (UIDs).
+- **g [GROUP]** -> name or identifier of the primary group of the new account.
+- **p [PASSWORD]** -> encrypted password of the new account
 
-Explicación: -u 0 le estamos asignando a la cuenta userPrueba el UID ( User IDentifier) 0, cada cuenta tiene un identificador de usuario, el de la cuenta root es 0, al asignarle el valor 0 a userPrueba le estamos dando los mismos privilegios de usuario que la cuenta root. Por lo general no se puede tener dos cuentas con el mismo UID, por eso se agrega la opcion -o que permite hacer una excepcion y que se pueda. El -g 0 le asigna el GID (Group IDentifier) 0 al userPrueba, para que pertenezca al mismo grupo que la cuenta root.
+Explanation: -u 0 we are assigning the userPrueba account the UID (User IDentifier) 0, each account has a user identifier, that of the root account is 0, by assigning the value 0 to userPrueba we are giving it the same user privileges as the root account. Usually you cannot have two accounts with the same UID, that is why the -o option is added, which allows an exception to be made so that it can be done. The -g 0 assigns the GID (Group IDentifier) 0 to userPrueba, so that it belongs to the same group as the root account.
 
 ___
 
-**Alta de usuario estándar:**
+**Standard user registration:**
 
-Entrar como administrador (root) con:
+Enter as administrator (root) with:
 
 ```js
-//opción a)
+//option a)
 ~$ su -
 Password: (honeydrive)
-//opción b)
+//option b)
 ~$ sudo su -
 [sudo] Password: (honeydrive)
 
@@ -99,81 +99,81 @@ Password: (honeydrive)
 
 ___
 
-Una vez adentro cambiaras al símbolo # y podrás crear el nuevo usuario estándar;
+Once inside you will switch to the # symbol and you will be able to create the new standard user;
 
 ```js
-~#useradd userPrueba1
-~#passwd userPrueba1 (prueba1) //contraseña opcional
+~#useradd userTest1
+~#passwd userTest1 (test1) //optional password
 
 ```
 
-y listo!
+and that's it!
 
-Puedes tratar de hacer los cambios de configuración para autentificar que sea un usuario estándar con:
+You can try to make the configuration changes to authenticate that it is a standard user with:
 
-primero entramos al usuario y después cambiamos la configuración del puerto eth0
+first we enter the user and then we change the configuration of the eth0 port
 
 ___
 
 ```js
-//entrar como usuario UserPrueba1
-~# su userPrueba1
-//dentro del usuario hacemos la consulta de los puertos disponibles para confirmar que exista eth0
+//enter as user UserTest1
+~# su userTest1
+//inside the user we make the query of the available ports to confirm that eth0 exists
 $ ifconfig
 
-//intentamos apagar puerto eth0
+//we try to turn off the eth0 port
 $ ifconfig eth0 down
 SIOCSIFFLAGS: Permission denied
-//mensaje esperado denegado
+//expected message denied
 
 ```
 
 ___
 
-Por último, para regresar al usuario Administrador
+Finally, to return to the Administrator user
 
 ```js
-//opción a)
+//option a)
 $su –
 Password: (honeydrive)
-//opción b)
+//option b)
 $exit
 ```
 
 ___
 
-**Alta de usuario Administrador:**
+**Administrator user registration:**
 
-Entrar como administrador (root) con: (repetir paso uno o confirmar estar en root #)
+Enter as administrator (root) with: (repeat step one or confirm being in root #)
 
 ```js
-~# useradd -u 0 -o -g 0 userPrueba2
-~# passwd userPrueba2 (prueba2) //contraseña opcional
+~# useradd -u 0 -o -g 0 userTest2
+~# passwd userTest2 (test2) //optional password
 
 ```
 
 ___
 
-Puedes tratar de hacer los cambios de configuración para autentificar que sea un usuario Administrador con:
+You can try to make the configuration changes to authenticate that it is an Administrator user with:
 
-Primero entramos al usuario administrador y después cambiamos la configuración del puerto eth0
+First we enter the administrator user and then we change the configuration of the eth0 port
 
 ___
 
 ```js
-//entrar como usuario UserPrueba2
-~# su userPrueba2
-//dentro del usuario hacemos la consulta de los puertos disponibles para confirmar que exista eth0
+//enter as user UserTest2
+~# su userTest2
+//inside the user we make the query of the available ports to confirm that eth0 exists
 $ ifconfig
 
-//intentamos apagar puerto eth0
+//we try to turn off the eth0 port
 $ ifconfig eth0 down
-//confirmamos que se hayan hecho los cambios
+//we confirm that the changes have been made
 $ ifconfig
-//por último lo regresamos a la configuración inicial con:
+//finally we return it to the initial configuration with:
 $ ifconfig eth0 up
 ```
 
 ___
 
-  ![ModeloOSI](https://i.ibb.co/gwkMPTV/image.png)
+  ![OSIModel](https://i.ibb.co/gwkMPTV/image.png)

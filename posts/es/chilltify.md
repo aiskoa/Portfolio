@@ -1,6 +1,6 @@
 ---
-title: "[🇺🇸] Spotify Clon for Diana Sessions"
-excerpt: "Music aplication (electron), for Diana Sessions from Riot Games Music"
+title: "Clon de Spotify para las Sesiones de Diana"
+excerpt: "Aplicación de música (electron), para las Sesiones de Diana de Riot Games Music"
 date: "Aug 14 2022"
 cover_image: "/blog/dianasessions.webp"
 alt: "entities"
@@ -10,11 +10,11 @@ tags2: "Tools"
 
 ![Captura](https://raw.githubusercontent.com/Rawierdt/Chilltify/main/Screenshots/Index.png)
 
-## Installation
+## Instalación
 
-* The complete guide can be found at [GitHub](https://github.com/Rawierdt/Chilltify)
+* La guía completa se puede encontrar en [GitHub](https://github.com/Rawierdt/Chilltify)
 
-<h1 align="center">🌜 Lofi Music - Diana Sessions 🌛</h1>
+<h1 align="center">🌜 Música Lofi - Sesiones de Diana 🌛</h1>
 
 [![license](https://img.shields.io/github/license/KillahPotatoes/KP-Liberation.svg)](/LICENSE)
 
@@ -25,26 +25,26 @@ tags2: "Tools"
 [![GitHub forks](https://img.shields.io/github/forks/KillahPotatoes/KP-Liberation)](https://github.com/Rawierdt/Chilltify/network)
 
 <p align="center">
-  Lofi music application made in electron, based on "Diana Sessions" from Riot Games Music.
+  Aplicación de música Lofi hecha en electron, basada en las "Sesiones de Diana" de Riot Games Music.
 
-> This project was made for educational purposes only, and the music originally comes from [Riot Games Music](https://www.youtube.com/c/riotgamesmusic)
+> Este proyecto fue hecho solo con fines educativos, y la música proviene originalmente de [Riot Games Music](https://www.youtube.com/c/riotgamesmusic)
 
-## Download
+## Descargar
 
-Available for Mac, Linux and Windows.
+Disponible para Mac, Linux y Windows.
 
-Installer `.exe` only available for Windows.
+Instalador `.exe` solo disponible para Windows.
 
-[Windows Installer](https://drive.google.com/uc?export=download&confirm=01yo&id=1jaOdnnbRDlwPOBI3_pnWF0P0E6ASZKUS)
+[Instalador de Windows](https://drive.google.com/uc?export=download&confirm=01yo&id=1jaOdnnbRDlwPOBI3_pnWF0P0E6ASZKUS)
 
 [MacOS](https://drive.google.com/drive/folders/1LOYV_qe18X_R_i_79w7tK7rw661Jzd10?usp=sharing)
 
 [Linux](https://drive.google.com/drive/folders/1_6AQhmQ0W0Uni2w_MwGZR6uMiy_oZVb7?usp=sharing)
 
-## License
-💜 [MIT License](https://github.com/Rawierdt/Chilltify/blob/main/LICENSE)
+## Licencia
+💜 [Licencia MIT](https://github.com/Rawierdt/Chilltify/blob/main/LICENSE)
 
-### Code Example
+### Ejemplo de Código
 
 ```javascript
 //Llamamos a createwindow de main.js

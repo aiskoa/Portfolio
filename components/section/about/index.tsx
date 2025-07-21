@@ -37,6 +37,7 @@ import {
   SiBluetooth,
   SiRaspberrypi,
   SiWordpress,
+  SiGo,
 } from "react-icons/si";
 
 interface AboutProps {
@@ -52,6 +53,7 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
       icons: [
         { key: "bash", text: "Bash", icon: <SiGnubash size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "cplusplus", text: "C++", icon: <SiCplusplus size={16} className="text-gray-800 dark:text-gray-100"/> },
+        { key: "go", text: "Go", icon: <SiGo size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "html5", text: "HTML", icon: <SiHtml5 size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "javascript", text: "JavaScript", icon: <SiJavascript size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "python", text: "Python", icon: <SiPython size={16} className="text-gray-800 dark:text-gray-100"/> },
@@ -62,7 +64,6 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
     {
       title: t("frameworks_lib"),
       icons: [
-        { key: "astro", text: "Astro", icon: <SiAstro size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "electron", text: "Electron", icon: <SiElectron size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "nextjs", text: "Next.js", icon: <SiNextdotjs size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "react", text: "React", icon: <SiReact size={16} className="text-gray-800 dark:text-gray-100"/> },
@@ -79,7 +80,6 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
         { key: "docker", text: "Docker", icon: <SiDocker size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "git", text: "Git", icon: <SiGit size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "nginx", text: "Nginx", icon: <SiNginx size={16} className="text-gray-800 dark:text-gray-100"/> },
-        { key: "notion", text: "Notion", icon: <SiNotion size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "ubuntu", text: "Ubuntu", icon: <SiUbuntu size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "vscode", text: "VSCode", icon: <SiVisualstudiocode size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "kalilinux", text: "Kali Linux", icon: <SiKalilinux size={16} className="text-gray-800 dark:text-gray-100"/> },
@@ -94,7 +94,6 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
         { key: "cloudflare", text: "Cloudflare", icon: <SiCloudflare size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "cisco", text: "Cisco", icon: <SiCisco size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "github", text: "GitHub", icon: <SiGithub size={16} className="text-gray-800 dark:text-gray-100"/> },
-        { key: "mongodb", text: "MongoDB", icon: <SiMongodb size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "mysql", text: "MySQL", icon: <SiMysql size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "postgresql", text: "PostgreSQL", icon: <SiPostgresql size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "ovh", text: "OVH", icon: <SiOvh size={16} className="text-gray-800 dark:text-gray-100"/> },
@@ -133,7 +132,7 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
               Alejandro Aguilar
             </h1>
             <h2 className="text-2xl font-bold lg:text-3xl">
-              <span className="text-transparent bg-gradient-to-r from-zinc-800 to-slate-400 dark:from-slate-200 dark:to-zinc-600 bg-clip-text">
+              <span className="text-transparent bg-gradient-to-r from-black to-gray-400 dark:from-white dark:to-gray-600 bg-clip-text">
                 {t("job")}
               </span>
             </h2>

@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] Herramientas OSINT 1"
+title: "Herramientas OSINT 1"
 excerpt: "Exploraremos una lista de herramientas para OSINT"
 date: "Sep 18 2023"
 cover_image: "/blog/osint1.webp"

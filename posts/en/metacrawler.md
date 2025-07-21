@@ -1,5 +1,5 @@
 ---
-title: "[🇺🇸] Metacrawler Metadata Eraser"
+title: "Metacrawler Metadata Eraser"
 excerpt: "Metadata eraser software for files"
 date: "Mar 27 2024"
 cover_image: "/blog/metacrawlerimg.webp"

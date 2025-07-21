@@ -1,6 +1,6 @@
 ---
-title: "[🇪🇸] ALO POLISIA Community"
-excerpt: "Una comunidad gamer para todos!"
+title: "ALO POLISIA Community"
+excerpt: "A gamer community for everyone!"
 date: "Dec 12 2022"
 cover_image: "/blog/alop.webp"
 alt: "Alo Polisia"
@@ -14,35 +14,35 @@ tags2: "SQL"
 
 ## Gamer Community for everyone!
 
-**ALO POLISIA 🍁** Fue una comunidad gamer surgida pre pandemia, en ella se desarrollaban diversas actividades gracias al Staff.
+**ALO POLISIA 🍁** Was a gamer community that emerged before the pandemic, where various activities were developed thanks to the Staff.
 
-Se agradece de todo corazón a todos y todas aquellas que nos acompañarón tanto a los que estan y los que lastimosamente nos han dejado.
+A heartfelt thank you to all those who accompanied us, both those who are still with us and those who have sadly left us.
 
-El sitio estaba construido con **PHP** y **MySQL** param el manejo de usuario y la base de datos tanto para el servidor web como para el de juegos.
+The site was built with **PHP** and **MySQL** for user management and the database for both the web server and the game server.
 
-Se uso **Oracle y PL/SQL** en una ocación para el manejo de la base de datos con minecraft bedrock server.
+**Oracle and PL/SQL** were used on one occasion for database management with the Minecraft Bedrock server.
 
-### Imagen de la consola de administrador
+### Admin Console Image
 
 ![Console](https://i.imgur.com/0HXaliv.png)
 
-### Imagen del lobby del primer servidor de MC
+### Lobby Image of the First MC Server
 
 ![Spawn](https://i.imgur.com/YqkC6Yi.png)
 
-### Imagen de la primer construccion en el primer servidor
+### Image of the First Construction on the First Server
 
 ![Lb1](https://i.imgur.com/9UrQr3x.png)
 
-### Screeenshot de la comunidad en Discord
+### Screenshot of the Community on Discord
 
 ![SS](https://i.imgur.com/Raosfeg.png)
 
-### Imagen del cierre
+### Closing Image
 
 ![Cierre](https://i.imgur.com/SgTDHoU.png)
 
-### Acontinuación imagenes que pasarán a a posteridad
+### Here are some images that will go down in posterity
 
 ![LLOGO](https://i.imgur.com/pllkmTt.png)
 
@@ -58,7 +58,7 @@ Se uso **Oracle y PL/SQL** en una ocación para el manejo de la base de datos co
 
 ![Angie](https://i.imgur.com/BVcFncL.png)
 
-### Config LogBlock (SQL)
+### LogBlock Config (SQL)
 
 ```yaml
 consumer:

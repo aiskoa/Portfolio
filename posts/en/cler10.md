@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] Cler Discord Bot Version 1.0"
+title: "Cler Discord Bot Version 1.0"
 excerpt: "Discord bot in Node [DEPRECATED]"
 date: "Mar 10 2022"
 cover_image: "/blog/cler.webp"
@@ -18,99 +18,95 @@ tags2: "SQL"
 * Official website at [Page](https://Rawierdt.github.io/Cler-page/)
 
 
-# About Cler | Acerca de Cler
+# About Cler
 
 [Invite Cler on your server](https://discord.com/oauth2/authorize?client_id=774150617546883073&permissions=8&scope=bot)
 * |Warning| Spanish discord bot, code in node.js / discord.js, but it is easy to learn each command.
 Please report any issue or bug.
 DM to: @NexDrak ( ╥ω╥ )
 
-* |Advertencia| Bot para discord en español escrito en node.js / discord.js.
-Informa cualquier problema o error.
-MD a @NexDrak ( ╥ω╥ )
 
-#### *Spanish language only from here*
-# Lo que puede hacer en ATM
+# What it can do in ATM
 ### (Asynchronous Transfer Mode)
-- Usa el prefix. `c!`
-  - ~~buscar manga, anime, reviews... owo~~ pronto.
-- Unirse a un canal de voz y reproducir un texto en TTS _(Text to speech)_ (soporta español, inglés, francés, rumano, coreano, japonés y portugués (*・ω・)ﾉ *cada uno con su respectivo comando, en_tts, ko_tts, etc*
-- Ahora con mas secretos (｢• ω •)｢ (⌒ω⌒`)
-- Bot en Discord.js v12.4.1
+- Use the prefix. `c!`
+  - ~~search manga, anime, reviews... owo~~ soon.
+- Join a voice channel and play a text in TTS _(Text to speech)_ (supports Spanish, English, French, Romanian, Korean, Japanese and Portuguese (*・ω・)ﾉ *each with its respective command, en_tts, ko_tts, etc*
+- Now with more secrets (｢• ω •)｢ (⌒ω⌒`)
+- Bot in Discord.js v12.4.1
 
-# Planes a futuro
-- Pagina Web mas linda
-  - Conectar con MariaDB
-  - Borrar datos antiguos y caché
-- Soporte para comandos slash
-- Comer bayas azules
-- Jugar afuera
+# Future plans
+- Prettier Website
+  - Connect with MariaDB
+  - Delete old data and cache
+- Support for slash commands
+- Eat blue berries
+- Play outside
 
-Postdata: Si abandoné este proyecto es porque me aburrí o no mejore el bot a una mejor versión de Discord.
+P.S.: If I abandoned this project it's because I got bored or didn't upgrade the bot to a better version of Discord.
 
-# Comandos
-Lista completa de comandos en [Documentación](https://Rawier.gitbook.io/cler/)
+# Commands
+Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
 
-Estructura y Diagramación en Repositorio de [Github](https://github.com/Rawierdt/Cler)
+Structure and Diagramming in [Github](https://github.com/Rawierdt/Cler) Repository
 
 ### Admin / Mod
-* `c!mute  <@member> <reason>` Silencia al miembro etiquetado.
-* `c!unmute  <@member> <reason>` Quita el Silenco del miembro etiquetado. 
-* `c!setmute  <@rol>` Define el rol de Mute en el servidor **Importante**.
-* `c!ban <@member> <reason>` Expulsa del servidor de manera difinitiva al miembro etiquetado.
-* `c!unban <@member>` Revoca la prohibición del comando anterior. 
-* `c!kick <@member> <reason>` Expulsa del servidor al miembro etiquetado.
-* `c!softban <@member> <reason>` Expulsa del servidor al miembro etiquetado de manera temporal por 7 dias.
-* `c!hackban <@member> <reason>` Expulsa del servidor de manera definitiva al miembro seleccionado y asi como tambien borrando todos sus mensajes enviados.
-* `c!warn <@member> <reason>` Notifica al miembro seleccionado
-* `c!bc <#channel> <message>` Envia un mensaje de manera remota al canal seleccionado Nombre o ID.
+* `c!mute  <@member> <reason>` Mutes the tagged member.
+* `c!unmute  <@member> <reason>` Unmutes the tagged member. 
+* `c!setmute  <@rol>` Defines the Mute role on the server **Important**.
+* `c!ban <@member> <reason>` Permanently bans the tagged member from the server.
+* `c!unban <@member>` Revokes the ban from the previous command. 
+* `c!kick <@member> <reason>` Kicks the tagged member from the server.
+* `c!softban <@member> <reason>` Temporarily kicks the tagged member from the server for 7 days.
+* `c!hackban <@member> <reason>` Permanently bans the selected member from the server and also deletes all their sent messages.
+* `c!warn <@member> <reason>` Warns the selected member
+* `c!bc <#channel> <message>` Sends a message remotely to the selected channel Name or ID.
 
-Lista completa de comandos en [Documentación](https://Rawierdt.gitbook.io/cler/)
+Full list of commands in [Documentation](https://Rawierdt.gitbook.io/cler/)
 
-### Acción
-* `c!hug  <@member>` Envia un Gif de Abrazo / Imagen. 
-* `c!kiss <@member>` Envia un Gif de Beso / Imagen. 
-* `c!kill <@member>` Envia un Gif de Mat#r / Imagen. 
-* `c!pat <@member>` Envia un Gif de Caricia / Imagen.
-* `c!lick <@member>` Envia un Gif de Lamida / Imagen. 
-* `c!slap <@member>` Envia un Gif de Golpe / Imagen. 
-* `c!feed <@member>` Envia un Gif de Alimentar / Imagen. 
-* `c!cry` Envia un Gif de Llorar / Imagen.
-* `c!angry` Envia un Gif de Enojo / Imagen.
-* `c!happy` Envia un Gif de Felicidad / Imagen.
-* `c!dance` Envia un Gif de Danza / Imagen.
-* `c!confused` Envia un Gif de Confundido / Imagen.
-* `c!blush` Envia un Gif de Sonrojar / Imagen.
-* `c!sleep` Envia un Gif de Dormir / Imagen.
-* `c!bored` Envia un Gif de Aburrido / Imagen.
+### Action
+* `c!hug  <@member>` Sends a Hug Gif / Image. 
+* `c!kiss <@member>` Sends a Kiss Gif / Image. 
+* `c!kill <@member>` Sends a Kill Gif / Image. 
+* `c!pat <@member>` Sends a Pat Gif / Image.
+* `c!lick <@member>` Sends a Lick Gif / Image. 
+* `c!slap <@member>` Sends a Slap Gif / Image. 
+* `c!feed <@member>` Sends a Feed Gif / Image. 
+* `c!cry` Sends a Cry Gif / Image.
+* `c!angry` Sends an Angry Gif / Image.
+* `c!happy` Sends a Happy Gif / Image.
+* `c!dance` Sends a Dance Gif / Image.
+* `c!confused` Sends a Confused Gif / Image.
+* `c!blush` Sends a Blush Gif / Image.
+* `c!sleep` Sends a Sleep Gif / Image.
+* `c!bored` Sends a Bored Gif / Image.
 
-Lista completa de comandos en [Documentación](https://Rawier.gitbook.io/cler/)
+Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
 
-### Diversión
-* `c!8ball  <@member>` Da respuesta aleatoria a un apregunta de tu interes. 
-* `c!ascii <@member>` envia un texto en ascii. 
-* `c!say <args>` repite el texto dicho. 
-* `c!say embed <args>` repite lo que hayas dicho pero en texto embebido. 
-* `c!love <@member>` Mide tu compatibilidad de amor con el usuario mencionado.
-* `c!impostor <@member>` Envia un texto con el impostor. 
-* `c!hack <@member>` Simula un hackeo al usuario / Imagen.
-* `c!chiste` Envia una imagen con chiste / Imagen.
+### Fun
+* `c!8ball  <@member>` Gives a random answer to a question of your interest. 
+* `c!ascii <@member>` sends a text in ascii. 
+* `c!say <args>` repeats the said text. 
+* `c!say embed <args>` repeats what you have said but in an embedded text. 
+* `c!love <@member>` Measures your love compatibility with the mentioned user.
+* `c!impostor <@member>` Sends a text with the impostor. 
+* `c!hack <@member>` Simulates a hack on the user / Image.
+* `c!chiste` Sends an image with a joke / Image.
 
-Lista completa de comandos en [Documentación](https://Rawier.gitbook.io/cler/)
+Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
 
-### Utileria
-* `c!avatar  <@member>` Envia el avatar de un usuario Gif / Imagen. 
-* `c!tts  <args>` Se une al canal de voz que estes y repite el texto dicho en español / Audio. 
-* `c!en_tts  <args>` Se une al canal de voz que estes y repite el texto dicho en ingles / Audio. 
+### Utility
+* `c!avatar  <@member>` Sends a user's avatar Gif / Image. 
+* `c!tts  <args>` Joins the voice channel you are in and repeats the text said in Spanish / Audio. 
+* `c!en_tts  <args>` Joins the voice channel you are in and repeats the text said in English / Audio. 
 
-Lista completa de comandos en [Documentación](https://Rawier.gitbook.io/cler/)
+Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
 
 ### NSFW
-Envia un gif o imagen 
+Sends a gif or image 
 * `c!netorare`
 * `c!maid`
 
-Lista completa de comandos en [Documentación](https://Rawier.gitbook.io/cler/)
+Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
 
 ### Libraries and frameworks used
 * [dotenv](https://github.com/motdotla/dotenv#readme) and [express-js](http://expressjs.com/)

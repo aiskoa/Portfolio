@@ -1,5 +1,5 @@
 ---
-title: "[🇺🇸] SISLOG Forensic Tool"
+title: "SISLOG Forensic Tool"
 excerpt: "Forensic Tool to generate reports and logs"
 date: "Apr 30 2023"
 cover_image: "/blog/sislog.webp"

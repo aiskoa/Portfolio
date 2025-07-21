@@ -1,6 +1,6 @@
 ---
-title: "[🇺🇸] Metacrawler & IPTrack"
-excerpt: "Metadata Eraser and IPLookup"
+title: "Metacrawler & IPTrack"
+excerpt: "Borrador de metadatos y búsqueda de IP"
 date: "Apr 23 2023"
 cover_image: "/blog/metacrawler.webp"
 tags1: "Helpdesk"
@@ -9,20 +9,20 @@ tags2: "Tools"
 
 # Tidex
 
-2 programs written in Python Metacrawler (Metadata Eraser) and IPTracker (IP Lookup).
+2 programas escritos en Python Metacrawler (Borrador de metadatos) y IPTracker (Búsqueda de IP).
 
 &nbsp;
 
-* Metacrawler: Erases metadata in any image or photo file.
-* IPTracker: Finds the location of an IP address provided by URL (optional) and finds its open ports as well as generates malicious IP address report.
+* Metacrawler: Borra metadatos en cualquier archivo de imagen o foto.
+* IPTracker: Encuentra la ubicación de una dirección IP proporcionada por URL (opcional) y encuentra sus puertos abiertos, además de generar un informe de direcciones IP maliciosas.
 
 &nbsp;
 
-## Here is Metacrawler
+## Aquí está Metacrawler
 
 ![IMG](https://i.ibb.co/Qv9TfyZ/Metacrawler.png)
 
-Code Example for Metacrawler
+Ejemplo de código para Metacrawler
 
 ```python
 # Se eliminan los metadatos
@@ -51,8 +51,8 @@ def load_image():
 ```
 
 &nbsp;
-Code Example for IPTrack
-## Here is IPTracker
+Ejemplo de código para IPTrack
+## Aquí está IPTracker
 
 ![IMG](https://i.ibb.co/tbTMP0g/IPTracker.png)
 
@@ -70,14 +70,14 @@ def is_malicious(ip, api_key):
     return False
 ```
 
-## Modify
+## Modificar
 
-In IPTracker
-`api_key = 'API_KEY_HERE' with you API VirusTotal Key`
+En IPTracker
+`api_key = 'API_KEY_HERE' con tu clave API de VirusTotal`
 
-[Dowload Here From GitHub](https://github.com/Rawierdt/Metacrawler-IPTracker)
+[Descargar aquí desde GitHub](https://github.com/Rawierdt/Metacrawler-IPTracker)
 
-[Check the latest release](https://github.com/Rawierdt/Metacrawler-IPTracker/releases/tag/Metacrawlerv1)
+[Ver la última versión](https://github.com/Rawierdt/Metacrawler-IPTracker/releases/tag/Metacrawlerv1)
 
 &nbsp;
 

@@ -1,6 +1,6 @@
 ---
-title: "[🇺🇸] Anayansi cracker and create hashes"
-excerpt: "A script for crack or create a hashes and passwords!"
+title: "Anayansi - Creador y Cracker de Hashes"
+excerpt: "¡Un script para crackear o crear hashes y contraseñas!"
 date: "Mar 30 2024"
 cover_image: "/blog/anayansi0.webp"
 alt: "Anayansi"
@@ -16,19 +16,19 @@ tags2: "Tools"
 
 # Anayansi
 
-Anayansi is a script for crack or create a hash written in python, multiplatform for windows and linux.
+Anayansi es un script para crackear o crear un hash escrito en python, multiplataforma para windows y linux.
 
-### Creator Hash
+### Creador de Hash
 
 ![aCreator](https://raw.githubusercontent.com/Rawierdt/Anayansi/main/assets/anayansi_creator.gif)
 
 &nbsp;
 
-### Cracker Hash
+### Cracker de Hash
 
 ![aCracker](https://raw.githubusercontent.com/Rawierdt/Anayansi/main/assets/anayansi_cracker.gif)
 
-## Supported Hash Formats
+## Formatos de Hash Soportados
 
 * **MD5**
 * **SHA1**
@@ -36,63 +36,63 @@ Anayansi is a script for crack or create a hash written in python, multiplatform
 * **SHA384**
 * **SHA512**
 
-## 💻 Installation
+## 💻 Instalación
 
-Execute the commands according to your case (Win or Linux)
+Ejecuta los comandos según tu caso (Win o Linux)
 
-**pyhon** for windows **python3** for Linux
+**python** para windows **python3** para Linux
 
-Clone or Download this Repository
+Clona o Descarga este Repositorio
 
 ```bash
 git clone https://github.com/Rawierdt/Anayansi.git
 ```
 
-Update Repositories
+Actualiza los Repositorios
 
 ```bash
 sudo apt update
 ```
 
-Change Directory
+Cambia de Directorio
 
 ```bash
 cd Anayansi
 ```
 
-Run the setup.py file
+Ejecuta el archivo setup.py
 
 ```bash
 python3 setup.py
 ```
 
-OR install the dependencies manually
+O instala las dependencias manualmente
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the project
+Ejecuta el proyecto
 
 ```bash
 python3 anayansi.py
 ```
 
-Or for windows
+O para windows
 
 ```bash
 python anayansi.py
 ```
 
-### MD5 Cracker function
+### Función MD5 Cracker
 
 ```python
 def md5():
-    """ MD5 is for Decrypting Raw MD5 Hash"""
+    """ MD5 es para Descifrar Hash MD5 en Crudo"""
     hash = input(
-        Fore.GREEN + " [" + Fore.RED + 'x' + Fore.GREEN + "]" + Style.RESET_ALL + " Enter the Hash : " + Fore.GREEN)
+        Fore.GREEN + " [" + Fore.RED + 'x' + Fore.GREEN + "]" + Style.RESET_ALL + " Ingresa el Hash : " + Fore.GREEN)
     w_list = input(
-        Fore.GREEN + " [" + Fore.RED + 'x' + Fore.GREEN + "]" + Style.RESET_ALL + " Input Full Path of Wordlist : " + Fore.GREEN)
+        Fore.GREEN + " [" + Fore.RED + 'x' + Fore.GREEN + "]" + Style.RESET_ALL + " Ingresa la Ruta Completa de la Wordlist : " + Fore.GREEN)
     print(Style.RESET_ALL)
     pass_file = open(w_list, "r")
 
@@ -101,40 +101,40 @@ def md5():
         md_hash = hashlib.md5(file_enc.strip()).hexdigest()
 
         if md_hash == hash:
-            print(Fore.GREEN + " Password Found :", i + Style.RESET_ALL)
+            print(Fore.GREEN + " Contraseña Encontrada :", i + Style.RESET_ALL)
             break
         else:
-            print(Fore.RED + " Password Not Found !!!" + Style.RESET_ALL)
+            print(Fore.RED + " Contraseña No Encontrada !!!" + Style.RESET_ALL)
 ```
 
 &nbsp;
 
-### What is Wordlist?
+### ¿Qué es una Wordlist?
 
-A "Wordlist" is a list of words or characters listed in a text file, an example of which is "rockyou.txt", and others.
-I will not provide the Wordlist mentioned, but searching for it is not complicated.
+Una "Wordlist" es una lista de palabras o caracteres listados en un archivo de texto, un ejemplo de ello es "rockyou.txt", y otras.
+No proporcionaré la Wordlist mencionada, pero buscarla no es complicado.
 
 &nbsp;
 
-### MD5 Create function
+### Función MD5 Create
 
 ```python
 def md5():
-    text = input(Fore.GREEN + " [" + Fore.RED + 'x' + Fore.GREEN + "]" + Style.RESET_ALL + " Enter String : " + Fore.GREEN + Style.RESET_ALL)
+    text = input(Fore.GREEN + " [" + Fore.RED + 'x' + Fore.GREEN + "]" + Style.RESET_ALL + " Ingresa el String : " + Fore.GREEN + Style.RESET_ALL)
     md5 = hashlib.md5(text.encode('utf8').strip()).hexdigest()
-    print(f"\n MD5 Hash : {Fore.GREEN}{md5}{Style.RESET_ALL}\n")
+    print(f"\n Hash MD5 : {Fore.GREEN}{md5}{Style.RESET_ALL}\n")
 ```
 
 &nbsp;
 
-### ✅ ⬇ Download ⬇
+### ✅ ⬇ Descargar ⬇
 
-Available for Mac, Linux and Windows 10 / 11.
+Disponible para Mac, Linux y Windows 10 / 11.
 
-[Download](https://github.com/Rawierdt/Anayansi)
+[Descargar](https://github.com/Rawierdt/Anayansi)
 
 &nbsp;
 
-### 📝 License
+### 📝 Licencia
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app). This project is [MIT](https://github.com/Rawierdt/Anayansi/blob/main/LICENSE) licensed.
+Copyright © 2024 [Rawier](https://rawier.vercel.app). Este proyecto tiene licencia [MIT](https://github.com/Rawierdt/Anayansi/blob/main/LICENSE).

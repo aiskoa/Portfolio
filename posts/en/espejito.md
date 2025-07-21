@@ -1,5 +1,5 @@
 ---
-title: "[🇺🇸] Espejito"
+title: "Espejito"
 excerpt: "Small application that displays the data that a web page can obtain"
 date: "Dec 28 2021"
 cover_image: "/blog/iespejito.webp"

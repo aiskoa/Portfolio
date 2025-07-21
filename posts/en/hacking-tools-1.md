@@ -1,23 +1,23 @@
 ---
-title: "[🇪🇸] Herramientas Hacking Web P1"
-excerpt: "Herramientas de Hacking Parte 1"
+title: "Web Hacking Tools P1"
+excerpt: "Hacking Tools Part 1"
 date: "Jan 14 2023"
 cover_image: "/blog/herramientas1.webp"
 tags1: "Helpdesk"
 tags2: "Tools"
 ---
 
-## Acontinuación veras una pequeña lista de herramientas para ataque
+## Below you will see a small list of attack tools
 
-Toda información aqui presentada es para fines educativos y de formación no soy responsable de su uso mal intencionado.
-Solo daré una pequeña descripción sobre ellas, no profundizaré su uso de momento.
-Al dar click sobre la herramienta automaticamente serás redirigido a la al sitio para descargar la herramienta.
+All information presented here is for educational and training purposes. I am not responsible for its malicious use.
+I will only give a brief description of them, I will not go into detail about their use for now.
+By clicking on the tool you will automatically be redirected to the site to download the tool.
 
 &nbsp;
 
-Actualizaciones:
+Updates:
 
-* Aquatone cambio el repositorio a "Archivado" y planea hacer cambios importantes.
+* Aquatone changed the repository to "Archived" and plans to make important changes.
 
 &nbsp;
 
@@ -25,48 +25,48 @@ Actualizaciones:
 
 ### 2.- [ZAP Proxy - Framework.](https://www.zaproxy.org/docs/desktop/addons/automation-framework/)
 
-### 3.- [Dirsearch - Fuerza bruta HTTP.](https://github.com/maurosoria/dirsearch)
+### 3.- [Dirsearch - HTTP brute force.](https://github.com/maurosoria/dirsearch)
 
-### 4.- [Nmap - Escaneo de puertos.](https://nmap.org/download.html)
+### 4.- [Nmap - Port scanning.](https://nmap.org/download.html)
 
-### 5.- [Sublist3r - Descubrimiento de subdominio.](https://github.com/aboul3la/Sublist3r)
+### 5.- [Sublist3r - Subdomain discovery.](https://github.com/aboul3la/Sublist3r)
 
-### 6.- [Amass - Descubrimiento de subdominio.](https://github.com/OWASP/Amass)
+### 6.- [Amass - Subdomain discovery.](https://github.com/OWASP/Amass)
 
-### 7.- [SQLmap - Explotación SQLi.](https://sqlmap.org)
+### 7.- [SQLmap - SQLi exploitation.](https://sqlmap.org)
 
 ### 8.- [Metasploit - Framework.](https://www.metasploit.com/download)
 
-### 9.- [WPscan - Explotación WordPress.](https://github.com/wpscanteam/wpscan)
+### 9.- [WPscan - WordPress exploitation.](https://github.com/wpscanteam/wpscan)
 
-### 10.- [Nikto - Escaneo Webserver.](https://github.com/sullo/nikto)
+### 10.- [Nikto - Webserver scanning.](https://github.com/sullo/nikto)
 
-### 11.- [HTTPX - Sondeo HTTP.](https://github.com/projectdiscovery/httpx)
+### 11.- [HTTPX - HTTP probing.](https://github.com/projectdiscovery/httpx)
 
-### 12.- [Nuclei - Escaneo de plantillas YAML.](https://github.com/projectdiscovery/nuclei-templates)
+### 12.- [Nuclei - YAML template scanning.](https://github.com/projectdiscovery/nuclei-templates)
 
-### 13.- [FFUF - Sondeo HTTP.](https://github.com/ffuf/ffuf)
+### 13.- [FFUF - HTTP probing.](https://github.com/ffuf/ffuf)
 
-### 14.- [Subfinder - Descubrimiento de subdominio.](https://github.com/projectdiscovery/subfinder)
+### 14.- [Subfinder - Subdomain discovery.](https://github.com/projectdiscovery/subfinder)
 
-### 15.- [Masscan - Escaneo de puerto e IP masivo.](https://github.com/robertdavidgraham/masscan)
+### 15.- [Masscan - Mass port and IP scanning.](https://github.com/robertdavidgraham/masscan)
 
-### 16.- [Lazy Recon - Descubrimiento de subdominio.](https://github.com/nahamsec/lazyrecon)
+### 16.- [Lazy Recon - Subdomain discovery.](https://github.com/nahamsec/lazyrecon)
 
-### 18.- [Aquatone - Inspección sobre HTTP.](https://github.com/michenriksen/aquatone/releases)
+### 18.- [Aquatone - HTTP inspection.](https://github.com/michenriksen/aquatone/releases)
 
-### 19.- [LinkFinder - Descubrimiento de endpoints sobre archivos JS.](https://github.com/GerbenJavado/LinkFinder)
+### 19.- [LinkFinder - Endpoint discovery on JS files.](https://github.com/GerbenJavado/LinkFinder)
 
-### 20.- [JS-Scan - Descubrimiento de endpoints sobre archivos JS.](https://github.com/zseano/JS-Scan)
+### 20.- [JS-Scan - Endpoint discovery on JS files.](https://github.com/zseano/JS-Scan)
 
-### 21.- [GAU- Mapeo sobre superficie de ataque.](https://github.com/lc/gau)
+### 21.- [GAU- Attack surface mapping.](https://github.com/lc/gau)
 
-### 22.- [Parameth - Fuerza bruta en parametros GET y POST.](https://github.com/maK-/parameth)
+### 22.- [Parameth - Brute force on GET and POST parameters.](https://github.com/maK-/parameth)
 
-### 23.- [truffleHog - Escuentra credenciales sobre commints de GitHub.](https://github.com/trufflesecurity/trufflehog)
+### 23.- [truffleHog - Finds credentials on GitHub commits.](https://github.com/trufflesecurity/trufflehog)
 
 &nbsp;
 
-### Gracias por leer
+### Thanks for reading
 
 ~ Rawier.

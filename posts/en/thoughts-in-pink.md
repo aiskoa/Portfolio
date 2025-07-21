@@ -1,5 +1,5 @@
 ---
-title: "[🇺🇸] Thoughts in Pink"
+title: "Thoughts in Pink"
 excerpt: "How my noddles fucks me here"
 date: "Mar 21 2024"
 cover_image: "/blog/thoinpink.webp"

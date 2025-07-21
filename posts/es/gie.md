@@ -1,6 +1,6 @@
 ---
-title: "[🇺🇸] GIE Encrypt and Decrypt files"
-excerpt: "An Encrypt and Decrypt for files and folders!"
+title: "GIE Cifrar y Descifrar archivos"
+excerpt: "¡Un cifrador y descifrador para archivos y carpetas!"
 date: "Apr 10 2024"
 cover_image: "/blog/giew.webp"
 alt: "GIE"
@@ -16,26 +16,26 @@ tags2: "Tools"
 
 # GIE
 
-## Encrypt and Decrypt
+## Cifrar y Descifrar
 
-An Encrypt and Decrypt for files and folders for Windows, written in Python using AES.
+Un cifrador y descifrador para archivos y carpetas para Windows, escrito en Python usando AES.
 
 > [!CAUTION]
-> Disclaimer: This tool was created for educational purposes only. I do not take any responsibility for the misuse of this tool.
+> Descargo de responsabilidad: Esta herramienta fue creada solo con fines educativos. No me hago responsable del mal uso de esta herramienta.
 
 ![aCreator](https://i.ibb.co/q92xdX2/gie-terminal.gif)
 
-## Version
+## Versión
 
 **GIE V3.0**
 
-### Features
+### Características
 
-Encrypt and decrypt your files and folders with AES, for any file, jpg, png, mp4, mp3, docx, pdf, etc...
+Cifra y descifra tus archivos y carpetas con AES, para cualquier archivo, jpg, png, mp4, mp3, docx, pdf, etc...
 
-**IMPORTANT TO READ ALL**
+**IMPORTANTE LEER TODO**
 
-## 📦 Requirements
+## 📦 Requisitos
 
 **[Python3](https://www.python.org/downloads/)**
 
@@ -47,33 +47,33 @@ Encrypt and decrypt your files and folders with AES, for any file, jpg, png, mp4
 
 **Cryptography**
 
-## 💻 Installation
+## 💻 Instalación
 
-Execute the commands according to your case (Win or Linux)
+Ejecuta los comandos según tu caso (Win o Linux)
 
-`pyhon` for windows
+`pyhon` para windows
 
-Clone or Download this Repository
+Clona o descarga este repositorio
 
 ```batch
 git clone git@github.com:Rawierdt/GIE.git
 ```
 
-Change Directory
+Cambia de directorio
 
 ```batch
 cd GIE
 ```
 
-Run the setup.py file
+Ejecuta el archivo setup.py
 
 ```batch
 python setup.py
 ```
 
-OR install the dependencies manually
+O instala las dependencias manualmente
 
-Run the project
+Ejecuta el proyecto
 
 ```batch
 python gie.py -h
@@ -81,81 +81,81 @@ python gie.py -h
 
 ---
 
-## For Encrypt
+## Para Cifrar
 
-Run `-h` for print the help/usage
+Ejecuta `-h` para imprimir la ayuda/uso
 
 ```batch
 python gie.py -h
 ```
 
-To **Encrypt** a folder or file
+Para **Cifrar** una carpeta o archivo
 
-* ! The path must be enclosed in quotes " "
+* ! La ruta debe estar entre comillas " "
 
-For folders
+Para carpetas
 
 ```batch
-python gie.py "C:\YOUR\FOLDER"
+python gie.py "C:\TU\CARPETA"
 ```
 
-For only files
+Solo para archivos
 
 ```batch
-python gie.py "C:\YOUR\FILES.extension"
+python gie.py "C:\TUS\ARCHIVOS.extension"
 ```
 
 extension = jpg, png, mp3, mp4, docx, etc, etc...
 
-* ! A message will appear that says: "Enter a password:"
+* ! Aparecerá un mensaje que dice: "Introduce una contraseña:"
 
-! NOTE: **The password cannot contain the characters $ and "**
+! NOTA: **La contraseña no puede contener los caracteres $ y "**
 
-Example Output:
+Ejemplo de salida:
 `python gie.py "D:\Sam\Plugins\IP.exe"`
-`Enter a password:`
+`Introduce una contraseña:`
 
-Note: The password will not be visible while you type it
+Nota: La contraseña no será visible mientras la escribes
 
-Once the password is entered, it will start encrypting the files with the extension **".gie"** and will generate a **".GKY"** file, which is very important to decrypt your original file.
+Una vez introducida la contraseña, comenzará a cifrar los archivos con la extensión **".gie"** y generará un archivo **".GKY"**, que es muy importante para descifrar tu archivo original.
 
-*"GKY" is the extension of the file containing the key for decryption, along with the password provided.*
+*"GKY" es la extensión del archivo que contiene la clave para el descifrado, junto con la contraseña proporcionada.*
 
-! *If you want to share the file with your colleague, you will need to provide him/her with three files, the .gie, the .GKY and the password.*
+! *Si quieres compartir el archivo con tu colega, tendrás que proporcionarle tres archivos, el .gie, el .GKY y la contraseña.*
 
-## For Decrypt
+## Para Descifrar
 
-To **Decrypt** a folder or file
+Para **Descifrar** una carpeta o archivo
 
-* ! The path and password must be enclosed in quotes " "
+* ! La ruta y la contraseña deben estar entre comillas " "
 
-Run `-d` for decrypt
-Run `-p` for set the password used previously
+Ejecuta `-d` para descifrar
+Ejecuta `-p` para establecer la contraseña utilizada anteriormente
 
-For folders
+Para carpetas
 
 ```batch
-python gie.py -p "PASSWORD" -d "C:\YOUR\FOLDER"
+python gie.py -p "CONTRASEÑA" -d "C:\TU\CARPETA"
 ```
 
-For only files
+Solo para archivos
 
 ```batch
-python gie.py -p "PASSWORD" -d "C:\YOUR\FILES.extension.gie"
+python gie.py -p "CONTRASEÑA" -d "C:\TUS\ARCHIVOS.extension.gie"
 ```
 
 ---
 
-Example Output:
+Ejemplo de salida:
 `python gie.py -p "L1ñy*8Cv" -d "D:\Sam\Plugins\IP.exe"`
 
-The program will search if the .GKY file exists in the path provided and will try to decrypt the file with the password, if the password does not match the file will not decrypt or will decrypt corruptly, if the GKY does not exist, the program will throw an error message and will not be able to decrypt.
+El programa buscará si el archivo .GKY existe en la ruta proporcionada e intentará descifrar el archivo con la contraseña, si la contraseña no coincide, el archivo no se descifrará o se descifrará corrupto, si el GKY no existe, el programa mostrará un mensaje de error y no podrá descifrar.
 
-It is very important to save the .GKY and the PASSWORD very well.
+Es muy importante guardar muy bien el .GKY y la CONTRASEÑA.
 
 ---
 
-### Encrypt function
+### Función de Cifrado
 
 ```python
 def encrypt_file(input_file: str, password: str):
@@ -187,20 +187,20 @@ def encrypt_file(input_file: str, password: str):
     os.remove(input_file)
 ```
 
-### Decrypt function
+### Función de Descifrado
 
 ```python
 def decrypt_file(input_file: str, password: bytes):
-    base_file = os.path.splitext(os.path.basename(input_file))[0]  # Remove all extensions
+    base_file = os.path.splitext(os.path.basename(input_file))[0]  # Eliminar todas las extensiones
     while "." in base_file:
-        base_file = os.path.splitext(base_file)[0]  # Remove all extensions
-        # Add the .key extension to the base file name
+        base_file = os.path.splitext(base_file)[0]  # Eliminar todas las extensiones
+        # Añadir la extensión .key al nombre del archivo base
     key_file = os.path.join(os.path.dirname(input_file), base_file + ".GKY")
-    print(f"Buscando el archivo de la clave: {key_file}")  # Print the name of the key file we are looking for
+    print(f"Buscando el archivo de la clave: {key_file}")  # Imprimir el nombre del archivo de clave que estamos buscando
     if os.path.exists(key_file):
         with open(key_file, "rb") as f:
             key_with_salt = f.read()
-            salt = key_with_salt[:16]  # Get the stored salt
+            salt = key_with_salt[:16]  # Obtener la sal almacenada
             derived_key = hashlib.pbkdf2_hmac('sha256', password, salt, 100000, 32)
             # print("La clave se recuperó con éxito.")
             # print(f"Longitud de la clave: {len(derived_key)}")
@@ -214,7 +214,7 @@ def decrypt_file(input_file: str, password: bytes):
         decryptor = cipher.decryptor()
 
         decrypted_data = decryptor.update(encrypted_data) + decryptor.finalize()
-        unpadded_data = decrypted_data.rstrip(b'\\x00')
+        unpadded_data = decrypted_data.rstrip(b'\x00')
 
         output_file = os.path.splitext(input_file)[0]
         with open(output_file, "wb") as file_out:
@@ -223,7 +223,7 @@ def decrypt_file(input_file: str, password: bytes):
         print(Fore.LIGHTCYAN_EX + f"Archivo DESENCRIPTADO guardado como: {output_file}" + Style.RESET_ALL)
         os.remove(input_file)
 
-        # Delete the key file after successful decryption
+        # Eliminar el archivo de clave después del descifrado exitoso
         os.remove(key_file)
         # print(f"Archivo de la clave {key_file} eliminado con éxito.")
 
@@ -234,22 +234,22 @@ def decrypt_file(input_file: str, password: bytes):
 
 ---
 
-### TODO List
+### Lista de Tareas
 
-* [ ] Password check
+* [ ] Comprobación de contraseña
 
 * [x] AES
 
-* [ ] UI Menu
+* [ ] Menú de interfaz de usuario
 
-### 🤝 Contributing
+### 🤝 Contribuyendo
 
-Contributions, issues and feature requests are welcome! Feel free to check issues page.
+¡Las contribuciones, los problemas y las solicitudes de características son bienvenidos! Siéntete libre de consultar la página de problemas.
 
-### ❤️ Show your support
+### ❤️ Muestra tu apoyo
 
-Give a ⭐️ if this project helped you!
+¡Da una ⭐️ si este proyecto te ayudó!
 
-### 📝 License
+### 📝 Licencia
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app). This project is [MIT](/LICENSE) licensed.
+Copyright © 2024 [Rawier](https://rawier.vercel.app). Este proyecto tiene licencia [MIT](/LICENSE).

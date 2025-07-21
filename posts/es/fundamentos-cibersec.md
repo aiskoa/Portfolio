@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] Fundamentos Ciberseguridad 1"
+title: "Fundamentos Ciberseguridad 1"
 excerpt: "¿Qué es la Ciberseguridad?"
 date: "Nov 08 2022"
 cover_image: "/blog/cibersec.webp"

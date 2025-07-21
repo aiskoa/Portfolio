@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] W1chSystem2 SO escaneo de puertos"
+title: "W1chSystem2 OS port scan"
 excerpt: "Un Script en Python que nos dice si un sistema es windows o linux y sus puertos abiertos"
 date: "Aug 23 2022"
 cover_image: "/blog/whichsystem.webp"

@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] ALO POLISIA Community"
+title: "ALO POLISIA Community"
 excerpt: "Una comunidad gamer para todos!"
 date: "Dec 12 2022"
 cover_image: "/blog/alop.webp"

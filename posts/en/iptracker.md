@@ -1,5 +1,5 @@
 ---
-title: "[🇺🇸] Tracker IP"
+title: "Tracker IP"
 excerpt: "A Tracker IP over web sites and more"
 date: "Dec 21 2022"
 cover_image: "/blog/tiptracker.webp"
@@ -18,26 +18,27 @@ $$
 \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}
 $$
 
-La famosa ecuación es $E=mc^2$ y muestra la equivalencia entre masa y energía.
+The famous equation is $E=mc^2$ and shows the equivalence between mass and energy.
 
 ### Code
 
-```javascript
+```python
 import socket
 import requests
 from os import system
 
 system('clear')
-print("Bienvenidi, por favor")
-site = input("\nIngrese el sitio web: ")
+print("Welcome, please")
+site = input("\nEnter the website: ")
 ip = socket.gethostbyname(site)
 got = requests.get(f"http://ip-api.com/json/{ip}").json()
 lat = requests.get(f"http://ipwho.is/{ip}").json()
 
-print("Direccion IP:", got["query"])
+print("IP Address:", got["query"])
 print("ISP:", got["isp"])
-print("Tipo:", lat["type"])
+print("Type:", lat["type"])
 ```
+
 
 ### Download Here
 

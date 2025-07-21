@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] Cler Discord Bot Version 4.7"
+title: "Cler Discord Bot Version 4.7"
 excerpt: "Multiprospose Discord Bot for Node and PostgreSQL"
 date: "Oct 01 2024"
 cover_image: "/blog/cler2.webp"

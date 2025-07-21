@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] Defiendete de la IA"
+title: "Defiendete de la IA"
 excerpt: "Veremos de cerca que podemos hacer frente a la singularidad"
 date: "Feb 25 2024"
 cover_image: "/blog/ia1.webp"

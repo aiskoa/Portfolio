@@ -1,5 +1,5 @@
 ---
-title: "[🇪🇸] [WriteUp] - Blue (TryHackMe)"
+title: "[WriteUp] - Blue (TryHackMe)"
 excerpt: "Maquina EternalBlue, MS17-010, RCE Vulnerability "
 date: "Mar 27 2025"
 cover_image: "/blog/bluethm.webp"

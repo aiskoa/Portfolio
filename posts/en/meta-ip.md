@@ -1,5 +1,5 @@
 ---
-title: "[🇺🇸] Metacrawler & IPTrack"
+title: "Metacrawler & IPTrack"
 excerpt: "Metadata Eraser and IPLookup"
 date: "Apr 23 2023"
 cover_image: "/blog/metacrawler.webp"

@@ -1,40 +1,40 @@
 ---
-title: "[🇺🇸] Espejito"
-excerpt: "Small application that displays the data that a web page can obtain"
+title: "Espejito"
+excerpt: "Pequeña aplicación que muestra los datos que una página web puede obtener"
 date: "Dec 28 2021"
 cover_image: "/blog/iespejito.webp"
 tags1: "JavaScript"
 tags2: "Tools"
 ---
 
-# Installation
+# Instalación
 
-* The complete guide can be found at [GitHub](https://github.com/Rawierdt/espejito)
-* Page can be found [Here](https://rawierdt.github.io/espejito/)
+* La guía completa se puede encontrar en [GitHub](https://github.com/Rawierdt/espejito)
+* La página se puede encontrar [Aquí](https://rawierdt.github.io/espejito/)
 
-<h1 align="center">🍀 Espejito... My Data 🍀</h1>
-  Small application that displays the data that a web page can obtain
+<h1 align="center">🍀 Espejito... Mis Datos 🍀</h1>
+  Pequeña aplicación que muestra los datos que una página web puede obtener
 </p>
 
-> This project was made for learning purposes only
+> Este proyecto fue hecho solo con fines de aprendizaje
 
-* Access to the [Website](https://Rawierdt.github.io/espejito/)
+* Acceso al [Sitio Web](https://Rawierdt.github.io/espejito/)
 
-## Finish
+## Finalizar
 
-* View your data, if you are using VPN it will show another address, if you are using Brave or another browser it may block tracking.
+* Ve tus datos, si estás usando VPN mostrará otra dirección, si estás usando Brave u otro navegador puede que bloquee el rastreo.
 
-#### Download
+#### Descargar
 
-Available for Mac, Linux and Windows.
+Disponible para Mac, Linux y Windows.
 
-[Check the latest release](https://github.com/Rawierdt/espejito)
+[Revisa la última versión](https://github.com/Rawierdt/espejito)
 
-### License
+### Licencia
 
-💜 [MIT License](https://github.com/Rawierdt/espejito/blob/main/LICENSE)
+💜 [Licencia MIT](https://github.com/Rawierdt/espejito/blob/main/LICENSE)
 
-### Code Example
+### Ejemplo de Código
 
 ```javascript
 const container = 

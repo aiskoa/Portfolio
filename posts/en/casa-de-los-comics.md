@@ -1,5 +1,5 @@
 ---
-title: "[🇺🇸] Casa de los Comics Store"
+title: "Casa de los Comics Store"
 excerpt: "Comics, manga and merchandising store with Laravel!"
 date: "Oct 14 2021"
 cover_image: "/blog/lalaravel.webp"

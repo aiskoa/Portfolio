@@ -1,6 +1,6 @@
 ---
-title: "[🇪🇸] W1chSystem2 SO escaneo de puertos"
-excerpt: "Un Script en Python que nos dice si un sistema es windows o linux y sus puertos abiertos"
+title: "W1chSystem2 OS port scan"
+excerpt: "A Python Script that tells us if a system is Windows or Linux and its open ports"
 date: "Aug 23 2022"
 cover_image: "/blog/whichsystem.webp"
 alt: "wichsystem"
@@ -8,11 +8,11 @@ tags1: "Python"
 tags2: "Tools"
 ---
 
-**Script realizado por [S4vitar](https://www.youtube.com/c/s4vitar), modificado por mi agregando una función para analizar los puertos abiertos.**
+**Script made by [S4vitar](https://www.youtube.com/c/s4vitar), modified by me by adding a function to analyze open ports.**
 
-*El codigo completo se encuentra en [GitHub](https://github.com/Rawierdt/W1chsystem)*
+*The complete code can be found on [GitHub](https://github.com/Rawierdt/W1chsystem)*
 
-Herramienta sencilal.
+Simple tool.
 
 ```python
 #!/usr/bin/python3
@@ -38,8 +38,8 @@ def get_ttl(ip_address):
 
  proc = subprocess.Popen(["/usr/bin/ping 
  -c 1 %s" % 
- ip_address, ""], stdout=subprocess.PIPE, 
- shell=True)
+ip_address, ""], stdout=subprocess.PIPE, 
+shell=True)
  
  (out,err) = proc.communicate()
 
@@ -67,7 +67,7 @@ def get_os(ttl):
  if ttl >=0 and ttl <=64:
   return "Linux"
  
- elif ttl >= 65 and ttl <= 128:
+elif ttl >= 65 and ttl <= 128:
   return "Windows"
   
  else:

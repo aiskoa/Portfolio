@@ -111,10 +111,10 @@ const Skills: React.FC<SkillsProps> = ({ translations }): ReactElement => {
               <a key="discord" href="https://discord.com/users/1035181000872951838">
                 <SkillsIcon text="Discord" children={<SiDiscord />} />
               </a>,
-              <a key="twitter" href="https://twitter.com/Rawierdt">
+              <a key="twitter" href="https://twitter.com/aiskoac">
                 <SkillsIcon text="X" children={<SiTwitter />} />
               </a>,
-              <a key="linkedin" href="https://www.linkedin.com/in/rawier/">
+              <a key="linkedin" href="https://www.linkedin.com/in/aiskoa/">
                 <SkillsIcon text="Linkedin" children={<SiLinkedin />} />
               </a>,
             ]}

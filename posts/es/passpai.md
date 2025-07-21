@@ -22,9 +22,9 @@ tags2: "Tools"
 
 ## Website
 
-### [➡️ Go to PassPai](https://rawierdt.github.io/PassPai/)
+### [➡️ Go to PassPai](https://aiskoadt.github.io/PassPai/)
 
-## [Code](https://github.com/Rawierdt/PassPai)
+## [Code](https://github.com/aiskoadt/PassPai)
 
 ## Features
 
@@ -45,7 +45,7 @@ Para instalar y ejecutar KeyForge localmente, sigue estos pasos:
 1. **Clona el repositorio**:
 
     ```bash
-    git clone https://github.com/Rawierdt/PassPai.git
+    git clone https://github.com/aiskoadt/PassPai.git
     ```
 
 2. **Abre el proyecto en tu navegador**:
@@ -153,6 +153,6 @@ Give a ⭐️ if this *project helped you!*
 
 ### 📝 License
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app). This project is [MIT](/LICENSE) licensed.
+Copyright © 2024 [aiskoa](https://aiskoa.vercel.app). This project is [MIT](/LICENSE) licensed.
 
 ---

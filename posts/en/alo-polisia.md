@@ -173,4 +173,4 @@ previousMinecraftVersion: 1.14.4
 
 ---
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app). This project is [MIT](/LICENSE) licensed.
+Copyright © 2024 [Aiskoa](https://aiskoa.vercel.app). This project is [MIT](/LICENSE) licensed.

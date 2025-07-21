@@ -15,21 +15,21 @@ tags2: "SQL"
   Java CRUD for the enrollment, editing and deletion of students from a school, this enrollment works with a MySQL database. Using NetBeans
 
 ### Login
-  ![Javacrud](https://raw.githubusercontent.com/Rawierdt/java-crud-alumnos/main/src/resources/img/login.png)
+  ![Javacrud](https://raw.githubusercontent.com/aiskoadt/java-crud-alumnos/main/src/resources/img/login.png)
 
 ### Edit
-  ![Javacrud](https://raw.githubusercontent.com/Rawierdt/java-crud-alumnos/main/src/resources/img/edit.png)
+  ![Javacrud](https://raw.githubusercontent.com/aiskoadt/java-crud-alumnos/main/src/resources/img/edit.png)
 
 ### View
-  ![Javacrud](https://raw.githubusercontent.com/Rawierdt/java-crud-alumnos/main/src/resources/img/view.png)
+  ![Javacrud](https://raw.githubusercontent.com/aiskoadt/java-crud-alumnos/main/src/resources/img/view.png)
 </p>
 <br>
 > This project has been carried out for learning purposes only, any errors that may be found must be corrected by yourself.
 <br>
 
-* [GitHub](https://github.com/Rawierdt/java-crud-alumnos)
+* [GitHub](https://github.com/aiskoadt/java-crud-alumnos)
   
-* [Docs](https://github.com/Rawierdt/java-crud-alumnos/blob/main/DocCalificaciones.pdf)
+* [Docs](https://github.com/aiskoadt/java-crud-alumnos/blob/main/DocCalificaciones.pdf)
 
 <br>
 <br>
@@ -87,7 +87,7 @@ the mysql connector for java is in the controller folder
 # Download
 Available only on Windows.
 
-[Check the latest release](https://github.com/Rawierdt/java-crud-alumnos)
+[Check the latest release](https://github.com/aiskoadt/java-crud-alumnos)
 
 <br>
 

@@ -8,7 +8,7 @@ tags1: "JavaScript"
 tags2: "PostgreSQL"
 ---
 
-![Cler](https://raw.githubusercontent.com/Rawierdt/Cler/refs/heads/main/title.jpg)
+![Cler](https://raw.githubusercontent.com/aiskoadt/Cler/refs/heads/main/title.jpg)
 
 # Cler
 
@@ -42,7 +42,7 @@ Para instalar y ejecutar Cler localmente, sigue estos pasos:
 1. **Clona el repositorio**:
 
     ```bash
-    git clone git@github.com:Rawierdt/Cler.git
+    git clone git@github.com:aiskoadt/Cler.git
     ```
 
 2. **Navega al directorio del proyecto**:
@@ -84,9 +84,9 @@ Para instalar y ejecutar Cler localmente, sigue estos pasos:
 
 ## Comandos
 
-Lista completa de comandos en [Documentación](https://rawier.gitbook.io/cler)
+Lista completa de comandos en [Documentación](https://aiskoa.gitbook.io/cler)
 
-Estructura y Diagramación en Repositorio de [Github](https://github.com/Rawierdt/Cler)
+Estructura y Diagramación en Repositorio de [Github](https://github.com/aiskoadt/Cler)
 
 ## Admin / Mod
 
@@ -99,13 +99,13 @@ Estructura y Diagramación en Repositorio de [Github](https://github.com/Rawierd
 * `/softban <@member> <reason>` Expulsa del servidor al miembro etiquetado de manera temporal por 7 dias.
 * `/warn <@member> <reason>` Notifica al miembro seleccionado
 
-Lista completa de comandos en [Documentación](https://rawier.gitbook.io/cler)
+Lista completa de comandos en [Documentación](https://aiskoa.gitbook.io/cler)
 
 ### Comandos contextuales
 
 * `Ver Avatar` Envia el avatar de un usuario Gif / Imagen.
 
-Lista completa de comandos en [Documentación](https://rawier.gitbook.io/cler)
+Lista completa de comandos en [Documentación](https://aiskoa.gitbook.io/cler)
 
 ---
 
@@ -240,4 +240,4 @@ Give a ⭐️ if this _project helped you!_
 
 ### 💜 License
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app). This project is [AGPL](/LICENSE) licensed.
+Copyright © 2024 [aiskoa](https://aiskoa.vercel.app). This project is [AGPL](/LICENSE) licensed.

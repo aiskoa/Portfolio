@@ -10,7 +10,7 @@ tags2: "Tools"
 
 **Script made by [S4vitar](https://www.youtube.com/c/s4vitar), modified by me by adding a function to analyze open ports.**
 
-*The complete code can be found on [GitHub](https://github.com/Rawierdt/W1chsystem)*
+*The complete code can be found on [GitHub](https://github.com/aiskoadt/W1chsystem)*
 
 Simple tool.
 

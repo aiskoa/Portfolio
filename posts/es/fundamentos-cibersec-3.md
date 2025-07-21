@@ -16,7 +16,7 @@ tags2: "Hacking"
 > *Difficulty Level: ⭐⭐⭐*
 
 Te recomiendo ir al CheatSheet para una versión mas dinamica y divertida de aprender estos terminos.
-[Click para encontrar el CheatSheet Completo](https://rawier.gitbook.io/glosario-de-hacking-ciberseguridad-y-redes/)
+[Click para encontrar el CheatSheet Completo](https://aiskoa.gitbook.io/glosario-de-hacking-ciberseguridad-y-redes/)
 
 &nbsp;
 
@@ -43,7 +43,7 @@ Te recomiendo ir al CheatSheet para una versión mas dinamica y divertida de apr
 
 | Nombre | Descripción |
 | --|--|
-| 🐦 **AES** | (Advanced Encryption Standard) Es un estándar ampliamente utilizado por su eficacia y seguridad, Algunos Softwares que lo usan son [Encrypto](https://macpaw.com/encrypto), [GIE](https://github.com/Rawierdt/GIE-UI), [PassPai](https://rawierdt.github.io/PassPai/) |
+| 🐦 **AES** | (Advanced Encryption Standard) Es un estándar ampliamente utilizado por su eficacia y seguridad, Algunos Softwares que lo usan son [Encrypto](https://macpaw.com/encrypto), [GIE](https://github.com/aiskoadt/GIE-UI), [PassPai](https://aiskoadt.github.io/PassPai/) |
 | 🐦 **DES** | (Data Encryption Standard) Es un algoritmo más antiguo que ha sido reemplazado en gran medida por AES. |
 | 🐦 **Blowfish** | Es un algoritmo de cifrado de bloque que es rápido y eficiente para datos de tamaño variable muy usado en WooCommerce. |
 
@@ -130,7 +130,7 @@ Esto descifra el contenido del anterior codigo.
 | --|--|
 | 🐦 **RSA** | (Rivest-Shamir-Adleman) Es uno de los primeros sistemas de criptografía asimétrica, utilizado para cifrado y firma digital. |
 | 🐦 **DSA** | (Digital Signature Algorithm) Utilizado principalmente para la creación de firmas digitales. |
-| 🐦 **ECC** | (Elliptic Curve Cryptography) Ofrece la misma seguridad que RSA pero con claves más cortas, lo que lo hace más eficiente, Algunos Softwares que lo usan son [GIE](https://github.com/Rawierdt/GIE-UI). |
+| 🐦 **ECC** | (Elliptic Curve Cryptography) Ofrece la misma seguridad que RSA pero con claves más cortas, lo que lo hace más eficiente, Algunos Softwares que lo usan son [GIE](https://github.com/aiskoadt/GIE-UI). |
 
 &nbsp;
 
@@ -498,7 +498,7 @@ print("Shared secure key:", secure_key)
 
 &nbsp;
 
-- 💜 Acceso al [--> Blog](https://rawier.vercel.app/es/blog/)
+- 💜 Acceso al [--> Blog](https://aiskoa.vercel.app/es/blog/)
 
 ### Gracias por leer
 

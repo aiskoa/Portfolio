@@ -12,7 +12,7 @@ tags2: "Hacking"
 &nbsp;
 
 Te recomiendo ir al Cheatsheet para una versión mas dinamica y divertida de aprender estos terminos.
-[Click para encontrar el Cheatsheet Completo](https://rawier.gitbook.io/glosario-de-hacking-ciberseguridad-y-redes/)
+[Click para encontrar el Cheatsheet Completo](https://aiskoa.gitbook.io/glosario-de-hacking-ciberseguridad-y-redes/)
 
 &nbsp;
 
@@ -83,8 +83,8 @@ Te recomiendo ir al Cheatsheet para una versión mas dinamica y divertida de apr
 
 &nbsp;
 
-* Acceso a mi [Sitio Web](https://Rawier.vercel.app/es/blog/)
+* Acceso a mi [Sitio Web](https://aiskoa.vercel.app/es/blog/)
 
 ## Gracias por leer la parte 1
 
-Rawier.
+aiskoa.

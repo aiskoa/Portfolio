@@ -203,4 +203,4 @@ El proyecto está obsoleto y no continuaré desarrollándolo, pero puedes descar
 
 ### 📝 Licencia
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app).
+Copyright © 2024 [aiskoa](https://aiskoa.vercel.app).

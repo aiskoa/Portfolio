@@ -8,7 +8,7 @@ tags1: "Python"
 tags2: "Tools"
 ---
 
-![imageTitle](https://raw.githubusercontent.com/Rawierdt/GIE-UI/main/img/title.png)
+![imageTitle](https://raw.githubusercontent.com/aiskoadt/GIE-UI/main/img/title.png)
 
 # GIE-UI
 
@@ -183,7 +183,7 @@ def decrypt_file(input_file: str, password: bytes):
 
 ---
 
-### [⬇️ Download ⬇️](https://rawierdt.github.io/scripts/GIE/)
+### [⬇️ Download ⬇️](https://aiskoadt.github.io/scripts/GIE/)
 
 ### 🤝 Contributing
 
@@ -195,6 +195,6 @@ Give a ⭐️ if this _project helped you!_
 
 ### 📝 License
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app). This project is [MIT](/LICENSE) licensed.
+Copyright © 2024 [aiskoa](https://aiskoa.vercel.app). This project is [MIT](/LICENSE) licensed.
 
 ---

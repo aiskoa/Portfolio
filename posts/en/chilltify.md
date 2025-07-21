@@ -8,21 +8,21 @@ tags1: "JavaScript"
 tags2: "Tools"
 ---
 
-![Captura](https://raw.githubusercontent.com/Rawierdt/Chilltify/main/Screenshots/Index.png)
+![Captura](https://raw.githubusercontent.com/aiskoa/Chilltify/main/Screenshots/Index.png)
 
 ## Installation
 
-* The complete guide can be found at [GitHub](https://github.com/Rawierdt/Chilltify)
+* The complete guide can be found at [GitHub](https://github.com/aiskoa/Chilltify)
 
 <h1 align="center">🌜 Lofi Music - Diana Sessions 🌛</h1>
 
 [![license](https://img.shields.io/github/license/KillahPotatoes/KP-Liberation.svg)](/LICENSE)
 
-[![GitHub Release Date](https://img.shields.io/github/release-date/KillahPotatoes/KP-Liberation.svg)](https://github.com/Rawierdt/Chilltify/releases)
+[![GitHub Release Date](https://img.shields.io/github/release-date/KillahPotatoes/KP-Liberation.svg)](https://github.com/aiskoa/Chilltify/releases)
 
-[![GitHub contributors](https://img.shields.io/github/contributors/KillahPotatoes/KP-Liberation)](https://github.com/Rawierdt/Chilltify/contributors)
+[![GitHub contributors](https://img.shields.io/github/contributors/KillahPotatoes/KP-Liberation)](https://github.com/aiskoa/Chilltify/contributors)
 
-[![GitHub forks](https://img.shields.io/github/forks/KillahPotatoes/KP-Liberation)](https://github.com/Rawierdt/Chilltify/network)
+[![GitHub forks](https://img.shields.io/github/forks/KillahPotatoes/KP-Liberation)](https://github.com/aiskoa/Chilltify/network)
 
 <p align="center">
   Lofi music application made in electron, based on "Diana Sessions" from Riot Games Music.
@@ -42,7 +42,7 @@ Installer `.exe` only available for Windows.
 [Linux](https://drive.google.com/drive/folders/1_6AQhmQ0W0Uni2w_MwGZR6uMiy_oZVb7?usp=sharing)
 
 ## License
-💜 [MIT License](https://github.com/Rawierdt/Chilltify/blob/main/LICENSE)
+💜 [MIT License](https://github.com/aiskoa/Chilltify/blob/main/LICENSE)
 
 ### Code Example
 

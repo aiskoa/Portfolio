@@ -13,9 +13,9 @@ tags2: "SQL"
 # Cler - Discord Multipurpose Bot
 
 # Installation
-* The complete guide can be found at [GitHub](https://github.com/Rawierdt/Cler-page)
-* All documentation can be found at [Docs](https://Rawierdt.gitbook.io/cler/)
-* Official website at [Page](https://Rawierdt.github.io/Cler-page/)
+* The complete guide can be found at [GitHub](https://github.com/aiskoa/Cler-page)
+* All documentation can be found at [Docs](https://aiskoa.gitbook.io/cler/)
+* Official website at [Page](https://aiskoa.github.io/Cler-page/)
 
 
 # About Cler
@@ -45,9 +45,9 @@ DM to: @NexDrak ( ╥ω╥ )
 P.S.: If I abandoned this project it's because I got bored or didn't upgrade the bot to a better version of Discord.
 
 # Commands
-Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
+Full list of commands in [Documentation](https://aiskoa.gitbook.io/cler/)
 
-Structure and Diagramming in [Github](https://github.com/Rawierdt/Cler) Repository
+Structure and Diagramming in [Github](https://github.com/aiskoa/Cler) Repository
 
 ### Admin / Mod
 * `c!mute  <@member> <reason>` Mutes the tagged member.
@@ -61,7 +61,7 @@ Structure and Diagramming in [Github](https://github.com/Rawierdt/Cler) Reposito
 * `c!warn <@member> <reason>` Warns the selected member
 * `c!bc <#channel> <message>` Sends a message remotely to the selected channel Name or ID.
 
-Full list of commands in [Documentation](https://Rawierdt.gitbook.io/cler/)
+Full list of commands in [Documentation](https://aiskoa.gitbook.io/cler/)
 
 ### Action
 * `c!hug  <@member>` Sends a Hug Gif / Image. 
@@ -80,7 +80,7 @@ Full list of commands in [Documentation](https://Rawierdt.gitbook.io/cler/)
 * `c!sleep` Sends a Sleep Gif / Image.
 * `c!bored` Sends a Bored Gif / Image.
 
-Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
+Full list of commands in [Documentation](https://aiskoa.gitbook.io/cler/)
 
 ### Fun
 * `c!8ball  <@member>` Gives a random answer to a question of your interest. 
@@ -92,21 +92,21 @@ Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
 * `c!hack <@member>` Simulates a hack on the user / Image.
 * `c!chiste` Sends an image with a joke / Image.
 
-Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
+Full list of commands in [Documentation](https://aiskoa.gitbook.io/cler/)
 
 ### Utility
 * `c!avatar  <@member>` Sends a user's avatar Gif / Image. 
 * `c!tts  <args>` Joins the voice channel you are in and repeats the text said in Spanish / Audio. 
 * `c!en_tts  <args>` Joins the voice channel you are in and repeats the text said in English / Audio. 
 
-Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
+Full list of commands in [Documentation](https://aiskoa.gitbook.io/cler/)
 
 ### NSFW
 Sends a gif or image 
 * `c!netorare`
 * `c!maid`
 
-Full list of commands in [Documentation](https://Rawier.gitbook.io/cler/)
+Full list of commands in [Documentation](https://aiskoa.gitbook.io/cler/)
 
 ### Libraries and frameworks used
 * [dotenv](https://github.com/motdotla/dotenv#readme) and [express-js](http://expressjs.com/)

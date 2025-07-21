@@ -7,7 +7,7 @@
 ### Clone the project
 
 ```js
-git clone git@github.com:Rawierdt/Portafolio.git
+git clone git@github.com:aiskoa/Portafolio.git
 ```
 
 ### Move into the folder
@@ -37,9 +37,9 @@ yarn dev
 
 # Contact
 
-- [Twitter](https://twitter.com/Rawierdt)
-- [GitHub](https://github.com/Rawierdt)
+- [Twitter](https://twitter.com/aiskoac)
+- [GitHub](https://github.com/aiskoa)
 
 # 𝕽♛
 
-[↼ Back to Rawier](https://rawier.vercel.app)
+[↼ Back to aiskoa](https://aiskoa.vercel.app)

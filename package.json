@@ -2,7 +2,7 @@
   "name": "portfolio-aiskoa",
   "author": "AISKOA",
   "license": "MIT",
-  "description": "Portafolio for Rawierdt",
+  "description": "Portafolio for Aiskoa",
   "private": false,
   "scripts": {
     "dev": "next dev",

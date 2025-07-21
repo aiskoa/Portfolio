@@ -15,7 +15,7 @@ tags2: "Hacking"
 > *Difficulty Level: ⭐*
 
 Te recomiendo ir al Cheatsheet para una versión mas dinamica y divertida de aprender estos terminos.
-[Click para encontrar el Cheatsheet Completo](https://rawier.gitbook.io/glosario-de-hacking-ciberseguridad-y-redes/)
+[Click para encontrar el Cheatsheet Completo](https://aiskoa.gitbook.io/glosario-de-hacking-ciberseguridad-y-redes/)
 
 &nbsp;
 
@@ -103,7 +103,7 @@ Consiste en que el consultor tiene un conocimiento COMPLETO del sistema o red qu
 
 &nbsp;
 
-- 💜 Acceso al [--> Blog](https://rawier.vercel.app/es/blog/)
+- 💜 Acceso al [--> Blog](https://aiskoa.vercel.app/es/blog/)
 
 ### Gracias por leer la parte 2
 

@@ -8,9 +8,9 @@ tags1: "Python"
 tags2: "Tools"
 ---
 
-![imageTitle](https://raw.githubusercontent.com/Rawierdt/GIE/main/title.jpg)
+![imageTitle](https://raw.githubusercontent.com/aiskoadt/GIE/main/title.jpg)
 
-[![Static Badge](https://img.shields.io/badge/%20build-MIT-brightgreen?logo=github&label=LICENSE)](https://github.com/Rawierdt/GIE/LICENSE)
+[![Static Badge](https://img.shields.io/badge/%20build-MIT-brightgreen?logo=github&label=LICENSE)](https://github.com/aiskoadt/GIE/LICENSE)
 ![Static Badge](https://img.shields.io/badge/APRIL%202024-red?label=RELEASE%20DATE)
 ![Static Badge](https://img.shields.io/badge/LANGUAGE-Python-yellow?logo=python)
 
@@ -56,7 +56,7 @@ Ejecuta los comandos según tu caso (Win o Linux)
 Clona o descarga este repositorio
 
 ```batch
-git clone git@github.com:Rawierdt/GIE.git
+git clone git@github.com:aiskoadt/GIE.git
 ```
 
 Cambia de directorio
@@ -252,4 +252,4 @@ def decrypt_file(input_file: str, password: bytes):
 
 ### 📝 Licencia
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app). Este proyecto tiene licencia [MIT](/LICENSE).
+Copyright © 2024 [aiskoa](https://aiskoa.vercel.app). Este proyecto tiene licencia [MIT](/LICENSE).

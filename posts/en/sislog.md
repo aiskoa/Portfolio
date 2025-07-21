@@ -97,9 +97,9 @@ def get_running_services():
 
 ### Download
 
-`git clone git@github.com:Rawierdt/SisLog.git`
+`git clone git@github.com:aiskoadt/SisLog.git`
 
-[⬇️ Check the latest release ⬇️](https://github.com/Rawierdt/SisLog/releases/tag/SISLOG)
+[⬇️ Check the latest release ⬇️](https://github.com/aiskoadt/SisLog/releases/tag/SISLOG)
 
 ### 🤝 Contributing
 
@@ -111,6 +111,6 @@ Give a ⭐️ if this _project helped you!_
 
 ### 📝 License
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app). This project is [MIT](/LICENSE) licensed.
+Copyright © 2024 [aiskoa](https://aiskoa.vercel.app). This project is [MIT](/LICENSE) licensed.
 
 ---

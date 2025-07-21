@@ -69,4 +69,4 @@ Actualizaciones:
 
 ### Gracias por leer
 
-~ Rawier.
+~ aiskoa.

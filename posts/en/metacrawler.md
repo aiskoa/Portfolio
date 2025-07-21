@@ -68,7 +68,7 @@ document.getElementById('downloadButton').addEventListener('click', () => {
 ```
 
 > Download or Clone the project in Github.
-[Download from Github](https://github.com/Rawierdt/metacrawler)
+[Download from Github](https://github.com/aiskoadt/metacrawler)
 
 ### License
 
@@ -76,4 +76,4 @@ MIT
 
 &nbsp;
 
-- 💜 Acceso al [--> Blog](https://rawier.vercel.app/es/blog/)
+- 💜 Acceso al [--> Blog](https://aiskoa.vercel.app/es/blog/)

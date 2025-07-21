@@ -275,7 +275,7 @@ As you can see in the image I am connected to the administration network on this
 
 &nbsp;
 
-- 💜 Access to the [--> Blog](https://rawier.vercel.app/es/blog/)
+- 💜 Access to the [--> Blog](https://aiskoa.vercel.app/es/blog/)
 
 ### Thanks for reading
 

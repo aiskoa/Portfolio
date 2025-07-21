@@ -275,7 +275,7 @@ Como podrás notar en la imagen estoy conectado a la red de administración en e
 
 &nbsp;
 
-- 💜 Acceso al [--> Blog](https://rawier.vercel.app/es/blog/)
+- 💜 Acceso al [--> Blog](https://aiskoa.vercel.app/es/blog/)
 
 ### Gracias por leer
 

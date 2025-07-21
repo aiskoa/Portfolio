@@ -203,4 +203,4 @@ The project is deprecated and i will not continue to develop it, but you can dow
 
 ### 📝 License
 
-Copyright © 2024 [Rawier](https://rawier.vercel.app).
+Copyright © 2024 [Aiskoa](https://aiskoa.vercel.app).

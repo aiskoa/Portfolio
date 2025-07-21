@@ -15,21 +15,21 @@ tags2: "SQL"
   Java CRUD para la inscripción, edición y eliminación de alumnos de una escuela, esta inscripción funciona con base de datos MySQL. Usando NetBeans
 
 ### Login
-  ![Javacrud](https://raw.githubusercontent.com/Rawierdt/java-crud-alumnos/main/src/resources/img/login.png)
+  ![Javacrud](https://raw.githubusercontent.com/aiskoadt/java-crud-alumnos/main/src/resources/img/login.png)
 
 ### Edit
-  ![Javacrud](https://raw.githubusercontent.com/Rawierdt/java-crud-alumnos/main/src/resources/img/edit.png)
+  ![Javacrud](https://raw.githubusercontent.com/aiskoadt/java-crud-alumnos/main/src/resources/img/edit.png)
 
 ### View
-  ![Javacrud](https://raw.githubusercontent.com/Rawierdt/java-crud-alumnos/main/src/resources/img/view.png)
+  ![Javacrud](https://raw.githubusercontent.com/aiskoadt/java-crud-alumnos/main/src/resources/img/view.png)
 </p>
 <br>
 > Este proyecto se ha realizado únicamente con fines de aprendizaje, cualquier error que se pueda encontrar debe ser corregido por usted mismo.
 <br>
 
-* [GitHub](https://github.com/Rawierdt/java-crud-alumnos)
+* [GitHub](https://github.com/aiskoadt/java-crud-alumnos)
   
-* [Docs](https://github.com/Rawierdt/java-crud-alumnos/blob/main/DocCalificaciones.pdf)
+* [Docs](https://github.com/aiskoadt/java-crud-alumnos/blob/main/DocCalificaciones.pdf)
 
 <br>
 <br>
@@ -87,7 +87,7 @@ el conector mysql para java se encuentra en la carpeta del controlador
 # Download
 Disponible solo en Windows.
 
-[Check the latest release](https://github.com/Rawierdt/java-crud-alumnos)
+[Check the latest release](https://github.com/aiskoadt/java-crud-alumnos)
 
 <br>
 

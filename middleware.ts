@@ -5,9 +5,9 @@ import type { NextRequest } from 'next/server';
 const ratelimit = new Map();
 
 export function middleware(request: NextRequest) {
-  const ip = request.ip || '127.0.0.1'; // Fallback for local development
+  const ip = request.headers.get('x-forwarded-for') || '127.0.0.1';
   const limit = 5; // Max requests
-  const windowMs = 10 * 1000; // 10 seconds
+  const windowMs = 10 * 1000;
 
   if (!ratelimit.has(ip)) {
     ratelimit.set(ip, { count: 0, lastReset: Date.now() });

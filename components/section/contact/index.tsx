@@ -19,12 +19,12 @@ import { config } from "../../../config";
     const [currentIndex, setCurrentIndex] = useState(0);
     const carouselRef = useRef<HTMLDivElement>(null);
     const images = [
-      { src: "./providers/ipn.webp", alt: "IPN", icon: <SiDiscord size={24} /> }, // Ejemplo con un icono
-      { src: "./providers/aiep.webp", alt: "AIEP" },
-      { src: "./providers/humble.webp", alt: "Humble" },
-      { src: "./providers/soundraw.webp", alt: "Soundraw" },
-      { src: "./providers/plug-patches.webp", alt: "Plug Patches" },
-      { src: "./providers/carnes-domicilio.webp", alt: "Carnes Domicilio", icon: <SiHackthebox size={24} /> } // Otro ejemplo con icono
+      { src: "/providers/ipn.webp", alt: "IPN", icon: <SiDiscord size={24} /> }, // Ejemplo con un icono
+      { src: "/providers/aiep.webp", alt: "AIEP" },
+      { src: "/providers/humble.webp", alt: "Humble" },
+      { src: "/providers/soundraw.webp", alt: "Soundraw" },
+      { src: "/providers/plug-patches.webp", alt: "Plug Patches" },
+      { src: "/providers/carnes-domicilio.webp", alt: "Carnes Domicilio", icon: <SiHackthebox size={24} /> } // Otro ejemplo con icono
     ];
 
     const prevSlide = () => {
@@ -94,7 +94,6 @@ import { config } from "../../../config";
             />
           </div>
         </div>
-        <h2 className="ml-5 text-2xl">{t("contact")}</h2>
         <div>
           
           <div className="p-2 m-5 font-thin border-2 border-gray-900 flex-column rounded-2xl dark:hover:border-purple-700 hover:border-blue-700 dark:border-white">
@@ -104,20 +103,20 @@ import { config } from "../../../config";
             <br />
             {/* Evita que las imagenes sean copiadas. */}
             <div className="flex flex-col items-center justify-around hover:justify-evenly">
-              <img className="mb-1 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.ibb.co/W5jGmsM/asesor-crestomatia.jpg" width="300"></img>
+              <img className="mb-1 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.ibb.co/ZY2ZxqK/chessD.gif" width="300"></img>
               {/* Aquí puedes añadir un icono SI debajo de la imagen */}
-              <SiHackthebox size={24} className="mt-1" />
-              <p className="text-sm text-center">Descripción opcional</p>
+              {/* <SiHackthebox size={24} className="mt-1" />
+              <p className="text-sm text-center">Descripción opcional</p> */}
             </div>
             <br />
             <p className="flex select-none justify-evenly cursor-no-drop">{t("text_mail")}</p>
-            <a className="flex justify-evenly" href="mailto:aiskoa@mail.com?Subject=DUDA%20_%20GENERAL"><strong>aismoa@mail.com</strong></a>
+            <a className="flex justify-evenly" href="mailto:aiskoa@mail.com?Subject=DUDA%20_%20GENERAL"><strong>aiskoa@mail.com</strong></a>
             <br />
             <p className="text-2xl text-center">FAQ</p>
             <p className="flex select-none justify-evenly">{t("faq")}</p>
             {/* 𝕽♛ */}
 
-            <ImageCarousel/>
+            {/* <ImageCarousel/> */}
             <br />
 
             <div className="flex text-xs border-2 border-gray-300 border-solid rounded-md justify-evenly dark:border-white">

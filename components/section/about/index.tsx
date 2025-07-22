@@ -100,13 +100,6 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
         { key: "vercel", text: "Vercel", icon: <SiVercel size={16} className="text-gray-800 dark:text-gray-100"/> },
       ],
     },
-    // {
-    //   title: "Hardware",
-    //   icons: [
-    //     { key: "bluetooth", text: "Bluetooth", icon: <SiBluetooth size={16} className="text-gray-800 dark:text-gray-100"/> },
-    //     { key: "raspberrypi", text: "Raspberrypi", icon: <SiRaspberrypi size={16} className="text-gray-800 dark:text-gray-100"/> },
-    //   ],
-    // },
   ];
 
   return (

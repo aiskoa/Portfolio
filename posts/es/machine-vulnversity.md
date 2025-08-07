@@ -1,14 +1,16 @@
 ---
 title: "[WriteUp] - Vulnversity (TryHackMe)"
 excerpt: "Maquina Vulnversity, Reverse Shell"
-date: "Mar 27 2025"
+date: "Jun 10 2025"
 cover_image: "/blog/vulnversity-thm.webp"
 alt: "Writeup 2"
 tags1: "Hacking"
-tags2: "Windows"
+tags2: "Linux"
 ---
 
 # Máquina "Vulnversity" (TryHackMe)
+
+[📝 Download PDF Report](https://drive.google.com/file/d/1gkD94lRSYaorLr0cYcpJn_2-CPHzUlEO/view?usp=sharing)
 
 &nbsp;
 

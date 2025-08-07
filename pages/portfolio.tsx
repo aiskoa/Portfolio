@@ -6,7 +6,7 @@ import fs from 'fs';
 import path from 'path';
 import Link from "next/link";
 
-import { SiAstro, SiCplusplus, SiElectron, SiGnubash, SiHtml5, SiJavascript, SiLinux, SiPhp, SiPostgresql, SiPowershell, SiPython, SiReact, SiSqlite, SiTailwindcss, SiTypescript, SiWordpress } from "react-icons/si";
+import { SiAstro, SiCplusplus, SiElectron, SiGnubash, SiHtml5, SiJavascript, SiLinux, SiNextdotjs, SiPhp, SiPostgresql, SiPowershell, SiPython, SiReact, SiSqlite, SiSvelte, SiTailwindcss, SiTypescript, SiWordpress } from "react-icons/si";
 import { FaLinux, FaLink, FaJava } from "react-icons/fa";
 
 interface Item {
@@ -74,9 +74,11 @@ function getProgrammingIcon2(p_Language2: string) {
     linux: <SiLinux className="inline-block w-4 h-4 mr-1" />,
     sql: <SiSqlite className="inline-block w-4 h-4 mr-1" />,
     powershell: <SiPowershell className="inline-block w-4 h-4 mr-1" />,
+    nextjs: <SiNextdotjs className="inline-block w-4 h-4 mr-1" />,
     php: <SiPhp className="inline-block w-4 h-4 mr-1" />,
     wordpress: <SiWordpress className="inline-block w-4 h-4 mr-1" />,
     go: <SiGnubash className="inline-block w-4 h-4 mr-1" />,
+    svelte: <SiSvelte className="inline-block w-4 h-4 mr-1" />,
     rust: <SiGnubash className="inline-block w-4 h-4 mr-1" />,
     tailwindcss: <SiTailwindcss className="inline-block w-4 h-4 mr-1" />,
     cpp: <SiCplusplus className="inline-block w-4 h-4 mr-1" />,

@@ -1,5 +1,18 @@
 [
     {
+        "title": "GIE Encrypt",
+        "language": "Go",
+        "language2": "Svelte",
+        "date": "Jul 03, 2025",
+        "image": "https://i.ibb.co/21Dx81sr/gieimm.png",
+        "altText": "GIE Encrypt Version 1.2.5",
+        "githubLink": "https://github.com/aiskoa/GIE",
+        "description1": "Encryption and Decryption Software.",
+        "description2": "Protect your sensitive files and folders with Anti-Quantum Military-Grade AES-256 Encryption, Works seamlessly across macOS, Windows, and Linux.",
+        "readMoreLink": "https://aiskoa.vercel.app/es/blog/gie",
+        "GoToLink": "https://gie-aiskoa.vercel.app"
+    },    
+    {
         "title": "Cler Multipurpose Bot",
         "language": "JavaScript",
         "language2": "PostgreSQL",
@@ -66,7 +79,7 @@
     },
     {
         "title": "AISKOA's Portfolio",
-        "language": "React",
+        "language": "Nextjs",
         "language2": "TypeScript",
         "date": "Mar 28, 2024",
         "image": "https://i.ibb.co/M9kDNwJ/portfolio-image.png",

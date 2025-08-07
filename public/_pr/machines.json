@@ -1,16 +1,5 @@
 [
     {
-        "title": "Blue",
-        "platform": "TryHackMe",
-        "os": "Windows",
-        "difficulty": "Easy",
-        "image": "/blog/blue-thm.webp",
-        "altText": "EternalBlue, MS17-010",
-        "githubLink": "https://tryhackme.com/room/blue",
-        "description": "Blue es una máquina con una vulnerabilidad en el protocolo SMB 445. EternalBlue permite la ejecución remota de código que se descubrió en [MS17-010].",
-        "GoToLink": "https://aiskoa.vercel.app/blog/machine-bluethm/"
-    },
-    {
         "title": "Vulnversity",
         "platform": "TryHackMe",
         "os": "Linux",
@@ -20,5 +9,16 @@
         "githubLink": "https://tryhackme.com/room/vulnversity",
         "description": "Vulnversity is a machine with a miss config. That allows reverse shell and remote code execution using php, the programming language.",
         "GoToLink": "https://aiskoa.vercel.app/blog/machine-vulnversity/"
+    },
+    {
+        "title": "Blue",
+        "platform": "TryHackMe",
+        "os": "Windows",
+        "difficulty": "Easy",
+        "image": "/blog/blue-thm.webp",
+        "altText": "EternalBlue, MS17-010",
+        "githubLink": "https://tryhackme.com/room/blue",
+        "description": "Blue es una máquina con una vulnerabilidad en el protocolo SMB 445. EternalBlue permite la ejecución remota de código que se descubrió en [MS17-010].",
+        "GoToLink": "https://aiskoa.vercel.app/blog/machine-bluethm/"
     }
 ]

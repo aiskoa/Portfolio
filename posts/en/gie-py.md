@@ -1,10 +1,10 @@
 ---
 title: "GIE Encrypt and Decrypt files"
 excerpt: "An Encrypt and Decrypt for files and folders!"
-date: "Jul 03 2024"
-cover_image: "/blog/gie.webp"
-alt: "GIE"
-tags1: "Go"
+date: "Apr 10 2024"
+cover_image: "/blog/giew.webp"
+alt: "GIE Python"
+tags1: "Python"
 tags2: "Tools"
 ---
 

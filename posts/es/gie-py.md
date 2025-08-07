@@ -1,10 +1,10 @@
 ---
-title: "GIE Cifrar y Descifrar archiv"
+title: "GIE Cifrar y Descifrar archivos"
 excerpt: "¡Un cifrador y descifrador para archivos y carpetas!"
-date: "Jul 03 2025"
-cover_image: "/blog/gie.webp"
-alt: "GIE"
-tags1: "Go"
+date: "Apr 10 2024"
+cover_image: "/blog/giew.webp"
+alt: "GIE Python"
+tags1: "Python"
 tags2: "Tools"
 ---
 

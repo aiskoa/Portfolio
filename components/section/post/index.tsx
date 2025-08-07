@@ -2,8 +2,35 @@ import React from "react";
 import Link from "next/link";
 import { PostType } from "../../../models";
 
-import { SiAstro, SiCplusplus, SiElectron, SiGnubash, SiHtml5, SiJavascript, SiLinux, SiPhp, SiPostgresql, SiPowershell, SiPython, SiReact, SiSqlite, SiTailwindcss, SiTypescript, SiWordpress, SiHelpdesk, SiKalilinux, SiWindows} from "react-icons/si";
-import { FaLinux, FaJava, FaTools, FaRobot, FaBrain, FaRegMoon } from "react-icons/fa";
+import {
+  SiAstro,
+  SiCplusplus,
+  SiElectron,
+  SiGnubash,
+  SiHtml5,
+  SiJavascript,
+  SiLinux,
+  SiPhp,
+  SiPostgresql,
+  SiPowershell,
+  SiPython,
+  SiReact,
+  SiSqlite,
+  SiTailwindcss,
+  SiTypescript,
+  SiWordpress,
+  SiHelpdesk,
+  SiKalilinux,
+  SiWindows,
+} from "react-icons/si";
+import {
+  FaLinux,
+  FaJava,
+  FaTools,
+  FaRobot,
+  FaBrain,
+  FaRegMoon,
+} from "react-icons/fa";
 
 function getTagIcon(tag_1: string) {
   const icons: Record<string, JSX.Element> = {
@@ -32,7 +59,7 @@ function getTagIcon(tag_1: string) {
     ai: <FaRobot className="inline-block w-4 h-4 mr-1" />,
     mental: <FaBrain className="inline-block w-4 h-4 mr-1" />,
     irl: <FaRegMoon className="inline-block w-4 h-4 mr-1" />,
-    windows: <SiWindows className="inline-block w-4 h-4 mr-1" />
+    windows: <SiWindows className="inline-block w-4 h-4 mr-1" />,
   };
 
   const l = tag_1.toLowerCase();
@@ -66,7 +93,7 @@ function getTagIcon2(tag_2: string) {
     ai: <FaRobot className="inline-block w-4 h-4 mr-1" />,
     mental: <FaBrain className="inline-block w-4 h-4 mr-1" />,
     irl: <FaRegMoon className="inline-block w-4 h-4 mr-1" />,
-    windows: <SiWindows className="inline-block w-4 h-4 mr-1" />
+    windows: <SiWindows className="inline-block w-4 h-4 mr-1" />,
   };
 
   const l = tag_2.toLowerCase();
@@ -74,35 +101,34 @@ function getTagIcon2(tag_2: string) {
 }
 
 export default function Post({ post }: PostType) {
-  
   return (
     <Link href={`/blog/${post.slug}`}>
       <div className="px-2 my-4 md:px-3 lg:px-4">
-        <article className="overflow-hidden transition-all duration-300 bg-white border rounded-lg shadow-md dark:bg-slate-800 dark:border-slate-700 hover:shadow-lg dark:hover:shadow-violet-900/20 hover:border-gray-300 dark:hover:border-violet-600">
-          <div className="relative overflow-hidden">
+        <article className="overflow-hidden transition-all duration-300 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-violet-900/20 hover:border-gray-300 dark:hover:border-violet-600">
+          <div className="relative overflow-hidden bg-gray-50 dark:bg-gray-700">
             <img
               alt={post.frontmatter.alt || post.frontmatter.title}
-              className="object-cover w-full h-48 transition-transform duration-300 hover:scale-105"
+              className="object-contain w-full h-48 transition-transform duration-300 hover:scale-105"
               src={post.frontmatter.cover_image}
             />
           </div>
           <div className="p-4">
             <header className="leading-tight">
-              <h1 className="text-lg font-bold line-clamp-2 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-200">
+              <h1 className="text-lg font-bold text-gray-900 dark:text-white line-clamp-2 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-200">
                 {post.frontmatter.title}
               </h1>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
-                {post.frontmatter.excerpt} 
+                {post.frontmatter.excerpt}
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {post.frontmatter.tags1 && (
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full dark:text-gray-300 dark:bg-gray-700">
+                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full dark:text-gray-200 dark:bg-gray-600 transition-colors duration-200">
                     {getTagIcon(post.frontmatter.tags1)}
                     {post.frontmatter.tags1}
                   </span>
                 )}
                 {post.frontmatter.tags2 && (
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full dark:text-gray-300 dark:bg-gray-700">
+                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full dark:text-gray-200 dark:bg-gray-600 transition-colors duration-200">
                     {getTagIcon2(post.frontmatter.tags2)}
                     {post.frontmatter.tags2}
                   </span>

@@ -198,7 +198,7 @@ const WriteUp: NextPage<WriteUpProps> = ({ translations }) => {
           {sortedData.map((item: Item, index: number) => (
             <div
               key={index}
-              className="w-full p-2 sm:w-1/2 lg:w-1/3 xl:w-1/4"
+              className="w-full p-2 sm:w-1/2 lg:w-1/3 xl:w-1/3"
             >
               <div className="overflow-hidden bg-gray-100 border-2 rounded-lg shadow-lg cursor-pointer dark:bg-gray-800 dark:hover:border-violet-800 hover:border-yellow-500">
                 <img

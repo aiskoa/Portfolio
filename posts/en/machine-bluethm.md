@@ -2,7 +2,7 @@
 title: "[WriteUp] - Blue (TryHackMe)"
 excerpt: "EternalBlue Machine, MS17-010, RCE Vulnerability "
 date: "Mar 27 2025"
-cover_image: "/blog/bluethm.webp"
+cover_image: "/blog/blue-thm.webp"
 alt: "Writeup 1"
 tags1: "Hacking"
 tags2: "Windows"

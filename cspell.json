@@ -40,6 +40,8 @@
         "AISKOA",
         "ciberseguridad",
         "DCOM",
+        "dirbuster",
+        "dirsearch",
         "Escalabilidad",
         "hashdump",
         "Metasploit",
@@ -47,10 +49,13 @@
         "misconfig",
         "msrpc",
         "netbios",
+        "netcat",
         "nmap",
         "Pentesting",
         "PNET",
-        "rockyou"
+        "rockyou",
+        "Wappalyzer",
+        "wordlists"
     ],
     "ignoreWords": [],
     "import": []

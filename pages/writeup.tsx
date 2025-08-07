@@ -201,12 +201,14 @@ const WriteUp: NextPage<WriteUpProps> = ({ translations }) => {
               className="w-full p-2 sm:w-1/2 lg:w-1/3 xl:w-1/3"
             >
               <div className="overflow-hidden bg-gray-100 border-2 rounded-lg shadow-lg cursor-pointer dark:bg-gray-800 dark:hover:border-violet-800 hover:border-yellow-500">
-                <img
-                  className="object-cover w-full h-48 md:h-60"
-                  loading="lazy"
-                  src={item.image}
-                  alt={item.altText}
-                />
+                <div className="relative w-full" style={{ aspectRatio: '1024/733' }}>
+                  <img
+                    className="object-contain w-full h-full"
+                    loading="lazy"
+                    src={item.image}
+                    alt={item.altText}
+                  />
+                </div>
                 <div className="p-4">
                   <div>
                     <a

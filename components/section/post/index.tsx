@@ -77,38 +77,38 @@ export default function Post({ post }: PostType) {
   
   return (
     <Link href={`/blog/${post.slug}`}>
-      <div className="px-4 my-4 custom-card md:px-6 lg:px-8">
-        <article className="overflow-hidden border-2 rounded-lg shadow-lg dark:hover:border-violet-700 hover:border-black dark:bg-slate-800">
-          <img
-              alt={post.frontmatter.title}
-              className="block object-cover custom-image"
+      <div className="px-2 my-4 md:px-3 lg:px-4">
+        <article className="overflow-hidden transition-all duration-300 bg-white border rounded-lg shadow-md dark:bg-slate-800 dark:border-slate-700 hover:shadow-lg dark:hover:shadow-violet-900/20 hover:border-gray-300 dark:hover:border-violet-600">
+          <div className="relative overflow-hidden">
+            <img
+              alt={post.frontmatter.alt || post.frontmatter.title}
+              className="object-cover w-full h-48 transition-transform duration-300 hover:scale-105"
               src={post.frontmatter.cover_image}
             />
+          </div>
           <div className="p-4">
             <header className="leading-tight">
-              <h1 className="text-2xl font-bold">
+              <h1 className="text-lg font-bold line-clamp-2 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-200">
                 {post.frontmatter.title}
               </h1>
-              <p className="mt-2 text-gray-600 dark:text-gray-300">
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
                 {post.frontmatter.excerpt} 
               </p>
-              <div className="flex items-center mt-2 space-x-2">
-                <button
-                      title="Tag 1"
-                      className="flex items-center px-2 py-1 text-xs text-gray-800 border border-gray-400 rounded-md dark:text-gray-200"
-                    >
+              <div className="flex flex-wrap gap-2 mt-3">
+                {post.frontmatter.tags1 && (
+                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full dark:text-gray-300 dark:bg-gray-700">
                     {getTagIcon(post.frontmatter.tags1)}
-                    <span>{post.frontmatter.tags1}</span>
-                </button>
-                <button
-                      title="Tag 1"
-                      className="flex items-center px-2 py-1 text-xs text-gray-800 border border-gray-400 rounded-md dark:text-gray-200"
-                    >
+                    {post.frontmatter.tags1}
+                  </span>
+                )}
+                {post.frontmatter.tags2 && (
+                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full dark:text-gray-300 dark:bg-gray-700">
                     {getTagIcon2(post.frontmatter.tags2)}
-                    <span>{post.frontmatter.tags2}</span>
-                </button>
+                    {post.frontmatter.tags2}
+                  </span>
+                )}
               </div>
-              <p className="mt-2 text-gray-500 dark:text-gray-400">
+              <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
                 {post.frontmatter.date}
               </p>
             </header>

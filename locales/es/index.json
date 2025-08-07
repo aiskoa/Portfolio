@@ -29,5 +29,6 @@
   "projects": "PROYECTOS",
   "projectsDesc": "Aquí se muestran algunos de mis proyectos y contribuciones más recientes.",
   "writeDesc": "Write-ups de máquinas, desafíos y vulnerabilidades, usando plataformas como TryHackMe, Hack The Box y más.",
-  "blog_title": "Mis Entradas de Blog"
+  "blog_title": "Mis Entradas de Blog",
+  "index_title": "Índice del Blog"
 }

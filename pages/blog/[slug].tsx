@@ -106,39 +106,45 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
   // useEffect para la barra de progreso de lectura
   useEffect(() => {
     const updateReadingProgress = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      const docHeight = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      );
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
       
-      if (docHeight === 0) {
+      const scrollableHeight = docHeight - windowHeight;
+      
+      if (scrollableHeight <= 0) {
         setReadingProgress(0);
         return;
       }
       
-      const progress = (scrollTop / docHeight) * 100;
-      setReadingProgress(Math.min(100, Math.max(0, progress)));
+      const progress = (scrollTop / scrollableHeight) * 100;
+      const clampedProgress = Math.min(100, Math.max(0, progress));
+      
+      setReadingProgress(clampedProgress);
     };
 
-    // Llamar inmediatamente para establecer el progreso inicial
+    // Llamar inmediatamente y después de un pequeño delay para asegurar que el DOM esté listo
     updateReadingProgress();
+    setTimeout(updateReadingProgress, 100);
     
-    // Agregar listener con throttling para mejor rendimiento
-    let ticking = false;
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          updateReadingProgress();
-          ticking = false;
-        });
-        ticking = true;
-      }
+      updateReadingProgress();
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', updateReadingProgress);
+    window.addEventListener('load', updateReadingProgress);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateReadingProgress);
+      window.removeEventListener('load', updateReadingProgress);
     };
   }, []);
 

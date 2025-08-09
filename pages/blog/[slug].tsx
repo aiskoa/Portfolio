@@ -106,14 +106,40 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
   // useEffect para la barra de progreso de lectura
   useEffect(() => {
     const updateReadingProgress = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      
+      if (docHeight === 0) {
+        setReadingProgress(0);
+        return;
+      }
+      
       const progress = (scrollTop / docHeight) * 100;
       setReadingProgress(Math.min(100, Math.max(0, progress)));
     };
 
-    window.addEventListener('scroll', updateReadingProgress);
-    return () => window.removeEventListener('scroll', updateReadingProgress);
+    // Llamar inmediatamente para establecer el progreso inicial
+    updateReadingProgress();
+    
+    // Agregar listener con throttling para mejor rendimiento
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateReadingProgress();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', updateReadingProgress);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateReadingProgress);
+    };
   }, []);
 
   // Funciones para compartir en redes sociales

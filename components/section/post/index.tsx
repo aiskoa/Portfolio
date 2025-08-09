@@ -122,22 +122,6 @@ export default function Post({ post }: PostType) {
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
                 {post.frontmatter.excerpt}
               </p>
-
-              {/* <div className="flex flex-wrap gap-2 mt-3">
-                {post.frontmatter.tags1 && (
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full dark:text-gray-200 dark:bg-gray-600 transition-colors duration-200">
-                    {getTagIcon(post.frontmatter.tags1)}
-                    {post.frontmatter.tags1}
-                  </span>
-                )}
-                {post.frontmatter.tags2 && (
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full dark:text-gray-200 dark:bg-gray-600 transition-colors duration-200">
-                    {getTagIcon2(post.frontmatter.tags2)}
-                    {post.frontmatter.tags2}
-                  </span>
-                )}
-              </div> */}
-              
               <div className="flex items-center">
                 <button
                   title="Tag 1"

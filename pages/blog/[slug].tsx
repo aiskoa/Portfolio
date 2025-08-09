@@ -32,6 +32,7 @@ import { scroller } from "react-scroll";
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import "katex/dist/katex.min.css";
+import { FaTwitter, FaFacebook, FaLinkedin, FaLink } from "react-icons/fa";
 
 // Registra los lenguajes para el resaltado de sintaxis
 SyntaxHighlighter.registerLanguage("c", c);
@@ -80,6 +81,18 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
 
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [showIndex, setShowIndex] = useState(false);
+  const [readingProgress, setReadingProgress] = useState(0);
+  const [copied, setCopied] = useState(false);
+
+  // Función para calcular tiempo de lectura
+  const calculateReadingTime = (text: string): number => {
+    const wordsPerMinute = 200; // Promedio de palabras por minuto
+    const words = text.trim().split(/\s+/).length;
+    const readingTime = Math.ceil(words / wordsPerMinute);
+    return readingTime;
+  };
+
+  const readingTime = calculateReadingTime(content);
 
   useEffect(() => {
     const headingElements = Array.from(document.querySelectorAll("h2"));
@@ -89,6 +102,41 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
     }));
     setHeadings(headingsData);
   }, [content]);
+
+  // useEffect para la barra de progreso de lectura
+  useEffect(() => {
+    const updateReadingProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      setReadingProgress(Math.min(100, Math.max(0, progress)));
+    };
+
+    window.addEventListener('scroll', updateReadingProgress);
+    return () => window.removeEventListener('scroll', updateReadingProgress);
+  }, []);
+
+  // Funciones para compartir en redes sociales
+  const shareOnTwitter = () => {
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.href)}`;
+    window.open(url, '_blank');
+  };
+
+  const shareOnFacebook = () => {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+    window.open(url, '_blank');
+  };
+
+  const shareOnLinkedIn = () => {
+    const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`;
+    window.open(url, '_blank');
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const scrollTo = (id: string) => {
     scroller.scrollTo(id, {
@@ -116,6 +164,14 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
         <meta name="theme-color" content="#8e52f5" />
       </Head>
       
+      {/* Barra de progreso de lectura */}
+      <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 dark:bg-gray-700 z-50">
+        <div 
+          className="h-full bg-gradient-to-r from-violet-500 to-purple-600 transition-all duration-300 ease-out"
+          style={{ width: `${readingProgress}%` }}
+        />
+      </div>
+
       {/* Contenedor principal con padding top para compensar navbar fijo */}
       <div className="min-h-screen pt-16 pb-8">
         {/* Botones de navegación */}
@@ -199,8 +255,15 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
               <div className="text-base md:text-lg text-gray-500 dark:text-gray-400 mb-2">
                 {date}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-                {tags1}, {tags2}
+              <div className="flex items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-6">
+                <span className="flex items-center gap-1">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                  </svg>
+                  {readingTime} min de lectura
+                </span>
+                <span>•</span>
+                <span>{tags1}, {tags2}</span>
               </div>
               <div className="mb-8">
                 <img
@@ -264,6 +327,65 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
                 </ReactMarkdown>
               </div>
             </article>
+
+            {/* Sección de compartir en redes sociales */}
+            <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+              <div className="text-center">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
+                  ¿Te gustó este artículo? ¡Compártelo!
+                </h3>
+                <div className="flex justify-center items-center gap-4 flex-wrap">
+                  {/* Twitter */}
+                  <button
+                    onClick={shareOnTwitter}
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                    aria-label="Compartir en Twitter"
+                  >
+                    <FaTwitter className="w-5 h-5" />
+                    <span className="hidden sm:inline">Twitter</span>
+                  </button>
+
+                  {/* Facebook */}
+                  <button
+                    onClick={shareOnFacebook}
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                    aria-label="Compartir en Facebook"
+                  >
+                    <FaFacebook className="w-5 h-5" />
+                    <span className="hidden sm:inline">Facebook</span>
+                  </button>
+
+                  {/* LinkedIn */}
+                  <button
+                    onClick={shareOnLinkedIn}
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                    aria-label="Compartir en LinkedIn"
+                  >
+                    <FaLinkedin className="w-5 h-5" />
+                    <span className="hidden sm:inline">LinkedIn</span>
+                  </button>
+
+                  {/* Copiar enlace */}
+                  <button
+                    onClick={copyToClipboard}
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                    aria-label="Copiar enlace"
+                  >
+                    <FaLink className="w-5 h-5" />
+                    <span className="hidden sm:inline">
+                      {copied ? '¡Copiado!' : 'Copiar enlace'}
+                    </span>
+                  </button>
+                </div>
+                
+                {/* Mensaje de confirmación para copiar enlace */}
+                {copied && (
+                  <div className="mt-4 text-sm text-green-600 dark:text-green-400 font-medium">
+                    ✓ Enlace copiado al portapapeles
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>

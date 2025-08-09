@@ -364,17 +364,17 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
             <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
               <div className="text-center">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
-                  ¿Te gustó este artículo? ¡Compártelo!
+                  Did you like this article? Share it!
                 </h3>
                 <div className="flex justify-center items-center gap-4 flex-wrap">
                   {/* Twitter */}
                   <button
                     onClick={shareOnTwitter}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
                     aria-label="Compartir en Twitter"
                   >
                     <FaTwitter className="w-5 h-5" />
-                    <span className="hidden sm:inline">Twitter</span>
+                    <span className="hidden sm:inline">X</span>
                   </button>
 
                   {/* Facebook */}
@@ -413,7 +413,7 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
                 {/* Mensaje de confirmación para copiar enlace */}
                 {copied && (
                   <div className="mt-4 text-sm text-green-600 dark:text-green-400 font-medium">
-                    ✓ Enlace copiado al portapapeles
+                    ✓ Link copied to clipboard
                   </div>
                 )}
               </div>
@@ -458,7 +458,7 @@ const CodeComponent: React.FC<CodeComponentProps> = ({
         <span className="font-medium">#{language.toUpperCase()}</span>
         <div className="flex items-center space-x-2">
           {copied ? (
-            <span className="text-green-400 font-medium">¡Copiado!</span>
+            <span className="text-green-400 font-medium">¡Copy!</span>
           ) : (
             <CopyToClipboard
               text={String(children)}

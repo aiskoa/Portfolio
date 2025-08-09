@@ -1,7 +1,7 @@
 ---
 title: "GIE Encrypt and Decrypt files"
 excerpt: "An Encrypt and Decrypt for files and folders!"
-date: "Jul 03 2024"
+date: "Jul 03 2025"
 cover_image: "/blog/gie.webp"
 alt: "GIE"
 tags1: "Go"

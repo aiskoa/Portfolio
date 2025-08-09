@@ -8,7 +8,7 @@ import path from 'path';
  * IMPORTS DE ICONOS
  * Ajusta según los íconos que desees usar:
  */
-import { SiTryhackme, SiHackthebox, SiWindows11, SiApple, SiRootme, SiAndroid } from "react-icons/si";
+import { SiTryhackme, SiHackthebox, SiWindows11, SiApple, SiRootme, SiAndroid, SiKedro, SiValorant } from "react-icons/si";
 import { FaLinux, FaLink } from "react-icons/fa";
 import { MdSignalCellular0Bar, MdSignalCellular1Bar, MdSignalCellular3Bar, MdSignalCellular4Bar } from "react-icons/md";
 
@@ -37,6 +37,8 @@ function getPlatformIcon(platform: string) {
   if (p === "tryhackme") return <SiTryhackme className="inline-block w-4 h-4 mr-1" />;
   if (p === "hackthebox") return <SiHackthebox className="inline-block w-4 h-4 mr-1" />;
   if (p === "rootme") return <SiRootme className="inline-block w-4 h-4 mr-1" />;
+  if (p === "hackmyvm") return <SiKedro className="inline-block w-4 h-4 mr-1" />;
+  if (p === "vulnhub") return <SiValorant className="inline-block w-4 h-4 mr-1" />;
   return null;
 }
 
@@ -44,7 +46,7 @@ function getOsIcon(os: string) {
   const o = os.toLowerCase();
   if (o === "windows") return <SiWindows11 className="inline-block w-4 h-4 mr-1" />;
   if (o === "linux") return <FaLinux className="inline-block w-4 h-4 mr-1" />;
-  if (o === "linux") return <SiAndroid className="inline-block w-4 h-4 mr-1" />;
+  if (o === "android") return <SiAndroid className="inline-block w-4 h-4 mr-1" />;
   if (o === "macos") return <SiApple className="inline-block w-4 h-4 mr-1" />;
   return null;
 }

@@ -235,9 +235,8 @@ const Portfolio: NextPage<PortfolioProps> = ({ translations }) => {
                     </div>
                     <span className="block mt-1 text-xs font-bold text-gray-500 dark:text-gray-400">
                       <div className="flex items-center">
-
                       <button
-                        title="Sistema Operativo"
+                        title="Lenguaje de programacin1"
                         className="flex items-center px-2 py-1 text-xs text-gray-800 border border-gray-400 rounded-md dark:text-gray-200"
                       >
                         {getProgrammingIcon(item.language)}
@@ -245,7 +244,7 @@ const Portfolio: NextPage<PortfolioProps> = ({ translations }) => {
                       </button>
                       <span className="inline-block mx-1"></span>
                       <button
-                        title="Sistema Operativo"
+                        title="Lenguaje de programacin2"
                         className="flex items-center px-2 py-1 text-xs text-gray-800 border border-gray-400 rounded-md dark:text-gray-200"
                       >
                         {getProgrammingIcon2(item.language2)}

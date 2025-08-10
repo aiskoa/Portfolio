@@ -8,9 +8,9 @@ tags1: "Python"
 tags2: "Tools"
 ---
 
-![imageTitle](https://raw.githubusercontent.com/aiskoadt/GIE/main/title.jpg)
+![imageTitle](https://raw.githubusercontent.com/aiskoa/GIE/main/title.jpg)
 
-[![Static Badge](https://img.shields.io/badge/%20build-MIT-brightgreen?logo=github&label=LICENSE)](https://github.com/aiskoadt/GIE/LICENSE)
+[![Static Badge](https://img.shields.io/badge/%20build-MIT-brightgreen?logo=github&label=LICENSE)](https://github.com/aiskoa/GIE/LICENSE)
 ![Static Badge](https://img.shields.io/badge/APRIL%202024-red?label=RELEASE%20DATE)
 ![Static Badge](https://img.shields.io/badge/LANGUAGE-Python-yellow?logo=python)
 
@@ -56,7 +56,7 @@ Execute the commands according to your case (Win or Linux)
 Clone or Download this Repository
 
 ```batch
-git clone git@github.com:aiskoadt/GIE.git
+git clone git@github.com:aiskoa/GIE.git
 ```
 
 Change Directory

@@ -10,7 +10,7 @@ tags2: "Tools"
 
 **Script realizado por [S4vitar](https://www.youtube.com/c/s4vitar), modificado por mi agregando una función para analizar los puertos abiertos.**
 
-*El codigo completo se encuentra en [GitHub](https://github.com/aiskoadt/W1chsystem)*
+*El codigo completo se encuentra en [GitHub](https://github.com/aiskoa/W1chsystem)*
 
 Herramienta sencilal.
 

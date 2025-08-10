@@ -22,9 +22,9 @@ tags2: "Tools"
 
 ## Website
 
-### [➡️ Go to PassPai](https://aiskoadt.github.io/PassPai/)
+### [➡️ Go to PassPai](https://aiskoa.github.io/PassPai/)
 
-## [Code](https://github.com/aiskoadt/PassPai)
+## [Code](https://github.com/aiskoa/PassPai)
 
 ## Features
 
@@ -45,7 +45,7 @@ Para instalar y ejecutar KeyForge localmente, sigue estos pasos:
 1. **Clona el repositorio**:
 
     ```bash
-    git clone https://github.com/aiskoadt/PassPai.git
+    git clone https://github.com/aiskoa/PassPai.git
     ```
 
 2. **Abre el proyecto en tu navegador**:

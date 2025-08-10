@@ -75,9 +75,9 @@ def is_malicious(ip, api_key):
 In IPTracker
 `api_key = 'API_KEY_HERE' with you API VirusTotal Key`
 
-[Dowload Here From GitHub](https://github.com/aiskoadt/Metacrawler-IPTracker)
+[Dowload Here From GitHub](https://github.com/aiskoa/Metacrawler-IPTracker)
 
-[Check the latest release](https://github.com/aiskoadt/Metacrawler-IPTracker/releases/tag/Metacrawlerv1)
+[Check the latest release](https://github.com/aiskoa/Metacrawler-IPTracker/releases/tag/Metacrawlerv1)
 
 &nbsp;
 

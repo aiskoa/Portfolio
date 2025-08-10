@@ -24,6 +24,7 @@ import batch from "react-syntax-highlighter/dist/cjs/languages/prism/batch";
 import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
 import ignore from "react-syntax-highlighter/dist/cjs/languages/prism/ignore";
 import powershell from "react-syntax-highlighter/dist/cjs/languages/prism/powershell";
+import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
 import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useRouter } from "next/router";
@@ -32,7 +33,8 @@ import { scroller } from "react-scroll";
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import "katex/dist/katex.min.css";
-import { FaTwitter, FaFacebook, FaLinkedin, FaLink } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+import { FaFacebook, FaLinkedin, FaLink } from "react-icons/fa";
 
 // Registra los lenguajes para el resaltado de sintaxis
 SyntaxHighlighter.registerLanguage("c", c);
@@ -49,6 +51,7 @@ SyntaxHighlighter.registerLanguage("batch", batch);
 SyntaxHighlighter.registerLanguage("python", python);
 SyntaxHighlighter.registerLanguage("powershell", powershell);
 SyntaxHighlighter.registerLanguage("javascript", javascript);
+SyntaxHighlighter.registerLanguage("TypeScript", typescript);
 
 // Definir el tipo Frontmatter
 interface Frontmatter {
@@ -66,6 +69,8 @@ interface PostPageProps {
   frontmatter: Frontmatter;
   content: string;
   translations: { [key: string]: string };
+  previousPost?: { slug: string; title: string } | null;
+  nextPost?: { slug: string; title: string } | null;
 }
 
 // Definir el tipo Heading para `headings`
@@ -74,7 +79,7 @@ interface Heading {
   text: string;
 }
 
-export default function PostPage({ frontmatter, content, translations }: PostPageProps) {
+export default function PostPage({ frontmatter, content, translations, previousPost, nextPost }: PostPageProps) {
   const { title, date, cover_image, alt, excerpt, tags1, tags2 } = frontmatter;
   const router = useRouter();
   const t = (key: string) => translations[key] || key;
@@ -86,7 +91,7 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
 
   // Función para calcular tiempo de lectura
   const calculateReadingTime = (text: string): number => {
-    const wordsPerMinute = 200; // Promedio de palabras por minuto
+    const wordsPerMinute = 200;
     const words = text.trim().split(/\s+/).length;
     const readingTime = Math.ceil(words / wordsPerMinute);
     return readingTime;
@@ -129,7 +134,6 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
       setReadingProgress(clampedProgress);
     };
 
-    // Llamar inmediatamente y después de un pequeño delay para asegurar que el DOM esté listo
     updateReadingProgress();
     setTimeout(updateReadingProgress, 100);
     
@@ -148,7 +152,6 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
     };
   }, []);
 
-  // Funciones para compartir en redes sociales
   const shareOnTwitter = () => {
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.href)}`;
     window.open(url, '_blank');
@@ -292,7 +295,7 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                   </svg>
-                  {readingTime} min de lectura
+                  {readingTime} min read
                 </span>
                 <span>•</span>
                 <span>{tags1}, {tags2}</span>
@@ -340,7 +343,7 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
                     code: CodeComponent,
                     // Párrafos normales - sin cambios especiales
                     p: ({ children }) => {
-                      // Filtramos elementos que no deberían estar en párrafos
+                      // Filtra elementos que no deberían estar ens párrafos
                       const hasBlockElements = React.Children.toArray(children).some(child => 
                         React.isValidElement(child) && 
                         typeof child.type === 'function' && 
@@ -360,24 +363,66 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
               </div>
             </article>
 
-            {/* Sección de compartir en redes sociales */}
+            {/* Navegación entre posts */}
+            {(previousPost || nextPost) && (
+              <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <div className="flex flex-col sm:flex-row justify-between items-stretch gap-4">
+                  {/* Post anterior */}
+                  {previousPost ? (
+                    <Link href={`/blog/${previousPost.slug}`} className="flex-1">
+                      <div className="group p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-violet-500 dark:hover:border-violet-400 transition-colors duration-200 cursor-pointer">
+                        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                          </svg>
+                          <span>Previous</span>
+                        </div>
+                        <h4 className="text-base font-medium text-gray-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-200 line-clamp-2">
+                          {previousPost.title}
+                        </h4>
+                      </div>
+                    </Link>
+                  ) : (
+                    <div className="flex-1"></div>
+                  )}
+
+                  {/* Post siguiente */}
+                  {nextPost ? (
+                    <Link href={`/blog/${nextPost.slug}`} className="flex-1">
+                      <div className="group p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-violet-500 dark:hover:border-violet-400 transition-colors duration-200 cursor-pointer text-right">
+                        <div className="flex items-center justify-end gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
+                          <span>Next</span>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                        <h4 className="text-base font-medium text-gray-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-200 line-clamp-2">
+                          {nextPost.title}
+                        </h4>
+                      </div>
+                    </Link>
+                  ) : (
+                    <div className="flex-1"></div>
+                  )}
+                </div>
+              </div>
+            )}
+
             <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
               <div className="text-center">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
                   Did you like this article? Share it!
                 </h3>
                 <div className="flex justify-center items-center gap-4 flex-wrap">
-                  {/* Twitter */}
                   <button
                     onClick={shareOnTwitter}
                     className="flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
                     aria-label="Compartir en Twitter"
                   >
-                    <FaTwitter className="w-5 h-5" />
+                    <BsTwitterX className="w-5 h-5" />
                     <span className="hidden sm:inline">X</span>
                   </button>
 
-                  {/* Facebook */}
                   <button
                     onClick={shareOnFacebook}
                     className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
@@ -387,7 +432,6 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
                     <span className="hidden sm:inline">Facebook</span>
                   </button>
 
-                  {/* LinkedIn */}
                   <button
                     onClick={shareOnLinkedIn}
                     className="flex items-center gap-2 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
@@ -397,7 +441,6 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
                     <span className="hidden sm:inline">LinkedIn</span>
                   </button>
 
-                  {/* Copiar enlace */}
                   <button
                     onClick={copyToClipboard}
                     className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
@@ -410,7 +453,6 @@ export default function PostPage({ frontmatter, content, translations }: PostPag
                   </button>
                 </div>
                 
-                {/* Mensaje de confirmación para copiar enlace */}
                 {copied && (
                   <div className="mt-4 text-sm text-green-600 dark:text-green-400 font-medium">
                     ✓ Link copied to clipboard
@@ -458,14 +500,14 @@ const CodeComponent: React.FC<CodeComponentProps> = ({
         <span className="font-medium">#{language.toUpperCase()}</span>
         <div className="flex items-center space-x-2">
           {copied ? (
-            <span className="text-green-400 font-medium">¡Copy!</span>
+            <span className="text-green-400 font-medium">¡Copied!</span>
           ) : (
             <CopyToClipboard
               text={String(children)}
               onCopy={() => setCopied(true)}
             >
               <button className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm transition-colors duration-200">
-                Copiar
+                Copy
               </button>
             </CopyToClipboard>
           )}
@@ -517,13 +559,48 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
 }
 
 export async function getStaticProps({ params, locale }: { params: Params, locale: string }) {
+  const postsDirectory = path.join(process.cwd(), 'posts', locale);
+  
+  // Leer el post actual
   const markdownWithMeta = fs.readFileSync(
-    path.join(process.cwd(), 'posts', locale, params.slug + ".md"),
+    path.join(postsDirectory, params.slug + ".md"),
     "utf-8"
   );
-
   const { data: frontmatter, content } = matter(markdownWithMeta);
 
+  // Obtener todos los posts para encontrar el anterior y siguiente
+  const files = fs.readdirSync(postsDirectory);
+  const allPosts = files
+    .filter((filename) => filename.endsWith(".md"))
+    .map((filename) => {
+      const slug = filename.replace(".md", "");
+      const postContent = fs.readFileSync(path.join(postsDirectory, filename), "utf-8");
+      const { data: postFrontmatter } = matter(postContent);
+      
+      return {
+        slug,
+        title: postFrontmatter.title || '',
+        date: postFrontmatter.date || '',
+      };
+    })
+    // Ordenar por fecha (más reciente primero)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  // Encontrar el índice del post actual
+  const currentIndex = allPosts.findIndex(post => post.slug === params.slug);
+  
+  // Obtener posts anterior y siguiente
+  const previousPost = currentIndex < allPosts.length - 1 ? {
+    slug: allPosts[currentIndex + 1].slug,
+    title: allPosts[currentIndex + 1].title
+  } : null;
+  
+  const nextPost = currentIndex > 0 ? {
+    slug: allPosts[currentIndex - 1].slug,
+    title: allPosts[currentIndex - 1].title
+  } : null;
+
+  // Leer traducciones
   const translationsPath = path.join(process.cwd(), 'locales', locale, 'index.json');
   const translationsFile = fs.readFileSync(translationsPath, 'utf8');
   const translations = JSON.parse(translationsFile);
@@ -533,6 +610,8 @@ export async function getStaticProps({ params, locale }: { params: Params, local
       frontmatter,
       content,
       translations,
+      previousPost,
+      nextPost,
     },
   };
 }

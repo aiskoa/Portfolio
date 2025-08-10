@@ -9,8 +9,8 @@ tags2: "Tools"
 
 # Installation
 
-* The complete guide can be found at [GitHub](https://github.com/aiskoadt/espejito)
-* Page can be found [Here](https://aiskoadt.github.io/espejito/)
+* The complete guide can be found at [GitHub](https://github.com/aiskoa/espejito)
+* Page can be found [Here](https://aiskoa.github.io/espejito/)
 
 <h1 align="center">🍀 Espejito... My Data 🍀</h1>
   Small application that displays the data that a web page can obtain
@@ -18,7 +18,7 @@ tags2: "Tools"
 
 > This project was made for learning purposes only
 
-* Access to the [Website](https://aiskoadt.github.io/espejito/)
+* Access to the [Website](https://aiskoa.github.io/espejito/)
 
 ## Finish
 
@@ -28,11 +28,11 @@ tags2: "Tools"
 
 Available for Mac, Linux and Windows.
 
-[Check the latest release](https://github.com/aiskoadt/espejito)
+[Check the latest release](https://github.com/aiskoa/espejito)
 
 ### License
 
-💜 [MIT License](https://github.com/aiskoadt/espejito/blob/main/LICENSE)
+💜 [MIT License](https://github.com/aiskoa/espejito/blob/main/LICENSE)
 
 ### Code Example
 

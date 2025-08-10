@@ -68,7 +68,7 @@ document.getElementById('downloadButton').addEventListener('click', () => {
 ```
 
 > Descarga o clona el proyecto en Github.
-[Descargar desde Github](https://github.com/aiskoadt/metacrawler)
+[Descargar desde Github](https://github.com/aiskoa/metacrawler)
 
 ### Licencia
 

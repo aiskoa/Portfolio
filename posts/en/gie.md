@@ -1,6 +1,6 @@
 ---
 title: "GIE Encrypt and Decrypt files"
-excerpt: "An Encrypt and Decrypt for files and folders!"
+excerpt: "An encryptor and decryptor for files and folders!"
 date: "Jul 03 2025"
 cover_image: "/blog/gie.webp"
 alt: "GIE"
@@ -8,248 +8,360 @@ tags1: "Go"
 tags2: "Tools"
 ---
 
-![imageTitle](https://raw.githubusercontent.com/aiskoadt/GIE/main/title.jpg)
-
-[![Static Badge](https://img.shields.io/badge/%20build-MIT-brightgreen?logo=github&label=LICENSE)](https://github.com/aiskoadt/GIE/LICENSE)
-![Static Badge](https://img.shields.io/badge/APRIL%202024-red?label=RELEASE%20DATE)
-![Static Badge](https://img.shields.io/badge/LANGUAGE-Python-yellow?logo=python)
+![GIE Header](https://i.ibb.co/KcDrDJvw/passpaititle.png)
 
 # GIE
 
-## Encrypt and Decrypt
+## 🔐 What is GIE and what is it for?
 
-An Encrypt and Decrypt for files and folders for Windows, written in Python using AES.
+*In summary:*
+An encryptor and decryptor for files and folders for Windows, Linux and macOS, written in GO using AES.
+**💜 GIE is cross-platform, it works on Windows, Linux and macOS.**
 
-> [!CAUTION]
-> Disclaimer: This tool was created for educational purposes only. I do not take any responsibility for the misuse of this tool.
+Example:
+*You can encrypt your file on Windows and decrypt it on Linux or vice versa*.
 
-![aCreator](https://i.ibb.co/q92xdX2/gie-terminal.gif)
+*In detail:*
+GIE (*Go-based Information Encryptor*), is a cross-platform desktop application built using the **Wails** framework. GIE is designed for the secure encryption and decryption of files and directories, leveraging robust cryptographic primitives implemented in **Go**. The application aims to provide a user-friendly interface for managing sensitive data.
 
-## Version
+![Example of use](https://i.postimg.cc/6pxZfhm8/Desktop2025-08-0906-27-27p-m-ezgif-com-optimize.gif)
 
-**GIE V3.0**
+### Version
 
-### Features
+**GIE v1.2.5**
 
-Encrypt and decrypt your files and folders with AES, for any file, jpg, png, mp4, mp3, docx, pdf, etc...
+### 📦 Requirements
 
-**IMPORTANT TO READ ALL**
+- **Go v1.24+**
+- **Wails v2.10+**
+- **Node v22.17+**
 
-## 📦 Requirements
+## ❓ Features
 
-**[Python3](https://www.python.org/downloads/)**
+- Encrypts and decrypts files and folders with AES, for any file type.
+- GIE follows a client-server architecture facilitated by the Wails framework.
+- Possibility of adding hints.
+- Possibility of sharing files between operating systems.
+- 3 levels of protection (Low, Normal, High).
+- Possibility of adding an encryption channel for greater security.
+- Lightweight and easy to use.
+- Intuitive and friendly user interface.
+- Open Source!
 
-**[Colorama](https://pypi.org/project/colorama/)**
+### 🧑‍💻 Technical Features
+Encrypt and decrypt your files and folders with AES, for any file type: *jpg*, *zip*+, *mp4*, _mp3_, _docx_, _pdf_, etc...
 
-**Subprocess**
+GIE follows a client-server architecture facilitated by the Wails framework. * Frontend (Client): Developed with React (**Svelte**) and **TypeScript**, responsible for the user interface and interaction. It communicates with the **Go** backend through Wails' inter-process communication (IPC) mechanisms. * Backend (Server): Implemented in Go, it handles all the central logic, including file operations, cryptographic processes and system interactions.
 
-**Hashlib**
+GIE employs a hybrid encryption scheme that combines **symmetric encryption (AES CTR)** for data confidentiality and a **Message Authentication Code (HMAC-SHA256)** for data integrity and authenticity. Key derivation is performed using PBKDF2.
 
-**Cryptography**
+The encryption and HMAC keys are derived from the user's password using PBKDF2 (Password-Based Key Derivation Function 2) with SHA256 as the pseudorandom function. Separate salts are used for the AES key and the HMAC key to prevent cross-protocol attacks. The number of iterations and the key length are configurable according to the chosen encryption level (Low, Normal, High).
+
+The PBKDF2 function is defined as:
+
+$$ 
+DK = PBKDF2(PRF,Password,Salt,Iterations,KeyLength)
+$$ 
+
+Where:
+- `DK`: Derived Key
+- `PRF`: Pseudorandom Function (HMAC SHA256 in this case)
+- `Password`: Password provided by the user
+- `Salt`: Random salt (16 bytes)
+- `Iterations`: Number of iterations (e.g., *10,000 for Low*, *800,000 for Normal*, *12,000,000 for High*)
+- `KeyLength`: Desired length of the derived key (16 bytes for AES-128, 32 bytes for AES-256)
+
+AES in Counter (CTR) mode is used to encrypt the file content. CTR mode transforms a block cipher into a stream cipher, allowing parallel encryption/decryption and direct access to any part of the ciphertext. A unique and randomly generated 16-byte Initialization Vector (IV) is used for each encryption operation. The CTR mode encryption process can be conceptually represented as:
+
+$$ 
+C_{i} = E_{K}(Nonce||Counter_{i}) \oplus P_{i}
+$$ 
+
+Where:
+- `Ci`: i-th block of ciphertext
+- `EK`: AES encryption function with key K
+- `Nonce`: A unique value for each encryption (part of the IV)
+- `Counteri`: A counter that is incremented for each block
+- `Pi`: i-th block of plaintext
+- `⊕`: Bitwise XOR operation
+
+*HMAC-SHA256* is used to ensure the integrity and authenticity of the encrypted data and its associated metadata.
+The HMAC is calculated over the entire encrypted file, including the metadata header (hint length, hint, channel, encryption level code, AES salt, HMAC salt, CTR IV) and the ciphertext. This prevents tampering with both the data and its critical parameters.
+
+The HMAC function is defined as:
+
+$$ 
+HMAC_{K}(m)=H((K\oplus opad)||H((K \oplus ipad)||m))
+$$ 
+
+Where:
+- `H`: Hash function (SHA256 in this case)
+- `K`: Secret key (derived HMAC key)
+- `m`: Message (metadata || ciphertext)
+- `ipad`: Inner padding (0x36 repeated)
+- `opad`: Outer padding (0x5C repeated)
+- `||`: Concatenation
+
+### Method Structure
+
+| Field             | Size (Bytes) | Description                                                                   |
+|-------------------|----------------|-------------------------------------------------------------------------------|
+| Hint              | Variable       | Length of the hint provided by the user for the file                            |
+| Channel           | 2              | uint16, a user-defined channel for grouping files                |
+| Encryption Level Code | 1              | byte, code representing the encryption strength (0=Low, 1=Normal, 2=High) |
+| AES Key Salt      | 16             | Random salt for AES key derivation                              |
+| HMAC Key Salt     | 16             | Random salt for HMAC key derivation                             |
+| CTR IV            | 16             | Random Initialization Vector for AES-CTR                               |
+| Ciphertext        | Variable       | Encrypted content of the original file                                        |
+| HMAC Tag          | 32             | HMAC-SHA256 of all preceding data (metadata + ciphertext)        |
+
+GIE provides a robust and secure solution for encrypting files and directories, built on modern cross-platform technologies. Its design prioritizes both security through solid cryptographic practices and usability through a responsive graphical interface.
+
+The following sequence diagram shows the complete workflow of file processing with real function calls:
+![Application Flow](https://i.ibb.co/JjVCxXnJ/032ff1f6-8b79-427b-a38d-b161ebd79422.png)
+
+The backend is based on a central application structure that acts as the main application controller and exposes methods to the frontend through the Wails framework.
+![Application structure and main components](https://i.ibb.co/mVcC1jbL/image.png)
+
+If you want to know more in depth, you can consult the [GitHub Repository](https://github.com/aiskoa/GIE) for additional details and usage examples.
+You can also consult with [DeepWiki](https://deepwiki.com/aiskoa/GIE)
 
 ## 💻 Installation
 
-Execute the commands according to your case (Win or Linux)
+Run the commands according to your case (Win or Linux)
 
-`pyhon` for windows
-
-Clone or Download this Repository
+Clone or download this repository
 
 ```batch
-git clone git@github.com:aiskoadt/GIE.git
+git@github.com:aiskoa/GIE.git
 ```
 
-Change Directory
+Change directory
 
 ```batch
 cd GIE
 ```
 
-Run the setup.py file
+Install the dependencies
 
 ```batch
-python setup.py
+npm install
 ```
+And run
 
-OR install the dependencies manually
+`wails build` to compile the application
 
-Run the project
+> Make sure you have the latest version of Wails, Node and Go installed on your computer.
 
-```batch
-python gie.py -h
-```
+**ATTENTION!!**
+
+If you just want to use it, you can download it from github or from the official site according to your system.
+
+**From Official Site:**
+[⬇ Download GIE](https://gie-aiskoa.vercel.app)
+
+**Minimum Requirements:**
+- Windows 10/11 / Debian / macOS Ventura or later
+- 1 GB of disk space
+- 2 GB of RAM
 
 ---
 
-## For Encrypt
+## 🔒 How to Encrypt?
 
-Run `-h` for print the help/usage
-
-```batch
-python gie.py -h
-```
+> At the moment it is only available through the GUI.
 
 To **Encrypt** a folder or file
 
-* ! The path must be enclosed in quotes " "
+- **Drag or search for the file in the program (Graphical Interface)**
+- **Enter a password (Important to remember it)**
+- Write a hint for the password (Optional)
+- Choose the encryption channel (Optional)
+- Choose the encryption level (Optional)
+- **Click on "Encrypt"**
+- **This converts the file to (.gie)**
 
-For folders
+Once the file is encrypted in **.gie** it cannot be opened, read or modified.
+Keep in mind that GIE works for any type of file, even for large files.
 
-```batch
-python gie.py "C:\YOUR\FOLDER"
+👀 **NOTE** IF YOU ACCIDENTALLY ENCRYPT ANY FILE OR FUNCTIONALITY OF **GIE** THE ONLY WAY TO RESTORE IT IS BY REINSTALLING THE PROGRAM!
+
+**⚠️⚠️ IMPORTANT ⚠️⚠️**
+
+- The only way to "recover" the file again is by decrypting it with the **GIE** program.
+- If you want to share the file with your colleague, friend or work team, you will have to provide them with the .gie, the password used and the channel (if applicable).
+- **IF YOU FORGET OR LOSE THE PASSWORD, YOU WILL NOT BE ABLE TO RECOVER THE FILE IF A HINT WAS NOT WRITTEN.**
+- **IF YOU PUT A CHANNEL YOU MUST ALSO REMEMBER IT OTHERWISE YOU WILL NOT BE ABLE TO RECOVER THE FILE.**
+
+![Example encrypting a PDF](https://i.postimg.cc/6pxZfhm8/Desktop2025-08-0906-27-27p-m-ezgif-com-optimize.gif)
+
+## 🔓 How to Decrypt?
+
+> At the moment it is only available through the GUI.
+
+To **Decrypt** a file
+
+- **Drag or search for the (.gie) file in the program (Graphical Interface)**
+- **Enter the password (Required)**
+- Choose the encryption channel (Optional)
+- **Click on "Decrypt"**
+- **This converts the file to its natural state**
+
+Keep in mind that it will only work for encrypted **.gie** files.
+It only works with files encrypted by GIE (Go-based Information Encryptor) current v1.2.5 or higher.
+
+👀 **NOTE** IT WILL NOT WORK WITH .GIE FILES VERSION PYTHON, ONLY WITH THE VERSION WRITTEN IN GO!!
+
+- The only way to "recover" the file again is by decrypting it with the **GIE** program.
+- If you want to share the file with your colleague, friend or work team, you will have to provide them with the .gie, the password used and the channel (if applicable).
+- **IF YOU FORGET OR LOSE THE PASSWORD, YOU WILL NOT BE ABLE TO RECOVER THE FILE IF A HINT WAS NOT WRITTEN.**
+- **IF YOU PUT A CHANNEL YOU MUST ALSO REMEMBER IT OTHERWISE YOU WILL NOT BE ABLE TO RECOVER THE FILE.**
+
+![Example decrypting a PDF](https://i.postimg.cc/0yGwWJTc/ezgif-com-optimize.gif)
+
+---
+
+### Directory encryption function
+
+```go
+func (a *App) EncryptDirectory(dirPath string, password string, hint string, encryptionLevel string, channel int) string {
+	if password == "" {
+		return "Encryption failed: password cannot be empty."
+	}
+
+	// Check if path is actually a directory
+	isDir, err := a.IsDirectory(dirPath)
+	if err != nil {
+		return fmt.Sprintf("Error checking if path is directory: %v", err)
+	}
+	if !isDir {
+		return "Selected path is not a directory."
+	}
+
+	// Get all files in directory
+	files, err := a.GetFilesInDirectory(dirPath)
+	if err != nil {
+		return fmt.Sprintf("Error getting files from directory: %v", err)
+	}
+
+	if len(files) == 0 {
+		return "No files found in directory to encrypt."
+	}
+
+	// Track results
+	var results []string
+	successCount := 0
+
+	for i, file := range files {
+		fmt.Printf("Encrypting file %d/%d: %s\n", i+1, len(files), file)
+
+		result := a.EncryptFile(file, password, hint, encryptionLevel, channel)
+		if result == "success" {
+			successCount++
+			results = append(results, fmt.Sprintf("✓ %s", filepath.Base(file)))
+		} else {
+			results = append(results, fmt.Sprintf("✗ %s: %s", filepath.Base(file), result))
+		}
+	}
+
+	// Return summary
+	summary := fmt.Sprintf("Directory encryption completed: %d/%d files encrypted successfully", successCount, len(files))
+	if successCount < len(files) {
+		summary += "\n\nDetailed results:\n" + strings.Join(results, "\n")
+	}
+
+	return summary
+}
 ```
 
-For only files
+### Directory decryption function
 
-```batch
-python gie.py "C:\YOUR\FILES.extension"
-```
+```go
+func (a *App) DecryptDirectory(dirPath string, password string, channel int) string {
+	if password == "" {
+		return "Decryption failed: password cannot be empty."
+	}
 
-extension = jpg, png, mp3, mp4, docx, etc, etc...
+	// Check if path is actually a directory
+	isDir, err := a.IsDirectory(dirPath)
+	if err != nil {
+		return fmt.Sprintf("Error checking if path is directory: %v", err)
+	}
+	if !isDir {
+		return "Selected path is not a directory."
+	}
 
-* ! A message will appear that says: "Enter a password:"
+	// Get all .gie files in directory
+	var encryptedFiles []string
 
-! NOTE: **The password cannot contain the characters $ and "**
+	err = filepath.Walk(dirPath, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
 
-Example Output:
-`python gie.py "D:\Sam\Plugins\IP.exe"`
-`Enter a password:`
+		// Only add .gie files
+		if !info.IsDir() && strings.HasSuffix(path, ".gie") {
+			encryptedFiles = append(encryptedFiles, path)
+		}
+		return nil
+	})
 
-Note: The password will not be visible while you type it
+	if err != nil {
+		return fmt.Sprintf("Error scanning directory: %v", err)
+	}
 
-Once the password is entered, it will start encrypting the files with the extension **".gie"** and will generate a **".GKY"** file, which is very important to decrypt your original file.
+	if len(encryptedFiles) == 0 {
+		return "No encrypted files (.gie) found in directory to decrypt."
+	}
 
-*"GKY" is the extension of the file containing the key for decryption, along with the password provided.*
+	// Track results
+	var results []string
+	successCount := 0
 
-! *If you want to share the file with your colleague, you will need to provide him/her with three files, the .gie, the .GKY and the password.*
+	for i, file := range encryptedFiles {
+		fmt.Printf("Decrypting file %d/%d: %s\n", i+1, len(encryptedFiles), file)
 
-## For Decrypt
+		result := a.DecryptFile(file, password, false, channel)
+		if result == "success" {
+			successCount++
+			results = append(results, fmt.Sprintf("✓ %s", filepath.Base(file)))
+		} else {
+			results = append(results, fmt.Sprintf("✗ %s: %s", filepath.Base(file), result))
+		}
+	}
 
-To **Decrypt** a folder or file
+	// Return summary
+	summary := fmt.Sprintf("Directory decryption completed: %d/%d files decrypted successfully", successCount, len(encryptedFiles))
+	if successCount < len(encryptedFiles) {
+		summary += "\n\nDetailed results:\n" + strings.Join(results, "\n")
+	}
 
-* ! The path and password must be enclosed in quotes " "
-
-Run `-d` for decrypt
-Run `-p` for set the password used previously
-
-For folders
-
-```batch
-python gie.py -p "PASSWORD" -d "C:\YOUR\FOLDER"
-```
-
-For only files
-
-```batch
-python gie.py -p "PASSWORD" -d "C:\YOUR\FILES.extension.gie"
+	return summary
+}
 ```
 
 ---
 
-Example Output:
-`python gie.py -p "L1ñy*8Cv" -d "D:\Sam\Plugins\IP.exe"`
+### 📖 Documentation
 
-The program will search if the .GKY file exists in the path provided and will try to decrypt the file with the password, if the password does not match the file will not decrypt or will decrypt corruptly, if the GKY does not exist, the program will throw an error message and will not be able to decrypt.
+[See the Documentation and User Guides](https://gie-aiskoa.vercel.app/docs/)
 
-It is very important to save the .GKY and the PASSWORD very well.
+## 📝 Changelog
 
----
+[See the Changelog](https://gie-aiskoa.vercel.app/changelog)
 
-### Encrypt function
+### ✍️ To-Do List
 
-```python
-def encrypt_file(input_file: str, password: str):
-    password_bytes = password.encode()  # Convertir la contraseña a bytes
-    key_with_salt = generate_key(input_file, password_bytes)  # Generar la clave utilizando bytes
-    if key_with_salt is None:
-        print(Fore.RED + "No se pudo generar la clave." + Style.RESET_ALL)
-        return
-
-    key = key_with_salt[16:]  # Obtener la clave sin la sal
-
-    iv = os.urandom(16)
-
-    cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
-    encryptor = cipher.encryptor()
-
-    with open(input_file, "rb") as file_in:
-        data = file_in.read()
-
-    padded_data = data + b'\x00' * (-len(data) % 16)
-    encrypted_data = encryptor.update(padded_data) + encryptor.finalize()
-
-    output_file = input_file + ".gie"
-    with open(output_file, "wb") as file_out:
-        file_out.write(iv)
-        file_out.write(encrypted_data)
-
-    print(Fore.LIGHTMAGENTA_EX + f"Archivo ENCRIPTADO guardado como: {output_file}" + Style.RESET_ALL)
-    os.remove(input_file)
-```
-
-### Decrypt function
-
-```python
-def decrypt_file(input_file: str, password: bytes):
-    base_file = os.path.splitext(os.path.basename(input_file))[0]  # Remove all extensions
-    while "." in base_file:
-        base_file = os.path.splitext(base_file)[0]  # Remove all extensions
-        # Add the .key extension to the base file name
-    key_file = os.path.join(os.path.dirname(input_file), base_file + ".GKY")
-    print(f"Buscando el archivo de la clave: {key_file}")  # Print the name of the key file we are looking for
-    if os.path.exists(key_file):
-        with open(key_file, "rb") as f:
-            key_with_salt = f.read()
-            salt = key_with_salt[:16]  # Get the stored salt
-            derived_key = hashlib.pbkdf2_hmac('sha256', password, salt, 100000, 32)
-            # print("La clave se recuperó con éxito.")
-            # print(f"Longitud de la clave: {len(derived_key)}")
-            # print(f"Longitud del salt: {len(salt)}")
-
-        with open(input_file, "rb") as file_in:
-            iv = file_in.read(16)
-            encrypted_data = file_in.read()
-
-        cipher = Cipher(algorithms.AES(derived_key), modes.CBC(iv), backend=default_backend())
-        decryptor = cipher.decryptor()
-
-        decrypted_data = decryptor.update(encrypted_data) + decryptor.finalize()
-        unpadded_data = decrypted_data.rstrip(b'\\x00')
-
-        output_file = os.path.splitext(input_file)[0]
-        with open(output_file, "wb") as file_out:
-            file_out.write(unpadded_data)
-
-        print(Fore.LIGHTCYAN_EX + f"Archivo DESENCRIPTADO guardado como: {output_file}" + Style.RESET_ALL)
-        os.remove(input_file)
-
-        # Delete the key file after successful decryption
-        os.remove(key_file)
-        # print(f"Archivo de la clave {key_file} eliminado con éxito.")
-
-    else:
-        print(Fore.LIGHTRED_EX + "No se encontró la clave." + Style.RESET_ALL)
-
-```
-
----
-
-### TODO List
-
-* [ ] Password check
-
-* [x] AES
-
-* [ ] UI Menu
-
-### 🤝 Contributing
-
-Contributions, issues and feature requests are welcome! Feel free to check issues page.
-
-### ❤️ Show your support
-
-Give a ⭐️ if this project helped you!
+- [x] Password hint
+- [ ] Theme change
+- [ ] Android support
+- [ ] iOS support
+- [ ] Possibility of use from terminal without GUI (API or MCP)
+- [x] Password check
+- [x] Reinforced AES
+- [x] User interface menu
+- [x] Encryption of complete folders and directories
 
 ### 📝 License
 
-Copyright © 2024 [aiskoa](https://aiskoa.vercel.app). This project is [MIT](/LICENSE) licensed.
+Copyright © 2024 [aiskoa](https://aiskoa.vercel.app). This project is licensed [MIT](https://github.com/aiskoa/GIE/blob/main/LICENSE).

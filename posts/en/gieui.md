@@ -8,7 +8,7 @@ tags1: "Python"
 tags2: "Tools"
 ---
 
-![imageTitle](https://raw.githubusercontent.com/aiskoadt/GIE-UI/main/img/title.png)
+![imageTitle](https://raw.githubusercontent.com/aiskoa/GIE-UI/main/img/title.png)
 
 # GIE-UI
 
@@ -183,7 +183,7 @@ def decrypt_file(input_file: str, password: bytes):
 
 ---
 
-### [⬇️ Download ⬇️](https://aiskoadt.github.io/scripts/GIE/)
+### [⬇️ Download ⬇️](https://aiskoa.github.io/scripts/GIE/)
 
 ### 🤝 Contributing
 

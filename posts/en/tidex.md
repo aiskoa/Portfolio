@@ -41,7 +41,7 @@ def _lock():
             newArr.close()
 ```
 
-### [Dowload Here From GitHub](https://github.com/aiskoadt/Tidex)
+### [Dowload Here From GitHub](https://github.com/aiskoa/Tidex)
 
 Thx
 ~ aiskoa.

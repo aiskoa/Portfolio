@@ -97,9 +97,9 @@ def get_running_services():
 
 ### Descargar
 
-`git clone git@github.com:aiskoadt/SisLog.git`
+`git clone git@github.com:aiskoa/SisLog.git`
 
-[⬇️ Ver la última versión ⬇️](https://github.com/aiskoadt/SisLog/releases/tag/SISLOG)
+[⬇️ Ver la última versión ⬇️](https://github.com/aiskoa/SisLog/releases/tag/SISLOG)
 
 ### 🤝 Contribuyendo
 

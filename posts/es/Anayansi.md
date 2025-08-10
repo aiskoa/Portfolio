@@ -8,9 +8,9 @@ tags1: "Python"
 tags2: "Tools"
 ---
 
-![Anayansi](https://raw.githubusercontent.com/aiskoadt/Anayansi/main/assets/title.jpg)
+![Anayansi](https://raw.githubusercontent.com/aiskoa/Anayansi/main/assets/title.jpg)
 
-[![Static Badge](https://img.shields.io/badge/%20build-MIT-brightgreen?logo=github&label=LICENSE)](https://github.com/aiskoadt/Anayansi/LICENSE)
+[![Static Badge](https://img.shields.io/badge/%20build-MIT-brightgreen?logo=github&label=LICENSE)](https://github.com/aiskoa/Anayansi/LICENSE)
 ![Static Badge](https://img.shields.io/badge/MARCH%202024-red?label=RELEASE%20DATE)
 ![Static Badge](https://img.shields.io/badge/LANGUAGE-Python-yellow?logo=python)
 
@@ -20,13 +20,13 @@ Anayansi es un script para crackear o crear un hash escrito en python, multiplat
 
 ### Creador de Hash
 
-![aCreator](https://raw.githubusercontent.com/aiskoadt/Anayansi/main/assets/anayansi_creator.gif)
+![aCreator](https://raw.githubusercontent.com/aiskoa/Anayansi/main/assets/anayansi_creator.gif)
 
 &nbsp;
 
 ### Cracker de Hash
 
-![aCracker](https://raw.githubusercontent.com/aiskoadt/Anayansi/main/assets/anayansi_cracker.gif)
+![aCracker](https://raw.githubusercontent.com/aiskoa/Anayansi/main/assets/anayansi_cracker.gif)
 
 ## Formatos de Hash Soportados
 
@@ -45,7 +45,7 @@ Ejecuta los comandos según tu caso (Win o Linux)
 Clona o Descarga este Repositorio
 
 ```bash
-git clone https://github.com/aiskoadt/Anayansi.git
+git clone https://github.com/aiskoa/Anayansi.git
 ```
 
 Actualiza los Repositorios
@@ -131,10 +131,10 @@ def md5():
 
 Disponible para Mac, Linux y Windows 10 / 11.
 
-[Descargar](https://github.com/aiskoadt/Anayansi)
+[Descargar](https://github.com/aiskoa/Anayansi)
 
 &nbsp;
 
 ### 📝 Licencia
 
-Copyright © 2024 [aiskoa](https://aiskoa.vercel.app). Este proyecto tiene licencia [MIT](https://github.com/aiskoadt/Anayansi/blob/main/LICENSE).
+Copyright © 2024 [aiskoa](https://aiskoa.vercel.app). Este proyecto tiene licencia [MIT](https://github.com/aiskoa/Anayansi/blob/main/LICENSE).

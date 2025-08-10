@@ -8,7 +8,7 @@ tags1: "JavaScript"
 tags2: "PostgreSQL"
 ---
 
-![Cler](https://raw.githubusercontent.com/aiskoadt/Cler/refs/heads/main/title.jpg)
+![Cler](https://raw.githubusercontent.com/aiskoa/Cler/refs/heads/main/title.jpg)
 
 # Cler
 
@@ -42,7 +42,7 @@ Para instalar y ejecutar Cler localmente, sigue estos pasos:
 1. **Clona el repositorio**:
 
     ```bash
-    git clone git@github.com:aiskoadt/Cler.git
+    git clone git@github.com:aiskoa/Cler.git
     ```
 
 2. **Navega al directorio del proyecto**:
@@ -86,7 +86,7 @@ Para instalar y ejecutar Cler localmente, sigue estos pasos:
 
 Lista completa de comandos en [Documentación](https://aiskoa.gitbook.io/cler)
 
-Estructura y Diagramación en Repositorio de [Github](https://github.com/aiskoadt/Cler)
+Estructura y Diagramación en Repositorio de [Github](https://github.com/aiskoa/Cler)
 
 ## Admin / Mod
 

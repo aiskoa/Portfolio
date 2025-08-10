@@ -43,7 +43,7 @@ What is its use?: To encrypt confidential or private information to keep it safe
 
 | Name | Description |
 | --|--|
-| 🐦 **AES** | (Advanced Encryption Standard) It is a widely used standard for its efficiency and security. Some software that uses it are [Encrypto](https://macpaw.com/encrypto), [GIE](https://github.com/aiskoadt/GIE-UI), [PassPai](https://aiskoadt.github.io/PassPai/) |
+| 🐦 **AES** | (Advanced Encryption Standard) It is a widely used standard for its efficiency and security. Some software that uses it are [Encrypto](https://macpaw.com/encrypto), [GIE](https://github.com/aiskoa/GIE-UI), [PassPai](https://aiskoa.github.io/PassPai/) |
 | 🐦 **DES** | (Data Encryption Standard) It is an older algorithm that has been largely replaced by AES. |
 | 🐦 **Blowfish** | It is a block cipher algorithm that is fast and efficient for variable-sized data, widely used in WooCommerce. |
 
@@ -130,7 +130,7 @@ This decrypts the content of the previous code.
 | --|--|
 | 🐦 **RSA** | (Rivest-Shamir-Adleman) It is one of the first asymmetric cryptography systems, used for encryption and digital signatures. |
 | 🐦 **DSA** | (Digital Signature Algorithm) Used mainly for creating digital signatures. |
-| 🐦 **ECC** | (Elliptic Curve Cryptography) It offers the same security as RSA but with shorter keys, which makes it more efficient. Some software that uses it are [GIE](https://github.com/aiskoadt/GIE-UI). |
+| 🐦 **ECC** | (Elliptic Curve Cryptography) It offers the same security as RSA but with shorter keys, which makes it more efficient. Some software that uses it are [GIE](https://github.com/aiskoa/GIE-UI). |
 
 &nbsp;
 

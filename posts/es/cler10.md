@@ -13,9 +13,9 @@ tags2: "SQL"
 # Cler - Discord Multipurpose Bot
 
 # Installation
-* The complete guide can be found at [GitHub](https://github.com/aiskoadt/Cler-page)
-* All documentation can be found at [Docs](https://aiskoadt.gitbook.io/cler/)
-* Official website at [Page](https://aiskoadt.github.io/Cler-page/)
+* The complete guide can be found at [GitHub](https://github.com/aiskoa/Cler-page)
+* All documentation can be found at [Docs](https://aiskoa.gitbook.io/cler/)
+* Official website at [Page](https://aiskoa.github.io/Cler-page/)
 
 
 # About Cler | Acerca de Cler
@@ -51,7 +51,7 @@ Postdata: Si abandoné este proyecto es porque me aburrí o no mejore el bot a u
 # Comandos
 Lista completa de comandos en [Documentación](https://aiskoa.gitbook.io/cler/)
 
-Estructura y Diagramación en Repositorio de [Github](https://github.com/aiskoadt/Cler)
+Estructura y Diagramación en Repositorio de [Github](https://github.com/aiskoa/Cler)
 
 ### Admin / Mod
 * `c!mute  <@member> <reason>` Silencia al miembro etiquetado.
@@ -65,7 +65,7 @@ Estructura y Diagramación en Repositorio de [Github](https://github.com/aiskoad
 * `c!warn <@member> <reason>` Notifica al miembro seleccionado
 * `c!bc <#channel> <message>` Envia un mensaje de manera remota al canal seleccionado Nombre o ID.
 
-Lista completa de comandos en [Documentación](https://aiskoadt.gitbook.io/cler/)
+Lista completa de comandos en [Documentación](https://aiskoa.gitbook.io/cler/)
 
 ### Acción
 * `c!hug  <@member>` Envia un Gif de Abrazo / Imagen. 

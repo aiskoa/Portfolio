@@ -68,6 +68,7 @@ function getProgrammingIcon(p_Language: string) {
     linux: <SiLinux className="inline-block w-4 h-4 mr-1" />,
     sql: <SiSqlite className="inline-block w-4 h-4 mr-1" />,
     powershell: <SiPowershell className="inline-block w-4 h-4 mr-1" />,
+    nextjs: <SiNextdotjs className="inline-block w-4 h-4 mr-1" />,
     php: <SiPhp className="inline-block w-4 h-4 mr-1" />,
     wordpress: <SiWordpress className="inline-block w-4 h-4 mr-1" />,
     go: <SiGo className="inline-block w-4 h-4 mr-1" />,
@@ -202,7 +203,7 @@ const Portfolio: NextPage<PortfolioProps> = ({ translations }) => {
         </div>
         <br />
         <h1 className="flex justify-center text-2xl font-bold lg:text-3xl">
-          <span className="text-transparent bg-gradient-to-r from-zinc-900 to-slate-500 dark:from-violet-600 dark:to-zinc-600 bg-clip-text">
+          <span className="text-transparent bg-gradient-to-r from-black to-gray-500 dark:from-violet-600 dark:to-gray-400 bg-clip-text">
             {t("projects")}
           </span>
         </h1>
@@ -212,7 +213,7 @@ const Portfolio: NextPage<PortfolioProps> = ({ translations }) => {
         <br />
 
         <div className="flex items-center justify-center max-w-md mx-auto">
-          <div className="relative flex items-center h-12 overflow-hidden border rounded-lg bg-zinc-200 dark:bg-violet-800 focus-within:shadow-lg dark:focus-within:shadow-violet-900 border-zinc-200 dark:border-violet-800">
+          <div className="relative flex items-center h-12 overflow-hidden border rounded-lg bg-white dark:bg-violet-800 focus-within:shadow-lg dark:focus-within:shadow-violet-900 border-white dark:border-violet-800">
             <div className="grid w-12 h-full place-items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -238,7 +239,7 @@ const Portfolio: NextPage<PortfolioProps> = ({ translations }) => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <div className="relative flex items-center h-12 ml-2 overflow-hidden rounded-lg bg-zinc-200 dark:bg-violet-800 focus-within:shadow-lg dark:focus-within:shadow-violet-900">
+          <div className="relative flex items-center h-12 ml-2 overflow-hidden rounded-lg bg-white dark:bg-violet-800 focus-within:shadow-lg dark:focus-within:shadow-violet-900">
             <select
               className="block px-2 py-2 pr-8 leading-tight text-gray-700 border rounded-lg appearance-none bg-zinc-200 dark:bg-violet-800 border-zinc-200 dark:border-violet-800 dark:text-slate-200 focus:outline-none focus:bg-white focus:border-gray-500"
               value={sortOrder}
@@ -332,7 +333,7 @@ const Portfolio: NextPage<PortfolioProps> = ({ translations }) => {
                         data-ripple-light="true"
                         type="button"
                         onClick={() => window.open(item.GoToLink, "_blank")}
-                        className="relative px-4 py-2 overflow-hidden font-medium duration-300 border border-b-4 rounded-md outline-none text-green-400 bg-green-900 border-green-400 hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 group"
+                        className="relative px-4 py-2 overflow-hidden font-medium duration-300 border border-b-4 rounded-md outline-none text-lime-400 bg-lime-900 border-lime-400 hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 group"
                       >
                         <span className="bg-violet-400 shadow-violet-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
                         Go to

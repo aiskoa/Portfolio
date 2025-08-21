@@ -16,6 +16,7 @@ tags2: "Tools"
 
 *De forma resumida:*
 Un cifrador y descifrador para archivos y carpetas para Windows, linux y macos, escrito en GO usando AES. 
+
 **💜 GIE es cross-platform, funciona en Windows, Linux y macOS.**
 
 Ejemplo: 
@@ -124,6 +125,7 @@ El backend se basa en una estructura central de la aplicación que actúa como c
 ![Estructura de la aplicación y componentes principales](https://i.ibb.co/mVcC1jbL/image.png)
 
 Si desea saber más a profundidad, puede consultar el [Repositorio de GitHub](https://github.com/aiskoa/GIE) para obtener detalles adicionales y ejemplos de uso.
+
 De igual forma puede consultar con [DeepWiki](https://deepwiki.com/aiskoa/GIE)
 
 ## 💻 Instalación

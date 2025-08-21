@@ -10,7 +10,7 @@ tags2: "Linux"
 
 # "Vulnversity" Machine (TryHackMe)
 
-[📝 Download PDF Report](https://drive.google.com/file/d/1gkD94lRSYaorLr0cYcpJn_2-CPHzUlEO/view?usp=sharing)
+[📝 Download Spanish PDF Report](https://drive.google.com/file/d/1gkD94lRSYaorLr0cYcpJn_2-CPHzUlEO/view?usp=sharing)
 
 &nbsp;
 

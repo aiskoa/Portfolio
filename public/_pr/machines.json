@@ -1,11 +1,22 @@
 [
+        {
+        "title": "Doc (OTOMS)",
+        "platform": "HackMyVM",
+        "os": "Linux",
+        "difficulty": "Easy",
+        "image": "/blog/doc-hvm.webp",
+        "altText": "Misconfig, SQLi, LFI",
+        "githubLink": "https://hackmyvm.eu/machines/machine.php?vm=Doc",
+        "description": "Doc is a machine for managing traffic fines that has a vulnerability in the assignment of permissions to commands and LFI in profile editing..",
+        "GoToLink": "https://aiskoa.vercel.app/blog/machine-doc/"
+    },
     {
         "title": "Vulnversity",
         "platform": "TryHackMe",
         "os": "Linux",
         "difficulty": "Easy",
         "image": "/blog/vulnversity-thm.webp",
-        "altText": "EternalBlue, MS17-010",
+        "altText": "Misconfig, Reverse Shell, RCE",
         "githubLink": "https://tryhackme.com/room/vulnversity",
         "description": "Vulnversity is a machine with a miss config. That allows reverse shell and remote code execution using php, the programming language.",
         "GoToLink": "https://aiskoa.vercel.app/blog/machine-vulnversity/"
@@ -18,7 +29,7 @@
         "image": "/blog/blue-thm.webp",
         "altText": "EternalBlue, MS17-010",
         "githubLink": "https://tryhackme.com/room/blue",
-        "description": "Blue es una máquina con una vulnerabilidad en el protocolo SMB 445. EternalBlue permite la ejecución remota de código que se descubrió en [MS17-010].",
+        "description": "Blue is a machine with a vulnerability in the SMB 445 protocol, which allows remote code execution and was discovered in security bulletin MS17-010.",
         "GoToLink": "https://aiskoa.vercel.app/blog/machine-bluethm/"
     }
 ]

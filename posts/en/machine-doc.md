@@ -131,26 +131,21 @@ Exploits:
 
 ### Feat
 
-As soon as we enter the site we notice that it does not load completely, which is strange, when checking and hovering over the login we notice that it should redirect to a domain **doc..gmv** but it does not.
+As soon as we enter the site we notice that it does not load completely, which is strange, when checking and hovering over the login we notice that it should redirect to a domain **doc.hmv** but it does not.
 
-![Screenshot of Index page](https://i.postimg.cc/PrXjyPPv/sitio-web-victima.png
-)
+![Screenshot of Index page](https://i.postimg.cc/PrXjyPPv/sitio-web-victima.png)
 
-![Screenshot of de tools](https://i.postimg.cc/s2cPp68h/confirmamos-el-dominio.png
-)
+![Screenshot of de tools](https://i.postimg.cc/s2cPp68h/confirmamos-el-dominio.png)
 
 So how do we get those resources to load as they should? We must modify in our system how domains are handled, for them we go to **/etc/hosts** and modify it with nano, there we add the domain doc.hm to the victim ip 192.168.50.129 and save, once this is done and when reloading the page we notice that the site now loads perfectly along with all the resources and images, so we are free to click the login button to see where it redirects us.
 
-![Screenshot of /etc/hosts](https://i.postimg.cc/zDMCSRd0/modificando-hosts.png
-)
+![Screenshot of /etc/hosts](https://i.postimg.cc/zDMCSRd0/modificando-hosts.png)
 
 Now we can see that everything loads correctly including the login panel.
 
-![Screenshot of index otoms](https://i.postimg.cc/B6nTN59w/carga.png
-)
+![Screenshot of index otoms](https://i.postimg.cc/B6nTN59w/carga.png)
 
-![Screenshot of admin login](https://i.postimg.cc/Kvw0zWSc/admin-login.png
-)
+![Screenshot of admin login](https://i.postimg.cc/Kvw0zWSc/admin-login.png)
 
 We come across a login for administrators, unfortunately we do not have access to it, we try default credentials like admin admin or admin password, but it is not successful. We can try to fuzz the domain to see more directories, but for now we will not do it. We can also try by brute force and find out the user, since we did not find anything else that is useful on the site we use that admin login, so first let's try with burp suite, and we intercept the response and we find something interesting.
 
@@ -173,8 +168,7 @@ We realize that this sql statement is not sanitized so you can do sqli (**a sql 
 SELECT * FROM users WHERE username ='' OR 1=1#' AND password = md5('admin')
 ```
 
-![Screenshot of SQLi](https://i.postimg.cc/8PZV0N6K/sqli-enviado.png
-)
+![Screenshot of SQLi](https://i.postimg.cc/8PZV0N6K/sqli-enviado.png)
 
 As such, the sqli injection is already a form of exploitation.
 
@@ -197,8 +191,7 @@ Upon entering we can view the users, edit their information, edit the entire sit
 There we see that the username of these are: **vagrant**, **jsmith** and the user with whom we enter **adminyo** we can edit this but we cannot edit their password.
 So we get to work to find the password of this vagrant user using burp suite for brute force.
 
-![Screenshot of users panel](https://i.postimg.cc/6p8FbRwq/users-edit.png
-)
+![Screenshot of users panel](https://i.postimg.cc/6p8FbRwq/users-edit.png)
 
 ### Finding the password for vagrant
 
@@ -215,11 +208,9 @@ So the dictionary tries all those passwords, vagrant iloveyou, vagrant 12345, va
 
 So we find that **chelsea** is the password for the vagrant user since it responded with status success, now we can enter the panel with this user. vagrant, chelsea which is a Windows server administrator user according to the dashboard
 
-![Brute force with rockyou](https://i.postimg.cc/Y041BpS6/fuerza-bruta-rock-you.png
-)
+![Brute force with rockyou](https://i.postimg.cc/Y041BpS6/fuerza-bruta-rock-you.png)
 
-![Screenshot of password](https://i.postimg.cc/br6F3YB1/vagrant-password.png
-)
+![Screenshot of password](https://i.postimg.cc/br6F3YB1/vagrant-password.png)
 
 We notice that vagrant is a windows server administrator user, this may probably be helpful for later or another machine.
 
@@ -368,8 +359,7 @@ nc -lnvp <IP>
 
 And that's it.
 
-![Terminal](https://i.postimg.cc/kgRhvmFt/ww-data.png
-)
+![Terminal](https://i.postimg.cc/kgRhvmFt/ww-data.png)
 
 ### Shell treatment
 
@@ -421,8 +411,7 @@ cd ~/html/traffic_offense
 cat initialize.php
 ```
 
-![Initialize php](https://i.postimg.cc/6qDC9D7D/Initialize-php.png
-)
+![Initialize php](https://i.postimg.cc/6qDC9D7D/Initialize-php.png)
 
 With the `bash-i` command we could improve the current shell. (We can also use the previous ones)
 
@@ -442,11 +431,9 @@ Flag in bella's home directory:
 
 > HMVtakemydocs
 
-![Less command](https://i.postimg.cc/1zPcVhWS/comando-less.png
-)
+![Less command](https://i.postimg.cc/1zPcVhWS/comando-less.png)
 
-![Root less](https://i.postimg.cc/zvj151Pf/root-less.png
-)
+![Root less](https://i.postimg.cc/zvj151Pf/root-less.png)
 
 Okay, and now as root we can access the /root folder, where we will find the last flag.
 
@@ -456,11 +443,9 @@ As a curiosity we connect to the db with bella's credentials and we can see in t
 
 Trying those credentials now we connect more easily.
 
-![Database](https://i.postimg.cc/vHcPGsKS/bd.png
-)
+![Database](https://i.postimg.cc/vHcPGsKS/bd.png)
 
-![adminyo](https://i.postimg.cc/8CVwdrzq/adminyo.png
-)
+![adminyo](https://i.postimg.cc/8CVwdrzq/adminyo.png)
 
 ## Analysis and Conclusions
 

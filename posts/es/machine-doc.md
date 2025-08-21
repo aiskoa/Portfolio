@@ -137,7 +137,7 @@ Exploits:
 
 ### Hazaña
 
-Apenas entrar al sitio notamos que no carga por completo lo que es extraño, al revisar y hacer hovering a el login notamos que este deberia redirigir a un domino **doc..gmv** pero este no lo hace.
+Apenas entrar al sitio notamos que no carga por completo lo que es extraño, al revisar y hacer hovering a el login notamos que este deberia redirigir a un domino **doc.hmv** pero este no lo hace.
 
 ![Screenshot of Index page](https://i.postimg.cc/PrXjyPPv/sitio-web-victima.png
 )
@@ -148,16 +148,13 @@ Apenas entrar al sitio notamos que no carga por completo lo que es extraño, al 
 Entonces como hacemos para que esos recursos carguen como deben?, debe
 mos modificar en nuestro sistema como se manejan los dominios, para ellos nos dirigimos a **/etc/hosts** y lo modificamos con nano, ahí agregamos el dominio doc.hm a la ip victima 192.168.50.129 y guardamos, una vez hecho esto y al recargar la pagina notamos que el sitio ahora carga perfectamente junto a todos los recursos e imágenes, entonces ahora somos libres de dar clic al botón de login haber a donde nos redirige
 
-![Screenshot of /etc/hosts](https://i.postimg.cc/zDMCSRd0/modificando-hosts.png
-)
+![Screenshot of /etc/hosts](https://i.postimg.cc/zDMCSRd0/modificando-hosts.png)
 
 Ahora podemos observar que todo carga correctamente incluso el panel de login.
 
-![Screenshot of index otoms](https://i.postimg.cc/B6nTN59w/carga.png
-)
+![Screenshot of index otoms](https://i.postimg.cc/B6nTN59w/carga.png)
 
-![Screenshot of admin login](https://i.postimg.cc/Kvw0zWSc/admin-login.png
-)
+![Screenshot of admin login](https://i.postimg.cc/Kvw0zWSc/admin-login.png)
 
 Nos topamos con un login para administradores, lastimosamente no tenemos acceso a el, probamos credenciales por defecto como admin admin o admin password, pero no se tiene éxito en ello. Podemos probar hacer fuzzing al dominio para ver mas directorios, pero por este momento no lo haremos. También podemos intentar por fuerza bruta y averiguar el usuario, al no encontrar nada mas que nos sea de utilidad en el sitio usamos ese login de admin, asi que primero probemos con burp suite, e interceptamos la respuesta y nos encontramos con algo interesante.
 
@@ -173,17 +170,15 @@ SELECT * FROM users WHERE username = 'admin' AND password = md5('admin')
 
 Nos damos cuenta que esta sentencia sql no esta sanitizada por lo que se puede hacer sqli (**una inyección sql**) con esto podemos lograr devolver datos de una tabla. Ponemos el usuario vacio y ponemos una sentencia booleana 1=1 que esto siempre es correcto, y algo falso con algo correcto en OR siempre será algo correcto. siendo asi podemos intentar con algo simple, como esto
 
-![Screenshot of SQLi consult](https://i.postimg.cc/C5d4MGcf/burpsuite1.png
-)
+![Screenshot of SQLi consult](https://i.postimg.cc/C5d4MGcf/burpsuite1.png)
 
 ```sql
 SELECT * FROM users WHERE username ='' OR 1=1#' AND password = md5('admin')
 ```
 
-![Screenshot of SQLi](https://i.postimg.cc/8PZV0N6K/sqli-enviado.png
-)
+![Screenshot of SQLi](https://i.postimg.cc/8PZV0N6K/sqli-enviado.png)
 
-Como tal la iyección sqli ya es una forma de explotación.
+Como tal la inyección sqli ya es una forma de explotación.
 
 Al poner la sentencia y recargar logramos entrar. de igual forma podemos poner la sentencia sql directamente en el formulario de login.
 
@@ -204,8 +199,7 @@ Al entrar podemos visualizar los usuarios, editar su información, editar el sit
 Ahí vemos que el nombre de usuario de estos son: **vagrant**, **jsmith** y el usuario con el que entramos **adminyo** podemos editar este pero no podemos editar su contraseña.
 Asi que nos ponemos manos a la obra para encontrar la contraseña de este usuario vagrant usando burp suite para la fuerza bruta.
 
-![Screenshot of users panel](https://i.postimg.cc/6p8FbRwq/users-edit.png
-)
+![Screenshot of users panel](https://i.postimg.cc/6p8FbRwq/users-edit.png)
 
 ### Encontrando el password para vagrant
 
@@ -222,11 +216,9 @@ Asi el diccionario prueba todas esas contraseñas, vagrant iloveyou, vagrant 123
 
 Entonces encontramos que **chelsea** es la contraseña para el usuario vagrant ya que nos respondio con status sucesss, ahora podemos ingresar al panel con este usuario. vagrant, chelsea que es un usuario administrador Windows server según el dashboard
 
-![Fuerza bruta con rockyou](https://i.postimg.cc/Y041BpS6/fuerza-bruta-rock-you.png
-)
+![Fuerza bruta con rockyou](https://i.postimg.cc/Y041BpS6/fuerza-bruta-rock-you.png)
 
-![Screenshot of password](https://i.postimg.cc/br6F3YB1/vagrant-password.png
-)
+![Screenshot of password](https://i.postimg.cc/br6F3YB1/vagrant-password.png)
 
 Notamos que vagrant es un usuario administrador de windows server, probablemente esto pueda ser de ayuda para más adelante u otra maquina.
 

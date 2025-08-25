@@ -61,7 +61,9 @@ The encryption and HMAC keys are derived from the user's password using PBKDF2 (
 The PBKDF2 function is defined as:
 
 $$ 
-DK = PBKDF2(PRF,Password,Salt,Iterations,KeyLength)
+DK = PBKDF2
+
+(PRF,Password,Salt,Iterations,KeyLength)
 $$ 
 
 Where:
@@ -92,7 +94,9 @@ The HMAC is calculated over the entire encrypted file, including the metadata he
 The HMAC function is defined as:
 
 $$ 
-HMAC_{K}(m)=H((K\oplus opad)||H((K \oplus ipad)||m))
+HMAC_{K}(m)=H((K\oplus opad)
+
+||H((K \oplus ipad)||m))
 $$ 
 
 Where:

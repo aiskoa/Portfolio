@@ -61,7 +61,9 @@ Las claves de cifrado y HMAC se derivan de la contraseña del usuario utilizando
 La función PBKDF2 se define como:
 
 $$
-DK = PBKDF2(PRF,Password,Salt,Iterations,KeyLength)
+DK = PBKDF2
+
+(PRF,Password,Salt,Iterations,KeyLength)
 $$
 
 Donde: 
@@ -92,7 +94,9 @@ El HMAC se calcula sobre todo el archivo cifrado, incluyendo la cabecera de meta
 La función HMAC se define como:
 
 $$
-HMAC_{K}(m)=H((K⊕opad)||H((K ⊕ipad)||m))
+HMAC_{K}(m)=H((K⊕opad)
+
+||H((K ⊕ipad)||m))
 $$
 
 Donde: 

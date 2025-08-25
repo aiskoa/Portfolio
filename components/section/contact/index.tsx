@@ -105,12 +105,10 @@ import { config } from "../../../config";
             <div className="flex flex-col items-center justify-around hover:justify-evenly">
               <p className="text-2xl text-center">Last Certificate</p>
               <div className="flex justify-center items-center">
-                <img className="mr-2 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.ibb.co/xyMhftf/pentester-pro.png" width="200"></img>
-                <img className="ml-2 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.postimg.cc/9QRpBsZg/gestion-proyectos.jpg" width="200"></img>
-              </div>
-              <div className="flex justify-center items-center">
-                <a className="mr-2 text-sm text-center underline" href="https://credsverse.com/credentials/a8f2ef1f-9c2e-4fef-a24c-ce8c26b10b91" target="_blank" rel="noreferrer">Verify</a>
-                <a className="ml-2 text-sm text-center underline" href="https://campus.aulavirtual.unc.edu.ar/mod/customcert/verify_certificate.php?code=Dp61of00Ql&qrcode=1" target="_blank" rel="noreferrer">Verify</a>
+                <img className="mr-2 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.ibb.co/xyMhftf/pentester-pro.png" width="400"></img>
+                <a className="text-sm text-center underline" href="https://credsverse.com/credentials/a8f2ef1f-9c2e-4fef-a24c-ce8c26b10b91" target="_blank" rel="noreferrer">Verify 1</a>
+                <img className="ml-2 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.postimg.cc/9QRpBsZg/gestion-proyectos.jpg" width="400"></img>
+                <a className="text-sm text-center underline" href="https://campus.aulavirtual.unc.edu.ar/mod/customcert/verify_certificate.php?code=Dp61of00Ql&qrcode=1" target="_blank" rel="noreferrer">Verify 2</a>
               </div>
               
               {/* Aquí puedes añadir un icono SI debajo de la imagen */}

@@ -104,9 +104,15 @@ import { config } from "../../../config";
             {/* Evita que las imagenes sean copiadas. */}
             <div className="flex flex-col items-center justify-around hover:justify-evenly">
               <p className="text-2xl text-center">Last Certificate</p>
-              <img className="mb-1 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://certifier-production-amplify.s3.eu-west-1.amazonaws.com/public/8dfd4dd8-3e0e-4b77-82fb-88627a1210d6%2Fcertificate-designs%2Fbackgrounds%2F13-08-2025-10%3A34%3A09_diseo_sin_ttulo.png" width="300"></img>
-              <br />
-              <a className="text-sm text-center underline" href="https://credsverse.com/credentials/a8f2ef1f-9c2e-4fef-a24c-ce8c26b10b91" target="_blank" rel="noreferrer">Verify</a>
+              <div className="flex justify-center items-center">
+                <img className="mr-2 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.ibb.co/xyMhftf/pentester-pro.png" width="200"></img>
+                <img className="ml-2 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.postimg.cc/9QRpBsZg/gestion-proyectos.jpg" width="200"></img>
+              </div>
+              <div className="flex justify-center items-center">
+                <a className="mr-2 text-sm text-center underline" href="https://credsverse.com/credentials/a8f2ef1f-9c2e-4fef-a24c-ce8c26b10b91" target="_blank" rel="noreferrer">Verify</a>
+                <a className="ml-2 text-sm text-center underline" href="https://campus.aulavirtual.unc.edu.ar/mod/customcert/verify_certificate.php?code=Dp61of00Ql&qrcode=1" target="_blank" rel="noreferrer">Verify</a>
+              </div>
+              
               {/* Aquí puedes añadir un icono SI debajo de la imagen */}
               {/* <SiHackthebox size={24} className="mt-1" />
               <p className="text-sm text-center">Descripción opcional</p> */}

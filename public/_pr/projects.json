@@ -11,6 +11,19 @@
         "description2": "Protect your sensitive files and folders with Anti-Quantum Military-Grade AES-256 Encryption, Works seamlessly across macOS, Windows, and Linux.",
         "readMoreLink": "https://aiskoa.vercel.app/es/blog/gie",
         "GoToLink": "https://gie-aiskoa.vercel.app"
+    },
+    {
+        "title": "FortiMX",
+        "language": "PHP",
+        "language2": "SQL",
+        "date": "Jan 12, 2025",
+        "image": "https://i.ibb.co/Q7L9rpsk/fortimx.png",
+        "altText": "FortiMX a education plattform",
+        "githubLink": "https://github.com/aiskoa/FortiMX",
+        "description1": "Education plattform for several themes.",
+        "description2": "Platform for educational content and resources about the world of cybersecurity and programming.",
+        "readMoreLink": "https://aiskoa.vercel.app/es/blog/forimx",
+        "GoToLink": "https://fortimx.com"
     },    
     {
         "title": "Cler Multipurpose Bot",

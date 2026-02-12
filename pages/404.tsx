@@ -68,7 +68,7 @@ const NotFound: NextPage<NotFoundProps> = ({ translations }): ReactElement => {
       
       <Head>
         <title>AISKOA - 404</title>
-        <link rel="shortcut icon" type="image/png" href="./favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="description" content="AISKOA 404 Not Found." />
         <meta property="og:description" content="AISKOA 404 Not Found." />
         <meta name="theme-color" content="#8e52f5" />

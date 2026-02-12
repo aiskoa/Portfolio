@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { SiDiscord, SiGithub, SiHackthebox, SiInstagram, SiLinkedin, SiTryhackme, SiTwitter } from "react-icons/si";
+import { SiDiscord, SiGithub, SiHackthebox, SiInstagram, SiLinkedin, SiTryhackme, SiX } from "react-icons/si";
 import { config } from "../../../../config/index";
 import { SkillsIcon } from "../../../";
 
@@ -55,7 +55,7 @@ const Footer: React.FC<FooterProps> = ({ translations }): ReactElement => {
               rel="noreferrer"
               aria-label="Twitter"
             >
-              <SkillsIcon text="X" children={<SiTwitter />} />
+              <SkillsIcon text="X" children={<SiX />} />
             </a>
             <a
               href={config.socials.discord}

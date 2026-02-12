@@ -18,7 +18,6 @@ import {
   SiNextdotjs,
   SiPhp,
   SiPostgresql,
-  SiPowershell,
   SiPython,
   SiReact,
   SiRust,
@@ -29,6 +28,7 @@ import {
   SiWordpress,
 } from "react-icons/si";
 import { FaLinux, FaLink, FaJava } from "react-icons/fa";
+import { VscTerminalPowershell } from "react-icons/vsc";
 
 interface Item {
   title: string;
@@ -54,7 +54,7 @@ interface PortfolioProps {
  * @returns {ReactElement} The icon of the programming language, or null if the language is not supported
  */
 
-function getProgrammingIcon(p_Language: string) {
+function getProgrammingIcon(p_Language: string): React.ReactNode {
   const icons: Record<string, JSX.Element> = {
     javascript: <SiJavascript className="inline-block w-4 h-4 mr-1" />,
     java: <FaJava className="inline-block w-4 h-4 mr-1" />,
@@ -67,7 +67,7 @@ function getProgrammingIcon(p_Language: string) {
     astro: <SiAstro className="inline-block w-4 h-4 mr-1" />,
     linux: <SiLinux className="inline-block w-4 h-4 mr-1" />,
     sql: <SiSqlite className="inline-block w-4 h-4 mr-1" />,
-    powershell: <SiPowershell className="inline-block w-4 h-4 mr-1" />,
+    powershell: <VscTerminalPowershell className="inline-block w-4 h-4 mr-1" />,
     nextjs: <SiNextdotjs className="inline-block w-4 h-4 mr-1" />,
     php: <SiPhp className="inline-block w-4 h-4 mr-1" />,
     wordpress: <SiWordpress className="inline-block w-4 h-4 mr-1" />,
@@ -80,10 +80,10 @@ function getProgrammingIcon(p_Language: string) {
   };
 
   const l = p_Language.toLowerCase();
-  return icons[l] || null;
+  return (icons[l] || null) as React.ReactNode;
 }
 
-function getProgrammingIcon2(p_Language2: string) {
+function getProgrammingIcon2(p_Language2: string): React.ReactNode {
   const icons: Record<string, JSX.Element> = {
     javascript: <SiJavascript className="inline-block w-4 h-4 mr-1" />,
     java: <FaJava className="inline-block w-4 h-4 mr-1" />,
@@ -96,7 +96,7 @@ function getProgrammingIcon2(p_Language2: string) {
     astro: <SiAstro className="inline-block w-4 h-4 mr-1" />,
     linux: <SiLinux className="inline-block w-4 h-4 mr-1" />,
     sql: <SiSqlite className="inline-block w-4 h-4 mr-1" />,
-    powershell: <SiPowershell className="inline-block w-4 h-4 mr-1" />,
+    powershell: <VscTerminalPowershell className="inline-block w-4 h-4 mr-1" />,
     nextjs: <SiNextdotjs className="inline-block w-4 h-4 mr-1" />,
     php: <SiPhp className="inline-block w-4 h-4 mr-1" />,
     wordpress: <SiWordpress className="inline-block w-4 h-4 mr-1" />,
@@ -109,7 +109,7 @@ function getProgrammingIcon2(p_Language2: string) {
   };
 
   const l = p_Language2.toLowerCase();
-  return icons[l] || null;
+  return (icons[l] || null) as React.ReactNode;
 }
 
 const Portfolio: NextPage<PortfolioProps> = ({ translations }) => {
@@ -175,7 +175,7 @@ const Portfolio: NextPage<PortfolioProps> = ({ translations }) => {
     <>
       <Head>
         <title>AISKOA - Portfolio</title>
-        <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="description" content="Aiskoa's Portfolio."></meta>
         <meta
           property="og:description"

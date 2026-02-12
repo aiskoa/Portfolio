@@ -15,7 +15,7 @@ const ContactSection: NextPage<ContactSectionProps> = ({ translations }): ReactE
     <div className="space-y-14 lg:space-y-24">
       <Head>
         <title>AISKOA - Contact</title>
-        <link rel="shortcut icon" type="image/jpg" href="../favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta property="og:image"
           content={config.github.url} />
         <meta name="description"

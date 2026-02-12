@@ -15,7 +15,7 @@ const SkillsSection: NextPage<SkillsSectionProps> = ({ translations }): ReactEle
     <div className="space-y-14 lg:space-y-24">
       <Head>
         <title>AISKOA - Skills</title>
-        <link rel="shortcut icon" type="image/jpg" href="../favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="theme-color:" content="#8e52f5"></meta>
         <meta
           httpEquiv="Content-Security-Policy"

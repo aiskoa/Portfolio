@@ -8,8 +8,8 @@ import path from 'path';
  * IMPORTS DE ICONOS
  * Ajusta según los íconos que desees usar:
  */
-import { SiTryhackme, SiHackthebox, SiWindows11, SiApple, SiRootme, SiAndroid, SiKedro, SiValorant } from "react-icons/si";
-import { FaLinux, FaLink } from "react-icons/fa";
+import { SiTryhackme, SiHackthebox, SiApple, SiRootme, SiAndroid, SiKedro, SiValorant } from "react-icons/si";
+import { FaLinux, FaLink, FaWindows } from "react-icons/fa";
 import { MdSignalCellular0Bar, MdSignalCellular1Bar, MdSignalCellular3Bar, MdSignalCellular4Bar } from "react-icons/md";
 
 interface Item {
@@ -44,7 +44,7 @@ function getPlatformIcon(platform: string) {
 
 function getOsIcon(os: string) {
   const o = os.toLowerCase();
-  if (o === "windows") return <SiWindows11 className="inline-block w-4 h-4 mr-1" />;
+  if (o === "windows") return <FaWindows className="inline-block w-4 h-4 mr-1" />;
   if (o === "linux") return <FaLinux className="inline-block w-4 h-4 mr-1" />;
   if (o === "android") return <SiAndroid className="inline-block w-4 h-4 mr-1" />;
   if (o === "macos") return <SiApple className="inline-block w-4 h-4 mr-1" />;
@@ -110,7 +110,7 @@ const WriteUp: NextPage<WriteUpProps> = ({ translations }) => {
       
       <Head>
         <title>AISKOA - WriteUps</title>
-        <link rel="shortcut icon" type="image/png" href="./favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="description" content="Aiskoa's Pentest machines writeups and notes." />
         <meta property="og:description" content="Aiskoa's WriteUps." />
         <meta property="og:title" content="AISKOA - WriteUps" />

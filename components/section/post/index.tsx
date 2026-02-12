@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import Link from "next/link";
 import { PostType } from "../../../models";
 
@@ -12,7 +12,6 @@ import {
   SiLinux,
   SiPhp,
   SiPostgresql,
-  SiPowershell,
   SiPython,
   SiReact,
   SiSqlite,
@@ -21,7 +20,6 @@ import {
   SiWordpress,
   SiHelpdesk,
   SiKalilinux,
-  SiWindows,
   SiGo,
   SiRust,
 } from "react-icons/si";
@@ -32,9 +30,11 @@ import {
   FaRobot,
   FaBrain,
   FaRegMoon,
+  FaWindows,
 } from "react-icons/fa";
+import { VscTerminalPowershell } from "react-icons/vsc";
 
-function getTagIcon(tag_1: string) {
+function getTagIcon(tag_1: string): JSX.Element | null {
   const icons: Record<string, JSX.Element> = {
     javascript: <SiJavascript className="inline-block w-4 h-4 mr-1" />,
     java: <FaJava className="inline-block w-4 h-4 mr-1" />,
@@ -47,7 +47,7 @@ function getTagIcon(tag_1: string) {
     astro: <SiAstro className="inline-block w-4 h-4 mr-1" />,
     linux: <SiLinux className="inline-block w-4 h-4 mr-1" />,
     sql: <SiSqlite className="inline-block w-4 h-4 mr-1" />,
-    powershell: <SiPowershell className="inline-block w-4 h-4 mr-1" />,
+    powershell: <VscTerminalPowershell className="inline-block w-4 h-4 mr-1" />,
     php: <SiPhp className="inline-block w-4 h-4 mr-1" />,
     wordpress: <SiWordpress className="inline-block w-4 h-4 mr-1" />,
     go: <SiGo className="inline-block w-4 h-4 mr-1" />,
@@ -61,14 +61,14 @@ function getTagIcon(tag_1: string) {
     ai: <FaRobot className="inline-block w-4 h-4 mr-1" />,
     mental: <FaBrain className="inline-block w-4 h-4 mr-1" />,
     irl: <FaRegMoon className="inline-block w-4 h-4 mr-1" />,
-    windows: <SiWindows className="inline-block w-4 h-4 mr-1" />,
+    windows: <FaWindows className="inline-block w-4 h-4 mr-1" />,
   };
 
   const l = tag_1.toLowerCase();
   return icons[l] || null;
 }
 
-function getTagIcon2(tag_2: string) {
+function getTagIcon2(tag_2: string): JSX.Element | null {
   const icons: Record<string, JSX.Element> = {
     javascript: <SiJavascript className="inline-block w-4 h-4 mr-1" />,
     java: <FaJava className="inline-block w-4 h-4 mr-1" />,
@@ -81,7 +81,7 @@ function getTagIcon2(tag_2: string) {
     astro: <SiAstro className="inline-block w-4 h-4 mr-1" />,
     linux: <SiLinux className="inline-block w-4 h-4 mr-1" />,
     sql: <SiSqlite className="inline-block w-4 h-4 mr-1" />,
-    powershell: <SiPowershell className="inline-block w-4 h-4 mr-1" />,
+    powershell: <VscTerminalPowershell className="inline-block w-4 h-4 mr-1" />,
     php: <SiPhp className="inline-block w-4 h-4 mr-1" />,
     wordpress: <SiWordpress className="inline-block w-4 h-4 mr-1" />,
     go: <SiGo className="inline-block w-4 h-4 mr-1" />,
@@ -95,7 +95,7 @@ function getTagIcon2(tag_2: string) {
     ai: <FaRobot className="inline-block w-4 h-4 mr-1" />,
     mental: <FaBrain className="inline-block w-4 h-4 mr-1" />,
     irl: <FaRegMoon className="inline-block w-4 h-4 mr-1" />,
-    windows: <SiWindows className="inline-block w-4 h-4 mr-1" />,
+    windows: <FaWindows className="inline-block w-4 h-4 mr-1" />,
   };
 
   const l = tag_2.toLowerCase();

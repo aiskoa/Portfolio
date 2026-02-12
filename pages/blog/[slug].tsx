@@ -9,7 +9,8 @@ import rehypeSlug from "rehype-slug";
 import Link from "next/link";
 import Head from "next/head";
 import { config } from "../../config";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import { PrismLight as SyntaxHighlighterBase } from "react-syntax-highlighter";
+const SyntaxHighlighter = SyntaxHighlighterBase as any;
 import c from "react-syntax-highlighter/dist/cjs/languages/prism/c";
 import go from "react-syntax-highlighter/dist/cjs/languages/prism/go";
 import sql from "react-syntax-highlighter/dist/cjs/languages/prism/sql";
@@ -26,10 +27,8 @@ import ignore from "react-syntax-highlighter/dist/cjs/languages/prism/ignore";
 import powershell from "react-syntax-highlighter/dist/cjs/languages/prism/powershell";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
 import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import { scroller } from "react-scroll";
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import "katex/dist/katex.min.css";
@@ -174,10 +173,17 @@ export default function PostPage({ frontmatter, content, translations, previousP
   };
 
   const scrollTo = (id: string) => {
-    scroller.scrollTo(id, {
-      smooth: true,
-      offset: -100,
-    });
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
   };
 
   const toggleIndex = () => {
@@ -188,7 +194,7 @@ export default function PostPage({ frontmatter, content, translations, previousP
     <>
       <Head>
         <title>AISKOA - Blog</title>
-        <link rel="shortcut icon" type="image/jpg" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="description" content={excerpt} />
         <meta property="og:site_name" content="AISKOA Cybersecurity" />
         <meta property="og:type" content="article" />
@@ -347,7 +353,8 @@ export default function PostPage({ frontmatter, content, translations, previousP
                       const hasBlockElements = React.Children.toArray(children).some(child => 
                         React.isValidElement(child) && 
                         typeof child.type === 'function' && 
-                        (child.type.name === 'img' || child.props?.className?.includes('block'))
+                        // @ts-ignore
+                        (child.type.name === 'img' || (child.props as any)?.className?.includes('block'))
                       );
                       
                       if (hasBlockElements) {
@@ -502,14 +509,15 @@ const CodeComponent: React.FC<CodeComponentProps> = ({
           {copied ? (
             <span className="text-green-400 font-medium">¡Copied!</span>
           ) : (
-            <CopyToClipboard
-              text={String(children)}
-              onCopy={() => setCopied(true)}
+            <button
+              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm transition-colors duration-200"
+              onClick={() => {
+                navigator.clipboard.writeText(String(children));
+                setCopied(true);
+              }}
             >
-              <button className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm transition-colors duration-200">
-                Copy
-              </button>
-            </CopyToClipboard>
+              Copy
+            </button>
           )}
         </div>
       </div>

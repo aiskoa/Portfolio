@@ -4,18 +4,16 @@ import Image from "next/image";
 import { config } from "../../../config/index";
 import Link from "next/link";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Tooltip as MaterialTooltip } from "@material-tailwind/react";
-import dynamic from 'next/dynamic';
+import Tooltip from "../../common/tooltip";
 
-const Tooltip = dynamic(() => Promise.resolve(MaterialTooltip), {
-  ssr: false,
-});
+import { VscAzure, VscVscode } from "react-icons/vsc";
+import { FaAws } from "react-icons/fa";
 import {
   SiReact, SiNextdotjs,
   SiNodedotjs, SiVercel, SiGnubash, SiPython, SiMysql, SiKalilinux,
-  SiMicrosoftazure, SiPlatzi, SiUdemy, SiLinkedin, SiTwitter,
-  SiDiscord, SiJavascript, SiMicrosoftsqlserver, SiCisco,
-  SiFigma, SiPhp, SiMicrosoft, SiGit, SiSqlite, SiCplusplus,
+  SiPlatzi, SiUdemy, SiLinkedin,
+  SiDiscord, SiJavascript, SiCisco,
+  SiFigma, SiPhp, SiGit, SiSqlite, SiCplusplus,
   SiPostgresql,
   SiCloudflare,
   SiHtml5,
@@ -28,8 +26,6 @@ import {
   SiNginx,
   SiNotion,
   SiUbuntu,
-  SiVisualstudiocode,
-  SiAmazonaws,
   SiGithub,
   SiMongodb,
   SiOvh,
@@ -81,7 +77,7 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
         { key: "git", text: "Git", icon: <SiGit size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "nginx", text: "Nginx", icon: <SiNginx size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "ubuntu", text: "Ubuntu", icon: <SiUbuntu size={16} className="text-gray-800 dark:text-gray-100"/> },
-        { key: "vscode", text: "VSCode", icon: <SiVisualstudiocode size={16} className="text-gray-800 dark:text-gray-100"/> },
+        { key: "vscode", text: "VSCode", icon: <VscVscode size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "kalilinux", text: "Kali Linux", icon: <SiKalilinux size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "vmware", text: "VMware", icon: <SiVmware size={16} className="text-gray-800 dark:text-gray-100"/> },
       ],
@@ -89,8 +85,8 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
     {
       title: t("clouds_bd"),
       icons: [
-        { key: "azure", text: "Azure", icon: <SiMicrosoftazure size={16} className="text-gray-800 dark:text-gray-100"/> }, 
-        { key: "aws", text: "AWS", icon: <SiAmazonaws size={16} className="text-gray-800 dark:text-gray-100"/> },
+        { key: "azure", text: "Azure", icon: <VscAzure size={16} className="text-gray-800 dark:text-gray-100"/> }, 
+        { key: "aws", text: "AWS", icon: <FaAws size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "cloudflare", text: "Cloudflare", icon: <SiCloudflare size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "cisco", text: "Cisco", icon: <SiCisco size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "github", text: "GitHub", icon: <SiGithub size={16} className="text-gray-800 dark:text-gray-100"/> },
@@ -193,11 +189,7 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
                   <Tooltip
                     key={skill.key}
                     placement="top"
-                    className="mt-0.5 p-1 bg-gray-800 text-white text-xs rounded animate-fadeIn"
                     content={skill.text}
-                    nonce=""
-                    onResize={() => {}}
-                    onResizeCapture={() => {}}
                   >
                     <span
                       className="inline-flex items-center rounded-full

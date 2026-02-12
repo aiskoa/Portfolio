@@ -4,12 +4,16 @@ import Box from "../../common/box";
 import {
   SiReact, SiNextdotjs,
   SiNodedotjs, SiVercel, SiGnubash, SiPython, SiMysql, SiKalilinux,
-  SiMicrosoftazure, SiPlatzi, SiUdemy, SiLinkedin, SiTwitter,
-  SiDiscord, SiJavascript, SiMicrosoftsqlserver, SiCisco,
-  SiFigma, SiPhp, SiMicrosoft, SiGit, SiSqlite, SiCplusplus,
+  SiPlatzi, SiUdemy, SiLinkedin,
+  SiDiscord, SiJavascript, SiCisco,
+  SiFigma, SiPhp, SiGit, SiSqlite, SiCplusplus,
   SiPostgresql,
   SiCloudflare,
+  SiX,
 } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
+import { DiMsqlServer } from "react-icons/di";
+import { FaMicrosoft } from "react-icons/fa";
 import { ReactElement } from "react";
 import { SkillsIcon } from "../..";
 
@@ -69,7 +73,7 @@ const Skills: React.FC<SkillsProps> = ({ translations }): ReactElement => {
           title="DBs"
           icons={[
             <SkillsIcon key={"postgreSQL"} text="PostgreSQL" children={<SiPostgresql />} />,
-            <SkillsIcon key={"sqlServer"} text="SQL Server" children={<SiMicrosoftsqlserver />} />,
+            <SkillsIcon key={"sqlServer"} text="SQL Server" children={<DiMsqlServer />} />,
             <SkillsIcon key={"mysql"} text="MySQL" children={<SiMysql />} />,
           ]}
         />
@@ -87,7 +91,7 @@ const Skills: React.FC<SkillsProps> = ({ translations }): ReactElement => {
           icons={[
             // <SkillsIcon text="Heroku" children={<SiHeroku />} />,
             <SkillsIcon key={"vercel"} text="Vercel" children={<SiVercel />} />,
-            <SkillsIcon key={"azure"} text="Azure" children={<SiMicrosoftazure />} />,
+            <SkillsIcon key={"azure"} text="Azure" children={<VscAzure />} />,
             <SkillsIcon key={"cisco"} text="Cisco" children={<SiCloudflare />} />,
           ]}
         />
@@ -95,7 +99,7 @@ const Skills: React.FC<SkillsProps> = ({ translations }): ReactElement => {
           title={t("education")}
           icons={[
             <a key="microsoft" href="https://www.linkedin.com/groups/14079083/">
-              <SkillsIcon text="MS Aleph" children={<SiMicrosoft />} />
+              <SkillsIcon text="MS Aleph" children={<FaMicrosoft />} />
             </a>,
             <a key="platzi" href="https://platzi.com/p/alejandro-aguilar74/">
               <SkillsIcon text="PLatzi" children={<SiPlatzi />} />
@@ -112,8 +116,8 @@ const Skills: React.FC<SkillsProps> = ({ translations }): ReactElement => {
                 <SkillsIcon text="Discord" children={<SiDiscord />} />
               </a>,
               <a key="twitter" href="https://twitter.com/aiskoac">
-                <SkillsIcon text="X" children={<SiTwitter />} />
-              </a>,
+              <SkillsIcon text="X" children={<SiX />} />
+            </a>,
               <a key="linkedin" href="https://www.linkedin.com/in/aiskoa/">
                 <SkillsIcon text="Linkedin" children={<SiLinkedin />} />
               </a>,

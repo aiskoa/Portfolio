@@ -2,15 +2,26 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['avatars.githubusercontent.com', 'raw.githubusercontent.com', 'i.ibb.co']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',
+      },
+    ],
   },
   i18n: {
     locales: ["en", "es"],
     defaultLocale: "en",
   },
-  webpack: (config) => {
-    return config;
-  },
+  turbopack: {},
   async headers() {
     return [
       {

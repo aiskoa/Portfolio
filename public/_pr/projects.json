@@ -1,5 +1,18 @@
 [
     {
+        "title": "Artist Website",
+        "language": "Nextjs",
+        "language2": "TypeScript",
+        "date": "Sep 10, 2025",
+        "image": "https://i.ibb.co/fzWgbnC5/nex-website.png",
+        "altText": "NexDrak artist page",
+        "githubLink": "https://github.com/Noctifera-Records/nexdrak-site",
+        "description1": "Musician website using Nextjs.",
+        "description2": "Artist page for NexDrak, rasponsive desing and hoting on Cloudflare, the project is continuously updated.",
+        "readMoreLink": "https://aiskoa.vercel.app/es/blog/nexdrak",
+        "GoToLink": "https://nexdrak.com"
+    },
+    {
         "title": "GIE Encrypt",
         "language": "Go",
         "language2": "Svelte",
@@ -139,7 +152,7 @@
         "githubLink": "https://aiskoa.github.io/404",
         "description1": "An artist landing page for NexDrak.",
         "description2": "In there you can find information about his works. Project made in React, hosting on Surge, the project is still in development but you can check it out for now, the link is below.",
-        "readMoreLink": "https://aiskoa.vercel.app/blog/nexdrak",
+        "readMoreLink": "https://aiskoa.vercel.app/blog/nexdrak-1",
         "GoToLink": "https://nexdrak.surge.sh"
     },
     {

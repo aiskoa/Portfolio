@@ -43,7 +43,7 @@ const Skills: React.FC<SkillsProps> = ({ translations }): ReactElement => {
           />
         </div>
       </div>
-      <h2 className="ml-5 text-2xl">{t("skills")}</h2>
+      <h2 className="ml-5 text-2xl dark:text-white">{t("skills")}</h2>
       <div className="grid grid-cols-2 md:grid-cols-4">
         <Box
           title={t("languages")}

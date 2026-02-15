@@ -179,11 +179,11 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
         </div>
       {/* Sección de Skills como etiquetas */}
       <div className="mt-10">
-        <h2 className="text-xl text-center">{t("skills")}</h2>
+        <h2 className="text-xl text-center dark:text-white">{t("skills")}</h2>
         <div className="ml-5">
           {skillsData.map((category) => (
             <div key={category.title} className="mb-4">
-              <h3 className="font-semibold">{category.title}</h3>
+              <h3 className="font-semibold dark:text-white">{category.title}</h3>
               <div className="flex flex-wrap gap-2 mt-1">
                 {category.icons.map((skill) => (
                   <Tooltip

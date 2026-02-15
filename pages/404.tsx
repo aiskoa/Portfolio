@@ -87,10 +87,10 @@ const NotFound: NextPage<NotFoundProps> = ({ translations }): ReactElement => {
         <br />
         <div className="flex justify-center flex-1">
           <div className="max-w-xl px-4 py-8 mx-auto text-center">
-            <h1 className="text-2xl font-bold tracking-tight sm:text-4xl">
+            <h1 className="text-2xl font-bold tracking-tight sm:text-4xl dark:text-white">
                 {t("error_notfound_one")} 
             </h1>
-            <p className="mt-4 text-gray-500">
+            <p className="mt-4 text-gray-500 dark:text-gray-400">
               {t("error_notfound_two")}
             </p>
             <br />

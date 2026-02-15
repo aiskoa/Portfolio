@@ -17,7 +17,7 @@ const Footer: React.FC<FooterProps> = ({ translations }): ReactElement => {
   return (
     <div className="py-6 mt-12 lg:mt-18 sm:pb-36 sm:py-12">
       <div className="container mx-auto px-4 text-gray-800 dark:text-white">
-        <div className="pb-8 mb-2 border-t-2 border-gray-300 dark:border-white-300"></div>
+        <div className="pb-8 mb-2 border-t-2 border-gray-300 dark:border-gray-300"></div>
         <div className="flex flex-col items-center justify-between lg:flex-row">
           <p>{t("footer")}</p>
           <div className="flex flex-wrap pt-2 space-x-2 text-2xl font-medium sm:space-x-4 lg:pt-0">

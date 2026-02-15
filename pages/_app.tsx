@@ -17,8 +17,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <main className="container mx-auto px-4">
           <Component {...pageProps}/>
         </main>
+        <Footer translations={translations} />
       </ThemeProvider>
-      <Footer translations={translations} />
     </>
   );
 };

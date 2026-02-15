@@ -7,6 +7,9 @@ module.exports = {
   darkMode: 'selector',
   theme: {
     extend: {
+      colors: {
+        // ... (keep if needed, but remove if relying on v4 defaults)
+      },
       width: {
         'custom-card': '400px',
       },

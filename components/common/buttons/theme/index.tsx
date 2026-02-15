@@ -20,7 +20,7 @@ const ThemeSwitch: React.FC = (): ReactElement => {
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      className="w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4 text-gray-900 dark:text-gray-100"
+      className="w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4 text-gray-900 dark:text-white"
       onClick={() => setTheme(isDarkMode ? "light" : "dark")}
     >
       <svg

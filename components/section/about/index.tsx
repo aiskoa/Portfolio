@@ -102,12 +102,16 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
     <div className="container relative px-4 mx-auto">
       {/* background image gif */}
       <div
-        className="absolute inset-0 bg-cover bg-center mix-blend-multiply opacity-20 dark:mix-blend-overlay dark:opacity-30"
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-20 dark:opacity-30"
         style={{
           backgroundImage: "url('/bgChess.gif')",
+          mixBlendMode: "multiply",
           filter: "blur(5px)",
         }}
-      />
+      >
+        {/* Dark mode overlay to fix blend mode issues */}
+        <div className="absolute inset-0 hidden dark:block bg-zinc-900 mix-blend-overlay opacity-50"></div>
+      </div>
       {/* principal content */}
       <div className="relative z-10">
         

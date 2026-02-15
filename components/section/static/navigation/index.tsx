@@ -20,12 +20,12 @@ const Navigation: React.FC<NavigationProps> = ({ translations }): ReactElement =
         <Link
           href="/"
           className={
-            "font-medium tracking-wider transition-colors hover:text-sky-500 uppercase text-gray-900 dark:text-gray-100"
+            "font-medium tracking-wider transition-colors hover:text-sky-500 uppercase"
           }>
           <Image className="pointer-events-none focus:pointer-events-auto" draggable="false" src="/icon-logo.png" width={30} height={30} alt="Home" />
         </Link>
         <Theme />
-        <Link href="/portfolio" className="transition-colors hover:text-sky-500 text-gray-900 dark:text-gray-100">{t("projects")}</Link>
+        <Link href="/portfolio" className="transition-colors hover:text-sky-500">{t("projects")}</Link>
         <Language />
       </div>
     </div>

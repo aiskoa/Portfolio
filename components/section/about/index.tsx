@@ -101,14 +101,15 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
   return (
     <div className="container relative px-4 mx-auto">
       {/* background image gif */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/bgChess.gif')",
-          filter: "blur(5px)",
-        }}
-      >
-        <div className="absolute inset-0 bg-white/80 dark:bg-zinc-900/70 mix-blend-overlay"></div>
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-20 dark:opacity-30"
+          style={{
+            backgroundImage: "url('/bgChess.gif')",
+            filter: "blur(5px)",
+          }}
+        />
+        <div className="absolute inset-0 bg-white/80 dark:bg-zinc-900/70 mix-blend-overlay transition-colors duration-300"></div>
       </div>
       {/* principal content */}
       <div className="relative z-10">

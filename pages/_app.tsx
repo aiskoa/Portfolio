@@ -12,7 +12,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <ThemeProvider attribute="class">
+      <ThemeProvider attribute="class" enableSystem={false}>
         <Navigation translations={translations} />
         <main className="container mx-auto px-4">
           <Component {...pageProps}/>

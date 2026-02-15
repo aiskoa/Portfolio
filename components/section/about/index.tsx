@@ -102,22 +102,20 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
     <div className="container relative px-4 mx-auto">
       {/* background image gif */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-20 dark:opacity-30"
+        className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('/bgChess.gif')",
-          mixBlendMode: "multiply",
           filter: "blur(5px)",
         }}
       >
-        {/* Dark mode overlay to fix blend mode issues */}
-        <div className="absolute inset-0 hidden dark:block bg-zinc-900 mix-blend-overlay opacity-50"></div>
+        <div className="absolute inset-0 bg-white/80 dark:bg-zinc-900/70 mix-blend-overlay"></div>
       </div>
       {/* principal content */}
       <div className="relative z-10">
         
         <div className="flex flex-col-reverse text-center lg:space-x-5 lg:flex lg:flex-row item-center lg:-mx-4 lg:text-left">
           <div className="lg:px-4 lg:mt-12 ">
-            <h1 className="text-2xl font-bold text-black-900 lg:text-5xl dark:text-white">
+            <h1 className="text-2xl font-bold text-gray-900 lg:text-5xl dark:text-white">
               Alejandro Aguilar
             </h1>
             <h2 className="text-2xl font-bold lg:text-3xl">

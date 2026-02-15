@@ -103,7 +103,7 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
       {/* background image gif */}
       <div className="absolute inset-0 z-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-20 mix-blend-multiply dark:mix-blend-normal dark:opacity-30"
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-30 mix-blend-multiply dark:mix-blend-normal dark:opacity-20"
           style={{
             backgroundImage: "url('/bgChess.gif')",
             filter: "blur(5px)",

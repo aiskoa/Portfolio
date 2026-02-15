@@ -104,7 +104,7 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
       <div
         className="absolute inset-0 bg-cover bg-center mix-blend-multiply opacity-20 dark:mix-blend-overlay dark:opacity-30"
         style={{
-          backgroundImage: "url('../bgChess.gif')",
+          backgroundImage: "url('/bgChess.gif')",
           filter: "blur(5px)",
         }}
       />

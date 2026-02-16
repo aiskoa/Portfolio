@@ -6,3 +6,4 @@ export { default as Skills } from "./section/skills/index";
 export { default as Theme } from "./common/buttons/theme/index";
 export { default as Language } from "./common/buttons/language/index";
 export { default as SkillsIcon } from "./common/skills-icon/index";
+export { default as FeaturedProjects } from "./section/featured-projects/index";

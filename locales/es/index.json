@@ -1,6 +1,6 @@
 {
   "job": "Consultor TI",
-  "about-me": "Desarrollador | Fortalezcamos los equipos mediante soluciones informáticas innovadoras. Apliquemos juntos las mejoras y desechemos los malos resultados",
+  "about-me": "Desarrollador, Consultor de IT y Entusiasta por la Ciberseguridad. Más de 5 años de experiencia ayudando a organizaciones a identificar amenazas, implementar marcos de seguridad robustos y crear estrategias defensivas y ofensivas.",
   "resume": "Obtener CV",
   "machines": "Máquinas",	
   "footer": "© 2026",
@@ -30,5 +30,15 @@
   "projectsDesc": "Aquí se muestran algunos de mis proyectos y contribuciones más recientes.",
   "writeDesc": "Write-ups de máquinas, desafíos y vulnerabilidades, usando plataformas como TryHackMe, Hack The Box y más.",
   "blog_title": "Entradas de Blog",
-  "index_title": "Índice del Blog"
+  "index_title": "Índice del Blog",
+  "latest_projects": "Últimos Proyectos",
+  "learn_more": "Saber Mas",
+  "live_demo": "Ver Demo",
+  "view_full_portfolio": "VER PORTAFOLIO",
+  "project_one_title": "Sitio Web de Artista",
+  "project_one_desc": "Página de aterrizaje responsiva para artistas construida con Next.js y TypeScript, alojada en Cloudflare. Cuenta con diseño moderno y rendimiento optimizado.",
+  "project_two_title": "Encriptador GIE",
+  "project_two_desc": "Software de encriptación de grado militar (AES-256) escrito en Go. Protege archivos sensibles en Windows, macOS y Linux con una interfaz en Svelte.",
+  "project_three_title": "FortiMX",
+  "project_three_desc": "Plataforma educativa integral para entrenamiento en ciberseguridad. Construida con PHP y SQL, ofrece cursos, recursos y funciones comunitarias."
 }

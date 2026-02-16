@@ -42,6 +42,8 @@ interface AboutProps {
   translations: { [key: string]: string };
 }
 
+import FeaturedProjects from "../../section/featured-projects/index";
+
 const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
   const t = (key: string) => translations[key] || key;
 
@@ -199,6 +201,10 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
           ))}
         </div>
       </div>
+      
+      {/* Featured Projects Carousel */}
+      <FeaturedProjects translations={translations} />
+      
       </div>
     </div>
   );

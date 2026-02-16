@@ -347,7 +347,6 @@ export default function PostPage({ frontmatter, content, translations, previousP
               {/* Contenido del markdown */}
               <article className="prose prose-lg dark:prose-invert max-w-none
                 prose-headings:scroll-mt-24
-                prose-a:text-violet-600 dark:prose-a:text-violet-400 prose-a:no-underline hover:prose-a:underline
                 prose-img:rounded-xl prose-img:shadow-lg
                 prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800
               ">
@@ -406,6 +405,34 @@ export default function PostPage({ frontmatter, content, translations, previousP
                         {children}
                       </td>
                     ),
+                    a: ({ href, children }) => {
+                      const isExternal = href && /^https?:\/\//.test(href.toString());
+                      return (
+                        <a
+                          href={href?.toString()}
+                          target={isExternal ? "_blank" : undefined}
+                          rel={isExternal ? "noopener noreferrer" : undefined}
+                          className="font-semibold text-violet-600 underline underline-offset-4 decoration-violet-400 dark:text-violet-300 dark:decoration-violet-300 hover:text-violet-700 dark:hover:text-violet-200"
+                        >
+                          {children}
+                        </a>
+                      );
+                    },
+                    ul: ({ children }) => (
+                      <ul className="list-disc pl-6 my-4 space-y-2">
+                        {children}
+                      </ul>
+                    ),
+                    ol: ({ children }) => (
+                      <ol className="list-decimal pl-6 my-4 space-y-2">
+                        {children}
+                      </ol>
+                    ),
+                    li: ({ children }) => (
+                      <li className="leading-relaxed">
+                        {children}
+                      </li>
+                    ),
                     p: ({ children }) => {
                       const childrenArray = React.Children.toArray(children);
                       const hasImage = childrenArray.some(child => 
@@ -434,7 +461,7 @@ export default function PostPage({ frontmatter, content, translations, previousP
                     title="Download raw Markdown for LLMs"
                  >
                     <BsFileEarmarkCode className="w-4 h-4" />
-                    Download MD for LLM
+                    Download MD
                  </button>
               </div>
 

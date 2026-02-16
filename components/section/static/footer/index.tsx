@@ -23,7 +23,7 @@ const Footer: React.FC<FooterProps> = ({ translations }): ReactElement => {
           <div className="flex flex-wrap pt-2 space-x-2 text-2xl font-medium sm:space-x-4 lg:pt-0">
             <a
                 href={config.socials.linkedin}
-                className={"transition-colors dark:hover:border-violet-800 hover:text-yellow-500 p-1"}
+                className={"transition-all duration-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 hover:-translate-y-1"}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
@@ -32,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({ translations }): ReactElement => {
             </a>
             <a
               href={config.socials.github}
-              className={"transition-colors dark:hover:border-violet-800 hover:text-yellow-500 p-1"}
+              className={"transition-all duration-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white hover:-translate-y-1"}
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
@@ -41,7 +41,7 @@ const Footer: React.FC<FooterProps> = ({ translations }): ReactElement => {
             </a>
             <a
                 href={config.socials.instagram}
-                className={"transition-colors dark:hover:border-violet-800 hover:text-yellow-500 p-1"}
+                className={"transition-all duration-300 p-2 rounded-lg hover:bg-pink-50 dark:hover:bg-gray-800 hover:text-pink-600 dark:hover:text-pink-400 hover:-translate-y-1"}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
@@ -50,7 +50,7 @@ const Footer: React.FC<FooterProps> = ({ translations }): ReactElement => {
             </a>
             <a
               href={config.socials.twitter}
-              className={"transition-colors dark:hover:border-violet-800 hover:text-yellow-500 p-1"}
+              className={"transition-all duration-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white hover:-translate-y-1"}
               target="_blank"
               rel="noreferrer"
               aria-label="Twitter"
@@ -59,7 +59,7 @@ const Footer: React.FC<FooterProps> = ({ translations }): ReactElement => {
             </a>
             <a
               href={config.socials.discord}
-              className={"transition-colors dark:hover:border-violet-800 hover:text-yellow-500 p-1"}
+              className={"transition-all duration-300 p-2 rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-800 hover:text-indigo-600 dark:hover:text-indigo-400 hover:-translate-y-1"}
               target="_blank"
               rel="noreferrer"
               aria-label="Discord"
@@ -68,7 +68,7 @@ const Footer: React.FC<FooterProps> = ({ translations }): ReactElement => {
             </a>
             <a
               href={config.socials.Hackthebox}
-              className={"transition-colors dark:hover:border-violet-800 hover:text-yellow-500 p-1"}
+              className={"transition-all duration-300 p-2 rounded-lg hover:bg-green-50 dark:hover:bg-gray-800 hover:text-green-600 dark:hover:text-green-400 hover:-translate-y-1"}
               target="_blank"
               rel="noreferrer"
               aria-label="HackTheBox"
@@ -77,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({ translations }): ReactElement => {
             </a>
             <a
               href={config.socials.TryHackMe}
-              className={"transition-colors dark:hover:border-violet-800 hover:text-yellow-500 p-1"}
+              className={"transition-all duration-300 p-2 rounded-lg hover:bg-red-50 dark:hover:bg-gray-800 hover:text-red-600 dark:hover:text-red-400 hover:-translate-y-1"}
               target="_blank"
               rel="noreferrer"
               aria-label="TryHackMe"

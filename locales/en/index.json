@@ -1,6 +1,6 @@
 {
   "job": "IT Consultant",
-  "about-me": "Developer || Let's Hack the teams through innovative IT solutions. Let's apply the upgrades and discard the bad results together.",
+  "about-me": "Developer, IT Consultant and Cybersecurity Enthusiast. Over 5 years of experience helping organizations identify threats, implement robust security frameworks, and create defensive and offensive strategies.",
   "resume": "Get CV",
   "machines": "Machines",
   "footer": "© 2026",
@@ -30,5 +30,15 @@
   "projectsDesc": "Here are some of my most recent projects and contributions",
   "writeDesc": "Write-ups of machines, challenges and vulnerabilities, using platforms such as TryHackMe, Hack The Box and more.",
   "blog_title": "Blog Posts",
-  "index_title": "Blog Index"
+  "index_title": "Blog Index",
+  "latest_projects": "Latest Projects",
+  "learn_more": "Learn More",
+  "live_demo": "Live Demo",
+  "view_full_portfolio": "VIEW PORTFOLIO",
+  "project_one_title": "Artist Website",
+  "project_one_desc": "Responsive artist landing page built with Next.js and TypeScript, hosted on Cloudflare. Features modern design and optimized performance.",
+  "project_two_title": "GIE Encrypt",
+  "project_two_desc": "Military-grade encryption software (AES-256) written in Go. Protects sensitive files across Windows, macOS, and Linux with a Svelte UI.",
+  "project_three_title": "FortiMX",
+  "project_three_desc": "Comprehensive educational platform for cybersecurity training. Built with PHP and SQL, offering courses, resources, and community features."
 }

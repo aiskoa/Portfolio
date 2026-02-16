@@ -434,7 +434,7 @@ export default function PostPage({ frontmatter, content, translations, previousP
                     title="Download raw Markdown for LLMs"
                  >
                     <BsFileEarmarkCode className="w-4 h-4" />
-                    Download Raw MD (LLM Friendly)
+                    Download MD for LLM
                  </button>
               </div>
 

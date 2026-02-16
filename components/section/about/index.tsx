@@ -30,6 +30,8 @@ import {
   SiMongodb,
   SiOvh,
   SiVmware,
+  SiWails,
+  SiRust,
   SiBluetooth,
   SiRaspberrypi,
   SiWordpress,
@@ -55,6 +57,7 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
         { key: "python", text: "Python", icon: <SiPython size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "sql", text: "SQL", icon: <SiSqlite size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "php", text: "PHP", icon: <SiPhp size={16} className="text-gray-800 dark:text-gray-100"/> },
+        { key: "rust", text: "Rust", icon: <SiRust size={16} className="text-gray-800 dark:text-gray-100"/> },
       ],
     },
     {
@@ -66,6 +69,7 @@ const About: React.FC<AboutProps> = ({ translations }): ReactElement => {
         { key: "nodejs", text: "Node.js", icon: <SiNodedotjs size={16} className="text-gray-800 dark:text-gray-100"/> },
         { key: "tailwindcss", text: "Tailwind CSS", icon: <SiTailwindcss size={16} className="text-gray-800 dark:text-gray-100"/>},
         { key: "wordpress", text: "WordPress", icon: <SiWordpress size={16} className="text-gray-800 dark:text-gray-100"/> },
+        { key: "wails", text: "Wails", icon: <SiWails size={16} className="text-gray-800 dark:text-gray-100"/> },
       ],
     },
     {

@@ -7,7 +7,7 @@
         "image": "/blog/doc-hvm.webp",
         "altText": "Misconfig, SQLi, LFI",
         "githubLink": "https://hackmyvm.eu/machines/machine.php?vm=Doc",
-        "description": "Doc is a machine for managing traffic fines that has a vulnerability in the assignment of permissions to commands and LFI in profile editing..",
+        "description": "Doc is a machine for managing traffic fines that has a vulnerability in the assignment of permissions to commands and LFI in profile editing.",
         "GoToLink": "https://aiskoa.vercel.app/blog/machine-doc/"
     },
     {

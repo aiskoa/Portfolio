@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AISKOA - WriteUps Terminal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --terminal-bg: #1a1d29;
+            --terminal-window: #21252e;
+            --terminal-green: #00ff41;
+            --terminal-yellow: #ffd700;
+            --terminal-red: #ff4757;
+            --terminal-blue: #5ed4ff;
+            --terminal-purple: #c792ea;
+            --text-primary: #c5cdd9;
+            --text-dim: #6b7280;
+            --border: #2d3139;
+        }
+
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--terminal-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .terminal-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: var(--terminal-window);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 
+                0 0 0 1px rgba(0, 0, 0, 0.3),
+                0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal-header {
+            background: #1a1d29;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f57; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #28ca42; }
+
+        .terminal-title {
+            margin-left: auto;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            font-weight: 500;
+        }
+
+        .terminal-body {
+            padding: 30px;
+        }
+
+        .command-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .prompt {
+            color: var(--terminal-green);
+            font-weight: 600;
+        }
+
+        .user {
+            color: var(--terminal-blue);
+        }
+
+        .at {
+            color: var(--text-dim);
+        }
+
+        .host {
+            color: var(--terminal-purple);
+        }
+
+        .path {
+            color: var(--terminal-yellow);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--terminal-green);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .command-output {
+            margin-bottom: 30px;
+        }
+
+        .output-line {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .ascii-art {
+            color: var(--terminal-green);
+            font-size: 0.7rem;
+            line-height: 1.2;
+            margin: 20px 0;
+            font-family: 'Azeret Mono', monospace;
+            white-space: pre;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 255, 65, 0.05);
+            border-left: 3px solid var(--terminal-green);
+            border-radius: 4px;
+        }
+
+        .stat-box {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--terminal-green);
+        }
+
+        .filter-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(45, 49, 57, 0.5);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .filter-title {
+            color: var(--terminal-yellow);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-chip {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .filter-chip:hover {
+            border-color: var(--terminal-green);
+            color: var(--terminal-green);
+            background: rgba(0, 255, 65, 0.1);
+        }
+
+        .filter-chip.active {
+            background: var(--terminal-green);
+            color: var(--terminal-bg);
+            border-color: var(--terminal-green);
+        }
+
+        .filter-chip::before {
+            content: '[ ]';
+            margin-right: 8px;
+            color: var(--text-dim);
+        }
+
+        .filter-chip.active::before {
+            content: '[✓]';
+            color: var(--terminal-bg);
+        }
+
+        .table-container {
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+
+        .writeups-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .writeups-table thead {
+            border-bottom: 2px solid var(--terminal-green);
+        }
+
+        .writeups-table th {
+            padding: 15px 20px;
+            text-align: left;
+            color: var(--terminal-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .writeups-table th:first-child {
+            width: 80px;
+        }
+
+        .writeups-table tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .writeups-table tbody tr:hover {
+            background: rgba(0, 255, 65, 0.05);
+            transform: translateX(5px);
+        }
+
+        .writeups-table td {
+            padding: 18px 20px;
+            color: var(--text-primary);
+        }
+
+        .machine-name {
+            font-weight: 600;
+            color: var(--terminal-blue);
+            font-size: 1rem;
+        }
+
+        .machine-cell {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .machine-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            background: var(--terminal-bg);
+        }
+
+        .writeups-table tbody tr:hover .machine-thumb {
+            border-color: var(--terminal-green);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        .machine-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .machine-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        .platform-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-htb {
+            background: rgba(159, 239, 0, 0.2);
+            color: #9fef00;
+            border: 1px solid rgba(159, 239, 0, 0.3);
+        }
+
+        .badge-thm {
+            background: rgba(0, 168, 255, 0.2);
+            color: #00a8ff;
+            border: 1px solid rgba(0, 168, 255, 0.3);
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .diff-easy {
+            background: rgba(0, 255, 65, 0.15);
+            color: var(--terminal-green);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .diff-medium {
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--terminal-yellow);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .diff-hard {
+            background: rgba(255, 71, 87, 0.15);
+            color: var(--terminal-red);
+            border: 1px solid rgba(255, 71, 87, 0.3);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tech-tag {
+            padding: 3px 8px;
+            background: rgba(94, 212, 255, 0.1);
+            border: 1px solid rgba(94, 212, 255, 0.2);
+            border-radius: 3px;
+            font-size: 0.7rem;
+            color: var(--terminal-blue);
+        }
+
+        .date-cell {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .action-cell {
+            text-align: right;
+        }
+
+        .view-btn {
+            color: var(--terminal-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .view-btn:hover {
+            color: var(--terminal-yellow);
+            transform: translateX(-3px);
+        }
+
+        .view-btn::before {
+            content: '►';
+            font-size: 0.7rem;
+        }
+
+        .loading-indicator {
+            display: inline-block;
+            color: var(--terminal-green);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0%, 100% { content: '[▰▱▱▱▱]'; }
+            20% { content: '[▰▰▱▱▱]'; }
+            40% { content: '[▰▰▰▱▱]'; }
+            60% { content: '[▰▰▰▰▱]'; }
+            80% { content: '[▰▰▰▰▰]'; }
+        }
+
+        .footer-line {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .typing-text {
+            overflow: hidden;
+            border-right: 2px solid var(--terminal-green);
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-border 0.75s step-end infinite;
+            display: inline-block;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-border {
+            50% { border-color: transparent; }
+        }
+
+        @media (max-width: 768px) {
+            .terminal-body {
+                padding: 20px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+            .writeups-table {
+                font-size: 0.8rem;
+            }
+
+            .writeups-table th,
+            .writeups-table td {
+                padding: 12px 10px;
+            }
+
+            .machine-thumb {
+                width: 45px;
+                height: 45px;
+            }
+
+            .tech-tags {
+                flex-direction: column;
+            }
+
+            .machine-subtitle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+            <span class="terminal-title">aiskoa@writeups:~</span>
+        </div>
+
+        <div class="terminal-body">
+            <div class="command-line">
+                <span class="prompt">┌──(</span>
+                <span class="user">aiskoa</span>
+                <span class="at">@</span>
+                <span class="host">kali</span>
+                <span class="prompt">)-[</span>
+                <span class="path">~/writeups</span>
+                <span class="prompt">]</span>
+            </div>
+            <div class="command-line">
+                <span class="prompt">└─$</span>
+                <span style="color: var(--text-primary);">cat writeups.log</span>
+                <span class="cursor"></span>
+            </div>
+
+            <div class="command-output">
+                <div class="output-line">[*] Loading writeup database...</div>
+                <div class="output-line">[+] Connection established</div>
+                <div class="output-line">[+] Fetching records...</div>
+            </div>
+
+            <div class="ascii-art">
+ ██╗    ██╗██████╗ ██╗████████╗███████╗██╗   ██╗██████╗ ███████╗
+ ██║    ██║██╔══██╗██║╚══██╔══╝██╔════╝██║   ██║██╔══██╗██╔════╝
+ ██║ █╗ ██║██████╔╝██║   ██║   █████╗  ██║   ██║██████╔╝███████╗
+ ██║███╗██║██╔══██╗██║   ██║   ██╔══╝  ██║   ██║██╔═══╝ ╚════██║
+ ╚███╔███╔╝██║  ██║██║   ██║   ███████╗╚██████╔╝██║     ███████║
+  ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝ ╚═════╝ ╚═╝     ╚══════╝</div>
+
+            <div class="stats-bar">
+                <div class="stat-box">
+                    <div class="stat-label">Total Writeups</div>
+                    <div class="stat-value">24</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">HackTheBox Boxes</div>
+                    <div class="stat-value">12</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">TryHackMe Rooms</div>
+                    <div class="stat-value">8</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">CVEs Exploited</div>
+                    <div class="stat-value">15</div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">[FILTER OPTIONS]</div>
+                <div class="filter-options" id="platform-filters">
+                    <button class="filter-chip active" data-filter="all">ALL</button>
+                    <button class="filter-chip" data-filter="htb">HACKTHEBOX</button>
+                    <button class="filter-chip" data-filter="thm">TRYHACKME</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <div class="filter-title">[DIFFICULTY LEVEL]</div>
+                    <div class="filter-options" id="difficulty-filters">
+                        <button class="filter-chip active" data-filter="all-diff">ALL</button>
+                        <button class="filter-chip" data-filter="easy">EASY</button>
+                        <button class="filter-chip" data-filter="medium">MEDIUM</button>
+                        <button class="filter-chip" data-filter="hard">HARD</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="writeups-table">
+                    <thead>
+                        <tr>
+                            <th>IMG</th>
+                            <th>MACHINE</th>
+                            <th>PLATFORM</th>
+                            <th>DIFFICULTY</th>
+                            <th>TECHNIQUES</th>
+                            <th>OS</th>
+                            <th>DATE</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody id="writeups-tbody">
+                        <tr data-platform="htb" data-difficulty="easy">
+                            <td>
+                                <img src="https://labs.hackthebox.com/storage/avatars/28e01a01ee9a4566ad4d393444ba492f.png" alt="Meow" class="machine-thumb">
+                            </td>
+                            <td>
+                                <div class="machine-info">
+                                    <div class="machine-name">Meow</div>
+                                    <div class="machine-subtitle">Starting Point</div>
+                                </div>
+                            </td>
+                            <td><span class="platform-badge badge-htb">HTB</span></td>
+                            <td><span class="difficulty-badge diff-easy">EASY</span></td>
+                            <td>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Telnet</span>
+                                    <span class="tech-tag">Enumeration</span>
+                                </div>
+                            </td>
+                            <td>Linux</td>
+                            <td class="date-cell">2026-02-02</td>
+                            <td class="action-cell"><a href="#" class="view-btn">View</a></td>
+                        </tr>
+                        <tr data-platform="thm" data-difficulty="easy">
+                            <td>
+                                <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/5c1ec52ea0d9260fe78c21cbb18e7d57.png" alt="Blue" class="machine-thumb">
+                            </td>
+                            <td>
+                                <div class="machine-info">
+                                    <div class="machine-name">Blue</div>
+                                    <div class="machine-subtitle">Classic Windows Exploit</div>
+                                </div>
+                            </td>
+                            <td><span class="platform-badge badge-thm">THM</span></td>
+                            <td><span class="difficulty-badge diff-easy">EASY</span></td>
+                            <td>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">MS17-010</span>
+                                    <span class="tech-tag">Metasploit</span>
+                                    <span class="tech-tag">SMB</span>
+                                </div>
+                            </td>
+                            <td>Windows</td>
+                            <td class="date-cell">2026-01-28</td>
+                            <td class="action-cell"><a href="#" class="view-btn">View</a></td>
+                        </tr>
+                        <tr data-platform="htb" data-difficulty="medium">
+                            <td>
+                                <img src="https://labs.hackthebox.com/storage/avatars/c4a264c508c8f0a25fb3e5ec9b47e90d.png" alt="Keeper" class="machine-thumb">
+                            </td>
+                            <td>
+                                <div class="machine-info">
+                                    <div class="machine-name">Keeper</div>
+                                    <div class="machine-subtitle">Request Tracker</div>
+                                </div>
+                            </td>
+                            <td><span class="platform-badge badge-htb">HTB</span></td>
+                            <td><span class="difficulty-badge diff-medium">MEDIUM</span></td>
+                            <td>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Web</span>
+                                    <span class="tech-tag">KeePass</span>
+                                    <span class="tech-tag">CVE-2023-32784</span>
+                                </div>
+                            </td>
+                            <td>Linux</td>
+                            <td class="date-cell">2026-01-15</td>
+                            <td class="action-cell"><a href="#" class="view-btn">View</a></td>
+                        </tr>
+                        <tr data-platform="htb" data-difficulty="medium">
+                            <td>
+                                <img src="https://labs.hackthebox.com/storage/avatars/4af8886a8a8935c06cb8d863d8270e85.png" alt="Injection" class="machine-thumb">
+                            </td>
+                            <td>
+                                <div class="machine-info">
+                                    <div class="machine-name">Injection</div>
+                                    <div class="machine-subtitle">SQL Injection Focus</div>
+                                </div>
+                            </td>
+                            <td><span class="platform-badge badge-htb">HTB</span></td>
+                            <td><span class="difficulty-badge diff-medium">MEDIUM</span></td>
+                            <td>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">SQLi</span>
+                                    <span class="tech-tag">SUID</span>
+                                    <span class="tech-tag">PrivEsc</span>
+                                </div>
+                            </td>
+                            <td>Linux</td>
+                            <td class="date-cell">2026-01-08</td>
+                            <td class="action-cell"><a href="#" class="view-btn">View</a></td>
+                        </tr>
+                        <tr data-platform="thm" data-difficulty="medium">
+                            <td>
+                                <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/9042857b31ab26403a7c96d6e8fa8f97.jpeg" alt="Wonderland" class="machine-thumb">
+                            </td>
+                            <td>
+                                <div class="machine-info">
+                                    <div class="machine-name">Wonderland</div>
+                                    <div class="machine-subtitle">Alice in Wonderland</div>
+                                </div>
+                            </td>
+                            <td><span class="platform-badge badge-thm">THM</span></td>
+                            <td><span class="difficulty-badge diff-medium">MEDIUM</span></td>
+                            <td>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Steganography</span>
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">PATH Hijacking</span>
+                                </div>
+                            </td>
+                            <td>Linux</td>
+                            <td class="date-cell">2025-12-22</td>
+                            <td class="action-cell"><a href="#" class="view-btn">View</a></td>
+                        </tr>
+                        <tr data-platform="htb" data-difficulty="easy">
+                            <td>
+                                <img src="https://labs.hackthebox.com/storage/avatars/e5445092e18a14c89c7ac79989b9eb63.png" alt="MonitorsTwo" class="machine-thumb">
+                            </td>
+                            <td>
+                                <div class="machine-info">
+                                    <div class="machine-name">MonitorsTwo</div>
+                                    <div class="machine-subtitle">Docker Escape</div>
+                                </div>
+                            </td>
+                            <td><span class="platform-badge badge-htb">HTB</span></td>
+                            <td><span class="difficulty-badge diff-easy">EASY</span></td>
+                            <td>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">CVE-2022-46169</span>
+                                    <span class="tech-tag">Docker</span>
+                                    <span class="tech-tag">Capabilities</span>
+                                </div>
+                            </td>
+                            <td>Linux</td>
+                            <td class="date-cell">2025-12-10</td>
+                            <td class="action-cell"><a href="#" class="view-btn">View</a></td>
+                        </tr>
+                        <tr data-platform="htb" data-difficulty="hard">
+                            <td>
+                                <img src="https://labs.hackthebox.com/storage/avatars/a51c3e5f7f25eb1faef05d7276e8bdc4.png" alt="Surveillance" class="machine-thumb">
+                            </td>
+                            <td>
+                                <div class="machine-info">
+                                    <div class="machine-name">Surveillance</div>
+                                    <div class="machine-subtitle">Advanced Linux Box</div>
+                                </div>
+                            </td>
+                            <td><span class="platform-badge badge-htb">HTB</span></td>
+                            <td><span class="difficulty-badge diff-hard">HARD</span></td>
+                            <td>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">RCE</span>
+                                    <span class="tech-tag">Kernel Exploit</span>
+                                    <span class="tech-tag">Reverse Engineering</span>
+                                </div>
+                            </td>
+                            <td>Linux</td>
+                            <td class="date-cell">2025-11-30</td>
+                            <td class="action-cell"><a href="#" class="view-btn">View</a></td>
+                        </tr>
+                        <tr data-platform="thm" data-difficulty="hard">
+                            <td>
+                                <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/5ccd148dae7609cea5c62c93cdcb53b9.png" alt="Relevant" class="machine-thumb">
+                            </td>
+                            <td>
+                                <div class="machine-info">
+                                    <div class="machine-name">Relevant</div>
+                                    <div class="machine-subtitle">Windows PrivEsc</div>
+                                </div>
+                            </td>
+                            <td><span class="platform-badge badge-thm">THM</span></td>
+                            <td><span class="difficulty-badge diff-hard">HARD</span></td>
+                            <td>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">SMB</span>
+                                    <span class="tech-tag">Token Impersonation</span>
+                                    <span class="tech-tag">PrintSpoofer</span>
+                                </div>
+                            </td>
+                            <td>Windows</td>
+                            <td class="date-cell">2025-11-18</td>
+                            <td class="action-cell"><a href="#" class="view-btn">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer-line">
+                <span>[aiskoa@kali] © 2026</span>
+                <span style="color: var(--terminal-green);">[8 writeups displayed]</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Filter functionality
+        let currentPlatform = 'all';
+        let currentDifficulty = 'all-diff';
+
+        function filterTable() {
+            const rows = document.querySelectorAll('#writeups-tbody tr');
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const platform = row.dataset.platform;
+                const difficulty = row.dataset.difficulty;
+
+                const platformMatch = currentPlatform === 'all' || platform === currentPlatform;
+                const difficultyMatch = currentDifficulty === 'all-diff' || difficulty === currentDifficulty;
+
+                if (platformMatch && difficultyMatch) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            // Update counter
+            document.querySelector('.footer-line span:last-child').textContent = 
+                `[${visibleCount} writeups displayed]`;
+        }
+
+        // Platform filters
+        document.querySelectorAll('#platform-filters .filter-chip').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#platform-filters .filter-chip').forEach(b => 
+                    b.classList.remove('active'));
+                btn.classList.add('active');
+                currentPlatform = btn.dataset.filter;
+                filterTable();
+            });
+        });
+
+        // Difficulty filters
+        document.querySelectorAll('#difficulty-filters .filter-chip').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#difficulty-filters .filter-chip').forEach(b => 
+                    b.classList.remove('active'));
+                btn.classList.add('active');
+                currentDifficulty = btn.dataset.filter;
+                filterTable();
+            });
+        });
+
+        // Row click
+        document.querySelectorAll('#writeups-tbody tr').forEach(row => {
+            row.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('view-btn')) {
+                    console.log('Navigate to writeup');
+                }
+            });
+        });
+
+        // View button click
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Open writeup detail');
+            });
+        });
+    </script>
+</body>
+</html>

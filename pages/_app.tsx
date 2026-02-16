@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Footer, Navigation } from "../components";
+import Background from "../components/common/background";
 import { ThemeProvider } from "next-themes";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -12,7 +13,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
+        <Background />
         <Navigation translations={translations} />
         <main className="container mx-auto px-4">
           <Component {...pageProps}/>

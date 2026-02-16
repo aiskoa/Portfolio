@@ -14,9 +14,7 @@ const ThemeSwitch: React.FC = (): ReactElement => {
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), []);
 
-  const isDarkMode = mounted
-    ? document.documentElement.classList.contains("dark")
-    : theme === "dark" || resolvedTheme === "dark";
+  const isDarkMode = mounted && (theme === "dark" || resolvedTheme === "dark");
 
   return (
     <button
@@ -24,12 +22,7 @@ const ThemeSwitch: React.FC = (): ReactElement => {
       type="button"
       className="w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4 text-gray-900 dark:text-white transition-colors duration-300"
       onClick={() => {
-        if (!mounted) return;
-        const next = document.documentElement.classList.contains("dark")
-          ? "light"
-          : "dark";
-        document.documentElement.classList.toggle("dark", next === "dark");
-        setTheme(next);
+        setTheme(theme === "dark" || resolvedTheme === "dark" ? "light" : "dark");
       }}
     >
       <svg

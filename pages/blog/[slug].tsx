@@ -32,8 +32,8 @@ import React, { useState, useEffect } from "react";
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import "katex/dist/katex.min.css";
-import { BsTwitterX } from "react-icons/bs";
-import { FaFacebook, FaLinkedin, FaLink } from "react-icons/fa";
+import { BsTwitterX, BsDownload, BsFileEarmarkCode } from "react-icons/bs";
+import { FaFacebook, FaLinkedin, FaLink, FaArrowUp } from "react-icons/fa";
 
 // Registra los lenguajes para el resaltado de sintaxis
 SyntaxHighlighter.registerLanguage("c", c);
@@ -70,6 +70,7 @@ interface PostPageProps {
   translations: { [key: string]: string };
   previousPost?: { slug: string; title: string } | null;
   nextPost?: { slug: string; title: string } | null;
+  slug: string; // Added slug to props
 }
 
 // Definir el tipo Heading para `headings`
@@ -78,7 +79,7 @@ interface Heading {
   text: string;
 }
 
-export default function PostPage({ frontmatter, content, translations, previousPost, nextPost }: PostPageProps) {
+export default function PostPage({ frontmatter, content, translations, previousPost, nextPost, slug }: PostPageProps) {
   const { title, date, cover_image, alt, excerpt, tags1, tags2 } = frontmatter;
   const router = useRouter();
   const t = (key: string) => translations[key] || key;
@@ -87,6 +88,8 @@ export default function PostPage({ frontmatter, content, translations, previousP
   const [showIndex, setShowIndex] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
   const [copied, setCopied] = useState(false);
+  const [activeHeading, setActiveHeading] = useState("");
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Función para calcular tiempo de lectura
   const calculateReadingTime = (text: string): number => {
@@ -105,9 +108,24 @@ export default function PostPage({ frontmatter, content, translations, previousP
       text: heading.innerText,
     }));
     setHeadings(headingsData);
+
+    // Observer for active heading
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveHeading(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -40% 0px" }
+    );
+
+    headingElements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, [content]);
 
-  // useEffect para la barra de progreso de lectura
+  // useEffect para la barra de progreso de lectura y scroll top
   useEffect(() => {
     const updateReadingProgress = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -121,6 +139,9 @@ export default function PostPage({ frontmatter, content, translations, previousP
       const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
       
       const scrollableHeight = docHeight - windowHeight;
+      
+      // Show/Hide scroll top button
+      setShowScrollTop(scrollTop > 500);
       
       if (scrollableHeight <= 0) {
         setReadingProgress(0);
@@ -172,6 +193,16 @@ export default function PostPage({ frontmatter, content, translations, previousP
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const downloadMarkdown = () => {
+    const element = document.createElement("a");
+    const file = new Blob([content], {type: 'text/markdown'});
+    element.href = URL.createObjectURL(file);
+    element.download = `${slug}.md`;
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+    document.body.removeChild(element);
+  };
+
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -183,26 +214,60 @@ export default function PostPage({ frontmatter, content, translations, previousP
         top: offsetPosition,
         behavior: "smooth"
       });
+      // Close mobile menu if open
+      if (window.innerWidth < 1024) {
+        setShowIndex(false);
+      }
     }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   };
 
   const toggleIndex = () => {
     setShowIndex(!showIndex);
   };
 
+  // Structured Data for LLMs/SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "image": cover_image,
+    "datePublished": date, // Assuming date format is compatible or simple string
+    "author": {
+      "@type": "Person",
+      "name": "Alejandro Aguilar", // Should probably be dynamic from config
+      "url": "https://aiskoa.vercel.app"
+    },
+    "description": excerpt,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://aiskoa.vercel.app/blog/${slug}`
+    }
+  };
+
   return (
     <>
       <Head>
-        <title>AISKOA - Blog</title>
+        <title>{title} | AISKOA</title>
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="description" content={excerpt} />
         <meta property="og:site_name" content="AISKOA Cybersecurity" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content={excerpt} />
         <meta property="og:title" content={title} />
-        <meta property="og:url" content="https://aiskoa.vercel.app" />
+        <meta property="og:url" content={`https://aiskoa.vercel.app/blog/${slug}`} />
         <meta property="og:image" content={cover_image} />
         <meta name="theme-color" content="#8e52f5" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </Head>
       
       {/* Barra de progreso de lectura */}
@@ -213,263 +278,324 @@ export default function PostPage({ frontmatter, content, translations, previousP
         />
       </div>
 
-      {/* Contenedor principal con padding top para compensar navbar fijo */}
-      <div className="min-h-screen pt-16 pb-8">
-        {/* Botones de navegación */}
-        <div className="flex justify-start ml-5 text-center mb-6">
-          <Link href="/blog">
-            <button
-              type="button"
-              className="me-5 inline-block px-6 py-2.5 bg-purple-600 text-white dark:text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out dark:bg-purple-600 dark:hover:bg-purple-700 dark:active:bg-purple-800 dark:focus:bg-purple-700"
-            >
-              <svg
-                className="w-6 h-6 text-gray-800 dark:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m15 19-7-7 7-7"
-                />
-              </svg>
-            </button>
-          </Link>
+      {/* Contenedor principal */}
+      <div className="min-h-screen pt-20 pb-12">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
           
-          {/* Botón para mostrar/ocultar el índice en móvil */}
-          <button
-            type="button"
-            onClick={toggleIndex}
-            className="md:hidden me-5 inline-block px-6 py-2.5 bg-purple-600 text-white dark:text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out dark:bg-purple-600 dark:hover:bg-purple-700 dark:active:bg-purple-800 dark:focus:bg-purple-700"
-          >
-            {showIndex ? "Ocultar Índice" : "Mostrar Índice"}
-          </button>
-        </div>
+          {/* Layout Grid: Content + Sidebar */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8 xl:gap-12 relative">
+            
+            {/* Columna Principal: Artículo */}
+            <main className="w-full min-w-0">
+              {/* Botón Volver */}
+              <div className="mb-6">
+                <Link href="/blog">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7 7-7" />
+                    </svg>
+                    Back to Blog
+                  </button>
+                </Link>
+              </div>
 
-        {/* Contenedor principal con mejor estructura */}
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 relative">
-          {/* Índice flotante - Mejorado */}
-          <aside 
-            className={`
-              ${showIndex ? 'block' : 'hidden'} 
-              md:block md:fixed md:top-24 md:right-4 md:w-72 lg:w-80
-              z-20 w-full mb-6 md:mb-0 p-4 
-              bg-white/90 backdrop-blur-sm rounded-lg shadow-lg 
-              dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700
-              max-h-[calc(100vh-8rem)] overflow-y-auto
-            `}
-          >
-            <h3 className="mb-4 font-bold text-center text-gray-800 dark:text-white border-b pb-2">
-              {t("index_title")}
-            </h3>
-            <ul className="text-gray-800 dark:text-gray-200 space-y-2">
+              {/* Header del post */}
+              <header className="mb-10">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
+                  {title}
+                </h1>
+                
+                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-8 border-b border-gray-200 dark:border-gray-800 pb-8">
+                  <span className="flex items-center gap-1.5">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    {date}
+                  </span>
+                  <span className="hidden sm:inline">•</span>
+                  <span className="flex items-center gap-1.5">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {readingTime} min read
+                  </span>
+                  <span className="hidden sm:inline">•</span>
+                  <div className="flex gap-2">
+                    <span className="px-2 py-0.5 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full text-xs font-medium border border-violet-200 dark:border-violet-800">
+                      {tags1}
+                    </span>
+                    {tags2 && (
+                      <span className="px-2 py-0.5 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full text-xs font-medium border border-violet-200 dark:border-violet-800">
+                        {tags2}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="relative rounded-xl overflow-hidden shadow-xl aspect-video bg-gray-100 dark:bg-gray-800">
+                  <img
+                    src={cover_image}
+                    alt={alt}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </header>
+
+              {/* Contenido del markdown */}
+              <article className="prose prose-lg dark:prose-invert max-w-none
+                prose-headings:scroll-mt-24
+                prose-a:text-violet-600 dark:prose-a:text-violet-400 prose-a:no-underline hover:prose-a:underline
+                prose-img:rounded-xl prose-img:shadow-lg
+                prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800
+              ">
+                <ReactMarkdown
+                  remarkPlugins={[gfm, remarkMath]}
+                  rehypePlugins={[rehypeSlug, rehypeKatex]}
+                  components={{
+                    img: ({ node, ...props }) => (
+                      <div className="block my-8">
+                        <Zoom>
+                          <img 
+                            {...props} 
+                            alt={props.alt || 'Imagen'} 
+                            className="w-full rounded-xl shadow-lg border border-gray-200 dark:border-gray-800"
+                          />
+                        </Zoom>
+                        {props.alt && (
+                          <span className="block text-center text-sm text-gray-500 dark:text-gray-400 mt-3 italic">
+                            {props.alt}
+                          </span>
+                        )}
+                      </div>
+                    ),
+                    blockquote: ({ children }) => (
+                      <blockquote className="border-l-4 border-violet-500 pl-6 my-8 italic text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-r-xl not-italic">
+                        <div className="relative">
+                          <svg className="absolute -top-4 -left-2 w-8 h-8 text-violet-200 dark:text-violet-900 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21L14.017 18C14.017 16.896 14.321 16.061 14.929 15.495C15.537 14.929 16.49 14.545 17.787 14.343V11.142C16.879 11.214 16.142 11.393 15.576 11.679C15.01 11.965 14.565 12.441 14.241 13.106C13.565 12.33 12.981 11.411 12.489 10.349C11.997 9.287 11.751 8.046 11.751 6.626H7.957C7.957 8.846 8.441 10.95 9.409 12.939C10.377 14.928 11.913 16.941 14.017 18.979V21ZM5.983 21L5.983 18C5.983 16.896 6.287 16.061 6.895 15.495C7.503 14.929 8.456 14.545 9.753 14.343V11.142C8.845 11.214 8.108 11.393 7.542 11.679C6.976 11.965 6.531 12.441 6.207 13.106C5.531 12.33 4.947 11.411 4.455 10.349C3.963 9.287 3.717 8.046 3.717 6.626H0.081C0.081 8.846 0.565 10.95 1.533 12.939C2.501 14.928 4.037 16.941 5.983 18.979V21Z" />
+                          </svg>
+                          <div className="relative z-10 pl-2">
+                            {children}
+                          </div>
+                        </div>
+                      </blockquote>
+                    ),
+                    code: CodeComponent,
+                    table: ({ children }) => (
+                      <div className="overflow-x-auto my-8 rounded-lg border border-gray-200 dark:border-gray-800">
+                        <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
+                          {children}
+                        </table>
+                      </div>
+                    ),
+                    thead: ({ children }) => (
+                      <thead className="bg-gray-50 dark:bg-gray-800">
+                        {children}
+                      </thead>
+                    ),
+                    th: ({ children }) => (
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                        {children}
+                      </th>
+                    ),
+                    td: ({ children }) => (
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300 border-t border-gray-200 dark:border-gray-800">
+                        {children}
+                      </td>
+                    ),
+                    p: ({ children }) => {
+                      const childrenArray = React.Children.toArray(children);
+                      const hasImage = childrenArray.some(child => 
+                        React.isValidElement(child) && 
+                        // Check for ReactMarkdown node prop or src prop
+                        ((child.props as any)?.node?.tagName === 'img' || (child.props as any)?.src)
+                      );
+                      
+                      if (hasImage) {
+                        return <div className="mb-8 leading-relaxed">{children}</div>;
+                      }
+                      
+                      return <p className="mb-6 leading-relaxed">{children}</p>;
+                    },
+                  }}
+                >
+                  {content}
+                </ReactMarkdown>
+              </article>
+
+              {/* Botón LLM / Raw */}
+              <div className="mt-8 flex justify-end">
+                 <button
+                    onClick={downloadMarkdown}
+                    className="flex items-center gap-2 text-xs text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                    title="Download raw Markdown for LLMs"
+                 >
+                    <BsFileEarmarkCode className="w-4 h-4" />
+                    Download Raw MD (LLM Friendly)
+                 </button>
+              </div>
+
+              {/* Navegación entre posts */}
+              <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {previousPost ? (
+                    <Link href={`/blog/${previousPost.slug}`} className="group block h-full">
+                      <div className="h-full p-6 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-violet-500 dark:hover:border-violet-500 bg-white dark:bg-gray-900 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div className="flex items-center gap-2 text-sm text-violet-600 dark:text-violet-400 mb-3 font-medium">
+                          <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                          </svg>
+                          Previous Article
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors line-clamp-2">
+                          {previousPost.title}
+                        </h4>
+                      </div>
+                    </Link>
+                  ) : <div />}
+
+                  {nextPost ? (
+                    <Link href={`/blog/${nextPost.slug}`} className="group block h-full">
+                      <div className="h-full p-6 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-violet-500 dark:hover:border-violet-500 bg-white dark:bg-gray-900 transition-all duration-300 shadow-sm hover:shadow-md text-right">
+                        <div className="flex items-center justify-end gap-2 text-sm text-violet-600 dark:text-violet-400 mb-3 font-medium">
+                          Next Article
+                          <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors line-clamp-2">
+                          {nextPost.title}
+                        </h4>
+                      </div>
+                    </Link>
+                  ) : <div />}
+                </div>
+              </div>
+
+              {/* Share Section */}
+              <div className="mt-12 p-8 bg-gray-50 dark:bg-gray-900/50 rounded-2xl text-center">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">
+                  Share this article
+                </h3>
+                <div className="flex justify-center gap-4 flex-wrap">
+                  <button onClick={shareOnTwitter} className="p-3 bg-black text-white rounded-full hover:scale-110 transition-transform shadow-lg" aria-label="Share on X">
+                    <BsTwitterX className="w-5 h-5" />
+                  </button>
+                  <button onClick={shareOnFacebook} className="p-3 bg-[#1877F2] text-white rounded-full hover:scale-110 transition-transform shadow-lg" aria-label="Share on Facebook">
+                    <FaFacebook className="w-5 h-5" />
+                  </button>
+                  <button onClick={shareOnLinkedIn} className="p-3 bg-[#0A66C2] text-white rounded-full hover:scale-110 transition-transform shadow-lg" aria-label="Share on LinkedIn">
+                    <FaLinkedin className="w-5 h-5" />
+                  </button>
+                  <button onClick={copyToClipboard} className="p-3 bg-gray-600 text-white rounded-full hover:scale-110 transition-transform shadow-lg relative" aria-label="Copy Link">
+                    <FaLink className="w-5 h-5" />
+                    {copied && (
+                      <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs py-1 px-2 rounded whitespace-nowrap">
+                        Copied!
+                      </span>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </main>
+
+            {/* Columna Lateral: Índice (Sticky Sidebar) */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
+                <div className="p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4 border-b border-gray-100 dark:border-gray-800 pb-2">
+                    {t("index_title")}
+                  </h3>
+                  <nav>
+                    <ul className="space-y-1">
+                      {headings.map((heading) => (
+                        <li key={heading.id}>
+                          <button
+                            onClick={() => scrollTo(heading.id)}
+                            className={`
+                              w-full text-left py-1.5 px-3 rounded-md text-sm transition-all duration-200 border-l-2
+                              ${activeHeading === heading.id 
+                                ? "border-violet-500 bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300 font-medium" 
+                                : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"}
+                            `}
+                          >
+                            {heading.text}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating Index Button (Mobile/Tablet) */}
+      <button
+        onClick={toggleIndex}
+        className={`
+          lg:hidden fixed bottom-6 right-6 z-40 p-4 bg-violet-600 text-white rounded-full shadow-xl 
+          hover:bg-violet-700 transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2
+          ${showIndex ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}
+        `}
+        aria-label="Table of Contents"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+
+      {/* Mobile Index Modal */}
+      {showIndex && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setShowIndex(false)} />
+          <div className="absolute bottom-0 right-0 w-full sm:w-80 bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-l-2xl sm:rounded-tr-none shadow-2xl p-6 max-h-[80vh] overflow-y-auto transform transition-transform duration-300">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">{t("index_title")}</h3>
+              <button onClick={() => setShowIndex(false)} className="p-2 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <ul className="space-y-2">
               {headings.map((heading) => (
                 <li key={heading.id}>
                   <button
                     onClick={() => scrollTo(heading.id)}
-                    disabled={heading.id === ""}
-                    className="w-full text-left p-2 rounded-md bg-white/50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 font-medium text-blue-600 dark:text-violet-400 hover:text-blue-800 dark:hover:text-violet-200 text-sm"
+                    className={`
+                      w-full text-left py-3 px-4 rounded-xl text-sm transition-colors
+                      ${activeHeading === heading.id 
+                        ? "bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 font-medium" 
+                        : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"}
+                    `}
                   >
                     {heading.text}
                   </button>
                 </li>
               ))}
             </ul>
-          </aside>
-
-          {/* Contenido del post con margen apropiado */}
-          <div className="w-full md:mr-80 lg:mr-96">
-            {/* Header del post */}
-            <header className="text-center mb-8">
-              <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-                {title}
-              </h1>
-              <div className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-2">
-                {excerpt}
-              </div>
-              <div className="text-base md:text-lg text-gray-500 dark:text-gray-400 mb-2">
-                {date}
-              </div>
-              <div className="flex items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-6">
-                <span className="flex items-center gap-1">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                  </svg>
-                  {readingTime} min read
-                </span>
-                <span>•</span>
-                <span>{tags1}, {tags2}</span>
-              </div>
-              <div className="mb-8">
-                <img
-                  src={cover_image}
-                  alt={alt}
-                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
-                />
-              </div>
-            </header>
-
-            {/* Contenido del markdown */}
-            <article className="w-full max-w-none">
-              <div className="prose prose-base md:prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-strong:text-gray-900 dark:prose-strong:text-white prose-img:rounded-lg prose-img:shadow-md">
-                <ReactMarkdown
-                  remarkPlugins={[gfm, remarkMath]}
-                  rehypePlugins={[rehypeSlug, rehypeKatex]}
-                  components={{
-                    // Solucionamos el problema de anidación: las imágenes no se envuelven en p
-                    img: ({ node, ...props }) => (
-                      <span className="block my-6">
-                        <Zoom>
-                          <img 
-                            {...props} 
-                            alt={props.alt || 'Imagen'} 
-                            className="w-full rounded-lg shadow-md"
-                          />
-                        </Zoom>
-                        {props.alt && (
-                          <span className="block text-center text-sm text-gray-600 dark:text-gray-400 mt-2 italic">
-                            {props.alt}
-                          </span>
-                        )}
-                      </span>
-                    ),
-                    // Mejoramos los blockquotes
-                    blockquote: ({ children }) => (
-                      <blockquote className="border-l-4 border-blue-500 pl-4 my-6 italic text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 p-4 rounded-r-lg">
-                        {children}
-                      </blockquote>
-                    ),
-                    // Componente de código mejorado
-                    code: CodeComponent,
-                    // Párrafos normales - sin cambios especiales
-                    p: ({ children }) => {
-                      // Filtra elementos que no deberían estar ens párrafos
-                      const hasBlockElements = React.Children.toArray(children).some(child => 
-                        React.isValidElement(child) && 
-                        typeof child.type === 'function' && 
-                        // @ts-ignore
-                        (child.type.name === 'img' || (child.props as any)?.className?.includes('block'))
-                      );
-                      
-                      if (hasBlockElements) {
-                        return <div className="mb-4 leading-relaxed">{children}</div>;
-                      }
-                      
-                      return <p className="mb-4 leading-relaxed">{children}</p>;
-                    },
-                  }}
-                >
-                  {content}
-                </ReactMarkdown>
-              </div>
-            </article>
-
-            {/* Navegación entre posts */}
-            {(previousPost || nextPost) && (
-              <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-                <div className="flex flex-col sm:flex-row justify-between items-stretch gap-4">
-                  {/* Post anterior */}
-                  {previousPost ? (
-                    <Link href={`/blog/${previousPost.slug}`} className="flex-1">
-                      <div className="group p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-violet-500 dark:hover:border-violet-400 transition-colors duration-200 cursor-pointer">
-                        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                          </svg>
-                          <span>Previous</span>
-                        </div>
-                        <h4 className="text-base font-medium text-gray-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-200 line-clamp-2">
-                          {previousPost.title}
-                        </h4>
-                      </div>
-                    </Link>
-                  ) : (
-                    <div className="flex-1"></div>
-                  )}
-
-                  {/* Post siguiente */}
-                  {nextPost ? (
-                    <Link href={`/blog/${nextPost.slug}`} className="flex-1">
-                      <div className="group p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-violet-500 dark:hover:border-violet-400 transition-colors duration-200 cursor-pointer text-right">
-                        <div className="flex items-center justify-end gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
-                          <span>Next</span>
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                        <h4 className="text-base font-medium text-gray-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-200 line-clamp-2">
-                          {nextPost.title}
-                        </h4>
-                      </div>
-                    </Link>
-                  ) : (
-                    <div className="flex-1"></div>
-                  )}
-                </div>
-              </div>
-            )}
-
-            <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <div className="text-center">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
-                  Did you like this article? Share it!
-                </h3>
-                <div className="flex justify-center items-center gap-4 flex-wrap">
-                  <button
-                    onClick={shareOnTwitter}
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
-                    aria-label="Compartir en Twitter"
-                  >
-                    <BsTwitterX className="w-5 h-5" />
-                    <span className="hidden sm:inline">X</span>
-                  </button>
-
-                  <button
-                    onClick={shareOnFacebook}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
-                    aria-label="Compartir en Facebook"
-                  >
-                    <FaFacebook className="w-5 h-5" />
-                    <span className="hidden sm:inline">Facebook</span>
-                  </button>
-
-                  <button
-                    onClick={shareOnLinkedIn}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
-                    aria-label="Compartir en LinkedIn"
-                  >
-                    <FaLinkedin className="w-5 h-5" />
-                    <span className="hidden sm:inline">LinkedIn</span>
-                  </button>
-
-                  <button
-                    onClick={copyToClipboard}
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
-                    aria-label="Copiar enlace"
-                  >
-                    <FaLink className="w-5 h-5" />
-                    <span className="hidden sm:inline">
-                      {copied ? '¡Copiado!' : 'Copiar enlace'}
-                    </span>
-                  </button>
-                </div>
-                
-                {copied && (
-                  <div className="mt-4 text-sm text-green-600 dark:text-green-400 font-medium">
-                    ✓ Link copied to clipboard
-                  </div>
-                )}
-              </div>
-            </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`
+          fixed bottom-6 right-24 lg:right-6 z-40 p-3 bg-gray-900 dark:bg-gray-800 text-white rounded-full shadow-lg border border-gray-700
+          hover:bg-black dark:hover:bg-gray-700 transition-all duration-300
+          ${showScrollTop ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}
+        `}
+        aria-label="Scroll to top"
+      >
+        <FaArrowUp className="w-5 h-5" />
+      </button>
     </>
   );
 }
@@ -502,24 +628,39 @@ const CodeComponent: React.FC<CodeComponentProps> = ({
   const language = match ? match[1] : "";
 
   return !inline && match ? (
-    <div className="relative my-6 rounded-lg overflow-hidden shadow-lg">
-      <div className="flex justify-between items-center bg-gray-800 px-4 py-2 text-white text-sm">
-        <span className="font-medium">#{language.toUpperCase()}</span>
-        <div className="flex items-center space-x-2">
-          {copied ? (
-            <span className="text-green-400 font-medium">¡Copied!</span>
-          ) : (
-            <button
-              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm transition-colors duration-200"
-              onClick={() => {
-                navigator.clipboard.writeText(String(children));
-                setCopied(true);
-              }}
-            >
-              Copy
-            </button>
-          )}
+    <div className="relative my-8 rounded-xl overflow-hidden shadow-2xl border border-gray-800 group">
+      <div className="flex justify-between items-center bg-[#1e1e1e] px-4 py-2.5 border-b border-gray-700">
+        <div className="flex items-center gap-2">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-red-500" />
+            <div className="w-3 h-3 rounded-full bg-yellow-500" />
+            <div className="w-3 h-3 rounded-full bg-green-500" />
+          </div>
+          <span className="ml-3 text-xs font-mono text-gray-400 uppercase tracking-wider">{language}</span>
         </div>
+        <button
+          className="flex items-center gap-1.5 px-2.5 py-1 bg-white/10 hover:bg-white/20 rounded text-xs text-white transition-colors"
+          onClick={() => {
+            navigator.clipboard.writeText(String(children));
+            setCopied(true);
+          }}
+        >
+          {copied ? (
+            <>
+              <svg className="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Copied!</span>
+            </>
+          ) : (
+            <>
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <span>Copy</span>
+            </>
+          )}
+        </button>
       </div>
       <SyntaxHighlighter 
         showLineNumbers={true} 
@@ -527,23 +668,27 @@ const CodeComponent: React.FC<CodeComponentProps> = ({
         style={okaidia}
         customStyle={{
           margin: 0,
-          borderRadius: 0,
+          padding: '1.5rem',
+          fontSize: '0.9rem',
+          lineHeight: '1.5',
+          backgroundColor: '#1e1e1e', // VS Code dark theme bg
+        }}
+        lineNumberStyle={{
+          minWidth: '2.5em',
+          paddingRight: '1em',
+          color: '#6e7681',
+          textAlign: 'right',
         }}
       >
         {String(children)}
       </SyntaxHighlighter>
     </div>
   ) : (
-    <code className={`${className} px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-sm font-mono`} {...props}>
+    <code className={`${className} px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-violet-600 dark:text-violet-400 rounded-md text-sm font-mono border border-gray-200 dark:border-gray-700`} {...props}>
       {children}
     </code>
   );
 };
-
-// Mantener las interfaces y funciones getStaticPaths/getStaticProps igual
-interface Params {
-  slug: string;
-}
 
 export async function getStaticPaths({ locales }: { locales: string[] }) {
   const paths = locales.flatMap((locale) => {
@@ -620,6 +765,7 @@ export async function getStaticProps({ params, locale }: { params: Params, local
       translations,
       previousPost,
       nextPost,
+      slug: params.slug,
     },
   };
 }

@@ -1,29 +1,33 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 
+  Global Reset & Font 
+*/
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: transparent;
-  color: inherit;
 }
 
+/* 
+  Global Styles managed by Tailwind classes in components
+  or default overrides here
+*/
+
+/* Light Mode Defaults */
 html {
-  background: #ffffff;
+  background-color: #ffffff;
   color: #111827;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Dark Mode Defaults */
 html.dark {
-  background: #000000;
+  background-color: #000000;
   color: #ffffff;
-}
-
-html.dark body {
-  background: transparent;
-  color: inherit;
 }
 
 a {
@@ -39,6 +43,7 @@ a {
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -46,6 +51,7 @@ a {
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

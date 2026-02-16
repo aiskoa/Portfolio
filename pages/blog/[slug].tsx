@@ -711,6 +711,10 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
   };
 }
 
+interface Params {
+  slug: string;
+}
+
 export async function getStaticProps({ params, locale }: { params: Params, locale: string }) {
   const postsDirectory = path.join(process.cwd(), 'posts', locale);
   

@@ -35,7 +35,7 @@ const projects: FeaturedProject[] = [
     descKey: "project_one_desc",
     image: "https://i.ibb.co/fzWgbnC5/nex-website.png",
     tech: [<SiNextdotjs key="next" />, <SiTypescript key="ts" />],
-    link: "/blog/nexdrak",
+    link: "/portfolio",
     demo: "https://nexdrak.com",
     color: "from-blue-500 to-cyan-500"
   },
@@ -53,7 +53,7 @@ const projects: FeaturedProject[] = [
     descKey: "project_three_desc",
     image: "https://i.ibb.co/Q7L9rpsk/fortimx.png",
     tech: [<SiPhp key="php" />, <SiMysql key="sql" />],
-    link: "/blog/forimx",
+    link: "/portfolio",
     demo: "https://fortimx.com",
     color: "from-violet-500 to-purple-500"
   }

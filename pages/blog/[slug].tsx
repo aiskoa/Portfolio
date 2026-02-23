@@ -412,8 +412,9 @@ export default function PostPage({ frontmatter, content, translations, previousP
                           href={href?.toString()}
                           target={isExternal ? "_blank" : undefined}
                           rel={isExternal ? "noopener noreferrer" : undefined}
-                          className="font-semibold text-violet-600 underline underline-offset-4 decoration-violet-400 dark:text-violet-300 dark:decoration-violet-300 hover:text-violet-700 dark:hover:text-violet-200"
+                          className="font-bold text-violet-700 dark:text-violet-300 bg-violet-100 dark:bg-violet-900/30 px-1 py-0.5 rounded hover:bg-violet-200 dark:hover:bg-violet-900/50 transition-colors"
                         >
+                          <FaLink className="inline-block w-3 h-3 mr-1 mb-0.5" />
                           {children}
                         </a>
                       );

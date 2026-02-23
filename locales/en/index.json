@@ -35,10 +35,10 @@
   "learn_more": "Learn More",
   "live_demo": "Live Demo",
   "view_full_portfolio": "VIEW PORTFOLIO",
-  "project_one_title": "Artist Website",
-  "project_one_desc": "Responsive artist landing page built with Next.js and TypeScript, hosted on Cloudflare. Features modern design and optimized performance.",
-  "project_two_title": "GIE Encrypt",
-  "project_two_desc": "Military-grade encryption software (AES-256) written in Go. Protects sensitive files across Windows, macOS, and Linux with a Svelte UI.",
-  "project_three_title": "FortiMX",
-  "project_three_desc": "Comprehensive educational platform for cybersecurity training. Built with PHP and SQL, offering courses, resources, and community features."
+  "project_one_title": "Belle Reports",
+  "project_one_desc": "Pentesting report generation tool built with Go and Svelte. Allows quick and easy generation of professional reports with customizable templates and multiple export formats.",
+  "project_two_title": "Artist Website",
+  "project_two_desc": "Responsive artist landing page built with Next.js and TypeScript, hosted on Cloudflare. Features modern design and optimized performance.",
+  "project_three_title": "GIE Encrypt",
+  "project_three_desc": "Military-grade encryption software (AES-256) written in Go. Protects sensitive files across Windows, macOS, and Linux with a Svelte UI."
 }

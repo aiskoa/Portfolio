@@ -1,5 +1,18 @@
 [
     {
+        "title": "Belle Pentesting Report Tool",
+        "language": "Go",
+        "language2": "Svelte",
+        "date": "Feb 08, 2026",
+        "image": "https://i.ibb.co/hxF6CXN1/belle-reports.png",
+        "altText": "Belle Reports tool",
+        "githubLink": "https://github.com/Edurne-AC/BELLE",
+        "description1": "Pentesting report generation tool.",
+        "description2": "Built with Go and Svelte. Allows quick and easy generation of professional reports with customizable templates and multiple export formats.",
+        "readMoreLink": "https://aiskoa.vercel.app/es/blog/belle",
+        "GoToLink": "https://edurne-ac.github.io/Belle-Reports/"
+    },
+    {
         "title": "Artist Website",
         "language": "Nextjs",
         "language2": "TypeScript",

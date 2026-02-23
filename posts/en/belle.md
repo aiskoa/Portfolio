@@ -1,5 +1,5 @@
 ---
-title: "Belle pentesting report tool"
+title: "Belle Pentesting Report Tool"
 excerpt: "A LaTeX pentesting report creator!"
 date: "Feb 08 2026"
 cover_image: "/blog/belle.webp"

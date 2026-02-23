@@ -33,6 +33,15 @@ const projects: FeaturedProject[] = [
   {
     titleKey: "project_one_title",
     descKey: "project_one_desc",
+    image: "https://i.ibb.co/hxF6CXN1/belle-reports.png",
+    tech: [<SiGo key="go" />, <SiSvelte key="svelte" />],
+    link: "/blog/belle",
+    demo: "https://edurne-ac.github.io/Belle-Reports/",
+    color: "from-blue-500 to-cyan-500"
+  },
+    {
+    titleKey: "project_two_title",
+    descKey: "project_two_desc",
     image: "https://i.ibb.co/fzWgbnC5/nex-website.png",
     tech: [<SiNextdotjs key="next" />, <SiTypescript key="ts" />],
     link: "/portfolio",
@@ -40,22 +49,13 @@ const projects: FeaturedProject[] = [
     color: "from-blue-500 to-cyan-500"
   },
   {
-    titleKey: "project_two_title",
-    descKey: "project_two_desc",
+    titleKey: "project_three_title",
+    descKey: "project_three_desc",
     image: "https://i.ibb.co/21Dx81sr/gieimm.png",
     tech: [<SiGo key="go" />, <SiSvelte key="svelte" />],
     link: "/blog/gie",
-    demo: "https://gie-aiskoa.vercel.app",
+    demo: "https://giex.vercel.app/",
     color: "from-emerald-500 to-teal-500"
-  },
-  {
-    titleKey: "project_three_title",
-    descKey: "project_three_desc",
-    image: "https://i.ibb.co/Q7L9rpsk/fortimx.png",
-    tech: [<SiPhp key="php" />, <SiMysql key="sql" />],
-    link: "/portfolio",
-    demo: "https://fortimx.com",
-    color: "from-violet-500 to-purple-500"
   }
 ];
 

@@ -10,10 +10,6 @@ tags2: "Tools"
 
 ![Belle Header](https://i.ibb.co/CptY9gzM/title2.png)
 
-[![Static Badge](https://img.shields.io/badge/%20build-MIT-brightgreen?logo=github&label=LICENSE)](https://github.com/aiskoa/BELLE/LICENSE)
-![Static Badge](https://img.shields.io/badge/FEBRUARY%202025-yellow?label=RELEASE%20DATE)
-![Static Badge](https://img.shields.io/badge/LANGUAGE-Go-blue?logo=go)
-
 # BELLE
 
 ## 🔐 What is Belle and what is it for?

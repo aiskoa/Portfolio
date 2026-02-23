@@ -1,18 +1,14 @@
 ---
-title: "GIE Encriptar y Desencriptar archivos"
-excerpt: "¡Un cifrador y descifrador para archivos y carpetas!"
-date: "Jul 03 2025"
+title: "Belle Herramienta de Reportes para Pentesting"
+excerpt: "¡Una herramienta para hacer reportes de pentesting con LaTeX!"
+date: "Feb 08 2026"
 cover_image: "/blog/belle.webp"
-alt: "GIE"
+alt: "Belle"
 tags1: "Go"
 tags2: "Tools"
 ---
 
 ![Belle Header](https://i.ibb.co/CptY9gzM/title2.png)
-
-[![Static Badge](https://img.shields.io/badge/%20build-MIT-brightgreen?logo=github&label=LICENSE)](https://github.com/aiskoa/BELLE/LICENSE)
-![Static Badge](https://img.shields.io/badge/FEBRUARY%202025-yellow?label=RELEASE%20DATE)
-![Static Badge](https://img.shields.io/badge/LANGUAGE-Go-blue?logo=go)
 
 # BELLE
 

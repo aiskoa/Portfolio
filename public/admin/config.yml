@@ -3,6 +3,9 @@ backend:
   repo: aiskoa/Portfolio
   branch: main
   base_url: https://cms-auth-aiskoa.vercel.app
+
+# Activa el flujo editorial (Borradores -> Revisión -> Publicar)
+publish_mode: editorial_workflow
   
 # Esto permite usar el modo local si corres "npx decap-server" en tu PC,
 # pero en Vercel (producción) usará el backend de GitHub configurado arriba.

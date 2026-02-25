@@ -1,0 +1,42 @@
+backend:
+  name: github
+  repo: aiskoa/Portfolio
+  branch: main
+  base_url: https://cms-auth-aiskoa.vercel.app
+  
+# Esto permite usar el modo local si corres "npx decap-server" en tu PC,
+# pero en Vercel (producción) usará el backend de GitHub configurado arriba.
+local_backend: true
+
+media_folder: "public/blog"
+public_folder: "/blog"
+
+collections:
+  - name: "blog_en"
+    label: "Blog (English)"
+    folder: "posts/en"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "MMM DD YYYY", date_format: "MMM DD YYYY", time_format: false}
+      - {label: "Cover Image", name: "cover_image", widget: "image"}
+      - {label: "Alt Text", name: "alt", widget: "string"}
+      - {label: "Tag 1", name: "tags1", widget: "string"}
+      - {label: "Tag 2", name: "tags2", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "blog_es"
+    label: "Blog (Español)"
+    folder: "posts/es"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Resumen", name: "excerpt", widget: "text"}
+      - {label: "Fecha de Publicación", name: "date", widget: "datetime", format: "MMM DD YYYY", date_format: "MMM DD YYYY", time_format: false}
+      - {label: "Imagen de Portada", name: "cover_image", widget: "image"}
+      - {label: "Texto Alternativo", name: "alt", widget: "string"}
+      - {label: "Etiqueta 1", name: "tags1", widget: "string"}
+      - {label: "Etiqueta 2", name: "tags2", widget: "string", required: false}
+      - {label: "Cuerpo", name: "body", widget: "markdown"}

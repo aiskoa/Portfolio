@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+</head>
+<body>
+  <!-- Usamos la versión más reciente del CDN oficial -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <script>
+    // Inyectar Tailwind CSS en el iframe de previsualización
+    CMS.registerPreviewStyle("https://cdn.tailwindcss.com");
+    // Inyectar también estilos de tipografía para que el markdown se vea decente (prose)
+    CMS.registerPreviewStyle("https://unpkg.com/@tailwindcss/typography@0.5.x/dist/typography.min.css");
+    
+    // Configuración manual de estilos para el preview wrapper
+    CMS.registerPreviewStyle(`
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      .prose {
+        max-width: 65ch;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2rem;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+      }
+      pre {
+        background-color: #1e1e1e !important;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        color: #d4d4d4;
+      }
+    `, { raw: true });
+  </script>
+</body>
+</html>

@@ -55,7 +55,7 @@ interface PortfolioProps {
  */
 
 function getProgrammingIcon(p_Language: string): React.ReactNode {
-  const icons: Record<string, JSX.Element> = {
+  const icons: Record<string, React.ReactNode> = {
     javascript: <SiJavascript className="inline-block w-4 h-4 mr-1" />,
     java: <FaJava className="inline-block w-4 h-4 mr-1" />,
     python: <SiPython className="inline-block w-4 h-4 mr-1" />,
@@ -84,7 +84,7 @@ function getProgrammingIcon(p_Language: string): React.ReactNode {
 }
 
 function getProgrammingIcon2(p_Language2: string): React.ReactNode {
-  const icons: Record<string, JSX.Element> = {
+  const icons: Record<string, React.ReactNode> = {
     javascript: <SiJavascript className="inline-block w-4 h-4 mr-1" />,
     java: <FaJava className="inline-block w-4 h-4 mr-1" />,
     python: <SiPython className="inline-block w-4 h-4 mr-1" />,

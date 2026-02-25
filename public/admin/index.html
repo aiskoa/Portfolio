@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CSP Permisiva explícita para el Admin Panel -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.tailwindcss.com; connect-src 'self' https://api.github.com https://github.com https://cms-auth-aiskoa.vercel.app https://unpkg.com https://vitals.vercel-insights.com http://localhost:8081; img-src 'self' data: https: blob:; font-src 'self' data:;">
   <title>Content Manager</title>
 </head>
 <body>

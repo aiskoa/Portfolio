@@ -29,7 +29,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://identity.netlify.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: *; font-src 'self'; connect-src 'self' https://vitals.vercel-insights.com http://localhost:8081;"
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://identity.netlify.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.tailwindcss.com; img-src 'self' data: *; font-src 'self'; connect-src 'self' https://vitals.vercel-insights.com http://localhost:8081 https://api.github.com https://github.com https://cms-auth-aiskoa.vercel.app https://unpkg.com;"
           },
           {
             key: 'X-DNS-Prefetch-Control',

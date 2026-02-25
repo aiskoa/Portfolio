@@ -23,10 +23,6 @@ const ContactSection: NextPage<ContactSectionProps> = ({ translations }): ReactE
         <meta property="og:description"
           content="Skills section - Here I list most of the skills I use in my daily basis and my personal projects"/>
         <meta property="og:title" content="AISKOA - Cybersecurity" />
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: *; font-src 'self'; connect-src 'self' https://vitals.vercel-insights.com;"
-        />
         <meta name="theme-color:" content="#8e52f5"></meta>
         <meta property="og:url" content="https://aiskoa.vercel.app" />
       </Head>

@@ -1,9 +1,7 @@
 import React, { ReactElement } from "react";
 import Image from "next/image";
-
 import { config } from "../../../config/index";
 import Link from "next/link";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import Tooltip from "../../common/tooltip";
 
 import { VscAzure, VscVscode } from "react-icons/vsc";

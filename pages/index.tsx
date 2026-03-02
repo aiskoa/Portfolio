@@ -5,6 +5,7 @@ import { About } from '../components';
 import { config } from "../config/index";
 import fs from 'fs';
 import path from 'path';
+import { Analytics } from "@vercel/analytics/next";
 
 interface HomeProps {
   translations: { [key: string]: string };

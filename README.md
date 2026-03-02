@@ -31,15 +31,13 @@ yarn dev
 ## 🧱 Stack
 
 - Nextjs
+- Decap CMS
 - Typescript
 - TailwindCSS
-- Vercel
 
 # Contact
 
 - [Twitter](https://twitter.com/aiskoac)
 - [GitHub](https://github.com/aiskoa)
 
-# 𝕽♛
-
-[↼ Back to aiskoa](https://aiskoa.vercel.app)
+[↼ Back to Aiskoa](https://aiskoa.vercel.app)

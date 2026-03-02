@@ -7,6 +7,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CS
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 import React from "react";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const translations = pageProps.translations || {};
@@ -18,6 +20,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <Navigation translations={translations} />
         <main className="container mx-auto px-4">
           <Component {...pageProps}/>
+          <Analytics />
+          <SpeedInsights />
         </main>
         <Footer translations={translations} />
       </ThemeProvider>

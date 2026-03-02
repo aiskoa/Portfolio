@@ -314,26 +314,34 @@ const Portfolio: NextPage<PortfolioProps> = ({ translations }) => {
                     <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                       {item.description2}
                     </p>
-                    <div className="flex justify-between mt-4">
+                    <div className="flex justify-between items-center mt-4">
                       <p className="text-xs text-yellow-500">{item.date}</p>
-                      <button
-                        data-ripple-light="true"
-                        type="button"
-                        onClick={() => window.open(item.readMoreLink, "_blank")}
-                        className="relative px-4 py-2 overflow-hidden font-medium duration-300 border border-b-4 rounded-md outline-none bg-violet-900 text-violet-400 border-violet-400 hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 group"
-                      >
-                        <span className="bg-violet-400 shadow-violet-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
-                        Read More
-                      </button>
-                      <button
-                        data-ripple-light="true"
-                        type="button"
-                        onClick={() => window.open(item.GoToLink, "_blank")}
-                        className="relative px-4 py-2 overflow-hidden font-medium duration-300 border border-b-4 rounded-md outline-none text-lime-400 bg-lime-900 border-lime-400 hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 group"
-                      >
-                        <span className="bg-violet-400 shadow-violet-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
-                        Go to
-                      </button>
+                      <div className="flex gap-3">
+                        <button
+                          data-ripple-light="true"
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            window.open(item.readMoreLink, "_blank");
+                          }}
+                          className="relative px-4 py-2 overflow-hidden font-medium duration-300 border border-b-4 rounded-md outline-none bg-violet-900 text-violet-400 border-violet-400 hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 group"
+                        >
+                          <span className="bg-violet-400 shadow-violet-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                          Read More
+                        </button>
+                        <button
+                          data-ripple-light="true"
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            window.open(item.GoToLink, "_blank");
+                          }}
+                          className="relative px-4 py-2 overflow-hidden font-medium duration-300 border border-b-4 rounded-md outline-none text-lime-400 bg-lime-900 border-lime-400 hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 group"
+                        >
+                          <span className="bg-violet-400 shadow-violet-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                          Go to
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

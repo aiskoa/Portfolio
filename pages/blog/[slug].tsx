@@ -359,6 +359,7 @@ export default function PostPage({ frontmatter, content, translations, previousP
                         <Zoom>
                           <img 
                             {...props} 
+                            loading="lazy"
                             alt={props.alt || 'Imagen'} 
                             className="w-full rounded-xl shadow-lg border border-gray-200 dark:border-gray-800"
                           />
@@ -412,10 +413,10 @@ export default function PostPage({ frontmatter, content, translations, previousP
                           href={href?.toString()}
                           target={isExternal ? "_blank" : undefined}
                           rel={isExternal ? "noopener noreferrer" : undefined}
-                          className="font-bold text-violet-700 dark:text-violet-300 bg-violet-100 dark:bg-violet-900/30 px-1 py-0.5 rounded hover:bg-violet-200 dark:hover:bg-violet-900/50 transition-colors"
+                          className="inline-flex items-center gap-1 font-bold text-violet-700 dark:text-violet-300 bg-violet-100 dark:bg-violet-900/30 px-2 py-0.5 rounded-md hover:bg-violet-200 dark:hover:bg-violet-900/50 transition-colors !no-underline"
                         >
-                          <FaLink className="inline-block w-3 h-3 mr-1 mb-0.5" />
-                          {children}
+                          <FaLink className="w-3 h-3 flex-shrink-0" />
+                          <span className="truncate max-w-[200px] sm:max-w-xs">{children}</span>
                         </a>
                       );
                     },

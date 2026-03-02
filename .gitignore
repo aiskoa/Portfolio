@@ -40,3 +40,6 @@ yarn-error.log*
 
 # LLM
 AGENTS.md
+skills-lock.json
+.agents
+.trae

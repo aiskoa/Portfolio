@@ -17,7 +17,7 @@ const Home: NextPage<HomeProps> = ({ translations }): ReactElement => {
         <title>AISKOA - Cybersecurity</title>
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="theme-color" content="#8e52f5" />
-        <meta property="og:image" content={config.github.url} />
+        <meta property="og:image" content="https://aiskoa.vercel.app/img-logo.png" />
         <meta name="description" content="IT consultant and web application developer, focused on results." />
         <meta property="og:description" content="IT consultant and web application developer, focused on results." />
         <meta property="og:title" content="AISKOA - Cybersecurity" />

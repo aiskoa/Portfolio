@@ -371,6 +371,36 @@ export default function PostPage({ frontmatter, content, translations, previousP
                         )}
                       </div>
                     ),
+                    h1: ({ children, id }) => (
+                      <h1 id={id} className="text-3xl md:text-4xl font-bold mt-10 mb-6 text-gray-900 dark:text-white scroll-mt-24">
+                        {children}
+                      </h1>
+                    ),
+                    h2: ({ children, id }) => (
+                      <h2 id={id} className="text-2xl md:text-3xl font-bold mt-10 mb-6 text-gray-900 dark:text-white scroll-mt-24 pb-2 border-b border-gray-200 dark:border-gray-800">
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({ children, id }) => (
+                      <h3 id={id} className="text-xl md:text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-white scroll-mt-24">
+                        {children}
+                      </h3>
+                    ),
+                    h4: ({ children, id }) => (
+                      <h4 id={id} className="text-lg md:text-xl font-bold mt-6 mb-3 text-gray-900 dark:text-white scroll-mt-24">
+                        {children}
+                      </h4>
+                    ),
+                    h5: ({ children, id }) => (
+                      <h5 id={id} className="text-base md:text-lg font-bold mt-4 mb-2 text-gray-900 dark:text-white scroll-mt-24">
+                        {children}
+                      </h5>
+                    ),
+                    h6: ({ children, id }) => (
+                      <h6 id={id} className="text-base font-bold mt-4 mb-2 text-gray-900 dark:text-white scroll-mt-24">
+                        {children}
+                      </h6>
+                    ),
                     blockquote: ({ children }) => (
                       <blockquote className="border-l-4 border-violet-500 pl-6 my-8 italic text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-r-xl not-italic">
                         <div className="relative">

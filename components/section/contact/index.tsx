@@ -105,13 +105,13 @@ import { config } from "../../../config";
             <div className="flex flex-col items-center justify-around hover:justify-evenly">
               <p className="text-2xl text-center">Last Certificate</p>
               <div className="flex flex-col items-center justify-center">
-                <img className="mb-2 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.ibb.co/xyMhftf/pentester-pro.png" width="400"></img>
-                <a className="text-sm text-center underline" href="https://credsverse.com/credentials/a8f2ef1f-9c2e-4fef-a24c-ce8c26b10b91" target="_blank" rel="noreferrer">Verify</a>
+                <img className="mb-2 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.ibb.co/jx0dGCS/sc990.png" width="400"></img>
+                <a className="text-sm text-center underline" href="https://learn.microsoft.com/es-mx/users/alejandroaguilar-0706/credentials/31fe2f0a42473292" target="_blank" rel="noreferrer">Verify</a>
               </div>
-              <div className="flex flex-col items-center justify-center">
+              {/* <div className="flex flex-col items-center justify-center">
                 <img className="mt-2 pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="https://i.postimg.cc/9QRpBsZg/gestion-proyectos.jpg" width="400"></img>
                 <a className="text-sm text-center underline" href="https://campus.aulavirtual.unc.edu.ar/mod/customcert/verify_certificate.php?code=Dp61of00Ql&qrcode=1" target="_blank" rel="noreferrer">Verify</a>
-              </div>
+              </div> */}
               
               {/* Aquí puedes añadir un icono SI debajo de la imagen */}
               {/* <SiHackthebox size={24} className="mt-1" />
@@ -121,9 +121,9 @@ import { config } from "../../../config";
             <div className="flex flex-col items-center justify-around hover:justify-evenly">
               <p className="text-2xl text-center">{t("last_badges")}</p>
               <div className="flex flex-wrap justify-center gap-4 mt-4">
-                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/MS-SC900.png" width="100" alt="Microsoft SC-900"></img>
-                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/IBM-CME.png" width="100" alt="IBM Career Management Essentials"></img>
-                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/ISC2-C.png" width="100" alt="ISC2 Candidate"></img>
+                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/MS-SC900.png" width="60" alt="Microsoft SC-900"></img>
+                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/IBM-CME.png" width="60" alt="IBM Career Management Essentials"></img>
+                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/ISC2-C.png" width="60" alt="ISC2 Candidate"></img>
               </div>
             </div>
             <br />

@@ -118,6 +118,15 @@ import { config } from "../../../config";
               <p className="text-sm text-center">Descripción opcional</p> */}
             </div>
             <br />
+            <div className="flex flex-col items-center justify-around hover:justify-evenly">
+              <p className="text-2xl text-center">{t("last_badges")}</p>
+              <div className="flex flex-wrap justify-center gap-4 mt-4">
+                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/MS-SC900.png" width="100" alt="Microsoft SC-900"></img>
+                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/IBM-CME.png" width="100" alt="IBM Career Management Essentials"></img>
+                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/ISC2-C.png" width="100" alt="ISC2 Candidate"></img>
+              </div>
+            </div>
+            <br />
             <p className="flex select-none justify-evenly cursor-no-drop">{t("text_mail")}</p>
             <a className="flex justify-evenly" href="mailto:aiskoa@mail.com?Subject=DUDA%20_%20GENERAL"><strong>aiskoa@mail.com</strong></a>
             <br />

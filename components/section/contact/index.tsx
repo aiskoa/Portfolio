@@ -123,7 +123,7 @@ import { config } from "../../../config";
               <div className="flex flex-wrap justify-center gap-4 mt-4">
                 <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/MS-SC900.png" width="60" alt="Microsoft SC-900"></img>
                 <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/IBM-CME.png" width="60" alt="IBM Career Management Essentials"></img>
-                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/ISC2-C.png" width="60" alt="ISC2 Candidate"></img>
+                <img className="pointer-events-none focus:pointer-events-auto" draggable="false" loading="lazy" src="/badges/oaif.png" width="60" alt="Offensive AI Foundation"></img>
               </div>
             </div>
             <br />
